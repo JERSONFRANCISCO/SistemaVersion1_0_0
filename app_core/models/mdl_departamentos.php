@@ -27,5 +27,12 @@ class mdl_departamentos{
 		}
 		return $posts;
 	}
+	public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Grupo,$Usuario){
+		$posts=array();
+		$cont=0;
+		$sql = "EXEC pa_Departametos @Accion = 'I', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='A',@GRU_Grupo=1,	@USR_Usuario_Creacion='".$Usuario."'";
+		$stmt = $this->conexion->consulta($sql);
+		return $stmt;
+	}
 }
 ?>	

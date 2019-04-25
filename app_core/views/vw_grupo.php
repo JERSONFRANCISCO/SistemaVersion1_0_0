@@ -100,29 +100,19 @@
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-              Inline form
+              Departamentos
             </header>
             <div class="panel-body">
-              <form class="form-inline" role="form">
-                <div class="form-group">
-                  <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+              <form class="form-inline" role="form" action="">
+                <div class="text-right">
+                  <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                 </div>
-                <div class="form-group">
-                  <label class="sr-only" for="exampleInputPassword2">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                <div class="form-group text-left">
+                  <input type="text" class="form-control" style="width: 250%;" id="" placeholder="Buscar">
                 </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Remember me
-                  </label>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
               </form>
-
             </div>
           </section>
-
         </div>
       </div>
       
@@ -137,7 +127,7 @@
                 <thead>
                   <tr>
                     <th>Grupo</th>
-                    <th>Titulo</th>
+                    <th>Nombre</th>
                     <th>Observaciones</th>
                     <th>Estado</th>
                     <th><i class="fa fa-calendar"></i> Fecha Creacion</th>
@@ -166,9 +156,9 @@
                   //  echo "<td>".$value[6]."</td>";
                     echo "<td>";
                     echo "<div class='btn-group'>";
-                    echo "<a class='btn btn-primary' href='#'><i class='icon_plus_alt2'></i></a>";
-                    echo "<a class='btn btn-success' href='#'><i class='icon_check_alt2'></i></a>";
-                    echo "<a class='btn btn-danger' href='#'><i class='icon_close_alt2'></i></a>";
+                    echo "<button class='btn btn-primary'  type='submit' title='Ver'><i class='fas fa-eye'></i></button>";
+                    echo "<button class='btn btn-success'  type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
+                    echo "<button class='btn btn-danger'  type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button>";
                     echo "</div>";
                     echo "</td>";
                     //echo "<td>".$value[5]."</td>";
@@ -202,15 +192,9 @@
     </section>
   </section>
   <!--main content end-->
-  <div class="text-right">
+  <div class="text-center">
     <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
-    </section>
+      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+    </div>
+  </div>
+</section>

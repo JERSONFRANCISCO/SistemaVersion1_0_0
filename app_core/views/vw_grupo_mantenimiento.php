@@ -1,3 +1,18 @@
+<?php
+if(isset($_GET['Descripcion'])){
+  echo $_GET['Descripcion'];
+}
+
+if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado']) AND isset($_POST['Grupo']) ) 
+{
+  require_once(__CTR_PATH . "ctr_departamentos.php");
+  $ctr_departamentos = new ctr_departamentos();
+  $ctr = $ctr_departamentos->insertar_Departamento($_POST['Nombre'],$_POST['Descripcion'],$_POST['Estado'],1,'Jerson');
+  $bolean=true;
+  $titulo="Agregado";
+}
+
+?>
 <script>
 
 </script>
@@ -88,13 +103,24 @@
       <div class="row">
         <div class="col-lg-12">
           <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de grupos</h3>
-          <!--<ol class="breadcrumb">
-            <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-            <li><i class="fa fa-table"></i>Table</li>
-            <li><i class="fa fa-th-list"></i>Basic Table</li>
-          </ol>-->
         </div>
       </div>
+
+      <?php
+      if(isset($bolean)){
+        if($bolean)
+        {
+          echo "<div class='panel-body'>";
+          echo "<div class='alert alert-success fade in'>";
+          echo "<button data-dismiss='alert' class='close close-sm' type='button'>";
+          echo "<i class='icon-remove'></i>";
+          echo "</button>";
+          echo "<strong>Se ha </strong>$titulo correctamente el registro.";
+          echo "</div>";
+          echo "</div>";
+        } 
+      }
+      ?>
 
       <div class="row">
         <div class="col-lg-12">
@@ -104,41 +130,49 @@
             </header>
             <div class="panel-body">
               <div class="form">
-                <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
+                <form class="form-validate form-horizontal" id="feedback_form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                   <div class="form-group ">
-                    <label for="cname" class="control-label col-lg-2">Full Name <span class="required">*</span></label>
+                    <label for="Departamento" class="control-label col-lg-2">Departamento<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input class="form-control" id="cname" name="fullname" minlength="5" type="text" required />
+                      <input class="form-control " id="Departamento" type="text" name="Departamento" readonly/>
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="cemail" class="control-label col-lg-2">E-Mail <span class="required">*</span></label>
+                    <label for="Nombre" class="control-label col-lg-2">Nombre<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input class="form-control " id="cemail" type="email" name="email" required />
+                      <input class="form-control " id="Nombre" type="text" name="Nombre" required />
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="curl" class="control-label col-lg-2">Website</label>
+                    <label for="Descripcion" class="control-label col-lg-2">Descipción<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input class="form-control " id="curl" type="url" name="url" />
+                      <input class="form-control " id="Descripcion" type="text" name="Descripcion" />
                     </div>
                   </div>
-                  <div class="form-group ">
-                    <label for="cname" class="control-label col-lg-2">Subject <span class="required">*</span></label>
+
+                  <div class="form-group">
+                    <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
                     <div class="col-lg-10">
-                      <input class="form-control" id="subject" name="subject" minlength="5" type="text" required />
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <label for="ccomment" class="control-label col-lg-2">Feedback</label>
-                    <div class="col-lg-10">
-                      <textarea class="form-control " id="ccomment" name="comment" required></textarea>
+                      <select class="form-control m-bot15" id="Estado" name="Estado">
+                        <option >ACTIVO</option>
+                        <option >INACTIVO</option>
+                        <option >BLOQUEADO</option>
+                      </select>
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
-                      <button class="btn btn-primary" type="submit">Save</button>
-                      <button class="btn btn-default" type="button">Cancel</button>
+                    <label class="control-label col-lg-2" for="inputSuccess">Grupo</label>
+                    <div class="col-lg-10">
+                      <select class="form-control m-bot15" id="grupo" name="Grupo">
+                        <option>01 - MANTENIMIENTO TI </option>
+                        <option>02 - DESARROLLO TI</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10 text-right">
+                      <button class="btn btn-primary" type="submit">Guardar</button>
+                      <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
                     </div>
                   </div>
                 </form>
@@ -153,15 +187,10 @@
     </section>
   </section>
   <!--main content end-->
-  <div class="text-right">
+  <div class="text-center">
     <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
-    </section>
+
+      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+    </div>
+  </div>
+</section>
