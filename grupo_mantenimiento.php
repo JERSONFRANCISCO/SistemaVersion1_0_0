@@ -31,7 +31,7 @@
 <body>
 
   <?php
-    include_once(__VWS_PATH."vw_departamentos.php");
+    include_once(__VWS_PATH."vw_grupo_mantenimiento.php");
   ?>
   
   <!-- container section end -->

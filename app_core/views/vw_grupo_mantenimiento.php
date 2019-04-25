@@ -1,13 +1,5 @@
 <script>
-  function sumar(cant,costo,cont)
-  {
-    var total;
-    if(cant.value && costo.value){
-      total = parseFloat(cant.value)*parseFloat(costo.value);
-//      alert(cant.value +"-"+costo.value+"-"+total);
-      document.getElementById("subtotal"+cont).innerHTML = total.toFixed(2);
-    }  
- }
+
 </script>
 <!-- container section start -->
 <section id="container" class="">
@@ -17,7 +9,7 @@
       <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
     </div>
 
-    <a href="index.html" class="logo">COTIZACIONES <span class="lite">ADOBE RENT A CAR</span></a>
+    <a href="index.html" class="logo">EMPRESA CLIENTE <span class="lite"> DIALCOM TICKETS</span></a>
 
     <div class="top-nav notification-row">
       <ul class="nav pull-right top-menu">
@@ -69,19 +61,19 @@
         <li class="">
           <a class="" href="index.html">
             <i class="icon_house_alt"></i>
-            <span>Dashboard</span>
+            <span>Pagina Principal</span>
           </a>
         </li>
 
         <li class="sub-menu">
           <a href="javascript:;" class="">
             <i class="icon_table"></i>
-            <span>Cotizar</span>
+            <span>Manteminiemto</span>
             <span class="menu-arrow arrow_carrot-right"></span>
           </a>
           <ul class="sub">
-            <li><a class="active" href="index.php">Cotizar</a></li>
-            <li><a class="active" href="basic_table2.php">Cotizaciones Realizadas</a></li>
+            <li><a class="active" href="index.php">Departamentos</a></li>
+            <li><a class="active" href="grupo.php">Grupos</a></li>
           </ul>
 
         </li>
@@ -95,70 +87,68 @@
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i> Table</h3>
-          <ol class="breadcrumb">
+          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de grupos</h3>
+          <!--<ol class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
             <li><i class="fa fa-table"></i>Table</li>
             <li><i class="fa fa-th-list"></i>Basic Table</li>
-          </ol>
+          </ol>-->
         </div>
       </div>
-      <!-- page start-->
+
       <div class="row">
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-              Responsive tables
+              Form validations
             </header>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Requisición</th>
-                    <th>Fecha</th>
-                    <th>Código</th>
-                    <th>Numero Parte</th>
-                    <th>Descripción</th>
-                    <th>Cantidad solicitada</th>
-                    <th>Cantidad Ofrecida</th>
-                    <th>Precio Ofrecido</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  require_once(__CTR_PATH . "ctr_inicio.php");
-                  $ctr_inicio = new ctr_inicio();
-                  $ctr = $ctr_inicio->obtener_Objetos();
-                  $cont = 0;
-                  foreach ($ctr as $value) {
-                    echo "<form>";
-                    if($cont % 2 == 0){
-                      echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
-                    }else{
-                      echo "<tr>";
-                    }
-                    echo "<td>".$value[0]."</td>";
-                    echo "<td>".$value[1]."</td>";
-                    echo "<td>".$value[2]."</td>";
-                    echo "<td>".$value[3]."</td>";
-                    echo "<td>".$value[4]."</td>";
-                    echo "<td>".$value[5]."</td>";
-                    echo "<td><input type='number' name = 'cant' class='form-control' style='text-align: right;max-width: 100px;' type='text' placeholder='0' onchange='sumar(cant,costo,".$cont.")'></td>";
-                    echo "<td><input type='number' name = 'costo'  class='form-control' style='text-align: right;max-width: 200px;' type='text' placeholder='0' onchange='sumar(cant,costo,".$cont.")'></td>";
-                    echo "<td id = 'subtotal".$cont."' name = 'subtotal' style='text-align: right;'>0</td>";
-                    echo "</tr>";
-                    $cont++;
-                    echo "</form>";
-                  }
-                  ?>
-                </tbody>
-              </table>
-            </div>
+            <div class="panel-body">
+              <div class="form">
+                <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
+                  <div class="form-group ">
+                    <label for="cname" class="control-label col-lg-2">Full Name <span class="required">*</span></label>
+                    <div class="col-lg-10">
+                      <input class="form-control" id="cname" name="fullname" minlength="5" type="text" required />
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="cemail" class="control-label col-lg-2">E-Mail <span class="required">*</span></label>
+                    <div class="col-lg-10">
+                      <input class="form-control " id="cemail" type="email" name="email" required />
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="curl" class="control-label col-lg-2">Website</label>
+                    <div class="col-lg-10">
+                      <input class="form-control " id="curl" type="url" name="url" />
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="cname" class="control-label col-lg-2">Subject <span class="required">*</span></label>
+                    <div class="col-lg-10">
+                      <input class="form-control" id="subject" name="subject" minlength="5" type="text" required />
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="ccomment" class="control-label col-lg-2">Feedback</label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control " id="ccomment" name="comment" required></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-primary" type="submit">Save</button>
+                      <button class="btn btn-default" type="button">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
 
+            </div>
           </section>
         </div>
       </div>
+
       <!-- page end-->
     </section>
   </section>

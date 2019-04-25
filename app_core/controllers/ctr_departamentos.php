@@ -1,12 +1,12 @@
 <?php
 	
-	require_once(__MDL_PATH . "mdl_inicio.php");
-	class ctr_inicio{
+	require_once(__MDL_PATH . "mdl_departamentos.php");
+	class ctr_departamentos{
 		private $postdata;
 
 		public function __construct() //CONSTRUCTOR
 		{
-			$this->postdata = new mdl_inicio();
+			$this->postdata = new mdl_departamentos();
 		}
 		public function obtener_Objetos()
 		{
