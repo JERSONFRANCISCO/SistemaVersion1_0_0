@@ -100,7 +100,7 @@
               Departamentos
             </header>
             <div class="panel-body">
-              <form class="form-inline" role="form" action="grupo_mantenimiento.php">
+              <form class="form-inline" role="form" action="departamento_mantenimiento.php">
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                 </div>
@@ -127,8 +127,6 @@
                     <th>Nombre</th>
                     <th>Observaciones</th>
                     <th>Estado</th>
-                    <th>Grupo</th>
-                    <th>Nombre</th>
                     <th><i class="fa fa-calendar"></i> Fecha Creacion</th>
                     <th><i class="icon_cogs"></i> Acción</th>
                   </tr>
@@ -151,8 +149,8 @@
                     echo "<td>".$value[2]."</td>";
                     echo "<td>".$value[3]."</td>";
                     echo "<td>".$value[4]."</td>";
-                    echo "<td>".$value[5]."</td>";
-                    echo "<td>".$value[6]."</td>";
+//                    echo "<td>".$value[5]."</td>";
+//                    echo "<td>".$value[6]."</td>";
                     echo "<td>";
                     echo "<div class='btn-group'>";
                     echo "<button class='btn btn-primary'  type='submit' title='Ver'><i class='fas fa-eye'></i></button>";

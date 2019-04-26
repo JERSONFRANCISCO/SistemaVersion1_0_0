@@ -13,7 +13,7 @@ class mdl_departamentos{
 	public function obtener_Objetos(){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'S', @DEP_Titulo = '', @DEP_Observaciones='', @DEP_Estado='A',@GRU_Grupo=0,	@USR_Usuario_Creacion=''";
+		$sql = "EXEC pa_Departametos @Accion = 'S', @DEP_Titulo = '', @DEP_Observaciones='',  @DEP_Estado='A',@USR_Usuario_Creacion=''";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -21,16 +21,16 @@ class mdl_departamentos{
 			$posts[$cont][2]=$row[2];
 			$posts[$cont][3]=$row[3];
 			$posts[$cont][4]=$row[4];
-			$posts[$cont][5]=$row[5];
-			$posts[$cont][6]=$row[6];
+		//	$posts[$cont][5]=$row[5];
+			//$posts[$cont][6]=$row[6];
 			$cont++;
 		}
 		return $posts;
 	}
-	public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Grupo,$Usuario){
+	public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'I', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='A',@GRU_Grupo=1,	@USR_Usuario_Creacion='".$Usuario."'";
+		$sql = "EXEC pa_Departametos @Accion = 'I', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='A',@USR_Usuario_Creacion='".$Usuario."'";
 		$stmt = $this->conexion->consulta($sql);
 		return $stmt;
 	}

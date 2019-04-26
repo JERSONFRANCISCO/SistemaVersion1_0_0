@@ -12,9 +12,9 @@
 		{
 			return $this->postdata->obtener_Objetos();
 		}
-		public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Grupo,$Usuario)
+		public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario)
 		{
-			return $this->postdata->insertar_Departamento($Titulo,$Observaciones,$Estado,$Grupo,$Usuario);
+			return $this->postdata->insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario);
 		}
 
 	}

@@ -130,6 +130,8 @@
                     <th>Nombre</th>
                     <th>Observaciones</th>
                     <th>Estado</th>
+                    <th>Departamento</th>
+                    <th>Nombres</th>
                     <th><i class="fa fa-calendar"></i> Fecha Creacion</th>
                     <th><i class="icon_cogs"></i> Acción</th>
                   </tr>
@@ -152,7 +154,8 @@
                     echo "<td>".$value[2]."</td>";
                     echo "<td>".$value[3]."</td>";
                     echo "<td>".$value[4]."</td>";
-                  //  echo "<td>".$value[5]."</td>";
+                    echo "<td>".$value[5]."</td>";
+                    echo "<td>".$value[6]."</td>";
                   //  echo "<td>".$value[6]."</td>";
                     echo "<td>";
                     echo "<div class='btn-group'>";

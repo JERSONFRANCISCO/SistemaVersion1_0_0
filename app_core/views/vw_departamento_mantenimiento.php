@@ -1,10 +1,10 @@
 <?php
 
-if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado']) AND isset($_POST['Grupo']) ) 
+if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
 {
   require_once(__CTR_PATH . "ctr_departamentos.php");
   $ctr_departamentos = new ctr_departamentos();
-  $ctr = $ctr_departamentos->insertar_Departamento($_POST['Nombre'],$_POST['Descripcion'],$_POST['Estado'],1,'Jerson');
+  $ctr = $ctr_departamentos->insertar_Departamento($_POST['Nombre'],$_POST['Descripcion'],$_POST['Estado'],'Jerson');
   echo "$ctr";
   $bolean=true;
   $titulo="Agregado";
@@ -100,7 +100,7 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de grupos</h3>
+          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de departamentos</h3>
         </div>
       </div>
 
@@ -124,7 +124,7 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-              Form validations
+              Ingresar Datos
             </header>
             <div class="panel-body">
               <div class="form">
@@ -158,6 +158,7 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
                       </select>
                     </div>
                   </div>
+                  <!--
                   <div class="form-group">
                     <label class="control-label col-lg-2" for="inputSuccess">Grupo</label>
                     <div class="col-lg-10">
@@ -167,6 +168,7 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
                       </select>
                     </div>
                   </div>
+                  -->
                   <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10 text-right">
                       <button class="btn btn-primary" type="submit">Guardar</button>
