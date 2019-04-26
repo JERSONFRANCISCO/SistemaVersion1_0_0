@@ -68,7 +68,7 @@
         <li class="sub-menu">
           <a href="javascript:;" class="">
             <i class="icon_table"></i>
-            <span>Manteminiemto</span>
+            <span>Mantenimiento</span>
             <span class="menu-arrow arrow_carrot-right"></span>
           </a>
           <ul class="sub">
@@ -103,7 +103,7 @@
               Departamentos
             </header>
             <div class="panel-body">
-              <form class="form-inline" role="form" action="">
+              <form class="form-inline" role="form" action="grupo_mantenimiento.php">
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                 </div>
@@ -131,7 +131,7 @@
                     <th>Observaciones</th>
                     <th>Estado</th>
                     <th>Departamento</th>
-                    <th>Nombres</th>
+                    <th>Nombre</th>
                     <th><i class="fa fa-calendar"></i> Fecha Creacion</th>
                     <th><i class="icon_cogs"></i> Acción</th>
                   </tr>
@@ -143,7 +143,7 @@
                   $ctr = $ctr_grupo->obtener_Objetos();
                   $cont = 0;
                   foreach ($ctr as $value) {
-                    echo "<form>";
+                    echo "<form method='GET' action='grupo_mantenimiento.php'>";
                     if($cont % 2 == 0){
                       echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
                     }else{

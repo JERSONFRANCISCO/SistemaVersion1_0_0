@@ -1,6 +1,5 @@
-
 <?php
-require_once("global.php");
+  require_once("global.php");
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,7 @@ require_once("global.php");
   <!--external css-->
   <!-- font icon -->
   <link href="<?php echo __CSS_PATH;?>elegant-icons-style.css" rel="stylesheet" />
-  <!-- <link href="<?php echo __CSS_PATH;?>font-awesome.min.css" rel="stylesheet" />-->
+ <!-- <link href="<?php echo __CSS_PATH;?>font-awesome.min.css" rel="stylesheet" />-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <!-- Custom styles -->
   <link href="<?php echo __CSS_PATH;?>style.css" rel="stylesheet">
@@ -32,7 +31,7 @@ require_once("global.php");
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_departamento_mantenimiento.php");
+    include_once(__VWS_PATH."vw_grupo_mantenimiento.php");
   ?>
   
   <!-- container section end -->

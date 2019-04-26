@@ -12,6 +12,10 @@
 		{
 			return $this->postdata->obtener_Objetos();
 		}
+		public function insertar_Grupo($Titulo,$Observaciones,$Estado,$Departamento,$Usuario)
+		{
+			return $this->postdata->insertar_Grupo($Titulo,$Observaciones,$Estado,$Departamento,$Usuario);
+		}
 	}
 
 ?>

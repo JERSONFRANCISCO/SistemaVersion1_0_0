@@ -13,7 +13,7 @@ class mdl_departamentos{
 	public function obtener_Objetos(){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'S', @DEP_Titulo = '', @DEP_Observaciones='',  @DEP_Estado='A',@USR_Usuario_Creacion=''";
+		$sql = "EXEC pa_Departametos @Accion = 'S', @DEP_Titulo = '', @DEP_Observaciones='', @DEP_Departameto=0, @DEP_Estado='A',@USR_Usuario_Creacion=''";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];

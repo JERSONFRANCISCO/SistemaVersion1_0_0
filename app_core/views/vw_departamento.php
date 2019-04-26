@@ -68,7 +68,7 @@
         <li class="sub-menu">
           <a href="javascript:;" class="">
             <i class="icon_table"></i>
-            <span>Manteminiemto</span>
+            <span>Mantenimiento</span>
             <span class="menu-arrow arrow_carrot-right"></span>
           </a>
           <ul class="sub">
@@ -100,7 +100,7 @@
               Departamentos
             </header>
             <div class="panel-body">
-              <form class="form-inline" role="form" action="departamento_mantenimiento.php">
+              <form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                 </div>
@@ -138,13 +138,13 @@
                   $ctr = $ctr_departamentos->obtener_Objetos();
                   $cont = 0;
                   foreach ($ctr as $value) {
-                    echo "<form method='GET' action='grupo_mantenimiento.php'>";
+                    echo "<form method='POST' action='departamento_mantenimiento.php'>";
                     if($cont % 2 == 0){
                       echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
                     }else{
                       echo "<tr>";
                     }
-                    echo "<td>".$value[0]."</td>";
+                    echo "<td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
                     echo "<td>".$value[1]."</td>";
                     echo "<td>".$value[2]."</td>";
                     echo "<td>".$value[3]."</td>";
@@ -153,9 +153,9 @@
 //                    echo "<td>".$value[6]."</td>";
                     echo "<td>";
                     echo "<div class='btn-group'>";
-                    echo "<button class='btn btn-primary'  type='submit' title='Ver'><i class='fas fa-eye'></i></button>";
-                    echo "<button class='btn btn-success'  type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
-                    echo "<button class='btn btn-danger'  type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button>";
+                    echo "<button class='btn btn-primary' id='botonVer' name='botonVer' type='submit' title='Ver'><i class='fas fa-eye'></i></button>";
+                    echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
+                    echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button>";
                     echo "</div>";
                     echo "</td>";
                     //echo "<td>".$value[5]."</td>";<i class="fal fa-edit"></i>
