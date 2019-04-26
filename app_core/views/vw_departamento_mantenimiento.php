@@ -8,6 +8,8 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
   $bolean=true;
   $titulo="Agregado";
 }
+
+
 $readonly='';
 if(isset($_POST['botonVer'])){
   $readonly = 'readonly';

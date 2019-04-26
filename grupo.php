@@ -32,6 +32,7 @@
 
   <?php
     include_once(__VWS_PATH."vw_grupo.php");
+    //include_once(__VWS_PATH."1.php");
   ?>
   
   <!-- container section end -->
