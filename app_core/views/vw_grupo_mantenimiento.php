@@ -1,13 +1,11 @@
 <?php
-if(isset($_GET['Descripcion'])){
-  echo $_GET['Descripcion'];
-}
 
 if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado']) AND isset($_POST['Grupo']) ) 
 {
   require_once(__CTR_PATH . "ctr_departamentos.php");
   $ctr_departamentos = new ctr_departamentos();
   $ctr = $ctr_departamentos->insertar_Departamento($_POST['Nombre'],$_POST['Descripcion'],$_POST['Estado'],1,'Jerson');
+  echo "$ctr";
   $bolean=true;
   $titulo="Agregado";
 }
