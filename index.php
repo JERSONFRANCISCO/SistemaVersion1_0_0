@@ -27,7 +27,7 @@ require_once("global.php");
   <link href="<?php echo __CSS_PATH;?>style.css" rel="stylesheet">
   <link href="<?php echo __CSS_PATH;?>style-responsive.css" rel="stylesheet" />
 
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="<?php echo __CSS_PATH;?>dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 <body>

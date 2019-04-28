@@ -4,7 +4,7 @@
   //$myhost="localhost";
  // $myproject="Cotizaciones";
   $myhost="//localhost";
-  $myproject="SistemaCotizaciones";
+  $myproject="SistemaVersion1_0_0";
   $mysite=$myhost . "/" . $myproject;
 
 
