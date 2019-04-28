@@ -9,16 +9,19 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
   $titulo="Agregado";
 }
 
-
+$titulo='Agregar';
 $readonly='';
 if(isset($_POST['botonVer'])){
   $readonly = 'readonly';
+  $titulo='Ver';
 }else{
   if(isset($_POST['botonEditar'])){
     $readonly = '';
+    $titulo='Editar';
   }else{
     if(isset($_POST['botonEliminar'])){
       $readonly = 'readonly';
+      $titulo='Eliminar';
     }
   }
 }
@@ -138,7 +141,7 @@ if(isset($_POST['botonVer'])){
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-              Ingresar Datos
+              <strong><?php if(isset($titulo)){echo $titulo;}?> departamentos</strong>
             </header>
             <div class="panel-body">
               <div class="form">
@@ -172,39 +175,28 @@ if(isset($_POST['botonVer'])){
                       </select>
                     </div>
                   </div>
-                  <!--
                   <div class="form-group">
-                    <label class="control-label col-lg-2" for="inputSuccess">Grupo</label>
-                    <div class="col-lg-10">
-                      <select class="form-control m-bot15" id="grupo" name="Grupo">
-                        <option>01 - MANTENIMIENTO TI </option>
-                        <option>02 - DESARROLLO TI</option>
-                      </select>
+                    <div class="col-lg-offset-2 col-lg-10 text-right">
+                      <button class="btn btn-primary" type="submit">Guardar</button>
+                      <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
                     </div>
                   </div>
-                -->
-                <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-10 text-right">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                    <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
-                  </div>
-                </div>
-              </form>
+                </form>
+              </div>
+
             </div>
-
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
-    </div>
 
-    <!-- page end-->
+      <!-- page end-->
+    </section>
   </section>
-</section>
-<!--main content end-->
-<div class="text-center">
-  <div class="credits">
+  <!--main content end-->
+  <div class="text-center">
+    <div class="credits">
 
-    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+    </div>
   </div>
-</div>
 </section>

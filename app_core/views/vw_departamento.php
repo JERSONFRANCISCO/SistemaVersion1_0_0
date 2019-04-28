@@ -136,6 +136,7 @@
                   require_once(__CTR_PATH . "ctr_departamentos.php");
                   $ctr_departamentos = new ctr_departamentos();
                   $ctr = $ctr_departamentos->obtener_Objetos();
+                 // echo $ctr;
                   $cont = 0;
                   foreach ($ctr as $value) {
                     echo "<form method='POST' action='departamento_mantenimiento.php'>";

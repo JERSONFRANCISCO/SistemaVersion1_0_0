@@ -1,3 +1,7 @@
+ 
+<?php
+
+?>
 <script>
 
 </script>
@@ -88,102 +92,118 @@
       <div class="row">
         <div class="col-lg-12">
           <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de grupos</h3>
-          <!--<ol class="breadcrumb">
-            <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-            <li><i class="fa fa-table"></i>Table</li>
-            <li><i class="fa fa-th-list"></i>Basic Table</li>
-          </ol>-->
-        </div>
-      </div>
-      <!-- page start-->
-      <div class="row">
-        <div class="col-lg-12">
-          <section class="panel">
-            <header class="panel-heading">
-              Departamentos
-            </header>
-            <div class="panel-body">
-              <form class="form-inline" role="form" action="grupo_mantenimiento.php">
-                <div class="text-right">
-                  <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
-                </div>
-                <div class="form-group text-left">
-                  <input type="text" class="form-control" style="width: 250%;" id="" placeholder="Buscar">
-                </div>
-              </form>
-            </div>
-          </section>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
-                    <tr>
-                      <td>Donna Snider</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>27</td>
-                      <td>2011/01/25</td>
-                      <td>$112,000</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  Departamentos
+                </header>
+                <div class="panel-body">
+                  <form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
+                    <div class="text-right">
+                      <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+                    </div>
+                  </form>
+                  <div id="wrapper">
+                    <div id="content-wrapper" class="d-flex flex-column">
+                      <div id="content">
+                        <div class="container-fluid" style="background-color: white;">
+                          <!-- DataTales Example -->
+                          <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                  <thead>
+                                    <tr>
+                                      <th>Departamento</th>
+                                      <th>Nombre</th>
+                                      <th>Observaciones</th>
+                                      <th>Estado</th>
+                                      <th>Fecha</th>
+                                      <th>Acción</th>
+                                    </tr>
+                                  </thead>
+                                  <tfoot>
+                                    <tr>
+                                      <th>Departamento</th>
+                                      <th>Nombre</th>
+                                      <th>Observaciones</th>
+                                      <th>Estado</th>
+                                      <th>Fecha</th>
+                                      <th>Acción</th>
+                                    </tr>
+                                  </tfoot>
+                                  <tbody>
+                                    <?php
+                                    require_once(__CTR_PATH . "ctr_departamentos.php");
+                                    $ctr_departamentos = new ctr_departamentos();
+                                    $ctr = $ctr_departamentos->obtener_Objetos();
+                                    $cont = 0;
+                                    foreach ($ctr as $value) {
+                                //      echo "<form id='form1' name='form1' method='POST' action='www.google.com'>";
+                                      if($cont % 2 == 0){
+                      echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
+                    }else{
+                      echo "<tr>";
+                    }
+                    echo "<form method='POST' action='departamento_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
+                    echo "<td>".$value[1]."</td>";
+                    echo "<td>".$value[2]."</td>";
+                    echo "<td>".$value[3]."</td>";
+                    echo "<td>".$value[4]."</td>";
+                    echo "<td>";
+                    echo "<div class='btn-group'>";
+                    echo "<button class='btn btn-primary' id='botonVer' name='botonVer' type='submit' title='Ver'><i class='fas fa-eye'></i></button>";
+                    echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
+                    echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button></form>";
+                    echo "</div>";
+                    echo "</td>";
+                    echo "</tr>";
+                    $cont++;
+                  }
+                  ?>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
-      <!-- page end-->
-    </section>
-  </section>
-  <!--main content end-->
-  <div class="text-center">
-    <div class="credits">
-      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+      <!-- /.container-fluid -->
     </div>
+    <!-- End of Main Content -->
   </div>
+  <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+<form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+  </div>
+
+</form>
+</div>
+
+
+
+</section>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</section>
+</section>
+
+
+<!--main content end-->
+<div class="text-center">
+  <div class="credits">
+    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+  </div>
+</div>
 </section>
