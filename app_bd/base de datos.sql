@@ -65,7 +65,7 @@ ALTER procedure pa_Departametos(
 	if(@Accion = 'S')
 		begin
 			select DEP_Departamento,DEP_Titulo,DEP_Observaciones,DEP_Estado,CONVERT(VARCHAR, dep.USR_Fecha_Creacion, 111) as USR_Fecha_Creacion
-			 from DEPARTAMENTOS dep where DEP_Estado = 'A'
+			 from DEPARTAMENTOS dep where DEP_Estado in( 'A','I')
 		end
 		else
 	if(@Accion = 'I')
@@ -73,20 +73,28 @@ ALTER procedure pa_Departametos(
 			insert into DEPARTAMENTOS(DEP_Titulo,DEP_Observaciones,DEP_Estado,USR_Usuario_Creacion)
 			values(@DEP_Titulo,@DEP_Observaciones,@DEP_Estado,@USR_Usuario_Creacion)
 		end
-	end
+	if(@Accion = 'F')
+		begin
+			SELECT DEP_Departamento,DEP_Titulo,DEP_Observaciones,DEP_Estado FROM DEPARTAMENTOS WHERE DEPARTAMENTOS.DEP_Departamento = @DEP_Departameto;
+		end
+	if(@Accion = 'U')
+		begin
+			update DEPARTAMENTOS
+			set DEP_Estado = @DEP_Estado,
+			DEP_Titulo = @DEP_Titulo,
+			DEP_Observaciones = @DEP_Observaciones,
+			USR_Usuario_Modificacion = @USR_Usuario_Creacion,
+			USR_Fecha_Modificacion = GETDATE()
+			where DEP_Departamento = @DEP_Departameto;
+		end	
+end
 
 
+EXEC pa_Departametos @Accion = 'I', @DEP_Titulo = 'DEPARTAMENTO DE TI3ee', @DEP_Observaciones='TECNOLOGIAS DE INFORMACIÓN', @DEP_Estado='A',@DEP_Departameto=0,@USR_Usuario_Creacion='Jerson'
 
-DECLARE @site_value INT;
-SET @site_value = 0;
+SELECT * FROM DEPARTAMENTOS
+delete from DEPARTAMENTOS
+DBCC CHECKIDENT (DEPARTAMENTOS, reseed, 0);
 
-WHILE @site_value <= 10
-BEGIN
-	EXEC pa_Departametos @Accion = 'I', 
-	@DEP_Titulo = '".$Titulo."', 
-	@DEP_Observaciones='".$Observaciones."', 
-	@DEP_Estado='A',
-	@DEP_Departameto=0,
-	@USR_Usuario_Creacion=CONCAT ('JERSON'+select @site_value)
 
-END;
+EXEC pa_Departametos @Accion = 'U', @DEP_Titulo = 'DEPARTAMENTO DE TIADSAD', @DEP_Observaciones='TECNOLOGIAS DE INFORMACIÓN', @DEP_Estado='A',@DEP_Departameto=,@USR_Usuario_Creacion='Jerson'

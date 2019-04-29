@@ -1,15 +1,56 @@
 <?php
-
-if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
-{
-  require_once(__CTR_PATH . "ctr_departamentos.php");
-  $ctr_departamentos = new ctr_departamentos();
-  $ctr = $ctr_departamentos->insertar_Departamento($_POST['Nombre'],$_POST['Descripcion'],$_POST['Estado'],'Jerson');
-  $bolean=true;
-  $titulo="Agregado";
+$titulo='Agregar';
+if(isset($_POST['Agregar'])){
+  if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
+  {
+    require_once(__CTR_PATH . "ctr_departamentos.php");
+    $ctr_departamentos = new ctr_departamentos();
+    $ctr = $ctr_departamentos->insertar_Departamento($_POST['Nombre'],$_POST['Descripcion'],'A','Jerson');
+    $bolean=true;
+    $titulo="Agregado";
+  }
+}
+if(isset($_POST['Editar'])){
+  if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
+  {
+    require_once(__CTR_PATH . "ctr_departamentos.php");
+    $ctr_departamentos = new ctr_departamentos();
+    $ctr = $ctr_departamentos->actualizar_Departamento($_POST['Nombre'],$_POST['Descripcion'],'A','Jerson',$_POST['Departamentoid']);
+    $bolean=true;
+    $titulo="Actualizado";
+  }
+}
+if(isset($_POST['Eliminar'])){
+  if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
+  {
+    require_once(__CTR_PATH . "ctr_departamentos.php");
+    $ctr_departamentos = new ctr_departamentos();
+    $ctr = $ctr_departamentos->actualizar_Departamento($_POST['Nombre'],$_POST['Descripcion'],'B','Jerson',$_POST['Departamentoid']);
+    $bolean=true;
+    $titulo="Eliminado";
+  }
 }
 
-$titulo='Agregar';
+/*
+  SE CARGAN LOS REGISTROS PARA VER / EDITAR / ELIMINAR
+*/
+$NombreDep='';
+$DEP_descripcion='';
+$DEP_Estado='';
+if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
+  require_once(__CTR_PATH . "ctr_departamentos.php");
+  $ctr_departamentos = new ctr_departamentos();
+  $ctr = $ctr_departamentos->buscar_Departamento($_POST['identificador']);
+  foreach ($ctr as $value) {
+    $NombreDep= $value[1];
+    $DEP_descripcion= $value[2];
+    $DEP_Estado= $value[3];
+  }
+}
+
+
+
+
 $readonly='';
 if(isset($_POST['botonVer'])){
   $readonly = 'readonly';
@@ -149,26 +190,26 @@ if(isset($_POST['botonVer'])){
                   <div class="form-group ">
                     <label for="Departamento" class="control-label col-lg-2">Departamento<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input class="form-control " id="Departamento" type="text"  name="Departamento" placeholder='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' values='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' readonly/>
+                      <input class="form-control " id="Departamentoid" type="text"  name="Departamentoid" value='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' readonly/>
                     </div>
                   </div>
                   <div class="form-group ">
                     <label for="Nombre" class="control-label col-lg-2">Nombre<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input class="form-control " id="Nombre" type="text" name="Nombre" required <?php echo $readonly;?> />
+                      <input class="form-control " id="Nombre" minlength="5" value="<?php echo $NombreDep;?>" maxlength="50" type="text" name="Nombre" required <?php echo $readonly;?> />
                     </div>
                   </div>
                   <div class="form-group ">
                     <label for="Descripcion" class="control-label col-lg-2">Descipción<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input class="form-control " id="Descripcion" type="text" name="Descripcion" <?php echo $readonly;?>/>
+                      <input class="form-control " id="Descripcion" minlength="5" maxlength="100" type="text" value="<?php echo $DEP_descripcion;?>" name="Descripcion" <?php echo $readonly;?>/>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
                     <div class="col-lg-10">
-                      <select class="form-control m-bot15" id="Estado" name="Estado">
+                      <select class="form-control m-bot15" id="Estado" name="Estado" <?php echo $readonly;?>>
                         <option >ACTIVO</option>
                         <option >INACTIVO</option>
                         <option >BLOQUEADO</option>
@@ -177,8 +218,8 @@ if(isset($_POST['botonVer'])){
                   </div>
                   <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10 text-right">
-                      <button class="btn btn-primary" type="submit">Guardar</button>
-                      <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
+                      <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>
+                      <button class="btn btn-default" ><a href="index.php">Cancelar</a></button>
                     </div>
                   </div>
                 </form>
