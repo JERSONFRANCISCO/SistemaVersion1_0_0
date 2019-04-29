@@ -3,7 +3,7 @@
   // variables del host
   //$myhost="localhost";
  // $myproject="Cotizaciones";
-  $myhost="//localhost";
+  $myhost="//172.17.35.135";
   $myproject="SistemaVersion1_0_0";
   $mysite=$myhost . "/" . $myproject;
 
