@@ -74,3 +74,19 @@ ALTER procedure pa_Departametos(
 			values(@DEP_Titulo,@DEP_Observaciones,@DEP_Estado,@USR_Usuario_Creacion)
 		end
 	end
+
+
+
+DECLARE @site_value INT;
+SET @site_value = 0;
+
+WHILE @site_value <= 10
+BEGIN
+	EXEC pa_Departametos @Accion = 'I', 
+	@DEP_Titulo = '".$Titulo."', 
+	@DEP_Observaciones='".$Observaciones."', 
+	@DEP_Estado='A',
+	@DEP_Departameto=0,
+	@USR_Usuario_Creacion=CONCAT ('JERSON'+select @site_value)
+
+END;

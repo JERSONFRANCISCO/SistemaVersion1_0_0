@@ -8,7 +8,22 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
   $bolean=true;
   $titulo="Agregado";
 }
-
+$titulo='Agregar';
+$readonly='';
+if(isset($_POST['botonVer'])){
+  $readonly = 'readonly';
+  $titulo='Ver';
+}else{
+  if(isset($_POST['botonEditar'])){
+    $readonly = '';
+    $titulo='Editar';
+  }else{
+    if(isset($_POST['botonEliminar'])){
+      $readonly = 'readonly';
+      $titulo='Eliminar';
+    }
+  }
+}
 ?>
 <script>
 
@@ -123,7 +138,7 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-              Ingresar Datos
+               <strong><?php if(isset($titulo)){echo $titulo;}?> departamentos</strong>
             </header>
             <div class="panel-body">
               <div class="form">
@@ -131,7 +146,7 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
                   <div class="form-group ">
                     <label for="Grupo" class="control-label col-lg-2">Grupo<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input class="form-control " id="Grupo" type="text" name="Grupo" readonly/>
+                      <input class="form-control " id="Grupo" type="text" name="Grupo" placeholder='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' values='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' readonly/>
                     </div>
                   </div>
                   <div class="form-group ">

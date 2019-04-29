@@ -1,3 +1,7 @@
+ 
+<?php
+
+?>
 <script>
 
 </script>
@@ -88,116 +92,124 @@
       <div class="row">
         <div class="col-lg-12">
           <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de grupos</h3>
-          <!--<ol class="breadcrumb">
-            <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-            <li><i class="fa fa-table"></i>Table</li>
-            <li><i class="fa fa-th-list"></i>Basic Table</li>
-          </ol>-->
-        </div>
-      </div>
-      <!-- page start-->
-      <div class="row">
-        <div class="col-lg-12">
-          <section class="panel">
-            <header class="panel-heading">
-              Departamentos
-            </header>
-            <div class="panel-body">
-              <form class="form-inline" role="form" action="grupo_mantenimiento.php">
-                <div class="text-right">
-                  <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
-                </div>
-                <div class="form-group text-left">
-                  <input type="text" class="form-control" style="width: 250%;" id="" placeholder="Buscar">
-                </div>
-              </form>
-            </div>
-          </section>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <section class="panel">
-            <header class="panel-heading">
-              Departamentos
-            </header>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Grupo</th>
-                    <th>Nombre</th>
-                    <th>Observaciones</th>
-                    <th>Estado</th>
-                    <th>Departamento</th>
-                    <th>Nombre</th>
-                    <th><i class="fa fa-calendar"></i> Fecha Creacion</th>
-                    <th><i class="icon_cogs"></i> Acción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  require_once(__CTR_PATH . "ctr_grupo.php");
-                  $ctr_grupo = new ctr_grupo();
-                  $ctr = $ctr_grupo->obtener_Objetos();
-                  $cont = 0;
-                  foreach ($ctr as $value) {
-                    echo "<form method='GET' action='grupo_mantenimiento.php'>";
-                    if($cont % 2 == 0){
+          <div class="row">
+            <div class="col-lg-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  Departamentos
+                </header>
+                <div class="panel-body">
+                  <form class="form-inline" role="form" action="grupo_mantenimiento.php">
+                    <div class="text-right">
+                      <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+                    </div>
+                  </form>
+                  <div id="wrapper">
+                    <div id="content-wrapper" class="d-flex flex-column">
+                      <div id="content">
+                        <div class="container-fluid" style="background-color: white;">
+                          <!-- DataTales Example -->
+                          <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                  <thead>
+                                    <tr>
+                                      <th>Departamento</th>
+                                      <th>Nombre</th>
+                                      <th>Observaciones</th>
+                                      <th>Estado</th>
+                                      <th>Departamento</th>
+                                      <th>Nombre</th>
+                                      <th>Fecha</th>
+                                      <th>Acción</th>
+                                    </tr>
+                                  </thead>
+                                  <tfoot>
+                                    <tr>
+                                      <th>Departamento</th>
+                                      <th>Nombre</th>
+                                      <th>Observaciones</th>
+                                      <th>Estado</th>
+                                      <th>Departamento</th>
+                                      <th>Nombre</th>
+                                      <th>Fecha</th>
+                                      <th>Acción</th>
+                                    </tr>
+                                  </tfoot>
+                                  <tbody>
+                                    <?php
+                                    require_once(__CTR_PATH . "ctr_grupo.php");
+                                    $ctr_grupo = new ctr_grupo();
+                                    $ctr = $ctr_grupo->obtener_Objetos();
+                                    $cont = 0;
+                                    foreach ($ctr as $value) {
+                                //      echo "<form id='form1' name='form1' method='POST' action='www.google.com'>";
+                                      if($cont % 2 == 0){
                       echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
                     }else{
                       echo "<tr>";
                     }
-                    echo "<td>".$value[0]."</td>";
+                    echo "<form method='POST' action='grupo_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
                     echo "<td>".$value[1]."</td>";
                     echo "<td>".$value[2]."</td>";
                     echo "<td>".$value[3]."</td>";
                     echo "<td>".$value[4]."</td>";
                     echo "<td>".$value[5]."</td>";
                     echo "<td>".$value[6]."</td>";
-                  //  echo "<td>".$value[6]."</td>";
                     echo "<td>";
                     echo "<div class='btn-group'>";
-                    echo "<button class='btn btn-primary'  type='submit' title='Ver'><i class='fas fa-eye'></i></button>";
-                    echo "<button class='btn btn-success'  type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
-                    echo "<button class='btn btn-danger'  type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button>";
+                    echo "<button class='btn btn-primary' id='botonVer' name='botonVer' type='submit' title='Ver'><i class='fas fa-eye'></i></button>";
+                    echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
+                    echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button></form>";
                     echo "</div>";
                     echo "</td>";
-                    //echo "<td>".$value[5]."</td>";
                     echo "</tr>";
                     $cont++;
-                    echo "</form>";
                   }
                   ?>
                 </tbody>
               </table>
-
             </div>
-
-          </section>
-          <section class="panel">
-            <div class="text-center">
-              <ul class="pagination">
-                <li><a href="#">«</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">»</a></li>
-              </ul>
-            </div>
-          </section>
+          </div>
         </div>
       </div>
-      <!-- page end-->
-    </section>
-  </section>
-  <!--main content end-->
-  <div class="text-center">
-    <div class="credits">
-      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+      <!-- /.container-fluid -->
     </div>
+    <!-- End of Main Content -->
   </div>
+  <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+<form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+  </div>
+
+</form>
+</div>
+
+
+
+</section>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</section>
+</section>
+
+
+<!--main content end-->
+<div class="text-center">
+  <div class="credits">
+    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+  </div>
+</div>
 </section>
