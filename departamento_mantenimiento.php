@@ -32,16 +32,20 @@ require_once("global.php");
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_departamento_mantenimiento.php");
+    include_once(__VWS_PATH."vw_departamento_mantenimiento.php");
   ?>
   
   <!-- container section end -->
   <!-- javascripts -->
-  <script src="<?php echo __JS_PATH;?>jquery.js"></script>
-  <script src="<?php echo __JS_PATH;?>bootstrap.min.js"></script>
+  <script src="<?php echo __JS_PATH;?>jquery.js" type="text/javascript"></script>
+
+
+  <script src="<?php echo __JS_PATH;?>bootstrap.min.js" type="text/javascript"></script>
   <!-- nicescroll -->
-  <script src="<?php echo __JS_PATH;?>jquery.scrollTo.min.js"></script>
+  <script src="<?php echo __JS_PATH;?>jquery.scrollTo.min.js" type="text/javascript"></script>
+
   <script src="<?php echo __JS_PATH;?>jquery.nicescroll.js" type="text/javascript"></script>
+
   <!--custome script for all page-->
   <script src="<?php echo __JS_PATH;?>scripts.js"></script>
 

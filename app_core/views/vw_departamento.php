@@ -1,7 +1,21 @@
- 
+<style type="text/css">
+
+.drag-drop-item
+{
+  touch-action: none;
+}
+</style>  
 <?php
 
 ?>
+
+<style type="text/css">
+
+.drag-drop-item
+{
+  touch-action: none;
+}
+</style>
 <script>
 
 </script>

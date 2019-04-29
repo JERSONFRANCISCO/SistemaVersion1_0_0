@@ -33,7 +33,7 @@ require_once("global.php");
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_departamento.php.php");
+  include_once(__VWS_PATH."vw_departamento.php");
   ?>
   
   <!-- container section end -->
