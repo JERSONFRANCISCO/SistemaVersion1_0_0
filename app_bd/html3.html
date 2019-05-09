@@ -1,0 +1,14 @@
+<textarea id="alltext"></textarea>
+
+<ol onclick="addText(event)">
+<li>Hello</li>
+<li>World</li>
+<li>Earthlings</li>
+</ol>
+
+<script>
+function addText(event) {
+    //var targ = event.target || event.srcElement;
+    document.getElementById("alltext").value = document.getElementById("alltext").value+'\n olis';//targ.textContent || targ.innerText;
+}
+</script>

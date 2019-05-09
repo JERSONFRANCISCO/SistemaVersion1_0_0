@@ -49,36 +49,55 @@ guardarImagenesServidor();
 		bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 		window.onload = function() {
 
-     //   what();
+		}
+	</script>
 
-     function myFunction() {
-     	document.getElementById('myFunction').innerHTML = 'hi';
-     };
+	<h4>
+		Second Textarea
+	</h4>
 
- }
-</script>
+	<form name= "formulario"action="" method="post">
+		<textarea name="area2" style="width: 100%;">
+			<img src="//localhost/SistemaVersion1_0_0/app_bd/Captura.PNG"/>
+			<br>
+			<img src="//localhost/SistemaVersion1_0_0/app_bd/Captura.PNG"/>
+			<br>
+			<a>jer</a>
+		</textarea>
+		<input type="submit" name="" value="insert">
+		<button type="button" onclick="myFunction()">Click me</button>
+	</form>
 
-<h4>
-	Second Textarea
-</h4>
-
-<form name= "formulario"action="" method="post">
-	<textarea name="area2" style="width: 100%;">
-		<img src="http://i.imgur.com/XQVF7d0.png"/>
-		<img src="http://i.imgur.com/XQVF7d0.png"/>
-	</textarea>
-	<input type="submit" name="" value="insert">
-	<button type="button" onclick="myFunction()">Click me</button>
-</form>
-
-<br/>
+	<br/>
 
 </div>
+
+
+
 <p id="demo"></p>
 <script type="text/javascript">
-function myFunction() {
-	//	document.getElementById('area2').innerHTML = '&lt;&gt;&amp;';
-document.formulario.area2.value += 'asdasd';
-	}
+
+</script>
+
+
+
+<textarea id="alltext">
+	
+
+</textarea>
+
+<ol>
+    <li onclick="addText('Hello')">Hello</li>
+    <li onclick="addText('World')">World</li>
+    <li onclick="addText('Earthlings')">Earthlings</li>
+</ol>
+
+<script>
+    //var Alltext = "";
+    function addText(text) {
+        Alltext += text
+        document.getElementById("alltext").text = "Alltext";
+        alert( document.getElementById("alltext").value);
+    }
 
 </script>
