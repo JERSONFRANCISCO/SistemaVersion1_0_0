@@ -8,11 +8,13 @@ function manejaString($string){
 	$urls = extraerURLs($VAR);
 	echo "<script>alert('".$VAR."');</script>";
 	foreach($urls as $url){
-		//echo $url;
-		$VAR = str_replace($url,"https://1023654798252", $VAR);
+		echo $url."<br>";
+		
+		//echo $url+"<br>";
+		//$VAR = str_replace($url,"https://1023654798252", $VAR);
 		//echo "<script>alert('".$VAR."');</script>";
 	}
-echo $VAR;
+//echo $VAR;
 }
 function extraerURLs($cadena){
 	$regex = '/https?\:\/\/[^\" ]+/';
@@ -20,21 +22,63 @@ function extraerURLs($cadena){
 	return ($partes[0]);
 }
 
+function guardarImagenesServidor(){
+	function recibe_imagen ($url_origen,$archivo_destino){  
+		$mi_curl = curl_init ($url_origen);  
+		$fs_archivo = fopen ($archivo_destino, "w");  
+		curl_setopt ($mi_curl, CURLOPT_FILE, $fs_archivo);  
+		curl_setopt ($mi_curl, CURLOPT_HEADER, 0);  
+		curl_exec ($mi_curl);  
+		curl_close ($mi_curl);  
+		fclose ($fs_archivo);  
+	}  
+
+	recibe_imagen("https://i.imgur.com/plA0JU5.png","C:/wamp/www/SistemaVersion1_0_0/imagen.png"); 
+
+}
+guardarImagenesServidor();
+
 
 ?>
 
 <div id="sample">
-	<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
-		bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-	</script>
 
-	<h4>
-		Second Textarea
-	</h4>
-	<form action="" method="post">
-		<textarea name="area2" style="width: 100%;"></textarea>
-		<input type="submit" name="" value="insert">
-	</form>
-	<br/>
+
+	<script type="text/javascript" src="//localhost/SistemaVersion1_0_0/app_bd/elemento.js"></script> 
+	<script type="text/javascript">
+		bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+		window.onload = function() {
+
+     //   what();
+
+     function myFunction() {
+     	document.getElementById('myFunction').innerHTML = 'hi';
+     };
+
+ }
+</script>
+
+<h4>
+	Second Textarea
+</h4>
+
+<form name= "formulario"action="" method="post">
+	<textarea name="area2" style="width: 100%;">
+		<img src="http://i.imgur.com/XQVF7d0.png"/>
+		<img src="http://i.imgur.com/XQVF7d0.png"/>
+	</textarea>
+	<input type="submit" name="" value="insert">
+	<button type="button" onclick="myFunction()">Click me</button>
+</form>
+
+<br/>
 
 </div>
+<p id="demo"></p>
+<script type="text/javascript">
+function myFunction() {
+	//	document.getElementById('area2').innerHTML = '&lt;&gt;&amp;';
+document.formulario.area2.value += 'asdasd';
+	}
+
+</script>
