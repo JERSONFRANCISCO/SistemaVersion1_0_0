@@ -93,7 +93,14 @@
             <li><a class="active" href="index.php">Departamentos</a></li>
             <li><a class="active" href="grupo.php">Grupos</a></li>
           </ul>
-
+          <a href="javascript:;" class="">
+            <i class="icon_table"></i>
+            <span>Tickets</span>
+            <span class="menu-arrow arrow_carrot-right"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="active" href="hiloTicket.php">Mis Tickets</a></li>
+          </ul>
         </li>
       </ul>
       <!-- sidebar menu end-->
