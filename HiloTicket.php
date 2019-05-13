@@ -28,7 +28,11 @@ require_once("global.php");
   <link href="<?php echo __CSS_PATH;?>style-responsive.css" rel="stylesheet" />
 
   <link href="<?php echo __CSS_PATH;?>dataTables.bootstrap4.min.css" rel="stylesheet">
-  <script src="<?php echo __JS_PATH;?>source.js"></script>
+
+
+
+
+
 </head>
 <body>
 
@@ -67,9 +71,16 @@ require_once("global.php");
   <!-- Page level custom scripts -->
   <script src="<?php echo __JS_PATH;?>datatables-demo.js"></script>
 
+
+
+  <link href="<?php echo __CSS_PATH;?>summernote.css" rel="stylesheet">
+  <script src="<?php echo __CSS_PATH;?>summernote.js"></script>
+
+
   <script>
-    //knob
-    $(".knob").knob();
+    $(document).ready(function() {
+      $('#summernote').summernote();
+    });
   </script>
 
 </body>

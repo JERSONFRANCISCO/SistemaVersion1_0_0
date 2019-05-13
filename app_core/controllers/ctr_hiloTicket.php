@@ -1,6 +1,6 @@
 <?php
 
-require_once(__MDL_PATH . "mdl_departamentos.php");
+require_once(__MDL_PATH . "mdl_hiloticket.php");
 class ctr_departamentos{
 	private $postdata;
 
@@ -14,9 +14,9 @@ class ctr_departamentos{
 			return $this->postdata->obtener_Objetos();
 		}
 
-		public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario)
+		public function insertar_HILOTICKET($Titulo,$Observaciones,$Estado,$Usuario)
 		{
-			return $this->postdata->insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario);
+			return $this->postdata->insertar_HILOTICKET($Titulo,$Observaciones,$Estado,$Usuario);
 		}
 
 		public function actualizar_Departamento($Titulo,$Observaciones,$Estado,$Usuario,$departmento)

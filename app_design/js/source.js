@@ -77,7 +77,6 @@ function makeWysiwyg (element) {
     '+addSeparator()+'\
     '+addImage("bullist.gif", edit, "insertunorderedlist", "Lista sin ordenar")+'\
     '+addImage("numlist.gif", edit, "insertorderedlist", "Lista sin ordenar")+'\
-    <br>\
     '+addImage("undo.gif", edit, "undo", "Deshacer")+'\
     '+addImage("redo.gif", edit, "redo", "Rehacer")+'\
     '+addSeparator()+'\
@@ -293,15 +292,15 @@ function setTextareaContent(event, element) {
 }
 
 function addImage(src, editor, command, coment) {
-  return '<img src="SistemaVersion1_0_0/app_design/img/emojis/actions/'+src+'" onmouseover="seleccionar(this, \'#B6BDD2\');" onmouseout="desseleccionar(this);" onmousedown="seleccionar(this, \'#8592B5\');" onclick="executeCommand(\''+editor+'\', \''+command+'\', event); desseleccionar(this);" style="border: 1px solid #F0F0EE; width; 2px; height: 20px; cursor: pointer;" alt="'+coment+'" title="'+coment+'">';
+  return '<img src="http://localhost/SistemaVersion1_0_0/app_design/img/emojis/actions/'+src+'" onmouseover="seleccionar(this, \'#B6BDD2\');" onmouseout="desseleccionar(this);" onmousedown="seleccionar(this, \'#8592B5\');" onclick="executeCommand(\''+editor+'\', \''+command+'\', event); desseleccionar(this);" style="border: 1px solid #F0F0EE; width; 2px; height: 20px; cursor: pointer;" alt="'+coment+'" title="'+coment+'">';
 }
 
 function addEmoticon (src, editor, coment) {
-  return '<img src="SistemaVersion1_0_0/app_design/img/emojis/emoticons/'+src+'" onmouseover="this.style.backgroundColor = \'#B6BDD2\';" onmouseout="this.style.backgroundColor = \'#F0F0EE\';" onclick="executeCommand(\''+editor+'\', \'insertimage\', event, this.src);" style="width; 18px; height: 18px; cursor: pointer;" alt="'+coment+'" title="'+coment+'">';
+  return '<img src="http://localhost/SistemaVersion1_0_0/app_design/img/emojis/emoticons/'+src+'" onmouseover="this.style.backgroundColor = \'#B6BDD2\';" onmouseout="this.style.backgroundColor = \'#F0F0EE\';" onclick="executeCommand(\''+editor+'\', \'insertimage\', event, this.src);" style="width; 18px; height: 18px; cursor: pointer;" alt="'+coment+'" title="'+coment+'">';
 }
 
 function addSeparator() {
-  return '<img src="SistemaVersion1_0_0/app_design/img/emojis/spacer.gif" style="width; 2px; height: 20px;" alt="" title="">';
+  return '<img src="http://localhost/SistemaVersion1_0_0/app_design/img/emojis/spacer.gif" style="width; 2px; height: 20px;" alt="" title="">';
 }
 
 function seleccionar(img, fondo) {

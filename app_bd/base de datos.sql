@@ -99,7 +99,7 @@ CREATE TABLE dbo.TICKET(
 	Cli_Cliente varchar(10) null,
 	Pro_Proyecto varchar(4) null, -- Pro_Proyectos
 	Tal_Numero float null, -- Alq_taller
-	WRK_WORK_FLOW  INT Not NULL, -- REFETENCIA dbo.WORK_FLOW
+	WRK_WORK_FLOW  INT NULL, -- REFETENCIA dbo.WORK_FLOW
 	DEP_DEPARTAMENTO INT NOT NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
 	USR_Usuario INT NULL,--
 	TIC_Titulo varchar(100) not null,
@@ -108,13 +108,13 @@ CREATE TABLE dbo.TICKET(
 	TIC_Porcentaje_Completado int not null default(0),
 	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
 	USR_Usuario_Creacion varchar(20) NULL ,
-	USR_Fecha_Cierre datetime not null,
+	USR_Fecha_Cierre datetime  null,
 	USR_Usuario_Cierre varchar(20) NULL,
-	USR_Fecha_Reapertura datetime not null,
+	USR_Fecha_Reapertura datetime  null,
 	USR_Usuario_Reapertura varchar(20) NULL,
 	USR_Fecha_Modificacion datetime not null,
 	USR_Usuario_Modificacion varchar(20) NULL,
-	TIC_Fecha_Vencimiento datetime not null,
+	TIC_Fecha_Vencimiento datetime  null,
 	TIC_Prioridad varchar(1) not null,
 	UNIQUE (TIC_TICKET),
 	PRIMARY KEY (TIC_TICKET),
@@ -125,9 +125,9 @@ CREATE TABLE dbo.TICKET(
 )
 -----------------------------------------------------------------------------------------------------------
 /*  EL DETALLE DEL TICKET VA A SER EL MURO DE PUBLICACIONES O EL HILO DE HISTORÍAS DE ESTE */
-CREATE TABLE dbo.TICKET_DETALLE(
+CREATE TABLE dbo.TICKET_DETALLE( 
 	TIC_DETALLE INT IDENTITY(1,1),
-	CIA_Codigo varchar(3) not null,
+	CIA_Codigo varchar(3) null,
 	TIC_TICKET INT Not NULL,-- REFERENCIA  dbo.TICKET
 	USR_Usuario varchar(10) Not NULL, -- referencia al usuario que genero el detalle
 	TIC_Titulo varchar(100) not null,

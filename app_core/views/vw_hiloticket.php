@@ -1,3 +1,16 @@
+<?php
+if(isset($_POST['editordata'])){
+  require_once(__CTR_PATH . "ctr_hiloTicket.php");
+  $ctr_departamentos = new ctr_departamentos();
+  $ctr = $ctr_departamentos->insertar_HILOTICKET('',$_POST['editordata'],'','');
+
+}else{
+
+}
+
+
+?>
+
 <style type="text/css">
 
 .drag-drop-item
@@ -191,33 +204,22 @@
                     <div class="tab-content">
                       <div id="recent-activity" class="tab-pane active">
                         <div class="profile-activity">
-                          <div class="act-time">
-                            <div class="activity-body act-in">
-                              <span class="arrow"></span>
-                              <div class="text">
-                                <p class="attribution"><a href="#">Jonatanh Doe</a> at 4:25pm, 30th Octmber 2014</p>
-                                <p>It is a long established fact that a reader will be distracted layout</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="act-time">
-                            <div class="activity-body act-in">
-                              <span class="arrow"></span>
-                              <div class="text">
-                                <p class="attribution"><a href="#">Jhon Loves </a> at 5:25am, 30th Octmber 2014</p>
-                                <p>Knowledge speaks, but wisdom listens.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="act-time">
-                            <div class="activity-body act-in">
-                              <span class="arrow"></span>
-                              <div class="text">
-                                <p class="attribution"><a href="#">Rose Crack</a> at 5:25am, 30th Octmber 2014</p>
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                              </div>
-                            </div>
-                          </div>
+                          <?php
+                          require_once(__CTR_PATH . "ctr_hiloTicket.php");
+                          $ctr_departamentos = new ctr_departamentos();
+                          $ctr = $ctr_departamentos->obtener_Objetos();
+                          foreach ($ctr as $value) {
+                            echo "<div class='act-time'>";
+                            echo "<div class='activity-body act-in'>";
+                            echo "<span class='arrow'></span>";
+                            echo "<div class='text'>";
+                            echo "<p class='attribution'><a>".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
+                            echo "<p>".$value[2]."</p>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                          }
+                          ?>
 
                         </div>
                       </div>
@@ -263,13 +265,11 @@
                     <div class="tab-content">
                       <div id="contestar" class="tab-pane active">
                         <div class="profile-activity">
-                          
-                          <div style="width:500px; float:left">
-                            <form name="form" method="post">
-                              <textarea name="texto" cols="35" rows="9"></textarea>
-                            </form>
-                          </div>
+                          <form method="post" action=""  >
+                            <textarea id="summernote" name="editordata" style="width: 150px;"></textarea>
 
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Responder</button>
+                          </form>
                         </div>
                       </div>
                       <!-- profile -->

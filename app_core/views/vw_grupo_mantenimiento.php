@@ -4,7 +4,7 @@ if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Es
 {
   require_once(__CTR_PATH . "ctr_grupo.php");
   $ctr_Grupo = new ctr_Grupo();
-  $ctr = $ctr_Grupo->insertar_Grupo($_POST['Nombre'],$_POST['Descripcion'],$_POST['Estado'],2,'Jerson');
+  $ctr = $ctr_Grupo->insertar_Grupo($_POST['Nombre'],$_POST['Descripcion'],$_POST['Estado'],1,'Jerson');
   $bolean=true;
   $titulo="Agregado";
 }
