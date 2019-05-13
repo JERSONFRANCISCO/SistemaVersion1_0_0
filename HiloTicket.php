@@ -79,10 +79,13 @@ require_once("global.php");
 
   <script>
     $(document).ready(function() {
-      $('#summernote').summernote();
+      $('#summernote').summernote({height:250});
     });
-  </script>
+
+    
+</script>
 
 </body>
 
 </html>
+

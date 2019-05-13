@@ -1,12 +1,3 @@
-/**
- * Super simple wysiwyg editor v0.8.11
- * https://summernote.org
- *
- * Copyright 2013- Alan Hong. and other contributors
- * summernote may be freely distributed under the MIT license.
- *
- * Date: 2018-11-24T12:13Z
- */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery')) :
   typeof define === 'function' && define.amd ? define(['jquery'], factory) :
@@ -6758,9 +6749,9 @@
           var $container = this.options.dialogsInBody ? this.$body : this.$editor;
           var body = [
               '<p class="text-center">',
-              '<a href="http://summernote.org/" target="_blank">Summernote 0.8.11</a> · ',
-              '<a href="https://github.com/summernote/summernote" target="_blank">Project</a> · ',
-              '<a href="https://github.com/summernote/summernote/issues" target="_blank">Issues</a>',
+ //             '<a href="http://summernote.org/" target="_blank">Summernote 0.8.11</a> · ',
+ //             '<a href="https://github.com/summernote/summernote" target="_blank">Project</a> · ',
+ //             '<a href="https://github.com/summernote/summernote/issues" target="_blank">Issues</a>',
               '</p>'
           ].join('');
           this.$dialog = this.ui.dialog({

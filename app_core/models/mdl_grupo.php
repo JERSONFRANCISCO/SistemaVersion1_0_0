@@ -31,7 +31,6 @@ class mdl_grupo{
 		//$posts=array();
 		$cont=0;
 		$sql = "EXEC pa_Grupos @Accion = 'I', @GRU_Titulo = '".$Titulo."', @GRU_Observaciones='".$Observaciones."', @GRU_Estado='A',@DEP_Departamento=".$Departamento.",@USR_Usuario_Creacion='".$Usuario."'";
-		echo $sql;
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}

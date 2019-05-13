@@ -112,7 +112,7 @@ CREATE TABLE dbo.TICKET(
 	USR_Usuario_Cierre varchar(20) NULL,
 	USR_Fecha_Reapertura datetime  null,
 	USR_Usuario_Reapertura varchar(20) NULL,
-	USR_Fecha_Modificacion datetime not null,
+	USR_Fecha_Modificacion datetime null,
 	USR_Usuario_Modificacion varchar(20) NULL,
 	TIC_Fecha_Vencimiento datetime  null,
 	TIC_Prioridad varchar(1) not null,

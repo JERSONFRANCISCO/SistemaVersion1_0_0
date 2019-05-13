@@ -28,9 +28,7 @@ class mdl_departamentos{
 	public function insertar_HILOTICKET($Titulo,$Observaciones,$Estado,$Usuario){
 		$posts=array();
 		$cont=0;
-		$sql = "insert into TICKET_detalle(TIC_TICKET,USR_Usuario,TIC_TItulo,tic_observaciones,TIC_Estado)
-		values(11,'Jerson','ESTADO','".$Observaciones."','A')
-		";
+		$sql = " exec pa_HiloTicet @DEP_Titulo = '".$Observaciones."'";
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}

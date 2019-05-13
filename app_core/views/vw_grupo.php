@@ -125,7 +125,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <thead>
                                     <tr>
-                                      <th>Departamento</th>
+                                      <th>Grupo</th>
                                       <th>Nombre</th>
                                       <th>Observaciones</th>
                                       <th>Estado</th>
@@ -137,7 +137,7 @@
                                   </thead>
                                   <tfoot>
                                     <tr>
-                                      <th>Departamento</th>
+                                      <th>Grupo</th>
                                       <th>Nombre</th>
                                       <th>Observaciones</th>
                                       <th>Estado</th>

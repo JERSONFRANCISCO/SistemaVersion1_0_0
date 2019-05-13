@@ -3,9 +3,6 @@ if(isset($_POST['editordata'])){
   require_once(__CTR_PATH . "ctr_hiloTicket.php");
   $ctr_departamentos = new ctr_departamentos();
   $ctr = $ctr_departamentos->insertar_HILOTICKET('',$_POST['editordata'],'','');
-
-}else{
-
 }
 
 
@@ -213,8 +210,8 @@ if(isset($_POST['editordata'])){
                             echo "<div class='activity-body act-in'>";
                             echo "<span class='arrow'></span>";
                             echo "<div class='text'>";
-                            echo "<p class='attribution'><a>".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
-                            echo "<p>".$value[2]."</p>";
+                            echo "<p class='attribution'><a style='color: #797979;'>Publicado por: ".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
+                            echo "<hr style='margin-top: 0px;' ><p>".$value[2]."</p>";
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
