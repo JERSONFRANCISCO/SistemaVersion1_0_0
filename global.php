@@ -11,7 +11,7 @@
   date_default_timezone_set('America/Costa_Rica');
 
 
-  define('__ROOT__', $_SERVER["DOCUMENT_ROOT"]);
+  define('__ROOT__', $_SERVER["DOCUMENT_ROOT"]); 
   define('__SITE_PATH', $mysite);
 
   define('__MDL_PATH', "app_core/models/");

@@ -1,5 +1,5 @@
 <?php
-  require_once("global.php");
+require_once("global.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,17 +21,18 @@
   <!--external css-->
   <!-- font icon -->
   <link href="<?php echo __CSS_PATH;?>elegant-icons-style.css" rel="stylesheet" />
- <!-- <link href="<?php echo __CSS_PATH;?>font-awesome.min.css" rel="stylesheet" />-->
+  <!-- <link href="<?php echo __CSS_PATH;?>font-awesome.min.css" rel="stylesheet" />-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <!-- Custom styles -->
   <link href="<?php echo __CSS_PATH;?>style.css" rel="stylesheet">
   <link href="<?php echo __CSS_PATH;?>style-responsive.css" rel="stylesheet" />
+  <link href="<?php echo __CSS_PATH;?>bootstrap-select.min.css" rel="stylesheet" />
 
 </head>
 <body>
 
   <?php
-    include_once(__VWS_PATH."vw_grupo_mantenimiento.php");
+  include_once(__VWS_PATH."vw_grupo_mantenimiento.php");
   ?>
   
   <!-- container section end -->
@@ -43,6 +44,8 @@
   <script src="<?php echo __JS_PATH;?>jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="<?php echo __JS_PATH;?>scripts.js"></script>
+  <script src="<?php echo __JS_PATH;?>bootstrap-select.min.js"></script>
+
 
 
 </body>

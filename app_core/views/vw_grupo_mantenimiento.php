@@ -138,73 +138,74 @@ if(isset($_POST['botonVer'])){
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-               <strong><?php if(isset($titulo)){echo $titulo;}?> departamentos</strong>
-            </header>
-            <div class="panel-body">
-              <div class="form">
-                <form class="form-validate form-horizontal" id="feedback_form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                  <div class="form-group ">
-                    <label for="Grupo" class="control-label col-lg-2">Grupo<span class="required">*</span></label>
-                    <div class="col-lg-10">
-                      <input class="form-control " id="Grupo" type="text" name="Grupo" placeholder='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' values='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' readonly/>
-                    </div>
+             <strong><?php if(isset($titulo)){echo $titulo;}?> departamentos</strong>
+           </header>
+           <div class="panel-body">
+            <div class="form">
+              <form class="form-validate form-horizontal" id="feedback_form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <div class="form-group ">
+                  <label for="Grupo" class="control-label col-lg-2">Grupo<span class="required">*</span></label>
+                  <div class="col-lg-10">
+                    <input class="form-control " id="Grupo" type="text" name="Grupo" placeholder='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' values='<?php if(isset($_POST['identificador'])) {echo $_POST['identificador'];} ?>' readonly/>
                   </div>
-                  <div class="form-group ">
-                    <label for="Nombre" class="control-label col-lg-2">Nombre<span class="required">*</span></label>
-                    <div class="col-lg-10">
-                      <input class="form-control " id="Nombre" type="text" name="Nombre" required />
-                    </div>
+                </div>
+                <div class="form-group ">
+                  <label for="Nombre" class="control-label col-lg-2">Nombre<span class="required">*</span></label>
+                  <div class="col-lg-10">
+                    <input class="form-control " id="Nombre" type="text" name="Nombre" required />
                   </div>
-                  <div class="form-group ">
-                    <label for="Descripcion" class="control-label col-lg-2">Descipción<span class="required">*</span></label>
-                    <div class="col-lg-10">
-                      <input class="form-control " id="Descripcion" type="text" name="Descripcion" />
-                    </div>
+                </div>
+                <div class="form-group ">
+                  <label for="Descripcion" class="control-label col-lg-2">Descipción<span class="required">*</span></label>
+                  <div class="col-lg-10">
+                    <input class="form-control " id="Descripcion" type="text" name="Descripcion" />
                   </div>
+                </div>
 
-                  <div class="form-group">
-                    <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
-                    <div class="col-lg-10">
-                      <select class="form-control m-bot15" id="Estado" name="Estado">
-                        <option >ACTIVO</option>
-                        <option >INACTIVO</option>
-                        <option >BLOQUEADO</option>
-                      </select>
-                    </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
+                  <div class="col-lg-10">
+                    <select class="form-control m-bot15 selectpicker"  id="Estado" name="Estado" data-live-search="true" title="Selecione Estado">
+                      <option >ACTIVO</option>
+                      <option >INACTIVO</option>
+                      <option >BLOQUEADO</option>
+                    </select>
                   </div>
-                  
-                  <div class="form-group">
-                    <label class="control-label col-lg-2" for="inputSuccess">Departamento</label>
-                    <div class="col-lg-10">
-                      <select class="form-control m-bot15" id="Departamento" name="Departamento">
-                        <option>01 - TECNOLOGÍAS DE INFORMACIÓN</option>
-                        <option>02 - CONTABILIDAD</option>
-                      </select>
-                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-lg-2" for="inputSuccess">Departamento</label>
+                  <div class="col-lg-10">
+                    <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                      <option>01 - TECNOLOGÍAS DE INFORMACIÓN</option>
+                      <option>02 - CONTABILIDAD</option>
+                    </select>
                   </div>
-                  
-                  <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10 text-right">
-                      <button class="btn btn-primary" type="submit">Guardar</button>
-                      <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
-                    </div>
-                  </div>
-                </form>
+                </div>
+
+
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10 text-right">
+                  <button class="btn btn-primary" type="submit">Guardar</button>
+                  <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
+                </div>
               </div>
+            </form>
+          </div>
 
-            </div>
-          </section>
         </div>
-      </div>
-
-      <!-- page end-->
-    </section>
-  </section>
-  <!--main content end-->
-  <div class="text-center">
-    <div class="credits">
-
-      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+      </section>
     </div>
   </div>
+
+  <!-- page end-->
+</section>
+</section>
+<!--main content end-->
+<div class="text-center">
+  <div class="credits">
+
+    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+  </div>
+</div>
 </section>
