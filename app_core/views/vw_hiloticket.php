@@ -9,26 +9,13 @@ if(isset($_POST['editordata'])){
 ?>
 
 <style type="text/css">
-
-.drag-drop-item
-{
-  touch-action: none;
-}
+  .drag-drop-item
+  {
+    touch-action: none;
+  }
+  
 </style>  
-<?php
 
-?>
-
-<style type="text/css">
-
-.drag-drop-item
-{
-  touch-action: none;
-}
-</style>
-<script>
-
-</script>
 <!-- container section start -->
 <section id="container" class="">
   <!--header start-->
@@ -122,7 +109,7 @@ if(isset($_POST['editordata'])){
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>Ticket 0001</h3>
+          <!-- <h3 class="page-header"><i class="fa fa-table"></i>Ticket 0001</h3> -->
           <div class="row">
             <div class="col-lg-12">
               <header class="panel-heading">
@@ -133,7 +120,7 @@ if(isset($_POST['editordata'])){
                 <!-- profile-widget -->
                 <div class="col-lg-12">
                   <div class="profile-widget profile-widget-info">
-                    <div class="panel-body">
+                    <div class="panel-body" style="color: black;background-color: white;">
 
                      <div class="col-lg-2 col-sm-2 follow-info">
                       <p><strong>Estado:</strong></p>
@@ -178,7 +165,67 @@ if(isset($_POST['editordata'])){
                 </div>
               </div>
             </div>
-            <!-- page start-->
+
+
+            <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="panel">
+                  <header class="panel-heading tab-bg-info">
+                    <ul class="nav nav-tabs">
+                      <li class="active">
+                        <a data-toggle="tab" href="#contestar">
+                          Responder
+                        </a>
+                      </li>
+                      <li>
+                        <a data-toggle="tab" href="#changeDepartamento">
+                          Cambiar Departamento
+                        </a>
+                      </li>
+                      <li>
+                        <a data-toggle="tab" href="#changeUser">
+                          Asignar Usuario
+                        </a>
+                      </li>
+                    </ul>
+                  </header>
+
+                  <div class="panel-body">
+                    <div class="tab-content">
+                      <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN 
+                        AQUI SE EJECUTA EL EVENTO QUE REFRESCA LA PAGINA PARA GUARDAR LOS DATOS EN LA BD Y REFRESCAR NUEVAMENTE-->
+                      <div id="contestar" class="tab-pane active">
+                        <div class="profile-activity">
+                          <form method="post" action="" >
+                            <textarea id="summernote" name="editordata" ></textarea>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Responder</button>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN -->
+                      
+                      <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL DEPARTAMENTO -->
+                      <div id="changeDepartamento" class="tab-pane">
+
+                      </div>
+                      <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL CAMBIA EL DEPARTAMENTO -->
+
+                      <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL USUARIO -->
+                      <div id="changeUser" class="tab-pane">
+
+                      </div>
+                      <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL USUARIO -->
+
+                    </div>
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+            <!-- AQUI TERMINA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
+
+            <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA EL HILO DEL TICKET Y EL -->
             <div class="row">
               <div class="col-lg-12">
                 <section class="panel">
@@ -209,15 +256,14 @@ if(isset($_POST['editordata'])){
                             echo "<div class='act-time'>";
                             echo "<div class='activity-body act-in'>";
                             echo "<span class='arrow'></span>";
-                            echo "<div class='text' style='border: 3px solid #e3e6ed;'>";
+                            echo "<div class='text' style='border: 1px solid #1a2732;'>";
                             echo "<p class='attribution'><a style='color: #797979;'>Publicado por: ".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
-                            echo "<hr style='margin-top: 0px; border: 2px solid #e3e6ed;' ><p>".$value[2]."</p>";
+                            echo "<hr style='margin-top: 0px; border: 0.5px solid #1a2732;' ><p>".$value[2]."</p>";
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
                           }
                           ?>
-
                         </div>
                       </div>
                       <!-- profile -->
@@ -231,56 +277,13 @@ if(isset($_POST['editordata'])){
                       </div>
                     </div>
                   </div>
+
+
                 </section>
               </div>
             </div>
             <!--  termina la parte del hilo y tareas del ticket-->
-            <div class="row">
-              <div class="col-lg-12">
-                <section class="panel">
-                  <header class="panel-heading tab-bg-info">
-                    <ul class="nav nav-tabs">
-                      <li class="active">
-                        <a data-toggle="tab" href="#contestar">
-                          Responder
-                        </a>
-                      </li>
-                      <li>
-                        <a data-toggle="tab" href="#changeDepartamento">
-                          Cambiar Departamento
-                        </a>
-                      </li>
-                      <li>
-                        <a data-toggle="tab" href="#changeUser">
-                          Asignar Usuario
-                        </a>
-                      </li>
-                    </ul>
-                  </header>
 
-                  <div class="panel-body">
-                    <div class="tab-content">
-                      <div id="contestar" class="tab-pane active">
-                        <div class="profile-activity">
-                          <form method="post" action=""  >
-                            <textarea id="summernote" name="editordata" style="width: 150px;"></textarea>
-
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Responder</button>
-                          </form>
-                        </div>
-                      </div>
-                      <!-- profile -->
-                      <div id="changeDepartamento" class="tab-pane">
-
-                      </div>
-                      <div id="changeUser" class="tab-pane">
-
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
 
 
           </div>
