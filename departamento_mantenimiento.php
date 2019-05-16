@@ -33,22 +33,14 @@ $HTML = new mdl_Html();
 
   <?php
   include_once(__VWS_PATH."vw_departamento_mantenimiento.php");
+
+
+  echo $HTML->html_js_header(__JS_PATH."jquery.js");
+  echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
+  echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");
+  echo $HTML->html_js_header(__JS_PATH."jquery.nicescroll.js");
+  echo $HTML->html_js_header(__JS_PATH."scripts.js");
   ?>
-  
-  <!-- container section end -->
-  <!-- javascripts -->
-  <script src="<?php echo __JS_PATH;?>jquery.js" type="text/javascript"></script>
-
-
-  <script src="<?php echo __JS_PATH;?>bootstrap.min.js" type="text/javascript"></script>
-  <!-- nicescroll -->
-  <script src="<?php echo __JS_PATH;?>jquery.scrollTo.min.js" type="text/javascript"></script>
-
-  <script src="<?php echo __JS_PATH;?>jquery.nicescroll.js" type="text/javascript"></script>
-
-  <!--custome script for all page-->
-  <script src="<?php echo __JS_PATH;?>scripts.js"></script>
-
 
 </body>
 
