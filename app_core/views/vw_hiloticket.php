@@ -113,7 +113,18 @@ if(isset($_POST['editordata'])){
           <div class="row">
             <div class="col-lg-12">
               <header class="panel-heading">
-                Ticket 001
+                <div class="row">
+                  <div class="col-lg-4">
+                    Ticket 001 
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="progress progress-striped progress-sm">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                        <span class="sr-only">20% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
               </header>
 
               <div class="row">
@@ -195,109 +206,109 @@ if(isset($_POST['editordata'])){
                     <div class="tab-content">
                       <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN 
                         AQUI SE EJECUTA EL EVENTO QUE REFRESCA LA PAGINA PARA GUARDAR LOS DATOS EN LA BD Y REFRESCAR NUEVAMENTE-->
-                      <div id="contestar" class="tab-pane active">
-                        <div class="profile-activity">
-                          <form method="post" action="" >
-                            <textarea id="summernote" name="editordata" ></textarea>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Responder</button>
-                          </form>
-                        </div>
-                      </div>
-                      <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN -->
-                      
-                      <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL DEPARTAMENTO -->
-                      <div id="changeDepartamento" class="tab-pane">
-
-                      </div>
-                      <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL CAMBIA EL DEPARTAMENTO -->
-
-                      <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL USUARIO -->
-                      <div id="changeUser" class="tab-pane">
-
-                      </div>
-                      <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL USUARIO -->
-
-                    </div>
-                  </div>
-                  
-                </section>
-              </div>
-            </div>
-            <!-- AQUI TERMINA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
-
-            <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA EL HILO DEL TICKET Y EL -->
-            <div class="row">
-              <div class="col-lg-12">
-                <section class="panel">
-                  <header class="panel-heading tab-bg-info">
-                    <ul class="nav nav-tabs">
-                      <li class="active">
-                        <a data-toggle="tab" href="#recent-activity">
-                          Detalles del ticket
-                        </a>
-                      </li>
-                      <li>
-                        <a data-toggle="tab" href="#task">
-                          Tareas
-                        </a>
-                      </li>
-                    </ul>
-                  </header>
-
-                  <div class="panel-body">
-                    <div class="tab-content">
-                      <div id="recent-activity" class="tab-pane active">
-                        <div class="profile-activity">
-                          <?php
-                          require_once(__CTR_PATH . "ctr_hiloTicket.php");
-                          $ctr_departamentos = new ctr_departamentos();
-                          $ctr = $ctr_departamentos->obtener_Objetos();
-                          foreach ($ctr as $value) {
-                            echo "<div class='act-time'>";
-                            echo "<div class='activity-body act-in'>";
-                            echo "<span class='arrow'></span>";
-                            echo "<div class='text' style='border: 1px solid #1a2732;'>";
-                            echo "<p class='attribution'><a style='color: #797979;'>Publicado por: ".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
-                            echo "<hr style='margin-top: 0px; border: 0.5px solid #1a2732;' ><p>".$value[2]."</p>";
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</div>";
-                          }
-                          ?>
-                        </div>
-                      </div>
-                      <!-- profile -->
-                      <div id="task" class="tab-pane">
-                        <section class="panel">
-                        </section>
-                        <section>
-                          <div class="row">
+                        <div id="contestar" class="tab-pane active">
+                          <div class="profile-activity">
+                            <form method="post" action="" >
+                              <textarea id="summernote" name="editordata" ></textarea>
+                              <button type="submit" class="btn btn-primary btn-lg btn-block">Responder</button>
+                            </form>
                           </div>
-                        </section>
+                        </div>
+                        <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN -->
+
+                        <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL DEPARTAMENTO -->
+                        <div id="changeDepartamento" class="tab-pane">
+
+                        </div>
+                        <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL CAMBIA EL DEPARTAMENTO -->
+
+                        <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL USUARIO -->
+                        <div id="changeUser" class="tab-pane">
+
+                        </div>
+                        <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL CAMBIA EL USUARIO -->
+
                       </div>
                     </div>
-                  </div>
 
-
-                </section>
+                  </section>
+                </div>
               </div>
+              <!-- AQUI TERMINA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
+
+              <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA EL HILO DEL TICKET Y EL -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <section class="panel">
+                    <header class="panel-heading tab-bg-info">
+                      <ul class="nav nav-tabs">
+                        <li class="active">
+                          <a data-toggle="tab" href="#recent-activity">
+                            Detalles del ticket
+                          </a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#task">
+                            Tareas
+                          </a>
+                        </li>
+                      </ul>
+                    </header>
+
+                    <div class="panel-body">
+                      <div class="tab-content">
+                        <div id="recent-activity" class="tab-pane active">
+                          <div class="profile-activity">
+                            <?php
+                            require_once(__CTR_PATH . "ctr_hiloTicket.php");
+                            $ctr_departamentos = new ctr_departamentos();
+                            $ctr = $ctr_departamentos->obtener_Objetos();
+                            foreach ($ctr as $value) {
+                              echo "<div class='act-time'>";
+                              echo "<div class='activity-body act-in'>";
+                              echo "<span class='arrow'></span>";
+                              echo "<div class='text' style='border: 1px solid #1a2732;'>";
+                              echo "<p class='attribution'><a style='color: #797979;'>Publicado por: ".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
+                              echo "<hr style='margin-top: 0px; border: 0.5px solid #1a2732;' ><p>".$value[2]."</p>";
+                              echo "</div>";
+                              echo "</div>";
+                              echo "</div>";
+                            }
+                            ?>
+                          </div>
+                        </div>
+                        <!-- profile -->
+                        <div id="task" class="tab-pane">
+                          <section class="panel">
+                          </section>
+                          <section>
+                            <div class="row">
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </section>
+                </div>
+              </div>
+              <!--  termina la parte del hilo y tareas del ticket-->
+
+
+
             </div>
-            <!--  termina la parte del hilo y tareas del ticket-->
-
-
-
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
-</section>
 
 
-<!--main content end-->
-<div class="text-center">
-  <div class="credits">
-    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+  <!--main content end-->
+  <div class="text-center">
+    <div class="credits">
+      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+    </div>
   </div>
-</div>
 </section>
