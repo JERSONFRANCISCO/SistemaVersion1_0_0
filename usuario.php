@@ -15,6 +15,7 @@ $HTML = new mdl_Html();
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   
   <?php
+
   echo $HTML->html_icono(__RSC_PHO_HOST_PATH);
   echo $HTML->html_TituloPagina();
   echo $HTML->html_css_header(__CSS_PATH . "bootstrap.min.css","screen");
@@ -24,7 +25,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "style.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "style-responsive.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
-  echo $HTML->html_css_header(__CSS_PATH . "summernote.css","screen");
+
   ?>
 
 
@@ -32,33 +33,21 @@ $HTML = new mdl_Html();
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_hiloticket.php");
+  include_once(__VWS_PATH."vw_usuario.php");
 
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.nicescroll.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
-  echo $HTML->html_js_header(__JS_PATH."jquery.knob.js");
+  echo $HTML->html_js_header(__JS_PATH."bootstrap.bundle.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.easing.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.dataTables.js");
   echo $HTML->html_js_header(__JS_PATH."dataTables.bootstrap4.js");
   echo $HTML->html_js_header(__JS_PATH."datatables-demo.js");
-  
-  echo $HTML->html_js_header(__CSS_PATH."summernote.js");
-  ?>
+?>
 
-  <script>
-    $(document).ready(function() {
-      $('#summernote').summernote({
-        height:150
-      });
-    });
-
-    
-  </script>
 
 </body>
 
 </html>
-

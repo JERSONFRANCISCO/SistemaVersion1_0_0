@@ -13,7 +13,6 @@
 
   define('__ROOT__', $_SERVER["DOCUMENT_ROOT"]); 
   define('__SITE_PATH', $mysite);
-
   define('__MDL_PATH', "app_core/models/");
   define('__CTR_PATH', "app_core/controllers/");
   define('__VWS_PATH',  "app_core/views/");

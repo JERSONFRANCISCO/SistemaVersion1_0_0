@@ -69,40 +69,9 @@ if(isset($_POST['editordata'])){
   <!--header end-->
 
   <!--sidebar start-->
-  <aside>
-    <div id="sidebar" class="nav-collapse ">
-      <!-- sidebar menu start-->
-      <ul class="sidebar-menu">
-        <li class="">
-          <a class="" href="index.html">
-            <i class="icon_house_alt"></i>
-            <span>Pagina Principal</span>
-          </a>
-        </li>
-
-        <li class="sub-menu">
-          <a href="javascript:;" class="">
-            <i class="icon_table"></i>
-            <span>Mantenimiento</span>
-            <span class="menu-arrow arrow_carrot-right"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="active" href="index.php">Departamentos</a></li>
-            <li><a class="active" href="grupo.php">Grupos</a></li>
-          </ul>
-          <a href="javascript:;" class="">
-            <i class="icon_table"></i>
-            <span>Tickets</span>
-            <span class="menu-arrow arrow_carrot-right"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="active" href="hiloTicket.php">Mis Tickets</a></li>
-          </ul>
-        </li>
-      </ul>
-      <!-- sidebar menu end-->
-    </div>
-  </aside>
+  <?php
+  echo $HTML->html_menu();
+  ?>
 
   <!--main content start-->
   <section id="main-content">
