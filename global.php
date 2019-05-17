@@ -37,7 +37,6 @@
 
   define('__BOOSTRAP',"app_design/bootstrap/");
   define('__FONT', "app_design/font-awesome/");
-//http://localhost/cotizaciones/app_design/font-awesome/css/font-awesome.min.css
 
   define('__google_fonts', "https://fonts.googleapis.com/css");   
 
