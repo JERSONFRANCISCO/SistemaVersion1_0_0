@@ -20,6 +20,10 @@ class ctr_grupo{
 		{
 			return $this->postdata->actualizar_Grupo($Titulo,$Observaciones,$Estado,$Usuario,$departmento,$grupo);
 		}
+		public function eliminar_Grupo($Titulo,$Observaciones,$Estado,$Usuario,$departmento,$grupo)
+		{
+			return $this->postdata->eliminar_Grupo($Titulo,$Observaciones,$Estado,$Usuario,$departmento,$grupo);
+		}
 
 		public function buscar_Grupo($id)
 		{

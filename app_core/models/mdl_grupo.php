@@ -55,6 +55,13 @@ class mdl_grupo{
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
+	public function eliminar_Grupo($Titulo,$Observaciones,$Estado,$Departamento,$Usuario,$grupo){
+		$posts=array();
+		$cont=0;
+		$sql = "EXEC pa_Grupos @Accion = 'E', @GRU_Titulo = '', @GRU_Observaciones='', @GRU_Estado='".$Estado."',@DEP_Departamento = '' ,@USR_Usuario_Creacion='".$Usuario."' ,@Gru_Grupo =".$grupo;
+		$stmt = $this->conexion->consulta($sql);
+		return $sql;
+	}
 
 }
 ?>	

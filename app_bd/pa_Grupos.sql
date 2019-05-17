@@ -44,4 +44,14 @@ alter procedure pa_Grupos(
 			USR_Fecha_Modificacion = GETDATE()
 			where GRU_Grupo = @Gru_Grupo;
 		end	
+	if(@Accion = 'E')
+		begin
+			select @DEP_DepartamentoID=DEPARTAMENTOS.DEP_Departamento  from dbo.DEPARTAMENTOS where DEPARTAMENTOS.DEP_Titulo = @DEP_Departamento;
+			update GRUPO 
+			set 
+			GRU_Estado = @GRU_Estado,
+			USR_Usuario_Modificacion = @USR_Usuario_Creacion,
+			USR_Fecha_Modificacion = GETDATE()
+			where GRU_Grupo = @Gru_Grupo;
+		end	
 	end

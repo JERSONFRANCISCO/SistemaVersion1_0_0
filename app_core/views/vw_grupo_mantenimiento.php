@@ -1,5 +1,5 @@
 <?php
-$titulo='';
+$titulo='Agregar';
 
 if(isset($_POST['Agregar'])){
   if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])AND isset($_POST['Departamento'])) 
@@ -27,7 +27,7 @@ if(isset($_POST['Eliminar'])){
   {
     require_once(__CTR_PATH . "ctr_grupo.php");
     $ctr_Grupo = new ctr_Grupo();
-    $ctr = $ctr_Grupo->actualizar_Grupo($_POST['Nombre'],$_POST['Descripcion'],'B',$_POST['Departamento'],'Jerson',$_POST['Grupo']);
+    $ctr = $ctr_Grupo->eliminar_Grupo('','','B','','Jerson',$_POST['Grupo']);
     $bolean=true;
     $titulo="Actualizado";
   }
@@ -52,15 +52,15 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
 
 
 
-$titulo='';
+$accion='';
 $readonly='';
 if(isset($_POST['botonEditar'])){
   $readonly = '';
-  $titulo='Editar';
+  $accion='Editar';
 }else{
   if(isset($_POST['botonEliminar'])){
-    $readonly = 'disabled';
-    $titulo='Eliminar';
+    $readonly = 'readonly';
+    $accion='Eliminar';
   }
 }
 
@@ -209,7 +209,7 @@ if(isset($_POST['botonEditar'])){
 
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-10 text-right">
-                    <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>
+                    <button class="btn btn-primary" type="submit" id ="<?php if(isset($accion)){echo $accion;}?>" name="<?php if(isset($accion)){echo $accion;}?>">Guardar</button>
                     <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
                   </div>
                 </div>
