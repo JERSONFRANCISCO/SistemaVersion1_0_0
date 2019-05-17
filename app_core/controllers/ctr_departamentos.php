@@ -13,6 +13,10 @@ class ctr_departamentos{
 		{
 			return $this->postdata->obtener_Objetos();
 		}
+		public function obtener_Departamentos()
+		{
+			return $this->postdata->obtener_Departamentos();
+		}
 
 		public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario)
 		{

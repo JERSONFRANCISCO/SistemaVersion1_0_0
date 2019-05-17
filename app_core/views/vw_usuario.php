@@ -98,7 +98,6 @@
                                       <th>Observaciones</th>
                                       <th>Estado</th>
                                       <th>Departamento</th>
-                                      <th>Nombre</th>
                                       <th>Fecha</th>
                                       <th>Acción</th>
                                     </tr>
@@ -110,7 +109,6 @@
                                       <th>Observaciones</th>
                                       <th>Estado</th>
                                       <th>Departamento</th>
-                                      <th>Nombre</th>
                                       <th>Fecha</th>
                                       <th>Acción</th>
                                     </tr>
@@ -134,7 +132,6 @@
                     echo "<td>".$value[3]."</td>";
                     echo "<td>".$value[4]."</td>";
                     echo "<td>".$value[5]."</td>";
-                    echo "<td>".$value[6]."</td>";
                     echo "<td>";
                     echo "<div class='btn-group'>";
                     echo "<button class='btn btn-primary' id='botonVer' name='botonVer' type='submit' title='Ver'><i class='fas fa-eye'></i></button>";

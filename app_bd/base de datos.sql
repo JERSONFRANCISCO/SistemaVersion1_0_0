@@ -1,37 +1,4 @@
 -----------------------------------------------------------------------------------------------------------
-CREATE TABLE dbo.GRUPO(
-	GRU_Grupo INT IDENTITY(1,1),
-	GRU_Titulo varchar(50) not NULL,
-	GRU_Observaciones varchar(100) not NULL,
-	GRU_Estado varchar(1) not NULL,
-	DEP_Departamento int not null,
-	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
-	USR_Usuario_Creacion varchar(20) NULL,
-	USR_Fecha_Modificacion datetime null,
-	USR_Usuario_Modificacion varchar(20) NULL,
-	UNIQUE (GRU_Grupo),
-	PRIMARY KEY (GRU_Grupo),
-	FOREIGN KEY (DEP_Departamento) REFERENCES DEPARTAMENTOS(DEP_Departamento),
-	CONSTRAINT CHK_ESTADO_GRUPO CHECK (GRU_Estado IN('A','I','B','C','X'))
-)
------------------------------------------------------------------------------------------------------------
-/*	TABLA QUE ALMACENA LOS departamentos  */
-CREATE TABLE dbo.DEPARTAMENTOS(
-	DEP_Departamento INT IDENTITY(1,1),
-	DEP_Titulo varchar(50) not NULL,
-	DEP_Observaciones varchar(100) not NULL,
-	DEP_Estado varchar(1) not NULL,
-	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
-	USR_Usuario_Creacion varchar(20) NULL,
-	USR_Fecha_Modificacion datetime null,
-	USR_Usuario_Modificacion varchar(20) NULL
-	UNIQUE (DEP_Departamento),
-	UNIQUE (DEP_Titulo),
-	PRIMARY KEY (DEP_Departamento),
-	--FOREIGN KEY (GRU_Grupo) REFERENCES GRUPO(GRU_Grupo),
-	CONSTRAINT CHK_ESTADO_DEPARTAMENTOS CHECK (DEP_Estado IN('A','I','B','C','X'))
-)
------------------------------------------------------------------------------------------------------------
 /*  TABLA QUE ALMACENA LOS USUARIOS QUE VAN A UTILIZAR EL SISTEMA  */
 CREATE TABLE dbo.USUARIOS(
 	USR_Usuario INT IDENTITY(1,1),
@@ -49,6 +16,39 @@ CREATE TABLE dbo.USUARIOS(
 	PRIMARY KEY (USR_Usuario),
     FOREIGN KEY (GRU_Grupo) REFERENCES GRUPO(GRU_Grupo),
 	CONSTRAINT CHK_ESTADO_USUARIOS CHECK (USR_Estado IN('A','I','B','C','X'))
+)
+-----------------------------------------------------------------------------------------------------------
+/*	TABLA QUE ALMACENA LOS departamentos  */
+CREATE TABLE dbo.DEPARTAMENTOS(
+	DEP_Departamento INT IDENTITY(1,1),
+	DEP_Titulo varchar(100) not NULL,
+	DEP_Observaciones varchar(150) not NULL,
+	DEP_Estado varchar(1) not NULL,
+	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
+	USR_Usuario_Creacion varchar(20) NULL,
+	USR_Fecha_Modificacion datetime null,
+	USR_Usuario_Modificacion varchar(20) NULL
+	UNIQUE (DEP_Departamento),
+	UNIQUE (DEP_Titulo),
+	PRIMARY KEY (DEP_Departamento),
+	--FOREIGN KEY (GRU_Grupo) REFERENCES GRUPO(GRU_Grupo),
+	CONSTRAINT CHK_ESTADO_DEPARTAMENTOS CHECK (DEP_Estado IN('A','I','B','C','X'))
+)
+-----------------------------------------------------------------------------------------------------------
+CREATE TABLE dbo.GRUPO(
+	GRU_Grupo INT IDENTITY(1,1),
+	GRU_Titulo varchar(50) not NULL,
+	GRU_Observaciones varchar(100) not NULL,
+	GRU_Estado varchar(1) not NULL,
+	DEP_Departamento int not null,
+	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
+	USR_Usuario_Creacion varchar(20) NULL,
+	USR_Fecha_Modificacion datetime null,
+	USR_Usuario_Modificacion varchar(20) NULL,
+	UNIQUE (GRU_Grupo),
+	PRIMARY KEY (GRU_Grupo),
+	FOREIGN KEY (DEP_Departamento) REFERENCES DEPARTAMENTOS(DEP_Departamento),
+	CONSTRAINT CHK_ESTADO_GRUPO CHECK (GRU_Estado IN('A','I','B','C','X'))
 )
 -----------------------------------------------------------------------------------------------------------
 /*  Tabla para manejar un flujo de trabajo predefinido  */

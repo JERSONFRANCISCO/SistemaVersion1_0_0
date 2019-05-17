@@ -22,7 +22,6 @@ class mdl_usuario{
 			$posts[$cont][3]=$row[3];
 			$posts[$cont][4]=$row[4];
 			$posts[$cont][5]=$row[5];
-			$posts[$cont][6]=$row[6];
 			$cont++;
 		}
 		return $posts;

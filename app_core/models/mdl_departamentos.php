@@ -25,10 +25,21 @@ class mdl_departamentos{
 		}
 		return $posts;
 	}
+	public function obtener_Departamentos(){
+		$posts=array();
+		$cont=0;
+		$sql = "EXEC pa_Departametos @Accion = 'C', @DEP_Titulo = '', @DEP_Observaciones='', @DEP_Departameto=0, @DEP_Estado='A',@USR_Usuario_Creacion=''";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$cont++;
+		}
+		return $posts;
+	}
 	public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'I', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='A',@DEP_Departameto=0,@USR_Usuario_Creacion='".$Usuario."'";
+		$sql = "EXEC pa_Departametos @Accion = 'I', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='".$Estado."',@DEP_Departameto=0,@USR_Usuario_Creacion='".$Usuario."'";
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
