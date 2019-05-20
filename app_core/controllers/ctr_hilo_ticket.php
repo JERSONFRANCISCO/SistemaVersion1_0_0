@@ -1,12 +1,12 @@
 <?php
 
-require_once(__MDL_PATH . "mdl_hiloticket.php");
-class ctr_departamentos{
+require_once(__MDL_PATH . "mdl_hilo_ticket.php");
+class ctr_hilo_Ticket{
 	private $postdata;
 
 		public function __construct() //CONSTRUCTOR
 		{
-			$this->postdata = new mdl_departamentos();
+			$this->postdata = new ctr_hilo_Ticket();
 		}
 		
 		public function obtener_Objetos()
@@ -14,9 +14,9 @@ class ctr_departamentos{
 			return $this->postdata->obtener_Objetos();
 		}
 
-		public function insertar_HILOTICKET($Titulo,$Observaciones,$Estado,$Usuario)
+		public function insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario)
 		{
-			return $this->postdata->insertar_HILOTICKET($Titulo,$Observaciones,$Estado,$Usuario);
+			return $this->postdata->insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario);
 		}
 
 		public function actualizar_Departamento($Titulo,$Observaciones,$Estado,$Usuario,$departmento)

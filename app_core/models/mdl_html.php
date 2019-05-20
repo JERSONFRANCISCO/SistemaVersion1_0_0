@@ -35,7 +35,10 @@ class mdl_HTML {
 		"<span class='menu-arrow arrow_carrot-right'></span>".
 		"</a>".
 		"<ul class='sub'>".
-		"<li><a class='active' href='hiloTicket.php'>Mis Tickets</a></li>".
+		"<li><a class='active' href='crear_ticket.php'>Crear ticket</a></li>".
+		"<li><a class='active' href='hilo_ticket.php'>Mis tickets (2)</a></li>".
+		"<li><a class='active' href='hilo_ticket.php'>Tickets abiertos</a></li>".
+		"<li><a class='active' href='hilo_ticket.php'>Tickets cerrados</a></li>".
 		"</ul>".
 		"</li>".
 		"</ul>".

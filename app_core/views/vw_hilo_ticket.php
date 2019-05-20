@@ -1,8 +1,8 @@
 <?php
 if(isset($_POST['editordata'])){
-  require_once(__CTR_PATH . "ctr_hiloTicket.php");
-  $ctr_departamentos = new ctr_departamentos();
-  $ctr = $ctr_departamentos->insertar_HILOTICKET('',$_POST['editordata'],'','');
+  require_once(__CTR_PATH . "ctr_hilo_Ticket.php");
+  $ctr_hilo_Ticket = new ctr_hilo_Ticket();
+  $ctr = $ctr_hilo_Ticket->insertar_hilo_ticket('',$_POST['editordata'],'','');
 }
 
 

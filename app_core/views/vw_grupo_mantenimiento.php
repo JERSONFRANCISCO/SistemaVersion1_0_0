@@ -10,6 +10,8 @@ if(isset($_POST['Agregar'])){
     $bolean=true;
     $titulo="Agregado";
   }
+}else{
+  echo "no<br>";
 }
 
 if(isset($_POST['Editar'])){
@@ -188,18 +190,14 @@ if(isset($_POST['botonEditar'])){
                 <div class="form-group">
                   <label class="control-label col-lg-2" for="inputSuccess">Departamento</label>
                   <div class="col-lg-10">
-                    <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento" <?php echo $readonly;?>>
+                    <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
                       <?php
                       require_once(__CTR_PATH . "ctr_departamentos.php");
                       $ctr_departamentos = new ctr_departamentos();
                       $ctr = $ctr_departamentos->obtener_Departamentos();
                       $cont = 0;
                       foreach ($ctr as $value) {
-                        if($gru_departamento == $value[0]){
-                          echo "<option selected>".$value[0]."</option>";
-                        }else{
-                          echo "<option>".$value[0]."</option>";
-                        }
+                        echo "<option>".$value[0]."</option>";  
                       }
                       ?>
                     </select>
@@ -209,7 +207,7 @@ if(isset($_POST['botonEditar'])){
 
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-10 text-right">
-                    <button class="btn btn-primary" type="submit" id ="<?php if(isset($accion)){echo $accion;}?>" name="<?php if(isset($accion)){echo $accion;}?>">Guardar</button>
+                    <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>
                     <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
                   </div>
                 </div>

@@ -131,7 +131,7 @@ CREATE TABLE dbo.TICKET_DETALLE(
 	TIC_TICKET INT Not NULL,-- REFERENCIA  dbo.TICKET
 	USR_Usuario varchar(10) Not NULL, -- referencia al usuario que genero el detalle
 	TIC_Titulo varchar(100) not null,
-	TIC_Observaciones text, -- hilo del ticket
+	TIC_Observaciones varchar(max), -- hilo del ticket
 	TIC_Estado varchar(1) not null,
 	USR_Fecha_Creacion datetime NOT null DEFAULT(GETDATE()),
 	USR_Usuario_Creacion varchar(20) NULL,
@@ -167,7 +167,7 @@ CREATE TABLE dbo.TICKET_TAREAS(
 -----------------------------------------------------------------------------------------------------------
 create table CATALOGO(
 	CAT_Catalogo int identity(1,1) ,
-	CAT_Tabla VARCHAR(10) NOT NULL ,
+	CAT_Tabla VARCHAR(20) NOT NULL ,
 	CAT_Estado varchar(1) not null,
 	PRIMARY KEY (CAT_Catalogo),
 	CONSTRAINT CHK_ID_UNICO_CATALOGO UNIQUE(CAT_Catalogo),
@@ -177,7 +177,7 @@ create table CATALOGO(
 create table CATALOGO_DETALLE(
 	CAT_Detalle int identity(1,1),
 	CAT_Catalogo int NOT NULL, -- REFERENCIA A CATALOGO DETALLE
-	CAT_Tabla VARCHAR(10) NOT NULL, -- REFERENCIA A EL ENCABEZADO
+	CAT_Tabla VARCHAR(20) NOT NULL, -- REFERENCIA A EL ENCABEZADO
 	CAT_Contraccion varchar(1) NOT NULL,
 	CAT_Descripcion VARCHAR(30),
 	CAT_Estado varchar(1) not null,
