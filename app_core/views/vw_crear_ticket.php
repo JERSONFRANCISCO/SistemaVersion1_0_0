@@ -149,7 +149,7 @@ if(isset($_POST['editordata'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Usuario asignado:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="NombreUsuario" name="NombreUsuario" data-live-search="true" title="Selecione Departamento">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_departamentos.php");
                                   $ctr_departamentos = new ctr_departamentos();
@@ -181,7 +181,7 @@ if(isset($_POST['editordata'])){
                             <div class="form-group">
                               <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Cliente:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="NombreCliente" name="NombreCliente" data-live-search="true" title="Selecione Departamento">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_departamentos.php");
                                   $ctr_departamentos = new ctr_departamentos();
@@ -196,7 +196,7 @@ if(isset($_POST['editordata'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Proyecto:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="NombreProyecto" name="NombreProyecto" data-live-search="true" title="Selecione Departamento">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_departamentos.php");
                                   $ctr_departamentos = new ctr_departamentos();
@@ -211,7 +211,7 @@ if(isset($_POST['editordata'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Orden de trabajo:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajo" name="OrdenDeTrabajo" data-live-search="true" title="Selecione Departamento">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_departamentos.php");
                                   $ctr_departamentos = new ctr_departamentos();
@@ -226,7 +226,7 @@ if(isset($_POST['editordata'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Vendedor:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="NombreVendedor" name="NombreVendedor" data-live-search="true" title="Selecione Departamento">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_departamentos.php");
                                   $ctr_departamentos = new ctr_departamentos();
@@ -263,7 +263,7 @@ if(isset($_POST['editordata'])){
                               <label class="control-label col-lg-1" for="inputSuccess">Título:</label>
 
                               <div class="col-sm-11">
-                                <input class="form-control" placeholder="" type="text">
+                                <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text">
                               </div>
                             </div>
                             <br>
@@ -305,7 +305,7 @@ if(isset($_POST['editordata'])){
                         <div id="detallesTicket" class="tab-pane active">
                           <div class="profile-activity">
                             <form method="post" action="" >
-                              <textarea id="summernote" name="editordata" ></textarea>
+                              <textarea id="summernote" name="s" ></textarea>
                             </form>
                           </div>
                         </div>
