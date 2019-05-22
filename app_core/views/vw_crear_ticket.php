@@ -1,12 +1,3 @@
-<?php
-if(isset($_POST['editordata'])){
-
-}
-
-
-
-?>
-
 <style type="text/css">
   .drag-drop-item
   {
@@ -15,18 +6,17 @@ if(isset($_POST['editordata'])){
   i{
     background-color: rgba(255, 255, 255, 0)!important;
   }
-
-  #labelsDerecha{
+  #alinearIzquierda{
     text-align: left;
   }
+  .inner{
+    max-width: 10px;
+  }
+  .open > .dropdown-menu{
+    opacity: 1;
+  }
+}
 </style> 
-<script type="text/javascript">
-  function mi_alerta () {
-    alert ("Este seria el mensaje de alerta desde boton!");
-  } 
-</script>
-
-
 <!-- container section start -->
 <section id="container" class="">
   <!--header start-->
@@ -95,7 +85,7 @@ if(isset($_POST['editordata'])){
               <header class="panel-heading">
                 <div class="row">
                   <div class="col-lg-4">
-                    Ticket 001 
+                    Ticket nuevo 
                   </div>
                   <!--
                   <div class="col-lg-8">
@@ -117,9 +107,9 @@ if(isset($_POST['editordata'])){
                         <div row>
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
-                              <label class="control-label col-lg-4" id="labelsDerecha" for="inputSuccess">Prioridad:</label>
+                              <label class="control-label col-lg-4" id="alinearIzquierda" for="inputSuccess">Prioridad:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="Prioridad" name="Prioridad" data-live-search="true" title="Selecione la prioridad">
+                                <select class="form-control m-bot15 selectpicker" id="Prioridad" name="Prioridad" title="Selecione la prioridad">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_estandar.php");
                                   $ctr_estandar = new ctr_estandar();
@@ -132,7 +122,7 @@ if(isset($_POST['editordata'])){
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Departamento:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Departamento:</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreDepartamento" name="NombreDepartamento" data-live-search="true" title="Selecione Departamento">
                                   <?php
@@ -147,13 +137,13 @@ if(isset($_POST['editordata'])){
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Usuario asignado:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Usuario asignado:</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreUsuario" name="NombreUsuario" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                                  $ctr_departamentos = new ctr_departamentos();
-                                  $ctr = $ctr_departamentos->obtener_Departamentos();
+                                  require_once(__CTR_PATH . "ctr_usuario.php");
+                                  $ctr_usuario = new ctr_usuario();
+                                  $ctr = $ctr_usuario->obtener_Usuarios();
                                   $cont = 0;
                                   foreach ($ctr as $value) {
                                     echo "<option>".$value[0]."</option>";  
@@ -162,16 +152,14 @@ if(isset($_POST['editordata'])){
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Fecha de vencimiento:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Fecha de vencimiento:</label>
+                              <div class="col-lg-8">
+                                <input size="16" type="text" class="form-control" id="datetime" >
+                              </div>
+                              <br><br>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título:</label>
                               <div class="col-sm-8">
-                                <div class="form-group">
-                                  <div class="col-sm-12">
-                                    <div class="input-append date" id="dpYears" data-date="18-06-2013" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                      <input class="form-control" size="16" type="text" value="28-06-2013" readonly>
-                                      <span class="add-on"><i class="icon-calendar"></i></span>
-                                    </div>
-                                  </div>
-                                </div>
+                                <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text">
                               </div>
 
                             </div>
@@ -179,22 +167,22 @@ if(isset($_POST['editordata'])){
 
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Cliente:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Cliente:</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreCliente" name="NombreCliente" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                                  $ctr_departamentos = new ctr_departamentos();
-                                  $ctr = $ctr_departamentos->obtener_Departamentos();
+                                  require_once(__CTR_PATH . "ctr_estandar.php");
+                                  $ctr_estandar = new ctr_estandar();
+                                  $ctr = $ctr_estandar->obtener_Clientes("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option>".$value[0]."</option>";  
+                                    echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>"; 
                                   }
                                   ?>
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Proyecto:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Proyecto:</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreProyecto" name="NombreProyecto" data-live-search="true" title="Selecione Departamento">
                                   <?php
@@ -209,37 +197,37 @@ if(isset($_POST['editordata'])){
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Orden de trabajo:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Orden de trabajo:</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajo" name="OrdenDeTrabajo" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                                  $ctr_departamentos = new ctr_departamentos();
-                                  $ctr = $ctr_departamentos->obtener_Departamentos();
+                                  require_once(__CTR_PATH . "ctr_estandar.php");
+                                  $ctr_estandar = new ctr_estandar();
+                                  $ctr = $ctr_estandar->obtener_OrdenesTrabajo("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option>".$value[0]."</option>";  
+                                    echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>";  
                                   }
                                   ?>
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Vendedor:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Vendedor:</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreVendedor" name="NombreVendedor" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                                  $ctr_departamentos = new ctr_departamentos();
-                                  $ctr = $ctr_departamentos->obtener_Departamentos();
+                                  require_once(__CTR_PATH . "ctr_estandar.php");
+                                  $ctr_estandar = new ctr_estandar();
+                                  $ctr = $ctr_estandar->obtener_Vendedores("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option>".$value[0]."</option>";  
+                                    echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>"; 
                                   }
                                   ?>
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="labelsDerecha">Flujo de trabajo:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Flujo de trabajo:</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
                                   <?php
@@ -253,26 +241,9 @@ if(isset($_POST['editordata'])){
                                   ?>
                                 </select>
                               </div>
-                              
-
                             </div>
                           </div>
-                          <div class="row">
-                            <!-- profile-widget -->
-                            <div class="col-lg-12">
-                              <label class="control-label col-lg-1" for="inputSuccess">Título:</label>
-
-                              <div class="col-sm-11">
-                                <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text">
-                              </div>
-                            </div>
-                            <br>
-                          </div>
-
                         </div>
-
-
-
                       </div>
                     </div>
                   </div>
@@ -318,27 +289,27 @@ if(isset($_POST['editordata'])){
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
                               <div class="col-lg-12">
-                                <label class="control-label col-lg-2" >Título:</label>
-                                <div class="col-sm-11">
-                                  <input class="form-control" placeholder="" type="text">
+                                <label class="control-label col-lg-4" id="alinearIzquierda">Título:</label>
+                                <div class="col-sm-12">
+                                  <input class="form-control" placeholder="Título" type="text" id='tareaTitulo' name='tareaTitulo'>
                                 </div>
                               </div>
                               <div class="col-lg-12">
-                                <label class="control-label col-lg-2" for="inputSuccess">Descripción:</label>
-                                <div class="col-sm-11">
-                                  <input class="form-control" placeholder="" type="text">
+                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Descripción:</label>
+                                <div class="col-sm-12">
+                                  <input class="form-control" placeholder="Descripción" type="text" id='tareaDescripcion' name='tareaDescripcion'>
                                 </div>
                               </div>
                               <div class="col-lg-6">
-                                <label class="control-label col-lg-2" for="inputSuccess">Horas:</label>
-                                <div class="col-sm-11">
-                                  <input class="form-control" placeholder="" type="text">
+                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Horas:</label>
+                                <div class="col-sm-12">
+                                  <input class="form-control" placeholder="Horas" type="number" min="1" maxlength="2"  id='tareaHoras' name='tareaHoras'>
                                 </div>
                               </div>
                               <div class="col-lg-6">
-                                <label class="control-label col-lg-2" for="inputSuccess">Minutos:</label>
-                                <div class="col-sm-11">
-                                  <input class="form-control" placeholder="" type="text">
+                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Minutos:</label>
+                                <div class="col-sm-12">
+                                  <input class="form-control" placeholder="Minutos" type="number" maxlength="2" min="1" id='tareaMinutos' name='tareaMinutos'>
                                 </div>
                               </div>
                             </div>
@@ -347,9 +318,9 @@ if(isset($_POST['editordata'])){
                           <!------------------------------------------------- ------------------>
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
-                              <label class="control-label col-lg-4" for="inputSuccess">Departamento:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Departamento:</label>
                               <div class="col-lg-12">
-                                <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="tareaDepartamento" name="tareaDepartamento" data-live-search="true" title="Selecione Departamento">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_departamentos.php");
                                   $ctr_departamentos = new ctr_departamentos();
@@ -362,13 +333,13 @@ if(isset($_POST['editordata'])){
                                 </select>
                               </div>
 
-                              <label class="control-label col-lg-4" for="inputSuccess">Usuario asignado:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Usuario asignado:</label>
                               <div class="col-lg-12">
-                                <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="tareaUsuario" name="tareaUsuario" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                                  $ctr_departamentos = new ctr_departamentos();
-                                  $ctr = $ctr_departamentos->obtener_Departamentos();
+                                  require_once(__CTR_PATH . "ctr_usuario.php");
+                                  $ctr_usuario = new ctr_usuario();
+                                  $ctr = $ctr_usuario->obtener_Usuarios();
                                   $cont = 0;
                                   foreach ($ctr as $value) {
                                     echo "<option>".$value[0]."</option>";  
@@ -377,59 +348,69 @@ if(isset($_POST['editordata'])){
                                 </select>
                               </div>
 
-                              <label class="control-label col-lg-4" for="inputSuccess">Agregar:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda" name="totalDeTareas" value="0" style="color: white;">0</label>
                               <div class="col-lg-12">
-                               <button type="button" class="btn btn-primary btn-lg btn-block"  onclick="mi_alerta()">Agregar</button>
+                               <button type="button" class="btn btn-primary btn-lg btn-block"  onclick="agregarFila_Tareas()">Agregar</button>
                              </div>
-
-
                            </div>
                          </div>
                        </div>
                        <!------------------------------------------------- ------------------>
                        <div class="row">
                         <div class="col-lg-12 col-sm-12 follow-info">
-                          <div class="form-group">
-                            <table class="table table-striped table-advance table-hover">
-                              <tbody>
-                                <tr>
-                                  <th><i class="icon_profile"></i>Título</th>
-                                  <th><i class="icon_calendar"></i>Descripción</th>
-                                  <th><i class="icon_mail_alt"></i>Departamento</th>
-                                  <th><i class="icon_pin_alt"></i>Usuario</th>
-                                  <th><i class="icon_mobile"></i>Horas</th>
-                                  <th><i class="icon_mobile"></i>Minutos</th>
-                                  <th><i class="icon_cogs"></i> Action</th>
-                                </tr>
-                                <tr>
-                                  <td>Angeline Mcclain</td>
-                                  <td>2004-07-06</td>
-                                  <td>dale@chief.info</td>
-                                  <td>Rosser</td>
-                                  <td>Robert Lee</td>
-                                  <td>176-026-5992</td>
-                                  <td>
-                                    <div class="btn-group">
-                                      <a class="btn btn-danger"type="button" onclick="mi_alerta()"><i class="icon_close_alt2"></i></a>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Sung Carlson</td>
-                                  <td>2011-01-10</td>
-                                  <td>ione.gisela@high.org</td>
-                                  <td>Robert Lee</td>
-                                  <td>Robert Lee</td>
-                                  <td>724-639-4784</td>
-                                  <td>
-                                    <div class="btn-group">
-                                      <a class="btn btn-danger" type="button" onclick="mi_alerta()"><i class="icon_close_alt2"></i></a>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
+                          <section class="panel">
+                            <header class="panel-heading">
+                              Tareas
+                            </header>
+                            <div class="table-responsive">
+                              <table class="table" id="tablaTareas">
+                                <thead>
+                                  <tr>
+                                    <th>Tarea</th>
+                                    <th>Título</th>
+                                    <th>Descripción</th>
+                                    <th>Departamento</th>
+                                    <th>Usuario Asignado</th>
+                                    <th>Horas</th>
+                                    <th>Minutos</th>
+                                    <th>Acción</th>
+                                  </tr>
+                                </thead>
+                                <tfoot>
+                                  <tr>
+                                    <th>Tarea</th>
+                                    <th>Título</th>
+                                    <th>Descripción</th>
+                                    <th>Departamento</th>
+                                    <th>Usuario Asignado</th>
+                                    <th>Horas</th>
+                                    <th>Minutos</th>
+                                    <th>Acción</th>
+                                  </tr>
+                                </tfoot>
+                                <tbody> <!--
+                                  <tr>
+                                    <td>1</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                  </tr> -->
+                                </tbody>
+                              </table>
+                            </div>
+                          </section>
                         </div>
                       </div>
 

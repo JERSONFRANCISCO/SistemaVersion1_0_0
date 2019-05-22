@@ -26,7 +26,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "summernote.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "bootstrap-select.min.css","screen");
-
+  
   ?>
 
 
@@ -35,7 +35,8 @@ $HTML = new mdl_Html();
 
   <?php
   include_once(__VWS_PATH."vw_crear_ticket.php");
-
+  
+  echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");
@@ -48,6 +49,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__CSS_PATH."summernote.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
+  echo $HTML->html_js_header(__JS_PATH."daterangepicker.js");
 
   ?>
 
@@ -57,6 +59,14 @@ $HTML = new mdl_Html();
         height:150
       });
     });
+
+
+    $( "#NombreDepartamento" ).change(function() {
+      var tareaDepartamento=document.getElementById("NombreDepartamento").value;
+      alert( "Handler for .change() called." +tareaDepartamento);
+    });
+
+
   </script>
 
 

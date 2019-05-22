@@ -12,7 +12,18 @@ class ctr_estandar{
 		{
 			return $this->postdata->obtener_Catalogo($identificadorTabla);
 		}
-		
+		public function obtener_Clientes()
+		{
+			return $this->postdata->obtener_Clientes();
+		}
+		public function obtener_Vendedores()
+		{
+			return $this->postdata->obtener_Vendedores();
+		}
+		public function obtener_OrdenesTrabajo()
+		{
+			return $this->postdata->obtener_OrdenesTrabajo();
+		}
 	}
 
 ?>
