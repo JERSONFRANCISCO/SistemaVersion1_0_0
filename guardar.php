@@ -26,4 +26,15 @@ if(isset($_POST['editordata'])){
 if(isset($_POST['tituloTicket'])){
 	echo "tituloTicket".$_POST['tituloTicket']."<br>";
 }
+
+
+if(isset($_POST['tareaTareaDepartamento1'])){
+	//echo $_POST['tareatareaTitulo1'];
+	//echo $_POST['tareatareaDescripcion1'];
+	echo $_POST['tareaTareaDepartamento1'];
+	//echo $_POST['tareatareaUsuario1'];
+	//echo $_POST['tareatareaHoras1'];
+	//echo $_POST['tareatareaMinutos1'];
+}
+
 ?>

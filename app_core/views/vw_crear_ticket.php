@@ -1,3 +1,9 @@
+
+<?php
+
+
+
+?>
 <style type="text/css">
   .drag-drop-item
   {
@@ -362,9 +368,9 @@
                             <header class="panel-heading">
                               Tareas
                             </header>
-                            <div class="table-responsive">
-                              <table class="table" id="tablaTareas">
-                                <thead>
+                            <div class="table-responsive" id="tablaConTareas" name="tablaConTareas">
+                              <table class="table" id="tablaTareas" name="tablaTareas">
+                                <thead style="background-color: #394a593b;">
                                   <tr>
                                     <th>Tarea</th>
                                     <th>Título</th>
@@ -376,7 +382,7 @@
                                     <th>Acción</th>
                                   </tr>
                                 </thead>
-                                <tfoot>
+                                <tfoot style="background-color: #394a593b;">
                                   <tr>
                                     <th>Tarea</th>
                                     <th>Título</th>
@@ -388,25 +394,7 @@
                                     <th>Acción</th>
                                   </tr>
                                 </tfoot>
-                                <tbody> <!--
-                                  <tr>
-                                    <td>1</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                  </tr>
-                                  <tr>
-                                    <td>2</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                  </tr> -->
+                                <tbody>
                                 </tbody>
                               </table>
                             </div>
