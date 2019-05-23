@@ -6,7 +6,7 @@ class ctr_hilo_Ticket{
 
 		public function __construct() //CONSTRUCTOR
 		{
-			$this->postdata = new ctr_hilo_Ticket();
+			$this->postdata = new mdl_hilo_ticket();
 		}
 		
 		public function obtener_Objetos()
@@ -19,15 +19,6 @@ class ctr_hilo_Ticket{
 			return $this->postdata->insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario);
 		}
 
-		public function actualizar_Departamento($Titulo,$Observaciones,$Estado,$Usuario,$departmento)
-		{
-			return $this->postdata->actualizar_Departamento($Titulo,$Observaciones,$Estado,$Usuario,$departmento);
-		}
-
-		public function buscar_Departamento($departmentoID)
-		{
-			return $this->postdata->buscar_Departamento($departmentoID);
-		}
 	}
 
 	?>

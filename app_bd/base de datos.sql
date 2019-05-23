@@ -71,30 +71,30 @@ CREATE TABLE dbo.WORK_FLOW(
 -----------------------------------------------------------------------------------------------------------
 /*  Tabla que almacena las tareas del workflow  */
 CREATE TABLE dbo.WORK_FLOW_TAREAS(
-	WOR_DETALLE INT IDENTITY(1,1),
-	WOR_WORK_FLOW INT Not NULL,	  -- REFERENCIA  dbo.WORK_FLOW
+	WRK_DETALLE INT IDENTITY(1,1),
+	WRK_WORK_FLOW INT Not NULL,	  -- REFERENCIA  dbo.WORK_FLOW
 	DEP_DEPARTAMENTO INT NOT NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
 	USR_Usuario INT NULL,		  -- REFERENCIA   dbo.USUARIOS
-	WOR_Titulo varchar(100) not null,
-	WOR_Observaciones text,
-	WOR_Estado varchar(1) not null,-- REALIZADO O NO
-	WOR_Peso int null,
-	WOR_Dias varchar(3) null,
-	WOR_Horas varchar(3) null,
+	WRK_Titulo varchar(100) not null,
+	WRK_Observaciones text,
+	WRK_Estado varchar(1) not null,-- REALIZADO O NO
+	WRK_Peso int null,
+	WRK_Minutos varchar(3) null,
+	WRK_Horas varchar(3) null,
 	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
 	USR_Usuario_Creacion varchar(20) NULL,
 	USR_Fecha_Cierre datetime null,
 	USR_Usuario_Cierre varchar(20) NULL,
-	UNIQUE (WOR_DETALLE),
-	FOREIGN KEY (WOR_WORK_FLOW) REFERENCES WORK_FLOW(WRK_WORK_FLOW),
+	UNIQUE (WRK_DETALLE),
+	FOREIGN KEY (WRK_WORK_FLOW) REFERENCES WORK_FLOW(WRK_WORK_FLOW),
 	FOREIGN KEY (DEP_DEPARTAMENTO) REFERENCES DEPARTAMENTOS(DEP_DEPARTAMENTO),
 	FOREIGN KEY (USR_Usuario) REFERENCES USUARIOS(USR_Usuario),
-	CONSTRAINT CHK_ESTADO_WORK_FLOW_TAREAS CHECK (WOR_Estado IN('A','I','B','C','X'))
+	CONSTRAINT CHK_ESTADO_WORK_FLOW_TAREAS CHECK (WRK_Estado IN('A','I','B','C','X'))
 )
 -----------------------------------------------------------------------------------------------------------
 CREATE TABLE dbo.TICKET(
 	TIC_Ticket INT IDENTITY(1,1),
-	CIA_Codigo varchar(3) not null,
+	CIA_Codigo varchar(3) null,
 	Ven_Vendedor varchar(7) null,
 	Cli_Cliente varchar(10) null,
 	Pro_Proyecto varchar(4) null, -- Pro_Proyectos
@@ -106,6 +106,7 @@ CREATE TABLE dbo.TICKET(
 	TIC_Observaciones text,
 	TIC_Estado varchar(1) not null,
 	TIC_Porcentaje_Completado int not null default(0),
+	TIC_Prioridad varchar(1) not null,
 	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
 	USR_Usuario_Creacion varchar(20) NULL ,
 	USR_Fecha_Cierre datetime  null,
@@ -115,7 +116,6 @@ CREATE TABLE dbo.TICKET(
 	USR_Fecha_Modificacion datetime null,
 	USR_Usuario_Modificacion varchar(20) NULL,
 	TIC_Fecha_Vencimiento datetime  null,
-	TIC_Prioridad varchar(1) not null,
 	UNIQUE (TIC_TICKET),
 	PRIMARY KEY (TIC_TICKET),
 	FOREIGN KEY (WRK_WORK_FLOW) REFERENCES WORK_FLOW(WRK_WORK_FLOW),
@@ -143,7 +143,7 @@ CREATE TABLE dbo.TICKET_DETALLE(
 -----------------------------------------------------------------------------------------------------------
 CREATE TABLE dbo.TICKET_TAREAS(
 	TIC_Tareas INT IDENTITY(1,1),
-	CIA_Codigo varchar(3) not null,
+	CIA_Codigo varchar(3) null,
 	TIC_Ticket int Not NULL,-- REFERENCIA dbo.TICKET
 	DEP_Departamento INT NOT NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
 	USR_Usuario INT Not NULL, -- REFERENCIA   dbo.USUARIOS
@@ -151,7 +151,7 @@ CREATE TABLE dbo.TICKET_TAREAS(
 	TIC_Observaciones text,
 	TIC_Estado varchar(1) not null,-- REALIZADO O NO
 	TIC_Peso int null,
-	TIC_Dias varchar(3) null,
+	TIC_Minutos varchar(3) null,
 	TIC_Horas varchar(3) null,
 	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
 	USR_Usuario_Creacion varchar(20) NULL,

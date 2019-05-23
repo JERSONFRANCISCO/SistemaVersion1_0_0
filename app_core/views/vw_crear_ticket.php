@@ -1,6 +1,37 @@
 
 <?php
 
+if(isset($_POST['Prioridad'])){
+ // echo "Prioridad".substr($_POST['Prioridad'], 0,1)."<br>";
+}
+if(isset($_POST['NombreDepartamento'])){
+ // echo "NombreDepartamento".$_POST['NombreDepartamento']."<br>";
+}
+if(isset($_POST['NombreUsuario'])){
+ // echo "NombreUsuario".$_POST['NombreUsuario']."<br>";
+}
+if(isset($_POST['NombreCliente'])){
+  //echo "NombreCliente".$_POST['NombreCliente']."<br>";
+}
+if(isset($_POST['NombreProyecto'])){
+  //echo "NombreProyecto".$_POST['NombreProyecto']."<br>";
+}
+if(isset($_POST['OrdenDeTrabajo'])){
+  //echo "OrdenDeTrabajo".$_POST['OrdenDeTrabajo']."<br>";
+}
+if(isset($_POST['NombreVendedor'])){
+ // echo "NombreVendedor".$_POST['NombreVendedor']."<br>";
+}
+if(isset($_POST['summernote'])){
+  //echo "summernote".$_POST['summernote']."<br>";
+}
+if(isset($_POST['tituloTicket'])){
+ // echo "tituloTicket".$_POST['tituloTicket']."<br>";
+  require_once(__CTR_PATH . "ctr_crear_ticket.php");
+$ctr_crear_ticket = new ctr_crear_ticket();
+$ctr = $ctr_crear_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreCliente'],'123',0,$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
+}
+
 
 
 ?>
@@ -103,7 +134,7 @@
                   </div>  -->
                 </div>  
               </header>
-              <form class="form-horizontal " method="POST" action="guardar.php">
+              <form class="form-horizontal " method="POST" action="crear_ticket.php">
                 <div class="row">
                   <!-- profile-widget -->
                   <div class="col-lg-12">
@@ -182,7 +213,7 @@
                                   $ctr = $ctr_estandar->obtener_Clientes("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>"; 
+                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
                                   }
                                   ?>
                                 </select>
@@ -192,12 +223,12 @@
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreProyecto" name="NombreProyecto" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                                  $ctr_departamentos = new ctr_departamentos();
-                                  $ctr = $ctr_departamentos->obtener_Departamentos();
+                                  require_once(__CTR_PATH . "ctr_estandar.php");
+                                  $ctr_estandar = new ctr_estandar();
+                                  $ctr = $ctr_estandar->obtener_Proyectos("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option>".$value[0]."</option>";  
+                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
                                   }
                                   ?>
                                 </select>
@@ -212,7 +243,7 @@
                                   $ctr = $ctr_estandar->obtener_OrdenesTrabajo("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>";  
+                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
                                   }
                                   ?>
                                 </select>
@@ -227,7 +258,7 @@
                                   $ctr = $ctr_estandar->obtener_Vendedores("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>"; 
+                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
                                   }
                                   ?>
                                 </select>
@@ -237,12 +268,12 @@
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                                  $ctr_departamentos = new ctr_departamentos();
-                                  $ctr = $ctr_departamentos->obtener_Departamentos();
+                                  require_once(__CTR_PATH . "ctr_estandar.php");
+                                  $ctr_estandar = new ctr_estandar();
+                                  $ctr = $ctr_estandar->obtener_WorkFLow();
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option>".$value[0]."</option>";  
+                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
                                   }
                                   ?>
                                 </select>
@@ -282,7 +313,7 @@
                         <div id="detallesTicket" class="tab-pane active">
                           <div class="profile-activity">
                             <form method="post" action="" >
-                              <textarea id="summernote" name="s" ></textarea>
+                              <textarea id="summernote" name="summernote" ></textarea>
                             </form>
                           </div>
                         </div>

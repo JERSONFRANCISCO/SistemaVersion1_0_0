@@ -5,7 +5,6 @@ if(isset($_POST['editordata'])){
   $ctr = $ctr_hilo_Ticket->insertar_hilo_ticket('',$_POST['editordata'],'','');
 }
 
-
 ?>
 
 <style type="text/css">
@@ -231,9 +230,9 @@ if(isset($_POST['editordata'])){
                         <div id="recent-activity" class="tab-pane active">
                           <div class="profile-activity">
                             <?php
-                            require_once(__CTR_PATH . "ctr_hiloTicket.php");
-                            $ctr_departamentos = new ctr_departamentos();
-                            $ctr = $ctr_departamentos->obtener_Objetos();
+                            require_once(__CTR_PATH . "ctr_hilo_Ticket.php");
+                            $ctr_hilo_Ticket = new ctr_hilo_Ticket();
+                            $ctr = $ctr_hilo_Ticket->obtener_Objetos();
                             foreach ($ctr as $value) {
                               echo "<div class='act-time'>";
                               echo "<div class='activity-body act-in'>";

@@ -24,6 +24,14 @@ class ctr_estandar{
 		{
 			return $this->postdata->obtener_OrdenesTrabajo();
 		}
+		public function obtener_Proyectos()
+		{
+			return $this->postdata->obtener_Proyectos();
+		}
+		public function obtener_WorkFLow()
+		{
+			return $this->postdata->obtener_WorkFLow();
+		}
 	}
 
 ?>

@@ -1,6 +1,6 @@
 ALTER procedure pa_Departametos(
 	@Accion varchar(1),
-	@DEP_Titulo varchar(50),
+	@DEP_Titulo varchar(100),
 	@DEP_Observaciones varchar(100),
 	@DEP_Departameto int ,
 	@DEP_Estado varchar(1),

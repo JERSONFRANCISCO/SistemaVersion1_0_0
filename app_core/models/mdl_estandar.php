@@ -56,5 +56,31 @@ class mdl_estandar{
 		}
 		return $posts;
 	}
+	public function obtener_Proyectos(){
+		$posts=array();
+		$cont=0;
+		$sql = "pa_Estandar @Accion = 'PT' , @DEP_TABLA ='' ";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$posts[$cont][1]=$row[1];
+			$cont++;
+		}
+		return $posts;
+	}
+	public function obtener_WorkFLow(){
+		$posts=array();
+		$cont=0;
+		$sql = "pa_Estandar @Accion = 'WF' , @DEP_TABLA ='' ";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$posts[$cont][1]=$row[1];
+			$cont++;
+		}
+		return $posts;
+	}
+
+
 }
 ?>	

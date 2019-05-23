@@ -32,7 +32,7 @@ $HTML = new mdl_Html();
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_hiloticket.php");
+  include_once(__VWS_PATH."vw_hilo_ticket.php");
 
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
