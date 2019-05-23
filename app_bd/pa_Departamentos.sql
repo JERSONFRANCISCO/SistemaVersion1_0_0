@@ -12,7 +12,7 @@ ALTER procedure pa_Departametos(
 		begin
 			select DEP_Departamento,DEP_Titulo,DEP_Observaciones,
 			case when DEP_Estado = 'A' then 'Activo' else 'Inactivo'
-			end,CONVERT(VARCHAR, dep.USR_Fecha_Creacion, 111) as USR_Fecha_Creacion
+			end,CONVERT(VARCHAR, dep.USR_Fecha_Creacion, 105) as USR_Fecha_Creacion
 			 from DEPARTAMENTOS dep where DEP_Estado in('A','I')
 		end
 		else

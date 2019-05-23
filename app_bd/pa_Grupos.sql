@@ -13,7 +13,7 @@ alter procedure pa_Grupos(
 	if(@Accion = 'S')
 		begin
 			select GRU_Grupo,GRU_Titulo,GRU_Observaciones,case when GRU_Estado = 'A' then 'Activo' else 'Inactivo'
-			end,DEP_Titulo,CONVERT(VARCHAR, gru.USR_Fecha_Creacion, 111)
+			end,DEP_Titulo,CONVERT(VARCHAR, gru.USR_Fecha_Creacion, 105)
 			 from GRUPO gru 
 			 inner join DEPARTAMENTOS dep on gru.DEP_DEPARTAMENTO = dep.DEP_Departamento
 			 where gru.GRU_Estado in ('I','A');

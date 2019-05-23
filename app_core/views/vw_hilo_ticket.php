@@ -237,9 +237,9 @@ if(isset($_POST['editordata'])){
                               echo "<div class='act-time'>";
                               echo "<div class='activity-body act-in'>";
                               echo "<span class='arrow'></span>";
-                              echo "<div class='text' style='border: 1px solid #1a2732;'>";
-                              echo "<p class='attribution'><a style='color: #797979;'>Publicado por: ".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
-                              echo "<hr style='margin-top: 0px; border: 0.5px solid #1a2732;' ><p>".$value[2]."</p>";
+                              echo "<div class='text' style=' border: 1px solid #394a5994;'>";
+                              echo "<p class='attribution'><a style='color:  #394a5994;'>Publicado por: ".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
+                              echo "<hr style='margin-top: 0px; border: 0.5px solid #394a5994;' ><p>".$value[2]."</p>";
                               echo "</div>";
                               echo "</div>";
                               echo "</div>";
