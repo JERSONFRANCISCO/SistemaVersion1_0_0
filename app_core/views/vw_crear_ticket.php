@@ -27,9 +27,9 @@ if(isset($_POST['summernote'])){
 }
 if(isset($_POST['tituloTicket'])){
  // echo "tituloTicket".$_POST['tituloTicket']."<br>";
-  require_once(__CTR_PATH . "ctr_crear_ticket.php");
-$ctr_crear_ticket = new ctr_crear_ticket();
-$ctr = $ctr_crear_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreCliente'],'123',0,$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
+  require_once(__CTR_PATH . "ctr_ticket.php");
+$ctr_ticket = new ctr_ticket();
+$ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreCliente'],'123',0,$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
 }
 
 

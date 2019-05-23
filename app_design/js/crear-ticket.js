@@ -6,13 +6,13 @@ function agregarFila_Tareas() {
   var tareaUsuario=document.getElementById("tareaUsuario").value;
   var tareaMinutos=document.getElementById("tareaMinutos").value;
   var tareaHoras=document.getElementById("tareaHoras").value;
-
+/*
   var totalIngresos=document.getElementsByName("totalDeTareas")[0].innerHTML;
   var siguienteColumna = (parseInt(totalIngresos)+1)
   document.getElementsByName("totalDeTareas")[0].innerHTML= (parseInt(totalIngresos)+1);
   agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
+*/
 
-/*
   if(tareaTitulo.length>0){
     if(tareaDescripcion.length>0){
       if(tareaDepartamento.length>0){
@@ -41,7 +41,7 @@ function agregarFila_Tareas() {
     }
   }else{
     alert("Agregar título");
-  }*/
+  }
 }
 
 function agregarFila(id,tareaTitulo,tareaDescripcion,TareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos) {

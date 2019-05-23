@@ -123,9 +123,9 @@ if (isset($_GET['status'])) {
                                 </tfoot>
                                 <tbody>
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_tickets_abiertos.php");
-                                  $ctr_tickets_abiertos = new ctr_tickets_abiertos();
-                                  $ctr = $ctr_tickets_abiertos->obtener_Objetos(substr($_GET['status'], 0,1));
+                                  require_once(__CTR_PATH . "ctr_ticket.php");
+                                  $ctr_ticket = new ctr_ticket();
+                                  $ctr = $ctr_ticket->obtener_Tickets(substr($_GET['status'], 0,1));
                                   $cont = 0;
                                   foreach ($ctr as $value) {
                                     if($cont % 2 == 0){

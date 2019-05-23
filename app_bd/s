@@ -1,0 +1,5 @@
+
+insert into WORK_FLOW(WRK_Titulo,WRK_Observaciones,WRK_Estado,DEP_Departamento,USR_Usuario_Creacion)
+		values('Instalación de sistema operativo','observaciones','A',1,'JERSON')
+insert into WORK_FLOW_TAREAS(WRK_WORK_FLOW,DEP_DEPARTAMENTO,USR_Usuario,WRK_Titulo,WRK_Observaciones,WRK_Estado,WRK_Peso,WRK_Horas,WRK_Minutos,USR_Usuario_Creacion)
+values(1,1,1,'BACKUP DATOS','Realizar un backup funcional de todos los archivos','A',0,'3','0','JERSON')
