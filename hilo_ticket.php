@@ -59,7 +59,9 @@ $HTML = new mdl_Html();
         height:150
       });
     });
-
+    $(window).load(function() {
+      $(".loader").fadeOut("slow");
+    });
     
   </script>
 </section>

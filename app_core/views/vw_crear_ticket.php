@@ -61,8 +61,22 @@ if(isset($_POST['numeroDeTareas'])){
   .open > .dropdown-menu{
     opacity: 1;
   }
-}
+ .loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('<?php echo __IMG_PATH; ?>page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+    opacity: 1;
+  }
+
 </style> 
+
+
+<div class="loader"></div>
+
 <!-- container section start -->
 <section id="container" class="">
   <!--header start-->

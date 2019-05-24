@@ -65,7 +65,9 @@ $HTML = new mdl_Html();
       var tareaDepartamento=document.getElementById("NombreDepartamento").value;
   //    alert( "Handler for .change() called." +tareaDepartamento);
     });
-
+    $(window).load(function() {
+      $(".loader").fadeOut("slow");
+    });
   </script>
 
 
