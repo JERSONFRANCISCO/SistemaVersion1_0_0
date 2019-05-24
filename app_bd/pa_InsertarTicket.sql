@@ -1,4 +1,4 @@
-create procedure pa_InsertarTicket(
+alter procedure pa_InsertarTicket(
 	@Accion varchar(1),
 	@Prioridad VARCHAR(1),
 	@Ven_Vendedor VARCHAR(50),
@@ -29,6 +29,17 @@ begin
 
 				insert into TICKET_DETALLE(TIC_TICKET,USR_Usuario,TIC_Titulo,TIC_Observaciones,TIC_Estado,USR_Usuario_Creacion)
 				values(@TIC_TICKET,1,@TIC_Titulo,@TIC_Observaciones,@TIC_Estado,@USR_Usuario_Creacion)
+				
 		end
 
 end
+
+alter procedure pa_IdTicket(
+	@TIC_Titulo varchar(100)
+	)
+as
+
+begin
+	select top 1 TIC_Ticket from TICKET  where TIC_Titulo = @TIC_Titulo order by TICKET.TIC_Ticket desc
+end
+

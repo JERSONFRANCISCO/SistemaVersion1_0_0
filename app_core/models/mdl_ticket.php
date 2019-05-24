@@ -40,13 +40,13 @@ class mdl_ticket{
 		return $posts;
 	}
 	public function insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario){
-		$posts=array();
-		$cont=0;
 		$sql = " exec pa_HiloTicet @DEP_Titulo = '".$Observaciones."'";
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
 	public function insertar_ticket($Prioridad,$Ven_Vendedor,$Cli_Cliente,$Pro_Proyecto,$TAL_Numero,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion){
+		$posts=array();
+		$ticket=0;
 		$sql = " exec pa_InsertarTicket  
 		@Accion = 'C',
 		@Prioridad ='".$Prioridad."',
@@ -59,8 +59,17 @@ class mdl_ticket{
 		@TIC_Titulo = '".$TIC_Titulo."',
 		@TIC_Observaciones = '".$TIC_Observaciones."',
 		@USR_Usuario_Creacion = '".$USR_Usuario_Creacion."' ";
-		$stmt = $this->conexion->consulta($sql);
-		return $sql;
+		
+		$this->conexion->ejecutar($sql);
+
+		$sql = "exec pa_IdTicket '".$TIC_Titulo."'";
+
+		$stmt = $this->conexion->ejecutar($sql);
+
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$ticket = $row[0];
+		}
+		return $ticket;
 	}
 	public function obtener_Tickets($Estado){
 		$posts=array();

@@ -22,10 +22,18 @@ class mdl_Conexion
 		return $this->conexion;
 	}
 
+	public function ejecutar($consulta){
+		$stmt = sqlsrv_query($this->conexion, $consulta);
+		return $stmt;
+	}
+	public function valor($consulta){
+		$stmt= sqlsrv_fetch($consulta);
+		return $stmt;
+	}
 	public function consulta($consulta)
 	{
 
-		$stmt = sqlsrv_query( $this->conexion, $consulta);
+		$stmt = sqlsrv_query($this->conexion, $consulta);
 
 		if( $stmt === false ) {
 			if( ($errors = sqlsrv_errors() ) != null) {

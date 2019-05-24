@@ -69,6 +69,7 @@ if (isset($_GET['status'])) {
   <!--sidebar start-->
   <?php
   echo $HTML->html_menu();
+  echo $HTML->boton_arriba();
   ?>
 
 

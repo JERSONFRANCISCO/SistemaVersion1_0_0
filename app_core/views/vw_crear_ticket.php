@@ -1,6 +1,7 @@
 
 <?php
 
+
 if(isset($_POST['Prioridad'])){
  // echo "Prioridad".substr($_POST['Prioridad'], 0,1)."<br>";
 }
@@ -30,8 +31,16 @@ if(isset($_POST['tituloTicket'])){
   require_once(__CTR_PATH . "ctr_ticket.php");
   $ctr_ticket = new ctr_ticket();
   $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreCliente'],'123',0,$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
+  //echo $ctr;
+  
 }
+if(isset($_POST['numeroDeTareas'])){
+  echo "<br> numero de tareas: " . $_POST['numeroDeTareas']."<br>";
+  for($i = 1 ; $i <= $_POST['numeroDeTareas'] ; $i++ ){
+    echo $_POST['tareatareaTitulo'.$i];
 
+  }
+}
 
 
 ?>
@@ -387,8 +396,9 @@ if(isset($_POST['tituloTicket'])){
                               </div>
 
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda" name="totalDeTareas" value="0" style="color: white;">0</label>
+                              <input type="number" id="numeroDeTareas" name="numeroDeTareas" value="0" style="display: none;">
                               <div class="col-lg-12">
-                               <button type="button" class="btn btn-primary btn-lg btn-block"  onclick="agregarFila_Tareas()">Agregar</button>
+                               <button type="button" class="btn btn-primary btn-lg btn-block" id="botonAgregarTarea" name="botonAgregarTarea" onclick="agregarFila_Tareas()">Agregar</button>
                              </div>
                            </div>
                          </div>

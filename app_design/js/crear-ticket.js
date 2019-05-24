@@ -1,3 +1,8 @@
+//$(document).ready(function () {
+ // $('#botonAgregarTarea').click(function(){
+    //alert($("#numeroDeTareas").val());
+ // });
+//});
 
 function agregarFila_Tareas() {
   var tareaTitulo=document.getElementById("tareaTitulo").value;
@@ -11,7 +16,7 @@ function agregarFila_Tareas() {
   var siguienteColumna = (parseInt(totalIngresos)+1)
   document.getElementsByName("totalDeTareas")[0].innerHTML= (parseInt(totalIngresos)+1);
   agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
-*/
+  */
 
   if(tareaTitulo.length>0){
     if(tareaDescripcion.length>0){
@@ -20,29 +25,31 @@ function agregarFila_Tareas() {
           if(tareaMinutos.length>0){
             if(tareaHoras.length>0){
               var totalIngresos=document.getElementsByName("totalDeTareas")[0].innerHTML;
-              var siguienteColumna = (parseInt(totalIngresos)+1)
-              document.getElementsByName("totalDeTareas")[0].innerHTML= (parseInt(totalIngresos)+1);
-              agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
-              limpiarCampostexto();
-            }else{
-              alert("Agregar horas");
-            }
-          }else{
-            alert("Agregar minutos");
+             var siguienteColumna = (parseInt(totalIngresos)+1)
+             $("#numeroDeTareas").val(siguienteColumna);
+             document.getElementsByName("totalDeTareas")[0].innerHTML= siguienteColumna;
+             agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
+             limpiarCampostexto();
+           }else{
+            alert("Agregar horas");
           }
         }else{
-          alert("Agregar usuario");
+          alert("Agregar minutos");
         }
       }else{
-        alert("Agregar departamento");
+        alert("Agregar usuario");
       }
     }else{
-      alert("Agregar descripción");
+      alert("Agregar departamento");
     }
   }else{
-    alert("Agregar título");
+    alert("Agregar descripción");
   }
+}else{
+  alert("Agregar título");
 }
+}
+
 
 function agregarFila(id,tareaTitulo,tareaDescripcion,TareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos) {
  var style='';

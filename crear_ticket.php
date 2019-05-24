@@ -29,14 +29,13 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
   ?>
 
-
 </head>
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_crear_ticket2.php");
+  include_once(__VWS_PATH."vw_crear_ticket.php");
   
-  echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
+
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");
@@ -51,6 +50,8 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
   echo $HTML->html_js_header(__JS_PATH."daterangepicker.js");
   echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
+ echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
+ 
   ?>
 
   <script>
@@ -60,12 +61,10 @@ $HTML = new mdl_Html();
       });
     });
 
-
     $( "#NombreDepartamento" ).change(function() {
       var tareaDepartamento=document.getElementById("NombreDepartamento").value;
-      alert( "Handler for .change() called." +tareaDepartamento);
+  //    alert( "Handler for .change() called." +tareaDepartamento);
     });
-
 
   </script>
 

@@ -191,8 +191,9 @@ if(isset($_POST['tituloTicket'])){
                               </div>
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Fecha de vencimiento:</label>
-                              <div class="col-lg-8">
-                                <input size="16" type="text" class="form-control" id="datetime" >
+
+                              <div class="col-sm-8">
+                                <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text">
                               </div>
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título:</label>
@@ -224,13 +225,13 @@ if(isset($_POST['tituloTicket'])){
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreProyecto" name="NombreProyecto" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_estandar.php");
-                                  $ctr_estandar = new ctr_estandar();
-                                  $ctr = $ctr_estandar->obtener_Proyectos("");
-                                  $cont = 0;
-                                  foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
-                                  }
+                                //  require_once(__CTR_PATH . "ctr_estandar.php");
+                                 // $ctr_estandar = new ctr_estandar();
+                                 // $ctr = $ctr_estandar->obtener_Proyectos("");
+                                //  $cont = 0;
+                                 /// foreach ($ctr as $value) {
+                                //    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
+                                 // }
                                   ?>
                                 </select>
                               </div>
@@ -239,13 +240,13 @@ if(isset($_POST['tituloTicket'])){
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajo" name="OrdenDeTrabajo" data-live-search="true" title="Selecione Departamento">
                                   <?php
-                                  require_once(__CTR_PATH . "ctr_estandar.php");
-                                  $ctr_estandar = new ctr_estandar();
-                                  $ctr = $ctr_estandar->obtener_OrdenesTrabajo("");
-                                  $cont = 0;
-                                  foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
-                                  }
+                                 // require_once(__CTR_PATH . "ctr_estandar.php");
+                                //  $ctr_estandar = new ctr_estandar();
+                                 // $ctr = $ctr_estandar->obtener_OrdenesTrabajo("");
+                                 // $cont = 0;
+                                //  foreach ($ctr as $value) {
+                                //    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
+                                //  }
                                   ?>
                                 </select>
                               </div>
@@ -259,7 +260,7 @@ if(isset($_POST['tituloTicket'])){
                                   $ctr = $ctr_estandar->obtener_Vendedores("");
                                   $cont = 0;
                                   foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
+                                 echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
                                   }
                                   ?>
                                 </select>
