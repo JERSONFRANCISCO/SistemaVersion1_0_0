@@ -38,8 +38,11 @@ alter procedure pa_IdTicket(
 	@TIC_Titulo varchar(100)
 	)
 as
-
 begin
 	select top 1 TIC_Ticket from TICKET  where TIC_Titulo = @TIC_Titulo order by TICKET.TIC_Ticket desc
 end
 
+
+
+insert into TICKET_TAREAS(TIC_Ticket,DEP_Departamento,USR_Usuario,TIC_Titulo,TIC_Observaciones,TIC_Estado,TIC_Dias,TIC_Horas,USR_Usuario_Creacion)
+values(1,1,1,'Tarea 1','obj de la tarea 1','A','4','30','JERSON')
