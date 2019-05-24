@@ -52,6 +52,14 @@ class mdl_HTML {
 	function html_TituloPagina(){
 		return "<title>Tickets Dialcom</title>";
 	}
+	function boton_arriba(){
+		echo "<a class='ir-arriba'  javascript:void(0) title='Volver arriba'>";
+		echo "<span class='fa-stack'>";
+		echo "<i class='fa fa-circle fa-stack-2x'></i>";
+		echo "<i class='fa fa-arrow-up fa-stack-1x fa-inverse'></i>";
+		echo "</span>";
+		echo "</a>";
+	}
 }
 
 ?>

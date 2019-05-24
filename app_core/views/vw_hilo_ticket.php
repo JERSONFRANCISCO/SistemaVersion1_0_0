@@ -1,4 +1,9 @@
+
 <?php
+if(isset($_GET['ticket'])){
+// echo $_GET['ticket'];
+}
+
 if(isset($_POST['editordata'])){
   require_once(__CTR_PATH . "ctr_ticket.php");
   $ctr_ticket = new ctr_ticket();
@@ -16,6 +21,8 @@ if(isset($_POST['editordata'])){
     background-color: rgba(255, 255, 255, 0)!important;
   }
 </style>  
+
+
 
 <!-- container section start -->
 <section id="container" class="">
@@ -72,6 +79,7 @@ if(isset($_POST['editordata'])){
   <!--sidebar start-->
   <?php
   echo $HTML->html_menu();
+  echo $HTML->boton_arriba();
   ?>
 
   <!--main content start-->
@@ -176,13 +184,18 @@ if(isset($_POST['editordata'])){
                     <div class="tab-content">
                       <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN 
                         AQUI SE EJECUTA EL EVENTO QUE REFRESCA LA PAGINA PARA GUARDAR LOS DATOS EN LA BD Y REFRESCAR NUEVAMENTE-->
+                        
                         <div id="contestar" class="tab-pane active">
-                          <div class="profile-activity">
-                            <form method="post" action="" >
-                              <textarea id="summernote" name="editordata" ></textarea>
-                              <button type="submit" class="btn btn-primary btn-lg btn-block">Responder</button>
-                            </form>
+                          <div class="row">
+                            <div  class="col-lg-12">
+                              <form method="post" action="" >
+                                <textarea id="summernote" name="editordata" ></textarea>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Responder</button>
+                              </form>
+                            </div>
                           </div>
+                          
+                          
                         </div>
                         <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN -->
 
@@ -281,4 +294,3 @@ if(isset($_POST['editordata'])){
       Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
     </div>
   </div>
-</section>

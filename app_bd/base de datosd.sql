@@ -38,12 +38,13 @@ insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripc
 values(1,'Estados','I','INACTIVO','A')
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
 values(1,'Estados','B','BORRADO','A')
+insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
+values(1,'Estados','C','CERRADO','A')
 
 
 
 
-
-select 
+select
 CaD.CAT_Descripcion,
 Pri.CAT_Descripcion,
 convert(varchar,tic.USR_Fecha_Creacion, 105) as USR_Fecha_Creacion,
@@ -65,3 +66,4 @@ LEFT JOIN SABIOTERRA..VEN_VENDEDORES Ven on (  ven.Ven_vendedor COLLATE DATABASE
 LEFT JOIN SABIOTERRA..CLI_CLIENTES cli on (  cli.CLI_Cliente COLLATE DATABASE_DEFAULT = tic.CLI_Cliente)
 LEFT JOIN SABIOTERRA..PRO_PROYECTOS pro on ( tic.Pro_Proyecto COLLATE DATABASE_DEFAULT = pro.PRO_Proyecto and cli.CLI_Cliente = pro.CLI_Cliente)
 left join SABIOTERRA..ALQ_TALLER tal on (tal.tal_numero =  tic.Tal_Numero )
+where tic.TIC_Ticket = 1

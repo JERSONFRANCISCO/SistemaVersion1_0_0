@@ -25,6 +25,8 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "style-responsive.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "summernote.css","screen");
+  echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
+  
   ?>
 
 
@@ -46,6 +48,9 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."datatables-demo.js");
   
   echo $HTML->html_js_header(__CSS_PATH."summernote.js");
+
+  echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
+
   ?>
 
   <script>
@@ -57,7 +62,7 @@ $HTML = new mdl_Html();
 
     
   </script>
-
+</section>
 </body>
 
 </html>

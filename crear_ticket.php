@@ -26,7 +26,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "summernote.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "bootstrap-select.min.css","screen");
-  
+  echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
   ?>
 
 
@@ -34,7 +34,7 @@ $HTML = new mdl_Html();
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_crear_ticket.php");
+  include_once(__VWS_PATH."vw_crear_ticket2.php");
   
   echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
@@ -50,7 +50,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
   echo $HTML->html_js_header(__JS_PATH."daterangepicker.js");
-
+  echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
   ?>
 
   <script>
