@@ -52,6 +52,9 @@ class mdl_HTML {
 	function html_TituloPagina(){
 		return "<title>Tickets Dialcom</title>";
 	}
+	function html_cargandoPagina(){
+		return "<div class='loader'></div>";
+	}
 	function boton_arriba(){
 		echo "<a class='ir-arriba'  javascript:void(0) title='Volver arriba'>";
 		echo "<span class='fa-stack'>";
@@ -60,6 +63,7 @@ class mdl_HTML {
 		echo "</span>";
 		echo "</a>";
 	}
+
 }
 
 ?>

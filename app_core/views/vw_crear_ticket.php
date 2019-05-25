@@ -75,7 +75,7 @@ if(isset($_POST['numeroDeTareas'])){
 </style> 
 
 
-<div class="loader"></div>
+
 
 <!-- container section start -->
 <section id="container" class="">
@@ -133,6 +133,7 @@ if(isset($_POST['numeroDeTareas'])){
   <?php
   echo $HTML->html_menu();
   echo $HTML->boton_arriba();
+  echo $HTML->html_cargandoPagina();
   ?>
 
   <!--main content start-->
