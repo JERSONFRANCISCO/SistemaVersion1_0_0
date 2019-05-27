@@ -49,9 +49,13 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
   echo $HTML->html_js_header(__JS_PATH."daterangepicker.js");
+
   echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
- echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
- 
+  echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
+
+  echo $HTML->html_js_header(__JS_PATH."javascriptAJAX.js");
+
+
   ?>
 
   <script>
@@ -63,11 +67,17 @@ $HTML = new mdl_Html();
 
     $( "#NombreDepartamento" ).change(function() {
       var tareaDepartamento=document.getElementById("NombreDepartamento").value;
-  //    alert( "Handler for .change() called." +tareaDepartamento);
+    //    alert( "Handler for .change() called." +tareaDepartamento);
     });
     $(window).load(function() {
       $(".loader").fadeOut("slow");
     });
+
+
+
+
+
+
   </script>
 
 

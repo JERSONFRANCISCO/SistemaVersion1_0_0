@@ -20,9 +20,9 @@ class ctr_estandar{
 		{
 			return $this->postdata->obtener_Vendedores();
 		}
-		public function obtener_OrdenesTrabajo()
+		public function obtener_OrdenesTrabajo_Cliente($cliente,$proyecto)
 		{
-			return $this->postdata->obtener_OrdenesTrabajo();
+			return $this->postdata->obtener_OrdenesTrabajo_Cliente($cliente,$proyecto);
 		}
 		public function obtener_Proyectos()
 		{
@@ -32,6 +32,11 @@ class ctr_estandar{
 		{
 			return $this->postdata->obtener_WorkFLow();
 		}
+		public function obtener_Proyectos_Cliente($cliente)
+		{
+			echo $this->postdata->obtener_Proyectos_Cliente($cliente);
+		}
+		
 	}
 
 ?>

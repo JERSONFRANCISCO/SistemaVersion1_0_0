@@ -61,7 +61,7 @@ if(isset($_POST['numeroDeTareas'])){
   .open > .dropdown-menu{
     opacity: 1;
   }
- .loader {
+  .loader {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -231,7 +231,7 @@ if(isset($_POST['numeroDeTareas'])){
                             <div class="form-group">
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Cliente:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="NombreCliente" name="NombreCliente" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="NombreClienteAJAX" name="NombreClienteAJAX" data-live-search="true" title="Selecione Departamento" onchange="cargarProyectoCliente();">
                                   <?php
                                   require_once(__CTR_PATH . "ctr_estandar.php");
                                   $ctr_estandar = new ctr_estandar();
@@ -246,31 +246,13 @@ if(isset($_POST['numeroDeTareas'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Proyecto:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="NombreProyecto" name="NombreProyecto" data-live-search="true" title="Selecione Departamento">
-                                  <?php
-                                  require_once(__CTR_PATH . "ctr_estandar.php");
-                                  $ctr_estandar = new ctr_estandar();
-                                  $ctr = $ctr_estandar->obtener_Proyectos("");
-                                  $cont = 0;
-                                  foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
-                                  }
-                                  ?>
+                                <select class="form-control m-bot15 selectpicker" id="ProyectoClienteAjax" name="ProyectoClienteAjax" data-live-search="true" title="Selecione Departamento" onchange="cargarOTCliente();">
                                 </select>
                               </div>
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Orden de trabajo:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajo" name="OrdenDeTrabajo" data-live-search="true" title="Selecione Departamento">
-                                  <?php
-                                  require_once(__CTR_PATH . "ctr_estandar.php");
-                                  $ctr_estandar = new ctr_estandar();
-                                  $ctr = $ctr_estandar->obtener_OrdenesTrabajo("");
-                                  $cont = 0;
-                                  foreach ($ctr as $value) {
-                                    echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>";  
-                                  }
-                                  ?>
+                                <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajoAJAX" name="OrdenDeTrabajoAJAX" data-live-search="true" title="Selecione Departamento" >
                                 </select>
                               </div>
                               <br><br>
@@ -413,7 +395,7 @@ if(isset($_POST['numeroDeTareas'])){
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda" name="totalDeTareas" value="0" style="color: white;">0</label>
                               <input type="number" id="numeroDeTareas" name="numeroDeTareas" value="0" style="display: none;">
                               <div class="col-lg-12">
-                               <button type="button" class="btn btn-primary btn-lg btn-block" id="botonAgregarTarea" name="botonAgregarTarea" onclick="agregarFila_Tareas()">Agregar</button>
+                               <button type="button" class="btn btn-primary btn-lg btn-block" id="botonAgregarTarea" name="botonAgregarTarea" onclick="agregarFila_Tareas()" >Agregar</button>
                              </div>
                            </div>
                          </div>

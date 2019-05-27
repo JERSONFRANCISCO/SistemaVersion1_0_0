@@ -1,13 +1,13 @@
-
 ALTER procedure pa_Estandar(
 	@Accion varchar(2),
-	@DEP_TABLA varchar(20)
+	@DEP_TABLA varchar(20),
+	@DEP_TABLA2 varchar(20)
 	)
 	as
 	begin
 	if(@Accion = 'CA')
 		begin
-			select  CAT_Contraccion + '-' + CAT_DESCRIPCION from CATALOGO_DETALLE det 
+			select  CAT_Contraccion + ' - ' + CAT_DESCRIPCION from CATALOGO_DETALLE det 
 			inner join CATALOGO cat on (det.CAT_Tabla = cat.CAT_Tabla and det.CAT_Catalogo = cat.CAT_Catalogo)
 			where cat.CAT_Tabla = @DEP_TABLA and cat.CAT_Estado = 'A' and det.CAT_Estado = 'A'
 	end
@@ -31,14 +31,17 @@ ALTER procedure pa_Estandar(
 	end
 	if(@Accion = 'OT')
 		begin
-			SELECT TAL_Descripcion AS OT, CONVERT(VARCHAR(30),TAL_Numero) AS TalNumero
+			SELECT TAL_Descripcion AS OT, TAL_Numero AS TalNumero
 			FROM SabioTerra..ALQ_TALLER
-			WHERE TAL_Reparado <> 'S'
+			WHERE TAL_Reparado <> 'S' and CLI_Cliente = @DEP_TABLA and PRO_Proyecto = @DEP_TABLA2
 	end
-	if(@Accion = 'PT')
+	if(@Accion = 'PC')
 		begin
-			SELECT PRO_PROYECTOS.PRO_Nombre AS OT, CONVERT(VARCHAR(30),PRO_PROYECTOS.PRO_Proyecto) AS TalNumero
+			SELECT PRO_PROYECTOS.PRO_Nombre AS OT, PRO_PROYECTOS.PRO_Proyecto AS TalNumero
 			FROM SabioTerra..PRO_PROYECTOS
-			WHERE PRO_PROYECTOS.PRO_Activo = 1
+			WHERE PRO_PROYECTOS.PRO_Activo = 1 and CLI_Cliente = @DEP_TABLA 
 	end
 end
+
+
+
