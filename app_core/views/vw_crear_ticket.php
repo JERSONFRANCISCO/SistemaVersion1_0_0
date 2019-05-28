@@ -163,7 +163,7 @@ if(isset($_POST['tituloTicket'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Departamento:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="NombreDepartamento" name="NombreDepartamento" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="NombreDepartamento" name="NombreDepartamento" data-live-search="true" title="Selecione Departamento" required>
                                   <?php
                                   require_once(__CTR_PATH . "ctr_departamentos.php");
                                   $ctr_departamentos = new ctr_departamentos();
@@ -178,7 +178,7 @@ if(isset($_POST['tituloTicket'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Usuario asignado:</label>
                               <div class="col-lg-8">
-                                <select class="form-control m-bot15 selectpicker" id="NombreUsuario" name="NombreUsuario" data-live-search="true" title="Selecione Departamento">
+                                <select class="form-control m-bot15 selectpicker" id="NombreUsuario" name="NombreUsuario" data-live-search="true" title="Selecione usuario" required>
                                   <?php
                                   require_once(__CTR_PATH . "ctr_usuario.php");
                                   $ctr_usuario = new ctr_usuario();
@@ -198,7 +198,7 @@ if(isset($_POST['tituloTicket'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título:</label>
                               <div class="col-sm-8">
-                                <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text">
+                                <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text" required>
                               </div>
 
                             </div>

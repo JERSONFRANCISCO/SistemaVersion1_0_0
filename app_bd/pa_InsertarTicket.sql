@@ -32,10 +32,11 @@ begin
 				@USR_Usuario_Creacion,GETDATE(),@Prioridad,@USUARIO)
 
 				SELECT TOP 1  @TIC_TICKET_ID = TIC_TICKET FROM TICKET where TICKET.TIC_Titulo = @TIC_Titulo ORDER BY TIC_TICKET DESC 
-
-				insert into TICKET_DETALLE(TIC_TICKET,USR_Usuario,TIC_Titulo,TIC_Observaciones,TIC_Estado,USR_Usuario_Creacion)
-				values(@TIC_TICKET_ID,@USUARIO,@TIC_Titulo,@TIC_Observaciones,@TIC_Estado,@USR_Usuario_Creacion)
-				
+				if(LEN(@TIC_Observaciones) > 0 )
+					begin
+					insert into TICKET_DETALLE(TIC_TICKET,USR_Usuario,TIC_Titulo,TIC_Observaciones,TIC_Estado,USR_Usuario_Creacion)
+					values(@TIC_TICKET_ID,@USUARIO,@TIC_Titulo,@TIC_Observaciones,@TIC_Estado,@USR_Usuario_Creacion)
+					end
 		end
 		if(@Accion = 'TA')
 		begin
@@ -48,6 +49,8 @@ begin
 		end
 end
 
+
+
 alter procedure pa_IdTicket(
 	@TIC_Titulo varchar(100)
 	)
@@ -55,8 +58,3 @@ as
 begin
 	select top 1 TIC_Ticket from TICKET  where TIC_Titulo = @TIC_Titulo order by TICKET.TIC_Ticket desc
 end
-
-
-
-
-
