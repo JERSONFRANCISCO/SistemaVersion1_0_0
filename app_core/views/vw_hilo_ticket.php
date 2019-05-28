@@ -70,7 +70,7 @@ if(isset($_POST['editordata'])){
               <a href="#"><i class="icon_chat_alt"></i> Chats</a>
             </li>
             <li>
-              <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+              <a href="login.php"><i class="icon_key_alt"></i> Log Out</a>
             </li>
             <li>
               <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
@@ -125,71 +125,92 @@ if(isset($_POST['editordata'])){
             <div class="row">
               <!-- profile-widget -->
               <div class="col-lg-12">
-                  <div class="panel-body" style="color: black;background-color: white;">
+                <div class="panel-body" style="color: black;background-color: white;">
+                  <div class="row">
                     <div class="row">
-                      <?php 
-                      if(isset($_GET['ticket'])){
-                       require_once(__CTR_PATH . "ctr_ticket.php");
-                       $ctr_ticket = new ctr_ticket();
-                       $ctr = $ctr_ticket->pa_informacion_ticket($_GET['ticket']);
-                       foreach ($ctr as $value) {
-                        echo"
-                        <div class='col-lg-4' id='alinearIzquierda'>".
-                        "<p><strong>Estado:</strong>$value[0]</p>".
-                        "<p><strong>Prioridad:</strong>$value[1]</p>".
-                        "<p><strong><span><i class='icon_calendar'></i> Creado el:</span></strong>$value[2]</p>".
-                        "<p><strong><span><i class='icon_calendar'></i> Creado el:</span></strong>$value[3]</p>".
-                        "</div>".
-                        "<div class='col-lg-4' id='alinearIzquierda'>".
-                        "<p><strong>Departamento:</strong>$value[4]</p>".
-                        "<p><strong>Usuario creación:</strong>$value[5]</p>".
-                        "<p><strong>Usuario asignado:</strong>$value[6]</p>".
-                        "<p><strong>Titulo:</strong>$value[7]</p>".
-                        "</div>".
-                        "<div class='col-lg-4' id='alinearIzquierda'>".
-                        "<p><strong>Vendedor:</strong>$value[8]</p>".
-                        "<p><strong>Cliente:</strong>$value[9]</p>".
-                        "<p><strong>Proyecto:</strong>$value[10]</p>".
-                        "<p><strong>Orden de trabajo:</strong>$value[11]</p>".
-                        "</div>";
-                      }
-                    }else{
-                      echo "no";
-                    }
-                    ?>
+                      <!-- profile-widget -->
+                      <div class="col-lg-12">
 
+
+                        <?php 
+
+                        if(isset($_GET['ticket'])){
+                         require_once(__CTR_PATH . "ctr_ticket.php");
+                         $ctr_ticket = new ctr_ticket();
+                         $ctr = $ctr_ticket->pa_informacion_ticket($_GET['ticket']);
+                         foreach ($ctr as $value) {
+                          echo"<div class='bio-row'>".
+                          "<p><span>Estado</span>: $value[0]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Creado por</span>: $value[5]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Prioridad</span>: $value[1]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Usuario asignado</span>: $value[6]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Departamento</span>: $value[4]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Vendedor:</span>: $value[8]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span><i class='icon_calendar'></i> Creado el</span>: $value[2]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Cliente:</span>: $value[9]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span><i class='icon_calendar'></i> Vence el</span>: $value[3]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Proyecto</span>: $value[10]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Titulo</span>: $value[7]</p>".
+                          "</div>".
+                          "<div class='bio-row'>".
+                          "<p><span>Orden de trabajo</span>: $value[11]</p>".
+                          "</div>";
+                        }
+                      }else{
+                        echo "no";
+                      } 
+                      ?>
+
+                    </div>
                   </div>
-                </div>
-            </div>
-          </div>
 
 
-          <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
-          <div class="row">
-            <div class="col-lg-12">
-              <section class="panel">
-                <header class="panel-heading tab-bg-info">
-                  <ul class="nav nav-tabs">
-                    <li class="active">
-                      <a data-toggle="tab" href="#contestar">
-                        Responder
-                      </a>
-                    </li>
-                    <li>
-                      <a data-toggle="tab" href="#changeDepartamento">
-                        Cambiar Departamento
-                      </a>
-                    </li>
-                    <li>
-                      <a data-toggle="tab" href="#changeUser">
-                        Asignar Usuario
-                      </a>
-                    </li>
-                  </ul>
-                </header>
+                  <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <section class="panel">
+                        <header class="panel-heading tab-bg-info">
+                          <ul class="nav nav-tabs">
+                            <li class="active">
+                              <a data-toggle="tab" href="#contestar">
+                                Responder
+                              </a>
+                            </li>
+                            <li>
+                              <a data-toggle="tab" href="#changeDepartamento">
+                                Cambiar Departamento
+                              </a>
+                            </li>
+                            <li>
+                              <a data-toggle="tab" href="#changeUser">
+                                Asignar Usuario
+                              </a>
+                            </li>
+                          </ul>
+                        </header>
 
-                <div class="panel-body">
-                  <div class="tab-content">
+                        <div class="panel-body">
+                          <div class="tab-content">
                       <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN 
                         AQUI SE EJECUTA EL EVENTO QUE REFRESCA LA PAGINA PARA GUARDAR LOS DATOS EN LA BD Y REFRESCAR NUEVAMENTE-->
                         
