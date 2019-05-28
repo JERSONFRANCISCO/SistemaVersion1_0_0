@@ -1,7 +1,4 @@
-
 <?php
-
-
 if(isset($_POST['editordata'])){
   require_once(__CTR_PATH . "ctr_ticket.php");
   $ctr_ticket = new ctr_ticket();
@@ -274,14 +271,14 @@ if(isset($_POST['editordata'])){
                             <?php
                             require_once(__CTR_PATH . "ctr_ticket.php");
                             $ctr_ticket = new ctr_ticket();
-                            $ctr = $ctr_ticket->obtener_Objetos();
+                            $ctr = $ctr_ticket->obtener_hilo_ticket($_GET['ticket']);
                             foreach ($ctr as $value) {
                               echo "<div class='act-time'>";
                               echo "<div class='activity-body act-in'>";
                               echo "<span class='arrow'></span>";
                               echo "<div class='text' style=' border: 1px solid #394a5994;'>";
-                              echo "<p class='attribution'><a style='color:  #394a5994;'>Publicado por: ".$value[0]."</a><span><i class='icon_calendar'></i></span> FECHA ".$value[3]."</p>";
-                              echo "<hr style='margin-top: 0px; border: 0.5px solid #394a5994;' ><p>".$value[2]."</p>";
+                              echo "<p class='attribution'><a style='color:  #394a5994;' class='col-lg-4'>Publicado por: ".$value[0]."</a><span><a><i class='icon_calendar' class='col-lg-4'></i></span> ".$value[3]."</a><a class='col-lg-4'>".$value[4]."</a></p> " ;
+                              echo "<hr style='margin-top: 0px; border: 0.5px solid ##394a5924;' ><p>".$value[2]."</p>";
                               echo "</div>";
                               echo "</div>";
                               echo "</div>";
@@ -295,6 +292,33 @@ if(isset($_POST['editordata'])){
                           </section>
                           <section>
                             <div class="row">
+                              <section class="panel">
+                                <header class="panel-heading">
+                                  Panels
+                                </header>
+                                <div class="panel-body">
+                                  <div class="panel panel-primary">
+                                    <div class="panel-heading">Panel heading</div>
+                                    <div class="panel-content">Panel content</div>
+                                  </div>
+                                  <div class="panel panel-success">
+                                    <div class="panel-heading">Panel heading</div>
+                                    <div class="panel-content">Panel content</div>
+                                  </div>
+                                  <div class="panel panel-warning">
+                                    <div class="panel-heading">Panel heading</div>
+                                    <div class="panel-content">Panel content</div>
+                                  </div>
+                                  <div class="panel panel-danger">
+                                    <div class="panel-heading">Panel heading</div>
+                                    <div class="panel-content">Panel content</div>
+                                  </div>
+                                  <div class="panel panel-info">
+                                    <div class="panel-heading">Panel heading</div>
+                                    <div class="panel-content">Panel content</div>
+                                  </div>
+                                </div>
+                              </section>
                             </div>
                           </section>
                         </div>

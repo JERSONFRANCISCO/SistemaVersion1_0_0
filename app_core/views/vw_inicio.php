@@ -1,24 +1,27 @@
 <style type="text/css">
-
   .drag-drop-item
   {
     touch-action: none;
+  }
+  img{
+    height: 29px; 
+    width: 25px;
+  }
+  .zoom {
+    transition: transform .2s; /* Animation */
+  }
+  .zoom:hover {
+    transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  .zoomtabla {
+    transition: transform .2s; /* Animation */
+  }
+  .zoomtabla:hover {
+    transform: scale(1.025); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
 </style>  
-<?php
 
-?>
-
-<style type="text/css">
-
-  .drag-drop-item
-  {
-    touch-action: none;
-  }
-</style>
-<script>
-
-</script>
 <!-- container section start -->
 <section id="container" class="">
   <!--header start-->
@@ -34,7 +37,7 @@
         <li class="dropdown">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <span class="profile-ava">
-              <img alt="" src="app_design/img/cc.jpg">
+              <img alt="" src="app_core/resources/usrimg/usr001.jpg" style="">
             </span>
             <span class="username">Jenifer Smith</span>
             <b class="caret"></b>
@@ -81,119 +84,192 @@
   <section id="main-content">
     <section class="wrapper">
       <div class="row">
+
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de departamentos</h3>
+          <h3 class="page-header"><i class="fa fa-table"></i>INICIO</h3>
           <div class="row">
             <div class="col-lg-12">
-              <section class="panel">
-                <header class="panel-heading">
-                  Departamentos
-                </header>
-                <div class="panel-body">
-                  <form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
-                    <div class="text-right">
-                      <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
-                    </div>
-                  </form>
-                  <div id="wrapper">
-                    <div id="content-wrapper" class="d-flex flex-column">
-                      <div id="content">
-                        <div class="container-fluid" style="background-color: white;">
-                          <!-- DataTales Example -->
-                          <div class="card shadow mb-4">
-                            <div class="card-header py-3">
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 zoom">
+                  <div class="info-box blue-bg">
+                    <i class="fas fa-ticket-alt"></i>
+                    <div class="count">6.674</div> 
+                    <div class="title">Download</div>
+                  </div>
+                </div>
 
-                            </div>
-                            <div class="card-body">
-                              <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                  <thead>
-                                    <tr>
-                                      <th>Departamento</th>
-                                      <th>Nombre</th>
-                                      <th>Observaciones</th>
-                                      <th>Estado</th>
-                                      <th>Fecha</th>
-                                      <th>Acción</th>
-                                    </tr>
-                                  </thead>
-                                  <tfoot>
-                                    <tr>
-                                      <th>Departamento</th>
-                                      <th>Nombre</th>
-                                      <th>Observaciones</th>
-                                      <th>Estado</th>
-                                      <th>Fecha</th>
-                                      <th>Acción</th>
-                                    </tr>
-                                  </tfoot>
-                                  <tbody>
-                                    <?php
-                                    require_once(__CTR_PATH . "ctr_departamentos.php");
-                                    $ctr_departamentos = new ctr_departamentos();
-                                    $ctr = $ctr_departamentos->obtener_Objetos();
-                                    $cont = 0;
-                                    foreach ($ctr as $value) {
-                                //      echo "<form id='form1' name='form1' method='POST' action='www.google.com'>";
-                                      if($cont % 2 == 0){
-                      echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
-                    }else{
-                      echo "<tr>";
-                    }
-                    echo "<form method='POST' action='departamento_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
-                    echo "<td>".$value[1]."</td>";
-                    echo "<td>".$value[2]."</td>";
-                    echo "<td>".$value[3]."</td>";
-                    echo "<td>".$value[4]."</td>";
-                    echo "<td>";
-                    echo "<div class='btn-group'>";
-                    echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
-                    echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button></form>";
-                    echo "</div>";
-                    echo "</td>";
-                    echo "</tr>";
-                    $cont++;
-                  }
-                  ?>
-                </tbody>
-              </table>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 zoom">
+                  <div class="info-box brown-bg">
+                    <i class="fas fa-ticket-alt"></i>
+                    <div class="count">7.538</div>
+                    <div class="title">Purchased</div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 zoom">
+                  <div class="info-box dark-bg">
+                    <i class="fas fa-ticket-alt"></i>
+                    <div class="count">4.362</div>
+                    <div class="title">Order</div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 zoom">
+                  <div class="info-box green-bg">
+                    <i class="fas fa-ticket-alt"></i>
+                    <div class="count">1.426</div>
+                    <div class="title">Stock</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="col-lg-12">
+          <!--Project Activity start-->
+          <section class="panel">
+            <div class="panel-body progress-panel">
+              <div class="row">
+                <div class="col-lg-8 task-progress pull-left">
+                  <h1>To Do Everyday</h1>
+                </div>
+                <div class="col-lg-4">
+                  <span class="profile-ava pull-right">
+                    <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    Jenifer smith
+                  </span>
+                </div>
+              </div>
+            </div>
+            <table class="table table-hover personal-task">
+              <tbody>
+                <tr class="zoomtabla">
+                  <td>Today</td>
+                  <td>
+                    web design
+                  </td>
+                  <td>
+                    <span class="badge bg-important">Upload</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>Yesterday</td>
+                  <td>
+                    Project Design Task
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Task</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>21-10-14</td>
+                  <td>
+                    Generate Invoice
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Task</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>22-10-14</td>
+                  <td>
+                    Project Testing
+                  </td>
+                  <td>
+                    <span class="badge bg-primary">To-Do</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>24-10-14</td>
+                  <td>
+                    Project Release Date
+                  </td>
+                  <td>
+                    <span class="badge bg-primary">To-Do</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>28-10-14</td>
+                  <td>
+                    Project Release Date
+                  </td>
+                  <td>
+                    <span class="badge bg-primary">To-Do</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>Last week</td>
+                  <td>
+                    Project Release Date
+                  </td>
+                  <td>
+                    <span class="badge bg-primary">To-Do</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>last month</td>
+                  <td>
+                    Project Release Date
+                  </td>
+                  <td>
+                    <span class="badge bg-success">To-Do</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <!--Project Activity end-->
+        </div>
       </div>
-      <!-- /.container-fluid -->
+    </section>
+  </section>
+
+
+  <!--main content end-->
+  <div class="text-center">
+    <div class="credits">
+      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
     </div>
-    <!-- End of Main Content -->
   </div>
-  <!-- End of Content Wrapper -->
-</div>
-<!-- End of Page Wrapper -->
-<form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
-  <div class="text-right">
-    <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
-  </div>
-
-</form>
-</div>
-
-
-
-</section>
-</div>
-</div>
-</div>
-</div>
-
-
-
-</section>
-</section>
-
-
-<!--main content end-->
-<div class="text-center">
-  <div class="credits">
-    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
-  </div>
-</div>
 </section>

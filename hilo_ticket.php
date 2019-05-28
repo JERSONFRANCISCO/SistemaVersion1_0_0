@@ -62,6 +62,9 @@ $HTML = new mdl_Html();
     $(window).load(function() {
       $(".loader").fadeOut("slow");
     });
+
+
+
     
   </script>
 </section>

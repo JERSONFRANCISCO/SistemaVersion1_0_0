@@ -46,7 +46,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."jquery.dataTables.js");
   echo $HTML->html_js_header(__JS_PATH."dataTables.bootstrap4.js");
   echo $HTML->html_js_header(__JS_PATH."datatables-demo.js");
-?>
+  ?>
   
 
 

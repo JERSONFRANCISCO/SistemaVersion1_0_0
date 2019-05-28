@@ -6048,14 +6048,14 @@ var Toolbar = /** @class */ (function () {
           var deactivateOffsetBottom = editorOffsetBottom - otherBarHeight - toolbarHeight;
           if ((currentOffset > activateOffset) && (currentOffset < deactivateOffsetBottom)) {
             this.$toolbar.css({
-              position: 'fixed',
+              position: '',
               top: otherBarHeight,
               width: editorWidth
             });
           }
           else {
             this.$toolbar.css({
-              position: 'relative',
+              position: '',
               top: 0,
               width: '100%'
             });

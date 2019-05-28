@@ -13,7 +13,7 @@ class mdl_HTML {
 		"<div id='sidebar' class='nav-collapse '>".
 		"<ul class='sidebar-menu'>".
 		"<li class=''>".
-		"<a class='' href='index.html'>".
+		"<a class='' href='index.php'>".
 		"<i class='icon_house_alt'></i>".
 		"<span>Pagina Principal</span>".
 		"</a>".
@@ -25,7 +25,7 @@ class mdl_HTML {
 		"<span class='menu-arrow arrow_carrot-right'></span>".
 		"</a>".
 		"<ul class='sub'>".
-		"<li><a class='active' href='index.php'>Departamentos</a></li>".
+		"<li><a class='active' href='departamento.php'>Departamentos</a></li>".
 		"<li><a class='active' href='grupo.php'>Grupos</a></li>".
 		"<li><a class='active' href='usuario.php'>Usuarios</a></li>".
 		"</ul>".

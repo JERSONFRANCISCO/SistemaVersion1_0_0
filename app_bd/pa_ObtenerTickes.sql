@@ -12,5 +12,6 @@ begin
 			LEFT JOIN USUARIOS USR ON (TIC.USR_Usuario = USR.USR_Usuario) 
 			LEFT JOIN DEPARTAMENTOS DEP ON (TIC.DEP_DEPARTAMENTO = DEP.DEP_Departamento) 
 			where TIC_Estado = @Estado
+			order by TIC_Ticket desc
 	end
 end

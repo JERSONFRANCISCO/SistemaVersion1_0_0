@@ -50,6 +50,12 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
   ?>
   
+  <script type="text/javascript">
+    $.extend( $.fn.dataTable.defaults, {
+      //searching: false,
+      ordering:  false
+    } );
+  </script>
 
 
 </body>

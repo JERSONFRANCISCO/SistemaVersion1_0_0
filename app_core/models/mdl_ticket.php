@@ -9,32 +9,17 @@ class mdl_ticket{
 	public function __construct(){
 		$this->conexion = new mdl_Conexion();	   
 	} 
-	public function obtener_hilo_ticket(){
+	public function obtener_hilo_ticket($ticketID){
 		$posts=array();
 		$cont=0;
-		$sql = "select USR_USUARIO,TIC_titulo,tic_observaciones,CONVERT(VARCHAR, USR_Fecha_Creacion, 105)  from TICKET_detalle
-		order by tic_detalle desc ";
+		$sql = "exec pa_obtener_hilo_ticket @tic_ticket = ".$ticketID;
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
 			$posts[$cont][1]=$row[1];
 			$posts[$cont][2]=$row[2];
 			$posts[$cont][3]=$row[3];
-			$cont++;
-		}
-		return $posts;
-	}
-	public function obtener_Objetos(){
-		$posts=array();
-		$cont=0;
-		$sql = "select USR_USUARIO,TIC_titulo,tic_observaciones,CONVERT(VARCHAR, USR_Fecha_Creacion, 105)  from TICKET_detalle
-		order by tic_detalle desc ";
-		$stmt = $this->conexion->consulta($sql);
-		while( $row = $this->conexion->obtener_Columnas($stmt)) {
-			$posts[$cont][0]=$row[0];
-			$posts[$cont][1]=$row[1];
-			$posts[$cont][2]=$row[2];
-			$posts[$cont][3]=$row[3];
+			$posts[$cont][4]=$row[4];
 			$cont++;
 		}
 		return $posts;

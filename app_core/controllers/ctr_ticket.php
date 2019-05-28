@@ -25,9 +25,9 @@ class ctr_ticket{
 		{
 			return $this->postdata->insertar_tareas_ticket($Usr_usuario,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$tic_horas,$tic_minutos,$tic_ticket);
 		}
-		public function obtener_Objetos()
+		public function obtener_hilo_ticket($ticketID)
 		{
-			return $this->postdata->obtener_Objetos();
+			return $this->postdata->obtener_hilo_ticket($ticketID);
 		}
 
 		public function insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario)
