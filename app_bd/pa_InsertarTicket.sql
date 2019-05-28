@@ -36,7 +36,7 @@ begin
 					begin
 					insert into TICKET_DETALLE(TIC_TICKET,USR_Usuario,TIC_Titulo,TIC_Observaciones,TIC_Estado,USR_Usuario_Creacion)
 					values(@TIC_TICKET_ID,@USUARIO,@TIC_Titulo,@TIC_Observaciones,@TIC_Estado,@USR_Usuario_Creacion)
-					end
+				end
 		end
 		if(@Accion = 'TA')
 		begin
@@ -48,6 +48,7 @@ begin
 				
 		end
 end
+
 
 
 
