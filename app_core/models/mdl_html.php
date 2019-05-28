@@ -36,7 +36,7 @@ class mdl_HTML {
 		"</a>".
 		"<ul class='sub'>".
 		"<li><a class='active' href='crear_ticket.php'>Crear ticket</a></li>".
-		"<li><a class='active' href='hilo_ticket.php'>Mis tickets (2)</a></li>".
+		"<li><a class='active' href=''>Mis tickets (2)</a></li>".
 		"<li><a class='active' href='tickets_abiertos.php?status=ABIERTO'>Tickets abiertos</a></li>".
 		"<li><a class='active' href='tickets_abiertos.php?status=CERRADO'>Tickets cerrados</a></li>".
 		"</ul>".

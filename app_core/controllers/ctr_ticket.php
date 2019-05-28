@@ -29,10 +29,13 @@ class ctr_ticket{
 		{
 			return $this->postdata->obtener_hilo_ticket($ticketID);
 		}
-
-		public function insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario)
+		public function obtener_tarea_ticket($ticketID)
 		{
-			return $this->postdata->insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario);
+			return $this->postdata->obtener_tarea_ticket($ticketID);
+		}
+		public function insertar_hilo_ticket($ticket,$Observaciones,$Usuario)
+		{
+			return $this->postdata->insertar_hilo_ticket($ticket,$Observaciones,$Usuario);
 		}
 	}
 

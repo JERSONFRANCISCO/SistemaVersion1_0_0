@@ -24,8 +24,25 @@ class mdl_ticket{
 		}
 		return $posts;
 	}
-	public function insertar_hilo_ticket($Titulo,$Observaciones,$Estado,$Usuario){
-		$sql = " exec pa_HiloTicet @DEP_Titulo = '".$Observaciones."'";
+	public function obtener_tarea_ticket($ticketID){
+		$posts=array();
+		$cont=0;
+		$sql = "exec pa_obtener_tareas_ticket @tic_ticket = ".$ticketID;
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$posts[$cont][1]=$row[1];
+			$posts[$cont][2]=$row[2];
+			$posts[$cont][3]=$row[3];
+			$posts[$cont][4]=$row[4];
+			$posts[$cont][5]=$row[5];
+			$posts[$cont][6]=$row[6];
+			$cont++;
+		}
+		return $posts;
+	}
+	public function insertar_hilo_ticket($ticket,$Observaciones,$Usuario){
+		$sql = " exec pa_HiloTicket @DEP_Titulo = '".$Observaciones."' ,  @tic_ticket =".$ticket.", @Usr_usuario ='".$Usuario."'";
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
