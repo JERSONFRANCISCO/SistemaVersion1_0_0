@@ -1,46 +1,23 @@
 
 <?php
 
-
-if(isset($_POST['Prioridad'])){
- // echo "Prioridad".substr($_POST['Prioridad'], 0,1)."<br>";
-}
-if(isset($_POST['NombreDepartamento'])){
- // echo "NombreDepartamento".$_POST['NombreDepartamento']."<br>";
-}
-if(isset($_POST['NombreUsuario'])){
- // echo "NombreUsuario".$_POST['NombreUsuario']."<br>";
-}
-if(isset($_POST['NombreCliente'])){
-  //echo "NombreCliente".$_POST['NombreCliente']."<br>";
-}
-if(isset($_POST['NombreProyecto'])){
-  //echo "NombreProyecto".$_POST['NombreProyecto']."<br>";
-}
-if(isset($_POST['OrdenDeTrabajo'])){
-  //echo "OrdenDeTrabajo".$_POST['OrdenDeTrabajo']."<br>";
-}
-if(isset($_POST['NombreVendedor'])){
- // echo "NombreVendedor".$_POST['NombreVendedor']."<br>";
-}
-if(isset($_POST['summernote'])){
-  //echo "summernote".$_POST['summernote']."<br>";
-}
+/*
+  funcion la cual agrega el ticket y agrega las tareas
+*/
 if(isset($_POST['tituloTicket'])){
- // echo "tituloTicket".$_POST['tituloTicket']."<br>";
   require_once(__CTR_PATH . "ctr_ticket.php");
   $ctr_ticket = new ctr_ticket();
-  $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreCliente'],'123',0,$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
-  //echo $ctr;
-  
-}
-if(isset($_POST['numeroDeTareas'])){
-  echo "<br> numero de tareas: " . $_POST['numeroDeTareas']."<br>";
-  for($i = 1 ; $i <= $_POST['numeroDeTareas'] ; $i++ ){
-    echo $_POST['tareatareaTitulo'.$i];
-
+  $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreClienteAJAX'],$_POST['ProyectoClienteAjax'],$_POST['NombreUsuario'],$_POST['OrdenDeTrabajoAJAX'],$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
+  if(isset($_POST['numeroDeTareas'])){
+    for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
+      if(isset($_POST['tareatareaTitulo'.$i])){
+        $ctr_ticket->insertar_tareas_ticket($_POST['tareatareaUsuario'.$i],$_POST['tareaTareaDepartamento'.$i],'A',$_POST['tareatareaTitulo'.$i],$_POST['tareatareaDescripcion'.$i],'JERSON',$_POST['tareatareaHoras'.$i],$_POST['tareatareaMinutos'.$i],$ctr);
+      }
+    }
   }
 }
+
+
 
 
 ?>

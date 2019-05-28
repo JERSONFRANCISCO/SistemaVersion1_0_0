@@ -1,4 +1,7 @@
-//alert("olis");
+/*
+  Funciones en jquery que refrescan la información de los combobox mediante el uso 
+  de ajax esto para que los cambios se hagan sin refrescar la página
+*/
 function cargarProyectoCliente(){
   $.ajax({
     type: 'POST',
@@ -15,6 +18,7 @@ function cargarProyectoCliente(){
     alert("Error al ingresar");
   });    
 }
+// cargar ot del cliente
 function cargarOTCliente(){
   $.ajax({
     type: 'POST',

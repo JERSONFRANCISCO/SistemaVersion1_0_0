@@ -18,27 +18,27 @@ ALTER procedure pa_Estandar(
 	if(@Accion = 'CL')
 		begin
 			SELECT CLI_NOMBRE,CLI_CLIENTE
-			FROM SabioTerra..CLI_CLIENTES 
+			FROM Sabio..CLI_CLIENTES 
 			WHERE CLI_CLIENTES.CLI_Activo = 1 ORDER BY CLI_Nombre ASC
 			
 	end
 	if(@Accion = 'VD')
 		begin
 			SELECT VEN_Nombre,VEN_Vendedor
-			FROM SabioTerra..VEN_VENDEDORES
+			FROM Sabio..VEN_VENDEDORES
 			WHERE VEN_VENDEDORES.VEN_Activo = 1
 			
 	end
 	if(@Accion = 'OT')
 		begin
 			SELECT TAL_Descripcion AS OT, TAL_Numero AS TalNumero
-			FROM SabioTerra..ALQ_TALLER
+			FROM Sabio..ALQ_TALLER
 			WHERE TAL_Reparado <> 'S' and CLI_Cliente = @DEP_TABLA and PRO_Proyecto = @DEP_TABLA2
 	end
 	if(@Accion = 'PC')
 		begin
 			SELECT PRO_PROYECTOS.PRO_Nombre AS OT, PRO_PROYECTOS.PRO_Proyecto AS TalNumero
-			FROM SabioTerra..PRO_PROYECTOS
+			FROM Sabio..PRO_PROYECTOS
 			WHERE PRO_PROYECTOS.PRO_Activo = 1 and CLI_Cliente = @DEP_TABLA 
 	end
 end

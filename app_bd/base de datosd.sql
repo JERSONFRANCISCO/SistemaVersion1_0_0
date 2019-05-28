@@ -12,26 +12,19 @@ end
 
 
 
-
-
-
 select * from CATALOGO
 select * from CATALOGO_DETALLE 
 
 insert into catalogo(cat_tabla,cat_estado) values('Prioridades','A')
-
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
 values(1,'Prioridades','U','URGENTE','A')
-
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
 values(1,'Prioridades','N','NORMAL','A')
-
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
 values(1,'Prioridades','S','SIN URGENCIA','A')
 
 
 insert into CATALOGO (cat_tabla,cat_estado) values ('Estados','A')
-
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
 values(1,'Estados','A','ACTIVO','A')
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
@@ -44,7 +37,8 @@ values(1,'Estados','C','CERRADO','A')
 
 
 
-select
+
+ select
 CaD.CAT_Descripcion,
 Pri.CAT_Descripcion,
 convert(varchar,tic.USR_Fecha_Creacion, 105) as USR_Fecha_Creacion,
@@ -62,8 +56,9 @@ inner join CATALOGO_DETALLE CaD on ( tic.TIC_Estado = CaD.CAT_Contraccion and Ca
 inner join CATALOGO_DETALLE Pri on ( tic.TIC_Prioridad = Pri.CAT_Contraccion and Pri.CAT_Tabla = 'Prioridades')
 left join DEPARTAMENTOS dep on ( tic.DEP_DEPARTAMENTO =dep.DEP_Departamento)
 left join USUARIOS usr on (tic.USR_Usuario = usr.USR_Usuario)
-LEFT JOIN SABIOTERRA..VEN_VENDEDORES Ven on (  ven.Ven_vendedor COLLATE DATABASE_DEFAULT = tic.ven_vendedor)
-LEFT JOIN SABIOTERRA..CLI_CLIENTES cli on (  cli.CLI_Cliente COLLATE DATABASE_DEFAULT = tic.CLI_Cliente)
-LEFT JOIN SABIOTERRA..PRO_PROYECTOS pro on ( tic.Pro_Proyecto COLLATE DATABASE_DEFAULT = pro.PRO_Proyecto and cli.CLI_Cliente = pro.CLI_Cliente)
-left join SABIOTERRA..ALQ_TALLER tal on (tal.tal_numero =  tic.Tal_Numero )
-where tic.TIC_Ticket = 1
+LEFT JOIN SABIO..VEN_VENDEDORES Ven on (  ven.Ven_vendedor COLLATE DATABASE_DEFAULT = tic.ven_vendedor)
+LEFT JOIN SABIO..CLI_CLIENTES cli on (  cli.CLI_Cliente COLLATE DATABASE_DEFAULT = tic.CLI_Cliente)
+LEFT JOIN SABIO..PRO_PROYECTOS pro on ( tic.Pro_Proyecto COLLATE DATABASE_DEFAULT = pro.PRO_Proyecto and cli.CLI_Cliente = pro.CLI_Cliente)
+left join SABIO..ALQ_TALLER tal on (tal.tal_numero =  tic.Tal_Numero )
+
+

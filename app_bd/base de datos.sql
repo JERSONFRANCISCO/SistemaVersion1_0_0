@@ -148,7 +148,7 @@ CREATE TABLE dbo.TICKET_TAREAS(
 	DEP_Departamento INT NOT NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
 	USR_Usuario INT Not NULL, -- REFERENCIA   dbo.USUARIOS
 	TIC_Titulo varchar(100) not null,
-	TIC_Observaciones text,
+	TIC_Observaciones varchar(max),
 	TIC_Estado varchar(1) not null,-- REALIZADO O NO
 	TIC_Peso int null,
 	TIC_Minutos varchar(3) null,

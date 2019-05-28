@@ -1,8 +1,6 @@
 
 <?php
-if(isset($_GET['ticket'])){
-// echo $_GET['ticket'];
-}
+
 
 if(isset($_POST['editordata'])){
   require_once(__CTR_PATH . "ctr_ticket.php");
@@ -20,6 +18,9 @@ if(isset($_POST['editordata'])){
   i{
     background-color: rgba(255, 255, 255, 0)!important;
   }
+  #alinearIzquierda{
+    text-align: left;
+  }
   .loader {
     position: fixed;
     left: 0px;
@@ -27,8 +28,8 @@ if(isset($_POST['editordata'])){
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url('images/pageLoader.gif') 50% 50% no-repeat rgb(249,249,249);
-    opacity: .8;
+    background: url('<?php echo __IMG_PATH; ?>page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+    opacity: 1;
   }
 </style>  
 
@@ -103,8 +104,13 @@ if(isset($_POST['editordata'])){
               <header class="panel-heading">
                 <div class="row">
                   <div class="col-lg-4">
-                    Ticket 001 
-                  </div>
+                    Ticket 
+                    <?php 
+                    if(isset($_GET['ticket'])){ 
+                      echo $_GET['ticket'] ;} 
+                      ?>
+                    </div>
+                  <!--
                   <div class="col-lg-8">
                     <div class="progress progress-striped progress-sm">
                       <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
@@ -112,86 +118,78 @@ if(isset($_POST['editordata'])){
                       </div>
                     </div>
                   </div>
-                </div>  
-              </header>
+                -->
+              </div>  
+            </header>
 
-              <div class="row">
-                <!-- profile-widget -->
-                <div class="col-lg-12">
-                  <div class="profile-widget profile-widget-info">
-                    <div class="panel-body" style="color: black;background-color: white;">
-
-                     <div class="col-lg-2 col-sm-2 follow-info">
-                      <p><strong>Estado:</strong></p>
-                      <p><strong>Prioridad:</strong></p>
-                      <p><strong><span><i class="icon_calendar"></i> Creado el:</span></strong></p>
-                      <p><strong><span><i class="icon_calendar"></i> Creado el:</span></strong></p>
-                    </div>
-                    <div class="col-lg-2 col-sm-2 follow-info">
-                      <p>Activo</p>
-                      <p>Normal</p>
-                      <p>18/05/2019</p>
-                      <p>12/05/2019</p>
-                    </div>
-
-                    <div class="col-lg-2 col-sm-2 follow-info">
-                      <p><strong>Vendedor:</strong></p>
-                      <p><strong>Cliente:</strong></p>
-                      <p><strong>Proyecto:</strong></p>
-                      <p><strong>Orden de trabajo:</strong></p>
-                    </div>
-                    <div class="col-lg-2 col-sm-2 follow-info">
-                      <p>Jerson Hidalgo</p>
-                      <p>Jerson Jimenez</p>
-                      <p>Francisco Hidalgo</p>
-                      <p>001</p>
-                    </div>
-
-                    <div class="col-lg-2 col-sm-2 follow-info">
-                      <p><strong>Departamento:</strong></p>
-                      <p><strong>Usuario creación:</strong></p>
-                      <p><strong>Usuario asignado:</strong></p>
-                      <p><strong>Titulo:</strong></p>
-                    </div>
-                    <div class="col-lg-2 col-sm-2 follow-info">
-                      <p>Informática</p>
-                      <p>Jerson Jimenez</p>
-                      <p>Francisco Hidalgo</p>
-                      <p>Ajuste en el sistema operativo</p>
-                    </div>
+            <div class="row">
+              <!-- profile-widget -->
+              <div class="col-lg-12">
+                  <div class="panel-body" style="color: black;background-color: white;">
+                    <div class="row">
+                      <?php 
+                      if(isset($_GET['ticket'])){
+                       require_once(__CTR_PATH . "ctr_ticket.php");
+                       $ctr_ticket = new ctr_ticket();
+                       $ctr = $ctr_ticket->pa_informacion_ticket($_GET['ticket']);
+                       foreach ($ctr as $value) {
+                        echo"
+                        <div class='col-lg-4' id='alinearIzquierda'>".
+                        "<p><strong>Estado:</strong>$value[0]</p>".
+                        "<p><strong>Prioridad:</strong>$value[1]</p>".
+                        "<p><strong><span><i class='icon_calendar'></i> Creado el:</span></strong>$value[2]</p>".
+                        "<p><strong><span><i class='icon_calendar'></i> Creado el:</span></strong>$value[3]</p>".
+                        "</div>".
+                        "<div class='col-lg-4' id='alinearIzquierda'>".
+                        "<p><strong>Departamento:</strong>$value[4]</p>".
+                        "<p><strong>Usuario creación:</strong>$value[5]</p>".
+                        "<p><strong>Usuario asignado:</strong>$value[6]</p>".
+                        "<p><strong>Titulo:</strong>$value[7]</p>".
+                        "</div>".
+                        "<div class='col-lg-4' id='alinearIzquierda'>".
+                        "<p><strong>Vendedor:</strong>$value[8]</p>".
+                        "<p><strong>Cliente:</strong>$value[9]</p>".
+                        "<p><strong>Proyecto:</strong>$value[10]</p>".
+                        "<p><strong>Orden de trabajo:</strong>$value[11]</p>".
+                        "</div>";
+                      }
+                    }else{
+                      echo "no";
+                    }
+                    ?>
 
                   </div>
                 </div>
-              </div>
             </div>
+          </div>
 
 
-            <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
-            <div class="row">
-              <div class="col-lg-12">
-                <section class="panel">
-                  <header class="panel-heading tab-bg-info">
-                    <ul class="nav nav-tabs">
-                      <li class="active">
-                        <a data-toggle="tab" href="#contestar">
-                          Responder
-                        </a>
-                      </li>
-                      <li>
-                        <a data-toggle="tab" href="#changeDepartamento">
-                          Cambiar Departamento
-                        </a>
-                      </li>
-                      <li>
-                        <a data-toggle="tab" href="#changeUser">
-                          Asignar Usuario
-                        </a>
-                      </li>
-                    </ul>
-                  </header>
+          <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
+          <div class="row">
+            <div class="col-lg-12">
+              <section class="panel">
+                <header class="panel-heading tab-bg-info">
+                  <ul class="nav nav-tabs">
+                    <li class="active">
+                      <a data-toggle="tab" href="#contestar">
+                        Responder
+                      </a>
+                    </li>
+                    <li>
+                      <a data-toggle="tab" href="#changeDepartamento">
+                        Cambiar Departamento
+                      </a>
+                    </li>
+                    <li>
+                      <a data-toggle="tab" href="#changeUser">
+                        Asignar Usuario
+                      </a>
+                    </li>
+                  </ul>
+                </header>
 
-                  <div class="panel-body">
-                    <div class="tab-content">
+                <div class="panel-body">
+                  <div class="tab-content">
                       <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL FORMULARIO DONDE SE LLENA LA INFORMACIÓN 
                         AQUI SE EJECUTA EL EVENTO QUE REFRESCA LA PAGINA PARA GUARDAR LOS DATOS EN LA BD Y REFRESCAR NUEVAMENTE-->
                         

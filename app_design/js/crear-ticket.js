@@ -24,7 +24,7 @@ function agregarFila_Tareas() {
         if(tareaUsuario.length>0){
           if(tareaMinutos.length>0){
             if(tareaHoras.length>0){
-              var totalIngresos=document.getElementsByName("totalDeTareas")[0].innerHTML;
+             var totalIngresos=document.getElementsByName("totalDeTareas")[0].innerHTML;
              var siguienteColumna = (parseInt(totalIngresos)+1)
              $("#numeroDeTareas").val(siguienteColumna);
              document.getElementsByName("totalDeTareas")[0].innerHTML= siguienteColumna;
