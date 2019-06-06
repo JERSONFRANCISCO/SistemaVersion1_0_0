@@ -193,7 +193,7 @@ if(isset($_POST['tituloTicket'])){
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Fecha de vencimiento:</label>
                               <div class="col-lg-8">
-                                <input size="16" type="text" class="form-control" id="datetime" >
+                                <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>
                               </div>
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título:</label>

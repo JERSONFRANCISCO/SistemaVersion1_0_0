@@ -1,3 +1,7 @@
+/*
+	funcion en jquery que nos mueve de la parte inferior de la página  hasta arriba
+*/
+
 $(document).ready(function(){ //Hacia arriba
 	irArriba();
 });
