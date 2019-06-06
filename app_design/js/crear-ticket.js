@@ -3,7 +3,10 @@
     //alert($("#numeroDeTareas").val());
  // });
 //});
-
+/*
+  Esta funcion lo que hace es agregar en la tabla de tareas una fila la cual indica que es una tarea la cual se va a guardar en la 
+  base de datos
+*/
 function agregarFila_Tareas() {
   var tareaTitulo=document.getElementById("tareaTitulo").value;
   var tareaDescripcion=document.getElementById("tareaDescripcion").value;
@@ -11,13 +14,6 @@ function agregarFila_Tareas() {
   var tareaUsuario=document.getElementById("tareaUsuario").value;
   var tareaMinutos=document.getElementById("tareaMinutos").value;
   var tareaHoras=document.getElementById("tareaHoras").value;
-/*
-  var totalIngresos=document.getElementsByName("totalDeTareas")[0].innerHTML;
-  var siguienteColumna = (parseInt(totalIngresos)+1)
-  document.getElementsByName("totalDeTareas")[0].innerHTML= (parseInt(totalIngresos)+1);
-  agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
-  */
-
   if(tareaTitulo.length>0){
     if(tareaDescripcion.length>0){
       if(tareaDepartamento.length>0){
@@ -50,7 +46,9 @@ function agregarFila_Tareas() {
 }
 }
 
-
+/*
+  aagrega los elementos necesarios para que la fila se muestre en la tabla correctamente 
+*/
 function agregarFila(id,tareaTitulo,tareaDescripcion,TareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos) {
  var style='';
  if(id%2==0){
@@ -70,9 +68,17 @@ var htmlTags =
 
 $('#tablaTareas tbody').append(htmlTags);
 } 
+
+/*
+  funcion jquery que borra una fila del elemento de la tabla
+*/
 function borrarFila(id){
  $("#fila"+id).remove();
 }
+
+/*
+  limpia los campos de texto correspondientes a las tareas que se van a ingresar
+*/
 function limpiarCampostexto(){
   document.getElementById("tareaTitulo").value="";
   document.getElementById("tareaDescripcion").value="";
