@@ -13,9 +13,10 @@ $HTML = new mdl_Html();
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
   <?php
+echo $HTML->html_js_header(__JS_PATH . "moment.js");
+
   echo $HTML->html_icono(__RSC_PHO_HOST_PATH);
   echo $HTML->html_TituloPagina();
   echo $HTML->html_css_header(__CSS_PATH . "bootstrap.min.css","screen");
@@ -28,6 +29,12 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "summernote.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "bootstrap-select.min.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
+
+
+//echo $HTML->html_js_header(__JS_PATH."moment.js");
+echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
+ // echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
+  //echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
   ?>
 
 </head>
@@ -55,10 +62,10 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
 
   echo $HTML->html_js_header(__JS_PATH."javascriptAJAX.js");
-
+  echo $HTML->html_js_header(__JS_PATH."tempusdominus-bootstrap-4.js");
 
   ?>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+
   <script>
     $(document).ready(function() {
       $('#summernote').summernote({

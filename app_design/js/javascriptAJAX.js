@@ -14,6 +14,12 @@ function cargarProyectoCliente(){
     $("#ProyectoClienteAjax").selectpicker();
     $("#ProyectoClienteAjax").html(datos);
     $('#ProyectoClienteAjax').selectpicker('refresh');
+
+    $("#OrdenDeTrabajoAJAX").selectpicker();
+    $("#OrdenDeTrabajoAJAX").html("");
+    $('#OrdenDeTrabajoAJAX').selectpicker('refresh');
+    //$(this).val("");
+
   }).fail(function (jqXHR, textStatus, errorThrow){
     alert("Error al ingresar");
   });    
