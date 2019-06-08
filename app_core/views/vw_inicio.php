@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+
+
+?>
+
 <style type="text/css">
   .drag-drop-item
   {
@@ -39,7 +46,7 @@
             <span class="profile-ava">
               <img alt="" src="app_core/resources/usrimg/usr001.jpg" style="">
             </span>
-            <span class="username">Jenifer Smith</span>
+            <span class="username"><?php if(isset($_SESSION['USR_nombre'])){ echo $_SESSION['USR_nombre'];}?></span>
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu extended logout">
@@ -94,7 +101,7 @@
                   <div class="info-box blue-bg">
                     <i class="fas fa-ticket-alt"></i>
                     <div class="count">6.674</div> 
-                    <div class="title">Download</div>
+                    <div class="title">Tareas Pendientes</div>
                   </div>
                 </div>
 
@@ -102,7 +109,7 @@
                   <div class="info-box brown-bg">
                     <i class="fas fa-ticket-alt"></i>
                     <div class="count">7.538</div>
-                    <div class="title">Purchased</div>
+                    <div class="title">Tickets Atrasados</div>
                   </div>
                 </div>
                 
@@ -110,7 +117,7 @@
                   <div class="info-box dark-bg">
                     <i class="fas fa-ticket-alt"></i>
                     <div class="count">4.362</div>
-                    <div class="title">Order</div>
+                    <div class="title">Tickets Abiertos</div>
                   </div>
                 </div>
                 
@@ -118,7 +125,7 @@
                   <div class="info-box green-bg">
                     <i class="fas fa-ticket-alt"></i>
                     <div class="count">1.426</div>
-                    <div class="title">Stock</div>
+                    <div class="title">Tickets Cerrados</div>
                   </div>
                 </div>
               </div>
@@ -132,12 +139,12 @@
             <div class="panel-body progress-panel">
               <div class="row">
                 <div class="col-lg-8 task-progress pull-left">
-                  <h1>To Do Everyday</h1>
+                  <h1>Tareas Pendientes</h1>
                 </div>
                 <div class="col-lg-4">
                   <span class="profile-ava pull-right">
                     <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
-                    Jenifer smith
+                    Nombre del usuario
                   </span>
                 </div>
               </div>
@@ -145,12 +152,12 @@
             <table class="table table-hover personal-task">
               <tbody>
                 <tr class="zoomtabla">
-                  <td>Today</td>
+                  <td>HOY</td>
                   <td>
-                    web design
+                    Detalle del ticket
                   </td>
                   <td>
-                    <span class="badge bg-important">Upload</span>
+                    <span class="badge bg-important">Ticket</span>
                   </td>
                   <td>
                     <span class="profile-ava">
@@ -159,12 +166,12 @@
                   </td>
                 </tr>
                 <tr class="zoomtabla">
-                  <td>Yesterday</td>
+                  <td>HOY</td>
                   <td>
-                    Project Design Task
+                    Detalle de la tarea
                   </td>
                   <td>
-                    <span class="badge bg-success">Task</span>
+                    <span class="badge bg-success">Tarea</span>
                   </td>
                   <td>
                     <span class="profile-ava">
@@ -175,10 +182,10 @@
                 <tr class="zoomtabla">
                   <td>21-10-14</td>
                   <td>
-                    Generate Invoice
+                    Detalle de la tarea
                   </td>
                   <td>
-                    <span class="badge bg-success">Task</span>
+                    <span class="badge bg-success">Tarea</span>
                   </td>
                   <td>
                     <span class="profile-ava">
@@ -189,11 +196,14 @@
                 <tr class="zoomtabla">
                   <td>22-10-14</td>
                   <td>
-                    Project Testing
+                    Detalle de la tarea
                   </td>
                   <td>
-                    <span class="badge bg-primary">To-Do</span>
+                    <span class="badge bg-success">Tarea</span>
                   </td>
+                <!--  <td>
+                    <span class="badge bg-primary">To-Do</span>
+                  </td> -->
                   <td>
                     <span class="profile-ava">
                       <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
@@ -203,10 +213,10 @@
                 <tr class="zoomtabla">
                   <td>24-10-14</td>
                   <td>
-                    Project Release Date
+                    Detalle de la tarea
                   </td>
                   <td>
-                    <span class="badge bg-primary">To-Do</span>
+                    <span class="badge bg-success">Tarea</span>
                   </td>
                   <td>
                     <span class="profile-ava">
@@ -217,24 +227,10 @@
                 <tr class="zoomtabla">
                   <td>28-10-14</td>
                   <td>
-                    Project Release Date
+                    Detalle de la tarea
                   </td>
                   <td>
-                    <span class="badge bg-primary">To-Do</span>
-                  </td>
-                  <td>
-                    <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
-                    </span>
-                  </td>
-                </tr>
-                <tr class="zoomtabla">
-                  <td>Last week</td>
-                  <td>
-                    Project Release Date
-                  </td>
-                  <td>
-                    <span class="badge bg-primary">To-Do</span>
+                    <span class="badge bg-success">Tarea</span>
                   </td>
                   <td>
                     <span class="profile-ava">
@@ -243,12 +239,26 @@
                   </td>
                 </tr>
                 <tr class="zoomtabla">
-                  <td>last month</td>
+                  <td>MAÑANA</td>
                   <td>
-                    Project Release Date
+                    Detalle de la tarea
                   </td>
                   <td>
-                    <span class="badge bg-success">To-Do</span>
+                    <span class="badge bg-success">Tarea</span>
+                  </td>
+                  <td>
+                    <span class="profile-ava">
+                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="zoomtabla">
+                  <td>MAÑANA</td>
+                  <td>
+                    Detalle de la tarea
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Tarea</span>
                   </td>
                   <td>
                     <span class="profile-ava">
@@ -269,7 +279,7 @@
   <!--main content end-->
   <div class="text-center">
     <div class="credits">
-      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
+      Diseñado por <a href="http://dialcomcr.com/"  target="_blank">DIALCOM</a>
     </div>
   </div>
 </section>

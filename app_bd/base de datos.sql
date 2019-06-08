@@ -8,6 +8,7 @@ CREATE TABLE dbo.USUARIOS(
 	USR_Estado varchar(1) not NULL,
 	USR_Password varchar(20) not NULL,
 	USR_ROL varchar(1) not null,
+	USR_URLIMG varchar(20) null,
 	USR_Fecha_Creacion datetime NOT null DEFAULT(GETDATE()),
 	USR_Usuario_Creacion varchar(20) NULL,
 	USR_Fecha_Modificacion datetime null,

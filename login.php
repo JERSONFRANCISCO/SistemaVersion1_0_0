@@ -3,6 +3,7 @@ require_once("global.php");
 require_once(__MDL_PATH . "mdl_html.php");
 
 $HTML = new mdl_Html();
+
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +33,28 @@ $HTML = new mdl_Html();
 <body class="login-img3-body">
 
   <?php
-  include_once(__VWS_PATH."vw_login.php");
+  if(isset($_POST['login'])){
+    if(isset($_POST['TXTuser'])){
+      if(isset($_POST['TXTpassword'])){
+        require_once(__CTR_PATH . "ctr_login.php");
+        $ctr_login = new ctr_login();
+        $ctr_login -> login($_POST['TXTuser'],$_POST['TXTpassword']);
+      }
+    }
+  }
 
+  if (isset($_SESSION['MYAPP'])) {
+    if ($_SESSION['MYAPP']!="YES") {
+      include_once(__VWS_PATH."vw_login.php");
+    }else{
+      include_once("inicio.php");
+    }
+  }else{
+   include_once(__VWS_PATH."vw_login.php");
+ }
 
-  ?>
-  
+ ?>
 
 
 </body>
-
 </html>

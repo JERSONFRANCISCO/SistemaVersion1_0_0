@@ -1,27 +1,7 @@
-/*!jQuery Knob*/
-/**
- * Downward compatible, touchable dial
- *
- * Version: 1.2.0 (15/07/2012)
- * Requires: jQuery v1.7+
- *
- * Copyright (c) 2012 Anthony Terrien
- * Under MIT and GPL licenses:
- *  http://www.opensource.org/licenses/mit-license.php
- *  http://www.gnu.org/licenses/gpl.html
- *
- * Thanks to vor, eskimoblood, spiffistan, FabrizioC
- */
 (function($) {
 
-    /**
-     * Kontrol library
-     */
     "use strict";
 
-    /**
-     * Definition of globals and core
-     */
     var k = {}, // kontrol
         max = Math.max,
         min = Math.min;

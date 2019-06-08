@@ -13,7 +13,7 @@ class mdl_HTML {
 		"<div id='sidebar' class='nav-collapse '>".
 		"<ul class='sidebar-menu'>".
 		"<li class=''>".
-		"<a class='' href='index.php'>".
+		"<a class='' href='inicio.php'>".
 		"<i class='icon_house_alt'></i>".
 		"<span>Pagina Principal</span>".
 		"</a>".

@@ -3,17 +3,19 @@ require_once("global.php");
 require_once(__MDL_PATH . "mdl_html.php");
 
 $HTML = new mdl_Html();
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  
+
+
   <?php
   echo $HTML->html_icono(__RSC_PHO_HOST_PATH);
   echo $HTML->html_TituloPagina();
@@ -24,51 +26,31 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "style.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "style-responsive.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
-  echo $HTML->html_css_header(__CSS_PATH . "summernote.css","screen");
-  echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
-   echo $HTML->html_css_header(__CSS_PATH . "bootstrap-toggle.min.css","screen");
+
   ?>
+
 
 
 </head>
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_hilo_ticket.php");
+  include_once(__VWS_PATH."vw_inicio.php");
 
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.nicescroll.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
-  echo $HTML->html_js_header(__JS_PATH."jquery.knob.js");
+  echo $HTML->html_js_header(__JS_PATH."bootstrap.bundle.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.easing.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.dataTables.js");
   echo $HTML->html_js_header(__JS_PATH."dataTables.bootstrap4.js");
   echo $HTML->html_js_header(__JS_PATH."datatables-demo.js");
-  
-  echo $HTML->html_js_header(__CSS_PATH."summernote.js");
-
-  echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
-  echo $HTML->html_js_header(__JS_PATH."bootstrap-toggle.min.js");
   ?>
-
-  <script>
-    $(document).ready(function() {
-      $('#summernote').summernote({
-        height:150
-      });
-    });
-    $(window).load(function() {
-      $(".loader").fadeOut("slow");
-    });
+  
 
 
-
-    
-  </script>
-</section>
 </body>
 
 </html>
-
