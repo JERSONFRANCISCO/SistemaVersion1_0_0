@@ -1,131 +1,98 @@
 
 <?php
+session_name("MYAPP"); 
+session_start();
 
 /*
   funcion la cual agrega el ticket y agrega las tareas
 */
-if(isset($_POST['tituloTicket'])){
-  require_once(__CTR_PATH . "ctr_ticket.php");
-  $ctr_ticket = new ctr_ticket();
-  $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreClienteAJAX'],$_POST['ProyectoClienteAjax'],$_POST['NombreUsuario'],$_POST['OrdenDeTrabajoAJAX'],$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
-  if(isset($_POST['numeroDeTareas'])){
-    for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
-      if(isset($_POST['tareatareaTitulo'.$i])){
-        $ctr_ticket->insertar_tareas_ticket($_POST['tareatareaUsuario'.$i],$_POST['tareaTareaDepartamento'.$i],'A',$_POST['tareatareaTitulo'.$i],$_POST['tareatareaDescripcion'.$i],'JERSON',$_POST['tareatareaHoras'.$i],$_POST['tareatareaMinutos'.$i],$ctr);
+  if(isset($_POST['tituloTicket'])){
+    require_once(__CTR_PATH . "ctr_ticket.php");
+    $ctr_ticket = new ctr_ticket();
+    $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreClienteAJAX'],$_POST['ProyectoClienteAjax'],$_POST['NombreUsuario'],$_POST['OrdenDeTrabajoAJAX'],$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
+    if(isset($_POST['numeroDeTareas'])){
+      for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
+        if(isset($_POST['tareatareaTitulo'.$i])){
+          $ctr_ticket->insertar_tareas_ticket($_POST['tareatareaUsuario'.$i],$_POST['tareaTareaDepartamento'.$i],'A',$_POST['tareatareaTitulo'.$i],$_POST['tareatareaDescripcion'.$i],'JERSON',$_POST['tareatareaHoras'.$i],$_POST['tareatareaMinutos'.$i],$ctr);
+        }
       }
     }
   }
-}
 
 
 
 
-?>
-<style type="text/css">
-  .drag-drop-item
-  {
-    touch-action: none;
-  }
-  i{
-    background-color: rgba(255, 255, 255, 0)!important;
-  }
-  #alinearIzquierda{
-    text-align: left;
-  }
-  .inner{
-    max-width: 10px;
-  }
-  .open > .dropdown-menu{
-    opacity: 1;
-  }
-  .loader {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: url('<?php echo __IMG_PATH; ?>page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
-    opacity: 1;
-  }
-
-</style> 
-
-
-
-
-<!-- container section start -->
-<section id="container" class="">
-  <!--header start-->
-  <header class="header dark-bg">
-    <div class="toggle-nav">
-      <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-    </div>
-
-    <a href="index.html" class="logo">EMPRESA CLIENTE <span class="lite"> DIALCOM TICKETS</span></a>
-
-    <div class="top-nav notification-row">
-      <ul class="nav pull-right top-menu">
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-            <span class="profile-ava">
-              <img alt="" src="app_design/img/cc.jpg">
-            </span>
-            <span class="username">Jenifer Smith</span>
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu extended logout">
-            <div class="log-arrow-up"></div>
-            <li class="eborder-top">
-              <a href="#"><i class="icon_profile"></i> My Profile</a>
-            </li>
-            <li>
-              <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
-            </li>
-            <li>
-              <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
-            </li>
-            <li>
-              <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-            </li>
-            <li>
-              <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
-            </li>
-            <li>
-              <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-            </li>
-            <li>
-              <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-            </li>
-          </ul>
-        </li>
-        <!-- user login dropdown end -->
-      </ul>
-      <!-- notificatoin dropdown end-->
-    </div>
-  </header>
-  <!--header end-->
-
-  <!--sidebar start-->
-  <?php
-  echo $HTML->html_menu();
-  echo $HTML->boton_arriba();
-  echo $HTML->html_cargandoPagina();
   ?>
+  <style type="text/css">
+    .drag-drop-item
+    {
+      touch-action: none;
+    }
+    i{
+      background-color: rgba(255, 255, 255, 0)!important;
+    }
+    #alinearIzquierda{
+      text-align: left;
+    }
+    .inner{
+      max-width: 10px;
+    }
+    .open > .dropdown-menu{
+      opacity: 1;
+    }
+    .loader {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: url('<?php echo __IMG_PATH; ?>page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+      opacity: 1;
+    }
 
-  <!--main content start-->
-  <section id="main-content">
-    <section class="wrapper">
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- <h3 class="page-header"><i class="fa fa-table"></i>Ticket 0001</h3> -->
-          <div class="row">
-            <div class="col-lg-12">
-              <header class="panel-heading">
-                <div class="row">
-                  <div class="col-lg-4">
-                    Ticket nuevo 
-                  </div>
+  </style> 
+
+
+
+
+  <!-- container section start -->
+  <section id="container" class="">
+    <!--header start-->
+    <header class="header dark-bg">
+      <div class="toggle-nav">
+        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+      </div>
+
+      <a href="index.html" class="logo">EMPRESA CLIENTE <span class="lite"> DIALCOM TICKETS</span></a>
+
+      <?php
+      echo $HTML->actionMenu();
+      ?>
+      
+    </header>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <?php
+    echo $HTML->html_menu();
+    echo $HTML->boton_arriba();
+    echo $HTML->html_cargandoPagina();
+    ?>
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- <h3 class="page-header"><i class="fa fa-table"></i>Ticket 0001</h3> -->
+            <div class="row">
+              <div class="col-lg-12">
+                <header class="panel-heading">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      Ticket nuevo 
+                    </div>
                   <!--
                   <div class="col-lg-8">
                     <div class="progress progress-striped progress-sm">

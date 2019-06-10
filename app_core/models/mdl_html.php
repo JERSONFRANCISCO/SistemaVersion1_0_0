@@ -63,6 +63,51 @@ class mdl_HTML {
 		echo "</span>";
 		echo "</a>";
 	}
+	function actionMenu(){
+		echo "<style>img{height: 29px; width: 25px;}</style>";
+		$name= "";
+		$mail="";
+		if(isset($_SESSION['USR_correo'])){ $mail = $_SESSION['USR_correo'];};
+		if(isset($_SESSION['USR_nombre'])){ $name =  $_SESSION['USR_nombre'];};
+		echo $mail;
+		echo "<div class='top-nav notification-row'>".
+		"<ul class='nav pull-right top-menu'>".
+		"<li class='dropdown'>".
+		"<a data-toggle='dropdown' class='dropdown-toggle' href='#'>".
+		"<span class='profile-ava'>".
+		"<img alt='' src='app_core/resources/usrimg/usr001.jpg' style=''>".
+		"</span>".
+		"<span class='username'>$name</span>".
+		"<b class='caret'></b>".
+		"</a>".
+		"<ul class='dropdown-menu extended logout'>".
+		"<div class='log-arrow-up'></div>".
+		"<li class='eborder-top'>".
+		"<a href='#'><i class='icon_profile'></i> My Profile</a>".
+		"</li>".
+		"<li>".
+		"<a href='#'><i class='icon_mail_alt'></i> My Inbox</a>".
+		"</li>".
+		"<li>".
+		"<a href='#'><i class='icon_clock_alt'></i> Timeline</a>".
+		"</li>".
+		"<li>".
+		"<a href='#'><i class='icon_chat_alt'></i> Chats</a>".
+		"</li>".
+		"<li>".
+		"<a href='login.php'><i class='icon_key_alt'></i>Cerrar sesion</a>".
+		"</li>".
+		"<li>".
+		"<a href='documentation.html'><i class='icon_key_alt'></i> Documentation</a>".
+		"</li>".
+		"<li>".
+		"<a><i class='icon_key_alt'></i>$mail</a>".
+		"</li>".
+		"</ul>".
+		"</li>".
+		"</ul>".
+		"</div>";
+	}
 
 }
 
