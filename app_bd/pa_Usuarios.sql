@@ -5,7 +5,7 @@ alter procedure pa_Usuarios(
 	begin
 	if(@Accion = 'S')
 		begin
-			SELECT USR_Usuario,GRU.GRU_Titulo,DEP.DEP_Titulo,USR_Correo,
+			SELECT USR_Usuario,USR_Nombre,USR_Correo,GRU.GRU_Titulo,DEP.DEP_Titulo,
 			case when USR.USR_Estado = 'A' then 'Activo' else 'Inactivo' END AS ESTADO,
 			CDE.CAT_Descripcion  FROM USUARIOS USR 
 			INNER JOIN GRUPO GRU ON ( USR.GRU_Grupo = GRU.GRU_Grupo )
