@@ -39,6 +39,15 @@ class ctr_login{
 				//$this->MSSG->show_message("","warning","fail_auth");
 			}
 		}
+		function btn_logout_click(){
+			if(isset($_GET['login'])){
+				if ($_GET['login']="false") {
+					$this->login_exec->btn_logout_click();
+					echo "<script>location.href='login.php';</script>";
+				}
+			}
+			
+		}
 	}
 
 	?>

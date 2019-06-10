@@ -69,7 +69,7 @@ class mdl_HTML {
 		$mail="";
 		if(isset($_SESSION['USR_correo'])){ $mail = $_SESSION['USR_correo'];};
 		if(isset($_SESSION['USR_nombre'])){ $name =  $_SESSION['USR_nombre'];};
-		echo $mail;
+		//echo $mail;
 		echo "<div class='top-nav notification-row'>".
 		"<ul class='nav pull-right top-menu'>".
 		"<li class='dropdown'>".
@@ -95,7 +95,7 @@ class mdl_HTML {
 		"<a href='#'><i class='icon_chat_alt'></i> Chats</a>".
 		"</li>".
 		"<li>".
-		"<a href='login.php'><i class='icon_key_alt'></i>Cerrar sesion</a>".
+		"<a href='login.php?login=false'><i class='icon_key_alt'></i>Cerrar sesion</a>".
 		"</li>".
 		"<li>".
 		"<a href='documentation.html'><i class='icon_key_alt'></i> Documentation</a>".

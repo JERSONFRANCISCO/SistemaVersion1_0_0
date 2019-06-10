@@ -53,7 +53,7 @@ class mdl_login{
 		}
 	}
 
-	public function logout(){
+	public function btn_logout_click(){
 		unset($this->conexion);
 		$this->conn_status=false;
 		unset($_SESSION['MYAPP']);

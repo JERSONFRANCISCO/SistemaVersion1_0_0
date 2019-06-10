@@ -33,6 +33,17 @@ $HTML = new mdl_Html();
 <body class="login-img3-body">
 
   <?php
+
+  // cerrar session 
+  if(isset($_GET['login'])){
+    session_name("MYAPP"); 
+    session_start();
+    require_once(__CTR_PATH . "ctr_login.php");
+    $ctr_login = new ctr_login();
+    $ctr_login -> btn_logout_click();
+  }
+
+  // se revisan los campos de texto cuando se va a iniciar session
   if(isset($_POST['login'])){
     if(isset($_POST['TXTuser'])){
       if(isset($_POST['TXTpassword'])){
