@@ -54,4 +54,9 @@ alter procedure pa_Grupos(
 			USR_Fecha_Modificacion = GETDATE()
 			where GRU_Grupo = @Gru_Grupo;
 		end	
+		if(@Accion = 'C')
+		begin
+			select GRU_Titulo
+			from GRUPO  where GRU_Estado in('A')
+		end	
 	end

@@ -29,6 +29,9 @@ class ctr_grupo{
 		{
 			return $this->postdata->buscar_Grupo($id);
 		}
+		public function obtener_Grupos(){
+			return $this->postdata->obtener_Grupos();
+		}
 	}
 
 	?>

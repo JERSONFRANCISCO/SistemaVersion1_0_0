@@ -5,7 +5,7 @@ session_start();
 if(isset($_POST['editordata'])){
   require_once(__CTR_PATH . "ctr_ticket.php");
   $ctr_ticket = new ctr_ticket();
-  $ctr = $ctr_ticket->insertar_hilo_ticket($_GET['ticket'],$_POST['editordata'],'Jerson');
+  $ctr = $ctr_ticket->insertar_hilo_ticket($_GET['ticket'],$_POST['editordata'],$_SESSION['USR_user']);
 }
 
 ?>

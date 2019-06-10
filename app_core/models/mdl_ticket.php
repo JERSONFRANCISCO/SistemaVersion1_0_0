@@ -42,7 +42,7 @@ class mdl_ticket{
 		return $posts;
 	}
 	public function insertar_hilo_ticket($ticket,$Observaciones,$Usuario){
-		$sql = " exec pa_HiloTicket @DEP_Titulo = '".$Observaciones."' ,  @tic_ticket =".$ticket.", @Usr_usuario ='".$Usuario."'";
+		$sql = " exec pa_HiloTicket @DEP_Titulo = '".$Observaciones."' ,  @tic_ticket =".$ticket.", @Usr_usuario =".$Usuario."";
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
@@ -101,10 +101,10 @@ class mdl_ticket{
 		$this->conexion->consulta($sql);
 		return $ticket;
 	}
-	public function obtener_Tickets($Estado){
+	public function obtener_Tickets($Estado,$USR_USUARIO){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_ObtenerTickes @Accion = 'TA' , @Estado = '".$Estado."'";
+		$sql = "exec pa_ObtenerTickes @Estado = '".$Estado."', @Usr_Usuario = '".$USR_USUARIO."'";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];

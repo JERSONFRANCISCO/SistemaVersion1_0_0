@@ -92,7 +92,7 @@ if (isset($_GET['status'])) {
                                   <?php
                                   require_once(__CTR_PATH . "ctr_ticket.php");
                                   $ctr_ticket = new ctr_ticket();
-                                  $ctr = $ctr_ticket->obtener_Tickets(substr($_GET['status'], 0,1));
+                                  $ctr = $ctr_ticket->obtener_Tickets(substr($_GET['status'], 0,1),$_SESSION['USR_user']);
                                   $cont = 0;
                                   foreach ($ctr as $value) {
                                     if($cont % 2 == 0){

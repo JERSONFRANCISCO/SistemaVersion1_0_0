@@ -12,7 +12,10 @@ class ctr_usuario{
 		{
 			return $this->postdata->obtener_Usuarios();
 		}
-
+		public function obtener_Objetos()
+		{
+			return $this->postdata->obtener_Objetos();
+		}
 	}
 
 	?>

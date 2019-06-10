@@ -1,6 +1,8 @@
 <?php
 class mdl_HTML {
-	function __construct(){}
+	function __construct(){
+
+	}
 	function html_js_header($file){
 		return "<script src='" . $file . "' type='text/javascript'></script>" . "\n";
 	}
@@ -28,6 +30,8 @@ class mdl_HTML {
 		"<li><a class='active' href='departamento.php'>Departamentos</a></li>".
 		"<li><a class='active' href='grupo.php'>Grupos</a></li>".
 		"<li><a class='active' href='usuario.php'>Usuarios</a></li>".
+		"<li><a class='active' href='usuario.php'>Tareas</a></li>".
+		"<li><a class='active' href='usuario.php'>Work Flow</a></li>".
 		"</ul>".
 		"<a href='javascript:;' class=''>".
 		"<i class='icon_table'></i>".
@@ -64,18 +68,20 @@ class mdl_HTML {
 		echo "</a>";
 	}
 	function actionMenu(){
-		echo "<style>img{height: 29px; width: 25px;}</style>";
+		echo "<style>.tamanoimg{height: 29px; width: 25px;}</style>";
 		$name= "";
 		$mail="";
+		$photo="";
 		if(isset($_SESSION['USR_correo'])){ $mail = $_SESSION['USR_correo'];};
 		if(isset($_SESSION['USR_nombre'])){ $name =  $_SESSION['USR_nombre'];};
+		if(isset($_SESSION['USR_img'])){ $photo = $_SESSION['USR_img'];};
 		//echo $mail;
 		echo "<div class='top-nav notification-row'>".
 		"<ul class='nav pull-right top-menu'>".
 		"<li class='dropdown'>".
 		"<a data-toggle='dropdown' class='dropdown-toggle' href='#'>".
 		"<span class='profile-ava'>".
-		"<img alt='' src='app_core/resources/usrimg/usr001.jpg' style=''>".
+		"<img class='tamanoimg' alt='' src='".__RSC_PHO_USR_HOST_PATH.$photo."' style=''>".
 		"</span>".
 		"<span class='username'>$name</span>".
 		"<b class='caret'></b>".

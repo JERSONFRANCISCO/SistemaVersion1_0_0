@@ -28,7 +28,7 @@
   define('__RSC_HOST_PATH', $mysite . "/app_core/resources/");
 
   define('__RSC_PHO_HOST_PATH', $mysite . "/app_core/resources/img/");
-
+  define('__RSC_PHO_USR_HOST_PATH', $mysite . "/app_core/resources/usrimg/");
 
   define('__APP_DSG', $mysite . "/app_design/");
   define('__JS_PATH', "app_design/js/");
@@ -39,6 +39,6 @@
   define('__FONT', "app_design/font-awesome/");
 
   define('__google_fonts', "https://fonts.googleapis.com/css");   
-
+//app_core/resources/usrimg/
  
 ?>

@@ -8,11 +8,12 @@ CREATE TABLE dbo.USUARIOS(
 	USR_Estado varchar(1) not NULL,
 	USR_Password varchar(20) not NULL,
 	USR_ROL varchar(1) not null,
-	USR_URLIMG varchar(20) null,
+	USR_URLIMG varchar(20) null DEFAULT 'unknown.jpg',
 	USR_Fecha_Creacion datetime NOT null DEFAULT(GETDATE()),
 	USR_Usuario_Creacion varchar(20) NULL,
 	USR_Fecha_Modificacion datetime null,
 	USR_Usuario_Modificacion varchar(20) NULL,
+	USR_UrlImg varchar(20) NULL DEFAULT 'unknown.jpg',
 	UNIQUE (USR_Usuario),
 	PRIMARY KEY (USR_Usuario),
     FOREIGN KEY (GRU_Grupo) REFERENCES GRUPO(GRU_Grupo),
@@ -130,7 +131,7 @@ CREATE TABLE dbo.TICKET_DETALLE(
 	TIC_DETALLE INT IDENTITY(1,1),
 	CIA_Codigo varchar(3) null,
 	TIC_TICKET INT Not NULL,-- REFERENCIA  dbo.TICKET
-	USR_Usuario varchar(10) Not NULL, -- referencia al usuario que genero el detalle
+	USR_Usuario int Not NULL, -- referencia al usuario que genero el detalle
 	TIC_Titulo varchar(100) not null,
 	TIC_Observaciones varchar(max), -- hilo del ticket
 	TIC_Estado varchar(1) not null,
@@ -139,6 +140,7 @@ CREATE TABLE dbo.TICKET_DETALLE(
 	UNIQUE (TIC_DETALLE),
 	PRIMARY KEY(TIC_DETALLE),
 	FOREIGN KEY (TIC_TICKET) REFERENCES TICKET(TIC_TICKET),
+	FOREIGN KEY (USR_Usuario) REFERENCES USUARIOS(USR_Usuario),
 	CONSTRAINT CHK_ESTADO_TICKET_DETALLE CHECK (TIC_Estado IN('A','I','B','C','X'))
 )
 -----------------------------------------------------------------------------------------------------------

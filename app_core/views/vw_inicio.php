@@ -106,7 +106,7 @@ session_start();
                 </div>
                 <div class="col-lg-4">
                   <span class="profile-ava pull-right">
-                    <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                    <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     Nombre del usuario
                   </span>
                 </div>
@@ -124,7 +124,7 @@ session_start();
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>
@@ -138,7 +138,7 @@ session_start();
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>
@@ -152,7 +152,7 @@ session_start();
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>
@@ -169,7 +169,7 @@ session_start();
                   </td> -->
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>
@@ -183,7 +183,7 @@ session_start();
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>
@@ -197,7 +197,7 @@ session_start();
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>
@@ -211,7 +211,7 @@ session_start();
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>
@@ -225,7 +225,7 @@ session_start();
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="simple" src="app_core/resources/usrimg/usr001.jpg" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
                     </span>
                   </td>
                 </tr>

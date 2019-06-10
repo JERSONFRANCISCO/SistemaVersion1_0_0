@@ -34,6 +34,13 @@ values(1,'Estados','B','BORRADO','A')
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
 values(1,'Estados','C','CERRADO','A')
 
+insert into CATALOGO (cat_tabla,cat_estado) values ('ROLES','A')
+insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
+values(3,'ROLES','A','ADMINISTRADOR','A')
+insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
+values(3,'ROLES','J','JEFATURA','A')
+insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
+values(3,'ROLES','U','USUARIO','A')
 
 
 

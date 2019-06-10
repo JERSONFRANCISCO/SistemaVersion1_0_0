@@ -27,7 +27,6 @@ class mdl_grupo{
 		return $posts;
 	}
 	public function insertar_Grupo($Titulo,$Observaciones,$Estado,$Departamento,$Usuario){
-		//$posts=array();
 		$cont=0;
 		$sql = "EXEC pa_Grupos @Accion = 'I', @GRU_Titulo = '".$Titulo."', @GRU_Observaciones='".$Observaciones."', @GRU_Estado='".$Estado."',@Gru_Grupo=0,@DEP_Departamento='".$Departamento."',@USR_Usuario_Creacion='".$Usuario."'";
 		$stmt = $this->conexion->consulta($sql);
@@ -49,18 +48,27 @@ class mdl_grupo{
 		return $posts;
 	}
 	public function actualizar_Grupo($Titulo,$Observaciones,$Estado,$Departamento,$Usuario,$grupo){
-		$posts=array();
 		$cont=0;
 		$sql = "EXEC pa_Grupos @Accion = 'U', @GRU_Titulo = '".$Titulo."', @GRU_Observaciones='".$Observaciones."', @GRU_Estado='".$Estado."',@DEP_Departamento = '" .$Departamento."' ,@USR_Usuario_Creacion='".$Usuario."' ,@Gru_Grupo = ".$grupo." ";
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
 	public function eliminar_Grupo($Titulo,$Observaciones,$Estado,$Departamento,$Usuario,$grupo){
-		$posts=array();
 		$cont=0;
 		$sql = "EXEC pa_Grupos @Accion = 'E', @GRU_Titulo = '', @GRU_Observaciones='', @GRU_Estado='".$Estado."',@DEP_Departamento = '' ,@USR_Usuario_Creacion='".$Usuario."' ,@Gru_Grupo =".$grupo;
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
+	}
+	public function obtener_Grupos(){
+		$posts=array();
+		$cont=0;
+		$sql = "EXEC pa_Grupos @Accion = 'C', @GRU_Titulo = '', @GRU_Observaciones='', @GRU_Estado='',@DEP_Departamento = '' ,@USR_Usuario_Creacion='' ,@Gru_Grupo = 0";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$cont++;
+		}
+		return $posts;
 	}
 
 }

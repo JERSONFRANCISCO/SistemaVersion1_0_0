@@ -9,11 +9,11 @@ session_start();
   if(isset($_POST['tituloTicket'])){
     require_once(__CTR_PATH . "ctr_ticket.php");
     $ctr_ticket = new ctr_ticket();
-    $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreClienteAJAX'],$_POST['ProyectoClienteAjax'],$_POST['NombreUsuario'],$_POST['OrdenDeTrabajoAJAX'],$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],'JERSON');
+    $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreClienteAJAX'],$_POST['ProyectoClienteAjax'],$_POST['NombreUsuario'],$_POST['OrdenDeTrabajoAJAX'],$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],$_SESSION['USR_nombre']);
     if(isset($_POST['numeroDeTareas'])){
       for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
         if(isset($_POST['tareatareaTitulo'.$i])){
-          $ctr_ticket->insertar_tareas_ticket($_POST['tareatareaUsuario'.$i],$_POST['tareaTareaDepartamento'.$i],'A',$_POST['tareatareaTitulo'.$i],$_POST['tareatareaDescripcion'.$i],'JERSON',$_POST['tareatareaHoras'.$i],$_POST['tareatareaMinutos'.$i],$ctr);
+          $ctr_ticket->insertar_tareas_ticket($_POST['tareatareaUsuario'.$i],$_POST['tareaTareaDepartamento'.$i],'A',$_POST['tareatareaTitulo'.$i],$_POST['tareatareaDescripcion'.$i],$_SESSION['USR_nombre'],$_POST['tareatareaHoras'.$i],$_POST['tareatareaMinutos'.$i],$ctr);
         }
       }
     }
@@ -164,7 +164,7 @@ session_start();
                               </div>
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título:</label>
-                              <div class="col-sm-8">
+                              <div class="col-lg-8">
                                 <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text" required>
                               </div>
 

@@ -32,7 +32,7 @@ session_start();
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de grupos</h3>
+          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de usuarios</h3>
           <div class="row">
             <div class="col-lg-12">
               <section class="panel">
@@ -40,7 +40,7 @@ session_start();
                   Departamentos
                 </header>
                 <div class="panel-body">
-                  <form class="form-inline" role="form" action="grupo_mantenimiento.php">
+                  <form class="form-inline" role="form" action="usuario_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
@@ -59,95 +59,96 @@ session_start();
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <thead>
                                     <tr>
-                                      <th>Grupo</th>
+                                      <th>Usuario</th>
                                       <th>Nombre</th>
-                                      <th>Observaciones</th>
-                                      <th>Estado</th>
+                                      <th>Correo</th>
+                                      <th>Grupo</th>
                                       <th>Departamento</th>
-                                      <th>Fecha</th>
+                                      <th>Estado</th>
+                                      <th>Rol</th>
                                       <th>Acción</th>
                                     </tr>
                                   </thead>
                                   <tfoot>
                                     <tr>
-                                      <th>Grupo</th>
+                                      <th>Usuario</th>
                                       <th>Nombre</th>
-                                      <th>Observaciones</th>
-                                      <th>Estado</th>
+                                      <th>Correo</th>
+                                      <th>Grupo</th>
                                       <th>Departamento</th>
-                                      <th>Fecha</th>
+                                      <th>Estado</th>
+                                      <th>Rol</th>
                                       <th>Acción</th>
                                     </tr>
                                   </tfoot>
                                   <tbody>
                                     <?php
-                                    require_once(__CTR_PATH . "ctr_grupo.php");
-                                    $ctr_grupo = new ctr_grupo();
-                                    $ctr = $ctr_grupo->obtener_Objetos();
+                                    require_once(__CTR_PATH . "ctr_usuario.php");
+                                    $ctr_usuario = new ctr_usuario();
+                                    $ctr = $ctr_usuario->obtener_Objetos();
                                     $cont = 0;
                                     foreach ($ctr as $value) {
-                                //      echo "<form id='form1' name='form1' method='POST' action='www.google.com'>";
                                       if($cont % 2 == 0){
-                      echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
-                    }else{
-                      echo "<tr>";
-                    }
-                    echo "<form method='POST' action='grupo_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
-                    echo "<td>".$value[1]."</td>";
-                    echo "<td>".$value[2]."</td>";
-                    echo "<td>".$value[3]."</td>";
-                    echo "<td>".$value[4]."</td>";
-                    echo "<td>".$value[5]."</td>";
-                    echo "<td>";
-                    echo "<div class='btn-group'>";
-                    echo "<button class='btn btn-primary' id='botonVer' name='botonVer' type='submit' title='Ver'><i class='fas fa-eye'></i></button>";
-                    echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
-                    echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button></form>";
-                    echo "</div>";
-                    echo "</td>";
-                    echo "</tr>";
-                    $cont++;
-                  }
-                  ?>
-                </tbody>
-              </table>
+                                        echo "<tr style = 'background: aliceblue;' >";
+                                      }else{
+                                        echo "<tr>";
+                                      }
+                                      echo "<form method='POST' action='usuario_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
+                                      echo "<td>".$value[1]."</td>";
+                                      echo "<td>".$value[2]."</td>";
+                                      echo "<td>".$value[3]."</td>";
+                                      echo "<td>".$value[4]."</td>";
+                                      echo "<td>".$value[5]."</td>";
+                                      echo "<td>".$value[5]."</td>";
+                                      echo "<td>";
+                                      echo "<div class='btn-group'>";
+                                      echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
+                                      echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button></form>";
+                                      echo "</div>";
+                                      echo "</td>";
+                                      echo "</tr>";
+                                      $cont++;
+                                    }
+                                    ?>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.container-fluid -->
+                      </div>
+                      <!-- End of Main Content -->
+                    </div>
+                    <!-- End of Content Wrapper -->
+                  </div>
+                  <!-- End of Page Wrapper -->
+                  <form class="form-inline" role="form" method="post" action="usuario_mantenimiento.php">
+                    <div class="text-right">
+                      <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+                    </div>
+
+                  </form>
+                </div>
+
+
+
+              </section>
             </div>
           </div>
         </div>
       </div>
-      <!-- /.container-fluid -->
+
+
+
+    </section>
+  </section>
+
+
+  <!--main content end-->
+  <div class="text-center">
+    <div class="credits">
+      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
     </div>
-    <!-- End of Main Content -->
   </div>
-  <!-- End of Content Wrapper -->
-</div>
-<!-- End of Page Wrapper -->
-<form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
-  <div class="text-right">
-    <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
-  </div>
-
-</form>
-</div>
-
-
-
-</section>
-</div>
-</div>
-</div>
-</div>
-
-
-
-</section>
-</section>
-
-
-<!--main content end-->
-<div class="text-center">
-  <div class="credits">
-    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
-  </div>
-</div>
 </section>
