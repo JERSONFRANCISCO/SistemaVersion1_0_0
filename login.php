@@ -4,6 +4,7 @@ require_once(__MDL_PATH . "mdl_html.php");
 
 $HTML = new mdl_Html();
 
+
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +35,7 @@ $HTML = new mdl_Html();
 
   <?php
 
+
   // cerrar session 
   if(isset($_GET['login'])){
     session_name("MYAPP"); 
@@ -54,13 +56,18 @@ $HTML = new mdl_Html();
     }
   }
 
+  if(!isset($_SESSION)){
+    session_name("MYAPP"); 
+    session_start();
+  }
+
   if (isset($_SESSION['MYAPP'])) {
     if ($_SESSION['MYAPP']!="YES") {
       include_once(__VWS_PATH."vw_login.php");
     }else{
-      include_once("inicio.php");
-    }
-  }else{
+     echo "<script>location.href='inicio.php';</script>";
+   }
+ }else{
    include_once(__VWS_PATH."vw_login.php");
  }
 

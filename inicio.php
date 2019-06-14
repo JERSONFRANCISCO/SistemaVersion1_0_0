@@ -35,7 +35,18 @@ $HTML = new mdl_Html();
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_inicio.php");
+
+  if(!isset($_SESSION)){
+    session_name("MYAPP"); 
+    session_start();
+  }
+
+  if (isset($_SESSION['MYAPP'])){ 
+    include_once(__VWS_PATH."vw_inicio.php");
+  } else{
+    include_once("login.php");
+  }
+
 
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
@@ -48,7 +59,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."dataTables.bootstrap4.js");
   echo $HTML->html_js_header(__JS_PATH."datatables-demo.js");
   ?>
-  
+
 
 
 </body>

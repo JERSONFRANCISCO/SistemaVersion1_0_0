@@ -26,16 +26,25 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "summernote.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
-   echo $HTML->html_css_header(__CSS_PATH . "bootstrap-toggle.min.css","screen");
+  echo $HTML->html_css_header(__CSS_PATH . "bootstrap-toggle.min.css","screen");
   ?>
 
 
 </head>
 <body>
 
-  <?php
-  include_once(__VWS_PATH."vw_hilo_ticket.php");
+  <?php  
 
+  if(!isset($_SESSION)){
+    session_name("MYAPP"); 
+    session_start();
+  }
+
+  if (isset($_SESSION['MYAPP'])){ 
+    include_once(__VWS_PATH."vw_hilo_ticket.php");
+  } else{
+    include_once("login.php");
+  }
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");

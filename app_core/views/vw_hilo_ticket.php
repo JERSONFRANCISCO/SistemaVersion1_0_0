@@ -1,11 +1,11 @@
 <?php
-session_name("MYAPP"); 
-session_start();
 
 if(isset($_POST['editordata'])){
   require_once(__CTR_PATH . "ctr_ticket.php");
   $ctr_ticket = new ctr_ticket();
   $ctr = $ctr_ticket->insertar_hilo_ticket($_GET['ticket'],$_POST['editordata'],$_SESSION['USR_user']);
+  $_POST['editordata']="";
+
 }
 
 ?>
@@ -104,40 +104,40 @@ if(isset($_POST['editordata'])){
                          $ctr = $ctr_ticket->pa_informacion_ticket($_GET['ticket']);
                          foreach ($ctr as $value) {
                           echo"<div class='bio-row'>".
-                          "<p><span>Estado</span>: $value[0]</p>".
+                          "<p><span>Estado</span> $value[0]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Creado por</span>: $value[5]</p>".
+                          "<p><span>Creado por</span> $value[5]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Prioridad</span>: $value[1]</p>".
+                          "<p><span>Prioridad</span> $value[1]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Usuario asignado</span>: $value[6]</p>".
+                          "<p><span>Usuario asignado</span> $value[6]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Departamento</span>: $value[4]</p>".
+                          "<p><span>Departamento</span> $value[4]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Vendedor:</span>: $value[8]</p>".
+                          "<p><span>Vendedor:</span> $value[8]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span><i class='icon_calendar'></i> Creado el</span>: $value[2]</p>".
+                          "<p><span><i class='icon_calendar'></i> Creado el</span> $value[2]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Cliente:</span>: $value[9]</p>".
+                          "<p><span>Cliente:</span> $value[9]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span><i class='icon_calendar'></i> Vence el</span>: $value[3]</p>".
+                          "<p><span><i class='icon_calendar'></i> Vence el</span> $value[3]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Proyecto</span>: $value[10]</p>".
+                          "<p><span>Proyecto</span> $value[10]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Titulo</span>: $value[7]</p>".
+                          "<p><span>Titulo</span> $value[7]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Orden de trabajo</span>: $value[11]</p>".
+                          "<p><span>Orden de trabajo</span> $value[11]</p>".
                           "</div>";
                         }
                       }else{
@@ -235,12 +235,23 @@ if(isset($_POST['editordata'])){
                                   $ctr_ticket = new ctr_ticket();
                                   $ctr = $ctr_ticket->obtener_hilo_ticket($_GET['ticket']);
                                   foreach ($ctr as $value) {
+
                                     echo "<div class='act-time'>";
                                     echo "<div class='activity-body act-in'>";
                                     echo "<span class='arrow'></span>";
-                                    echo "<div class='text' style=' border: 1px solid #394a5994;'>";
-                                    echo "<p class='attribution'><a style='color:  #394a5994;' class='col-lg-4'>Publicado por: ".$value[0]."</a><span><a><i class='icon_calendar' class='col-lg-4'></i></span> ".$value[3]."</a><a class='col-lg-4'>".$value[4]."</a></p> " ;
-                                    echo "<hr style='margin-top: 0px; border: 0.5px solid ##394a5924;' ><p>".$value[2]."</p>";
+                                    $borde = "";
+                                    if($value[4]=="A"){
+                                      $borde = "background-color: #dedede;";
+                                    }else{
+                                      if($value[4]=="J"){
+                                        $borde = "background-color: aliceblue;";
+                                      }else{
+                                        $borde = "";
+                                      }
+                                    }
+                                    echo "<div class='text' style=' border: 1px solid #394a5994; ".$borde."'>";
+                                    echo "<p class='attribution'><a style='color:  #394a5994;' class='col-lg-4'>Publicado por: ".$value[0]."-".$value[4]."</a><span><a><i class='icon_calendar' class='col-lg-4'></i></span> ".$value[3]."</a><a class='col-lg-4'>".$value[1]."</a></p> " ;
+                                    echo "<p><div style='background-color:white; border: 1px solid #6264654d;'>".$value[2]."</div></p>";
                                     echo "</div>";
                                     echo "</div>";
                                     echo "</div>";

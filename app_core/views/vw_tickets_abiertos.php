@@ -1,6 +1,5 @@
 <?php
-session_name("MYAPP"); 
-session_start();
+
 
 if (isset($_GET['status'])) {
   if($_GET['status'] != 'ABIERTO' and  $_GET['status'] != 'CERRADO'){

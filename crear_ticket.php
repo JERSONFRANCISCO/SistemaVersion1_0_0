@@ -15,7 +15,7 @@ $HTML = new mdl_Html();
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
 
   <?php
-echo $HTML->html_js_header(__JS_PATH . "moment.js");
+  echo $HTML->html_js_header(__JS_PATH . "moment.js");
 
   echo $HTML->html_icono(__RSC_PHO_HOST_PATH);
   echo $HTML->html_TituloPagina();
@@ -32,7 +32,7 @@ echo $HTML->html_js_header(__JS_PATH . "moment.js");
 
 
 //echo $HTML->html_js_header(__JS_PATH."moment.js");
-echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
+  echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
  // echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
   //echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
   ?>
@@ -41,8 +41,16 @@ echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","sc
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_crear_ticket.php");
-  
+  if(!isset($_SESSION)){
+    session_name("MYAPP"); 
+    session_start();
+  }
+
+  if (isset($_SESSION['MYAPP'])){ 
+    include_once(__VWS_PATH."vw_crear_ticket.php");
+  } else{
+    include_once("login.php");
+  }
 
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");

@@ -35,8 +35,16 @@ $HTML = new mdl_Html();
 <body>
 
   <?php
-  include_once(__VWS_PATH."vw_tickets_abiertos.php");
+  if(!isset($_SESSION)){
+    session_name("MYAPP"); 
+    session_start();
+  }
 
+  if (isset($_SESSION['MYAPP'])){ 
+    include_once(__VWS_PATH."vw_tickets_abiertos.php");
+  } else{
+    include_once("login.php");
+  }
   echo $HTML->html_js_header(__JS_PATH."jquery.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");

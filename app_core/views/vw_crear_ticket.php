@@ -1,7 +1,5 @@
 
 <?php
-session_name("MYAPP"); 
-session_start();
 
 /*
   funcion la cual agrega el ticket y agrega las tareas

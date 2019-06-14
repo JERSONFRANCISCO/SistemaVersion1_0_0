@@ -38,7 +38,6 @@ class mdl_Conexion
 		if( $stmt === false ) {
 			if( ($errors = sqlsrv_errors() ) != null) {
 				foreach( $errors as $error ) {
-					//echo "<script>alert('SQLSTATE:".$error[ 'SQLSTATE']."code:".$error[ 'code']."message:".$error[ 'message']."');</script>";
 					echo "SQLSTATE: ".$error[ 'SQLSTATE']."<br />";
 					echo "code: ".$error[ 'code']."<br />";
 					echo "message: ".$error[ 'message']."<br />";

@@ -1,6 +1,4 @@
 <?php
-session_name("MYAPP"); 
-session_start();
 
 ?>
 <style type="text/css">

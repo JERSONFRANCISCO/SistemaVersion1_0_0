@@ -57,6 +57,7 @@ class mdl_login{
 		unset($this->conexion);
 		$this->conn_status=false;
 		unset($_SESSION['MYAPP']);
+		session_destroy ();
 	}
 }
 

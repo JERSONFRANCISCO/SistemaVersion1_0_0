@@ -1,7 +1,4 @@
 <?php
-session_name("MYAPP"); 
-session_start();
-
 
 $titulo='Agregar';
 

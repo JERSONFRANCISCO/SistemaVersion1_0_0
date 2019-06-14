@@ -1,9 +1,5 @@
 <?php
 
-session_name("MYAPP"); 
-session_start();
-
-
 $titulo='Agregar';
 
 if(isset($_POST['Agregar'])){
