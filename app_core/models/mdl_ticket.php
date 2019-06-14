@@ -15,11 +15,11 @@ class mdl_ticket{
 		$sql = "exec pa_obtener_hilo_ticket @tic_ticket = ".$ticketID;
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
-			$posts[$cont][0]=$row[0];
-			$posts[$cont][1]=$row[1];
-			$posts[$cont][2]=$row[2];
-			$posts[$cont][3]=$row[3];
-			$posts[$cont][4]=$row[4];
+			$posts[$cont][0]=$row[0]; // usr
+			$posts[$cont][1]=$row[1];// titulo detalle
+			$posts[$cont][2]=$row[2];// contenido
+			$posts[$cont][3]=$row[3]; //  fecha
+			$posts[$cont][4]=$row[4]; // rol
 			$cont++;
 		}
 		return $posts;
