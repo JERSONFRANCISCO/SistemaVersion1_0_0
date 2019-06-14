@@ -50,6 +50,7 @@ class mdl_ticket{
 		if($TAL_Numero == ''){
 			$TAL_Numero = 0;
 		}
+
 		$ticket=0;
 		$sql = " exec pa_InsertarTicket  
 		@Accion = 'TI',
@@ -63,11 +64,11 @@ class mdl_ticket{
 		@TIC_Estado = '".$TIC_Estado."',
 		@TIC_Titulo = '".$TIC_Titulo."',
 		@TIC_Observaciones = '".$TIC_Observaciones."',
-		@USR_Usuario_Creacion = '".$USR_Usuario_Creacion."' ,
+		@USR_Usuario_Creacion = ".$USR_Usuario_Creacion." ,
 		@TIC_TICKET = 0 ,
 		@TIC_HORAS = 0,
 		@TIC_MINUTOS = 0";
-		
+		//echo $sql;
 		$this->conexion->consulta($sql);
 
 		$sql = "exec pa_IdTicket '".$TIC_Titulo."'";

@@ -107,25 +107,25 @@ if(isset($_POST['editordata'])){
                           "<p><span>Estado</span> $value[0]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Creado por</span> $value[5]</p>".
+                          "<p><span>Creado por</span> $value[6]</p>".
                           "</div>".
                           "<div class='bio-row'>".
                           "<p><span>Prioridad</span> $value[1]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Usuario asignado</span> $value[6]</p>".
+                          "<p><span>Usuario asignado</span> $value[5]</p>".
                           "</div>".
                           "<div class='bio-row'>".
                           "<p><span>Departamento</span> $value[4]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Vendedor:</span> $value[8]</p>".
+                          "<p><span>Vendedor</span> $value[8]</p>".
                           "</div>".
                           "<div class='bio-row'>".
                           "<p><span><i class='icon_calendar'></i> Creado el</span> $value[2]</p>".
                           "</div>".
                           "<div class='bio-row'>".
-                          "<p><span>Cliente:</span> $value[9]</p>".
+                          "<p><span>Cliente</span> $value[9]</p>".
                           "</div>".
                           "<div class='bio-row'>".
                           "<p><span><i class='icon_calendar'></i> Vence el</span> $value[3]</p>".
@@ -148,6 +148,7 @@ if(isset($_POST['editordata'])){
                     </div>
                   </div>
 
+                  <br>
 
                   <!-- AQUI INICIA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
                   <div class="row">
@@ -225,7 +226,7 @@ if(isset($_POST['editordata'])){
                               </li>
                             </ul>
                           </header>
-
+                          <br>
                           <div class="panel-body">
                             <div class="tab-content">
                               <div id="recent-activity" class="tab-pane active">
@@ -241,16 +242,16 @@ if(isset($_POST['editordata'])){
                                     echo "<span class='arrow'></span>";
                                     $borde = "";
                                     if($value[4]=="A"){
-                                      $borde = "background-color: #dedede;";
+                                      $borde = "background-color: #dedede2b;";
                                     }else{
                                       if($value[4]=="J"){
-                                        $borde = "background-color: aliceblue;";
+                                        $borde = "background-color: #f0f8ff87;";
                                       }else{
                                         $borde = "";
                                       }
                                     }
                                     echo "<div class='text' style=' border: 1px solid #394a5994; ".$borde."'>";
-                                    echo "<p class='attribution'><a style='color:  #394a5994;' class='col-lg-4'>Publicado por: ".$value[0]."-".$value[4]."</a><span><a><i class='icon_calendar' class='col-lg-4'></i></span> ".$value[3]."</a><a class='col-lg-4'>".$value[1]."</a></p> " ;
+                                    echo "<p class='attribution'><a style='color:  #394a5994;' class='col-lg-4'>Publicado por: ".$value[0]."</a><span><a><i class='icon_calendar' class='col-lg-4'></i></span> ".$value[3]."</a><a class='col-lg-4'>".$value[1]."</a></p> " ;
                                     echo "<p><div style='background-color:white; border: 1px solid #6264654d;'>".$value[2]."</div></p>";
                                     echo "</div>";
                                     echo "</div>";
