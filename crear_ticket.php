@@ -77,7 +77,8 @@ $HTML = new mdl_Html();
   <script>
     $(document).ready(function() {
       $('#summernote').summernote({
-        height:150
+        height:150,
+        airMode: true
       });
     });
 
