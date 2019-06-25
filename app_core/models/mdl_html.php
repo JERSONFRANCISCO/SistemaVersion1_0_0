@@ -12,42 +12,42 @@ class mdl_HTML {
 	}
 	function html_menu(){
 		$menu= "<aside>".
-		"<div id='sidebar' class='nav-collapse '>".
-		"<ul class='sidebar-menu'>".
-		"<li class=''>".
-		"<a class='' href='inicio.php'>".
-		"<i class='icon_house_alt'></i>".
-		"<span>Pagina Principal</span>".
-		"</a>".
-		"</li>".
-		"<li class='sub-menu'>".
-		"<a href='javascript:;' class=''>".
-		"<i class='icon_table'></i>".
-		"<span>Mantenimiento</span>".
-		"<span class='menu-arrow arrow_carrot-right'></span>".
-		"</a>".
-		"<ul class='sub'>".
-		"<li><a class='active' href='departamento.php'>Departamentos</a></li>".
-		"<li><a class='active' href='grupo.php'>Grupos</a></li>".
-		"<li><a class='active' href='usuario.php'>Usuarios</a></li>".
-		"<li><a class='active' href='usuario.php'>Tareas</a></li>".
-		"<li><a class='active' href='usuario.php'>Work Flow</a></li>".
-		"</ul>".
-		"<a href='javascript:;' class=''>".
-		"<i class='icon_table'></i>".
-		"<span>Tickets</span>".
-		"<span class='menu-arrow arrow_carrot-right'></span>".
-		"</a>".
-		"<ul class='sub'>".
-		"<li><a class='active' href='crear_ticket.php'>Crear ticket</a></li>".
-		"<li><a class='active' href=''>Mis tickets (2)</a></li>".
-		"<li><a class='active' href='tickets_abiertos.php?status=ABIERTO'>Tickets abiertos</a></li>".
-		"<li><a class='active' href='tickets_abiertos.php?status=CERRADO'>Tickets cerrados</a></li>".
-		"</ul>".
-		"</li>".
-		"</ul>".
-		"</div>".
-		"</aside>";
+			"<div id='sidebar' class='nav-collapse '>".
+			"<ul class='sidebar-menu'>".
+			"<li class=''>".
+			"<a class='' href='inicio.php'>".
+			"<i class='icon_house_alt'></i>".
+			"<span>Pagina Principal</span>".
+			"</a>".
+			"</li>".
+			"<li class='sub-menu'>".
+			"<a href='javascript:;' class=''>".
+			"<i class='icon_table'></i>".
+			"<span>Mantenimiento</span>".
+			"<span class='menu-arrow arrow_carrot-right'></span>".
+			"</a>".
+			"<ul class='sub'>".
+			"<li><a class='active' href='departamento.php'>Departamentos</a></li>".
+			"<li><a class='active' href='grupo.php'>Grupos</a></li>".
+			"<li><a class='active' href='usuario.php'>Usuarios</a></li>".
+			"<li><a class='active' href='usuario.php'>Tareas</a></li>".
+			"<li><a class='active' href='usuario.php'>Work Flow</a></li>".
+			"</ul>".
+			"<a href='javascript:;' class=''>".
+			"<i class='icon_table'></i>".
+			"<span>Tickets</span>".
+			"<span class='menu-arrow arrow_carrot-right'></span>".
+			"</a>".
+			"<ul class='sub'>".
+			"<li><a class='active' href='crear_ticket.php'>Crear ticket</a></li>".
+			"<li><a class='active' href=''>Mis tickets (2)</a></li>".
+			"<li><a class='active' href='tickets_abiertos.php?status=ABIERTO'>Tickets abiertos</a></li>".
+			"<li><a class='active' href='tickets_abiertos.php?status=CERRADO'>Tickets cerrados</a></li>".
+			"</ul>".
+			"</li>".
+			"</ul>".
+			"</div>".
+			"</aside>";
 		return $menu;
 	}
 	function html_icono($url){
@@ -103,9 +103,9 @@ class mdl_HTML {
 		"<li>".
 		"<a href='login.php?login=false'><i class='icon_key_alt'></i>Cerrar sesion</a>".
 		"</li>".
-		"<li>".
-		"<a href='documentation.html'><i class='icon_key_alt'></i> Documentation</a>".
-		"</li>".
+		//"<li>".
+		//"<a href='documentation.html'><i class='icon_key_alt'></i> Documentation</a>".
+		//"</li>".
 		"<li>".
 		"<a><i class='icon_key_alt'></i>$mail</a>".
 		"</li>".

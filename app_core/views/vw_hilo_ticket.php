@@ -5,7 +5,6 @@ if(isset($_POST['editordata'])){
   $ctr_ticket = new ctr_ticket();
   $ctr = $ctr_ticket->insertar_hilo_ticket($_GET['ticket'],$_POST['editordata'],$_SESSION['USR_user']);
   $_POST['editordata']="";
-
 }
 
 ?>
@@ -312,15 +311,13 @@ if(isset($_POST['editordata'])){
                         </section>
                       </div>
                     </div>
-                    <!--  termina la parte del hilo y tareas del ticket-->
-
-
-
+                    
                   </div>
                 </div>
               </div>
             </div>
           </section>
+
         </section>
 
 

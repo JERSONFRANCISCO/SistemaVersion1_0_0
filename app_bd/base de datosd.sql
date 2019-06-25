@@ -1,20 +1,7 @@
 
-
-create procedure pa_HiloTicet(
-	@DEP_Titulo text
-	)
-	as
-	begin
-	insert into TICKET_detalle(TIC_TICKET,USR_Usuario,TIC_TItulo,tic_observaciones,TIC_Estado)
-		values(2,'Jerson','ESTADO',@DEP_Titulo,'A');
-end
-
-
-
-
-select * from CATALOGO
-select * from CATALOGO_DETALLE 
-
+/*
+	Datos de la tabla de catalogo el cual mantiene un estandar los tipos de datos a usar
+*/
 insert into catalogo(cat_tabla,cat_estado) values('Prioridades','A')
 insert into CATALOGO_DETALLE(CAT_Catalogo,CAT_Tabla,CAT_Contraccion,Cat_descripcion,cat_estado) 
 values(1,'Prioridades','U','URGENTE','A')
@@ -45,27 +32,73 @@ values(3,'ROLES','U','USUARIO','A')
 
 
 
- select
-CaD.CAT_Descripcion,
-Pri.CAT_Descripcion,
-convert(varchar,tic.USR_Fecha_Creacion, 105) as USR_Fecha_Creacion,
-convert(varchar,tic.TIC_Fecha_Vencimiento, 105) as TIC_Fecha_Vencimiento,
-case when dep.DEP_Titulo is null then '' else dep.DEP_Titulo end as Departamento,
-case when usr.USR_Nombre is null then '' else usr.USR_Nombre end as Titulo,
-tic.USR_Usuario_Creacion,
-tic.TIC_Titulo,
-case when Ven.VEN_Nombre is null then '' else Ven.VEN_Nombre end as VEN_Nombre,
-case when cli.cli_nombre is null then '' else cli.cli_nombre end as cli_nombre,
-case when pro.PRO_Nombre is null then '' else pro.PRO_Nombre end as PRO_Nombre,
-case when tal.TAL_Descripcion is null then '' else tal.TAL_Descripcion end as TAL_Descripcion
-from TICKET tic
-inner join CATALOGO_DETALLE CaD on ( tic.TIC_Estado = CaD.CAT_Contraccion and CaD.CAT_Tabla = 'Estados')
-inner join CATALOGO_DETALLE Pri on ( tic.TIC_Prioridad = Pri.CAT_Contraccion and Pri.CAT_Tabla = 'Prioridades')
-left join DEPARTAMENTOS dep on ( tic.DEP_DEPARTAMENTO =dep.DEP_Departamento)
-left join USUARIOS usr on (tic.USR_Usuario = usr.USR_Usuario)
-LEFT JOIN SABIO..VEN_VENDEDORES Ven on (  ven.Ven_vendedor COLLATE DATABASE_DEFAULT = tic.ven_vendedor)
-LEFT JOIN SABIO..CLI_CLIENTES cli on (  cli.CLI_Cliente COLLATE DATABASE_DEFAULT = tic.CLI_Cliente)
-LEFT JOIN SABIO..PRO_PROYECTOS pro on ( tic.Pro_Proyecto COLLATE DATABASE_DEFAULT = pro.PRO_Proyecto and cli.CLI_Cliente = pro.CLI_Cliente)
-left join SABIO..ALQ_TALLER tal on (tal.tal_numero =  tic.Tal_Numero )
 
 
+insert into OpcionMenu(nombre,estado,url_cod) values('Mantenimiento','A','')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Departamentos','A','departamento.php')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Grupos','A','grupo.php')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Usuarios','A','usuario.php')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Tareas','A','usuario.php')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Work Flow','A','usuario.php')
+go
+insert into OpcionMenu(nombre,estado,url_cod) values('Tickets','A','')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Crear ticket','A','crear_ticket.php')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Mis tickets','A','')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Tickets abiertos','A','tickets_abiertos.php?status=ABIERTO')
+go
+INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Tickets cerrados','A','tickets_abiertos.php?status=CERRADO')
+go
+
+
+
+
+
+
+insert into ROLESHASMENU(idROL,idMenu) values(10,6)
+insert into ROLESHASMENU(idROL,idMenu) values(10,7)
+insert into ROLESHASMENU(idROL,idMenu) values(10,8)
+insert into ROLESHASMENU(idROL,idMenu) values(10,9)
+-
+insert into ROLESHASMENU(idROL,idMenu) values(10,4)
+insert into ROLESHASMENU(idROL,idMenu) values(10,5)
+
+
+
+insert into ROLESHASMENU(idROL,idMenu) values(9,1)
+insert into ROLESHASMENU(idROL,idMenu) values(9,2)
+insert into ROLESHASMENU(idROL,idMenu) values(9,3)
+insert into ROLESHASMENU(idROL,idMenu) values(9,4)
+insert into ROLESHASMENU(idROL,idMenu) values(9,5)
+insert into ROLESHASMENU(idROL,idMenu) values(9,6)
+insert into ROLESHASMENU(idROL,idMenu) values(9,7)
+insert into ROLESHASMENU(idROL,idMenu) values(9,8)
+insert into ROLESHASMENU(idROL,idMenu) values(9,9)
+
+insert into ROLESHASMENU(idROL,idMenu) values(8,1)
+insert into ROLESHASMENU(idROL,idMenu) values(8,2)
+insert into ROLESHASMENU(idROL,idMenu) values(8,3)
+insert into ROLESHASMENU(idROL,idMenu) values(8,4)
+insert into ROLESHASMENU(idROL,idMenu) values(8,5)
+insert into ROLESHASMENU(idROL,idMenu) values(8,6)
+insert into ROLESHASMENU(idROL,idMenu) values(8,7)
+insert into ROLESHASMENU(idROL,idMenu) values(8,8)
+insert into ROLESHASMENU(idROL,idMenu) values(8,9)
+
+
+
+select menu.nombre as NombrePadre,sub.nombre as NombreHijo,sub.url_cod,* 
+from OpcionMenu menu 
+inner join OpcionSubMenu sub on (menu.id = sub.idMenu)
+inner join ROLESHASMENU r on (sub.id = r.idMenu)
+inner join CATALOGO_DETALLE c on ( c.CAT_Detalle = r.idROL )
+where CAT_Contraccion = 'J' and c.CAT_Tabla='ROLES' 
+and sub.estado = 'A' 
+and menu.estado = 'A' 

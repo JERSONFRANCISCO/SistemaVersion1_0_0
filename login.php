@@ -34,7 +34,7 @@ $HTML = new mdl_Html();
 <body class="login-img3-body">
 
   <?php
-
+//print_r($_SERVER);
 
   // cerrar session 
   if(isset($_GET['login'])){

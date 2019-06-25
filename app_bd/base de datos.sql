@@ -126,7 +126,7 @@ CREATE TABLE dbo.TICKET(
 	CONSTRAINT CHK_ESTADO_TICKET CHECK (TIC_Estado IN('A','I','B','C','X'))
 )
 -----------------------------------------------------------------------------------------------------------
-/*  EL DETALLE DEL TICKET VA A SER EL MURO DE PUBLICACIONES O EL HILO DE HISTORÕAS DE ESTE */
+/*  EL DETALLE DEL TICKET VA A SER EL MURO DE PUBLICACIONES O EL HILO DE HISTOR√çAS DE ESTE */
 CREATE TABLE dbo.TICKET_DETALLE( 
 	TIC_DETALLE INT IDENTITY(1,1),
 	CIA_Codigo varchar(3) null,
@@ -189,4 +189,31 @@ create table CATALOGO_DETALLE(
 	CONSTRAINT CHK_DETALLE_EXISTENTE UNIQUE (CAT_Descripcion),
 	CONSTRAINT CHK_ID_CATALOGO FOREIGN KEY (CAT_Catalogo) REFERENCES CATALOGO(CAT_Catalogo),
 	CONSTRAINT CHK_TABLA_CATALOGO FOREIGN KEY (CAT_Tabla) REFERENCES CATALOGO(CAT_Tabla),
+)
+-----------------------------------------------------------------------------------------------------------
+create table OpcionMenu(
+	id int identity(1,1),
+	nombre varchar(50),
+	estado varchar(1),
+	url_cod varchar(50),
+	primary key(id),
+)
+-----------------------------------------------------------------------------------------------------------
+create table OpcionSubMenu(
+	id int identity(1,1),
+	idMenu int not null,
+	nombre varchar(50),
+	estado varchar(1),
+	url_cod varchar(50)
+	primary key(id),
+	FOREIGN KEY (idMenu) REFERENCES OpcionMenu(id)
+)  
+-----------------------------------------------------------------------------------------------------------
+create table ROLESHASMENU(
+	id int identity(1,1),
+	idROL int,
+	idMenu int 
+	primary key(id),
+	foreign key (idROL) references CATALOGO_DETALLE (cat_detalle),
+	foreign key (idMenu) references OpcionSubMenu (id),
 )
