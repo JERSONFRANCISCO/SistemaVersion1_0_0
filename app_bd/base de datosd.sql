@@ -33,72 +33,25 @@ values(3,'ROLES','U','USUARIO','A')
 
 
 
+insert into Menu_Opciones(Menu_NombrePadre,Menu_NombreHija,Menu_Estado,Menu_URL)
+values('Mantenimiento','Departamentos','A','departamento.php'),
+('Mantenimiento','Grupos','A','grupo.php'),
+('Mantenimiento','Usuarios','A','usuario.php'),
+('Mantenimiento','Tareas','A','usuario.php'),
+('Mantenimiento','Work Flow','A','usuario.php'),
+('Tickets','Crear ticket','A','crear_ticket.php'),
+('Tickets','Mis tickets','A',''),
+('Tickets','Tickets abiertos','A','tickets_abiertos.php?status=ABIERTO'),
+('Tickets','Tickets cerrados','A','tickets_abiertos.php?status=CERRADO')
+-- llenar la tabla de permisos para que le salgan todas las opciones a los usuarios correr despues de 
+-- la inserción en menu opciones
 
-insert into OpcionMenu(nombre,estado,url_cod) values('Mantenimiento','A','')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Departamentos','A','departamento.php')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Grupos','A','grupo.php')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Usuarios','A','usuario.php')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Tareas','A','usuario.php')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(1,'Work Flow','A','usuario.php')
-go
-insert into OpcionMenu(nombre,estado,url_cod) values('Tickets','A','')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Crear ticket','A','crear_ticket.php')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Mis tickets','A','')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Tickets abiertos','A','tickets_abiertos.php?status=ABIERTO')
-go
-INSERT INTO OpcionSubMenu(idMenu,nombre,estado,url_cod) VALUES(2,'Tickets cerrados','A','tickets_abiertos.php?status=CERRADO')
-go
+
+insert into ROLESHASMENU(ROL_id,Menu_id,estado,descripcion) 
+select b.CAT_Detalle,a.id,'A','[Menu : '+a.Menu_NombrePadre+'] [Submenu : '+a.Menu_nombreHija+'] [Rol : '+b.CAT_Descripcion+']'
+from Menu_Opciones a, CATALOGO_DETALLE b 
+where a.Menu_Estado = 'A' and  b.CAT_Tabla = 'ROLES' and b.CAT_Estado = 'A' 
+and ('[Menu : '+a.Menu_NombrePadre+'] [Submenu : '+a.Menu_nombreHija+'] [Rol : '+b.CAT_Descripcion+']') not in (select descripcion from ROLESHASMENU)
 
 
 
-
-
-
-insert into ROLESHASMENU(idROL,idMenu) values(10,6)
-insert into ROLESHASMENU(idROL,idMenu) values(10,7)
-insert into ROLESHASMENU(idROL,idMenu) values(10,8)
-insert into ROLESHASMENU(idROL,idMenu) values(10,9)
--
-insert into ROLESHASMENU(idROL,idMenu) values(10,4)
-insert into ROLESHASMENU(idROL,idMenu) values(10,5)
-
-
-
-insert into ROLESHASMENU(idROL,idMenu) values(9,1)
-insert into ROLESHASMENU(idROL,idMenu) values(9,2)
-insert into ROLESHASMENU(idROL,idMenu) values(9,3)
-insert into ROLESHASMENU(idROL,idMenu) values(9,4)
-insert into ROLESHASMENU(idROL,idMenu) values(9,5)
-insert into ROLESHASMENU(idROL,idMenu) values(9,6)
-insert into ROLESHASMENU(idROL,idMenu) values(9,7)
-insert into ROLESHASMENU(idROL,idMenu) values(9,8)
-insert into ROLESHASMENU(idROL,idMenu) values(9,9)
-
-insert into ROLESHASMENU(idROL,idMenu) values(8,1)
-insert into ROLESHASMENU(idROL,idMenu) values(8,2)
-insert into ROLESHASMENU(idROL,idMenu) values(8,3)
-insert into ROLESHASMENU(idROL,idMenu) values(8,4)
-insert into ROLESHASMENU(idROL,idMenu) values(8,5)
-insert into ROLESHASMENU(idROL,idMenu) values(8,6)
-insert into ROLESHASMENU(idROL,idMenu) values(8,7)
-insert into ROLESHASMENU(idROL,idMenu) values(8,8)
-insert into ROLESHASMENU(idROL,idMenu) values(8,9)
-
-
-
-select menu.nombre as NombrePadre,sub.nombre as NombreHijo,sub.url_cod,* 
-from OpcionMenu menu 
-inner join OpcionSubMenu sub on (menu.id = sub.idMenu)
-inner join ROLESHASMENU r on (sub.id = r.idMenu)
-inner join CATALOGO_DETALLE c on ( c.CAT_Detalle = r.idROL )
-where CAT_Contraccion = 'J' and c.CAT_Tabla='ROLES' 
-and sub.estado = 'A' 
-and menu.estado = 'A' 

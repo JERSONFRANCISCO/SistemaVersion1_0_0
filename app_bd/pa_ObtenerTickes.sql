@@ -31,7 +31,7 @@ begin
 				from TICKET TIC
 				LEFT JOIN USUARIOS USR ON (TIC.USR_Usuario = USR.USR_Usuario) 
 				LEFT JOIN DEPARTAMENTOS DEP ON (TIC.DEP_DEPARTAMENTO = DEP.DEP_Departamento) 
-				where TIC_Estado = @Estado AND TIC.DEP_DEPARTAMENTO = @DEPARTAMENTO
+				where TIC_Estado = 'A' AND TIC.DEP_DEPARTAMENTO = @DEPARTAMENTO
 			UNION
 				Select TIC.TIC_Ticket,CONVERT(VARCHAR, TIC.USR_Fecha_Creacion, 111) as FechaCreacion ,TIC.TIC_Titulo,DEP.DEP_Titulo,
 				CASE WHEN USR.USR_Nombre IS NULL THEN ''  ELSE USR.USR_Nombre END AS USUARIO,
@@ -40,7 +40,18 @@ begin
 				LEFT JOIN USUARIOS USR ON (TIC.USR_Usuario = USR.USR_Usuario) 
 				LEFT JOIN DEPARTAMENTOS DEP ON (TIC.DEP_DEPARTAMENTO = DEP.DEP_Departamento) 
 				INNER JOIN TICKET_TAREAS TASK ON ( TIC.TIC_Ticket = TASK.TIC_Ticket)
-				where TIC.TIC_Estado = @Estado AND TASK.DEP_Departamento = @DEPARTAMENTO
+				where TIC.TIC_Estado = 'A' AND TASK.DEP_Departamento = @DEPARTAMENTO
+			UNION -- tickets de usuarios del deparamento
+				Select TIC.TIC_Ticket,CONVERT(VARCHAR, TIC.USR_Fecha_Creacion, 111) as FechaCreacion ,TIC.TIC_Titulo,DEPTIC.DEP_Titulo,
+				CASE WHEN USR.USR_Nombre IS NULL THEN ''  ELSE USR.USR_Nombre END AS USUARIO,
+				case when TIC.TIC_Estado = 'A' then 'Abierto' else 'Cerrado' end AS Estado,TIC.TIC_Porcentaje_Completado,CONVERT(VARCHAR, TIC.TIC_Fecha_Vencimiento, 111) as FechaVencimiento 
+				from TICKET TIC
+				LEFT JOIN USUARIOS USR ON (TIC.USR_Usuario = USR.USR_Usuario)
+				INNER JOIN GRUPO GRU ON (USR.GRU_Grupo = GRU.GRU_Grupo) 
+				LEFT JOIN DEPARTAMENTOS DEP ON (GRU.DEP_DEPARTAMENTO = DEP.DEP_Departamento) 
+				LEFT JOIN DEPARTAMENTOS DEPTIC ON (TIC.DEP_DEPARTAMENTO = DEPTIC.DEP_Departamento) 
+				--INNER JOIN TICKET_TAREAS TASK ON ( TIC.TIC_Ticket = TASK.TIC_Ticket)
+				where TIC.TIC_Estado = @Estado AND TIC.DEP_Departamento <> @DEPARTAMENTO
 			)
 			SELECT * FROM TICKETS ORDER BY  TIC_Ticket desc;
 	end

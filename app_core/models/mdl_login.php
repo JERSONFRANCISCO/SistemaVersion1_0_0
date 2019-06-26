@@ -6,8 +6,7 @@ class mdl_login{
 
 	var $conexion;
 	var $conn_status;
-
-
+	
 	var $USR_user;
 	var $USR_nombre;
 	var $USR_img;

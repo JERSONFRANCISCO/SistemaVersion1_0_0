@@ -191,29 +191,23 @@ create table CATALOGO_DETALLE(
 	CONSTRAINT CHK_TABLA_CATALOGO FOREIGN KEY (CAT_Tabla) REFERENCES CATALOGO(CAT_Tabla),
 )
 -----------------------------------------------------------------------------------------------------------
-create table OpcionMenu(
+create table Menu_Opciones(
 	id int identity(1,1),
-	nombre varchar(50),
-	estado varchar(1),
-	url_cod varchar(50),
-	primary key(id),
-)
------------------------------------------------------------------------------------------------------------
-create table OpcionSubMenu(
-	id int identity(1,1),
-	idMenu int not null,
-	nombre varchar(50),
-	estado varchar(1),
-	url_cod varchar(50)
-	primary key(id),
-	FOREIGN KEY (idMenu) REFERENCES OpcionMenu(id)
-)  
+	Menu_NombrePadre varchar(50),
+	Menu_NombreHija varchar(50),
+	Menu_Estado varchar(1) not null,
+	Menu_URL varchar(50)
+	primary key(id)
+) 
 -----------------------------------------------------------------------------------------------------------
 create table ROLESHASMENU(
 	id int identity(1,1),
-	idROL int,
-	idMenu int 
+	ROL_id int,
+	Menu_id int,
+	estado varchar(1) not null,
+	descripcion varchar(100),
 	primary key(id),
-	foreign key (idROL) references CATALOGO_DETALLE (cat_detalle),
-	foreign key (idMenu) references OpcionSubMenu (id),
+	foreign key (ROL_id) references CATALOGO_DETALLE (cat_detalle),
+	foreign key (Menu_id) references Menu_Opciones (id),
+	CONSTRAINT CHK_ESTADO_ROLESHASMENU CHECK (estado IN('A','I'))
 )
