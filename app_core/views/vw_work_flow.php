@@ -25,21 +25,20 @@
   <?php
   echo $HTML->html_menu();
   ?>
-
   <!--main content start-->
   <section id="main-content">
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de grupos</h3>
+          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de usuarios</h3>
           <div class="row">
             <div class="col-lg-12">
               <section class="panel">
                 <header class="panel-heading">
-                  Grupos
+                  Departamentos
                 </header>
                 <div class="panel-body">
-                  <form class="form-inline" role="form" action="grupo_mantenimiento.php">
+                  <form class="form-inline" role="form" action="usuario_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
@@ -58,45 +57,41 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <thead>
                                     <tr>
-                                      <th>Grupo</th>
+                                      <th>Work Flow</th>
                                       <th>Nombre</th>
-                                      <th>Observaciones</th>
-                                      <th>Estado</th>
+                                      <th>Descripción</th>
                                       <th>Departamento</th>
-                                      <th>Fecha</th>
+                                      <th>Estado</th>
                                       <th>Acción</th>
                                     </tr>
                                   </thead>
                                   <tfoot>
                                     <tr>
-                                      <th>Grupo</th>
+                                      <th>Work Flow</th>
                                       <th>Nombre</th>
-                                      <th>Observaciones</th>
-                                      <th>Estado</th>
+                                      <th>Descripción</th>
                                       <th>Departamento</th>
-                                      <th>Fecha</th>
+                                      <th>Estado</th>
                                       <th>Acción</th>
                                     </tr>
                                   </tfoot>
                                   <tbody>
                                     <?php
-                                    require_once(__CTR_PATH . "ctr_grupo.php");
-                                    $ctr_grupo = new ctr_grupo();
-                                    $ctr = $ctr_grupo->obtener_Objetos();
+                                    require_once(__CTR_PATH . "ctr_work_flow.php");
+                                    $ctr_work_flow = new ctr_work_flow();
+                                    $ctr = $ctr_work_flow->obtener_Objetos();
                                     $cont = 0;
                                     foreach ($ctr as $value) {
-                                //      echo "<form id='form1' name='form1' method='POST' action='www.google.com'>";
                                       if($cont % 2 == 0){
-                                        echo "<tr style = 'background: aliceblue;' >";//    background: aliceblue;
+                                        echo "<tr style = 'background: aliceblue;' >";
                                       }else{
                                         echo "<tr>";
                                       }
-                                      echo "<form method='POST' action='grupo_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
+                                      echo "<form method='POST' action='usuario_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
                                       echo "<td>".$value[1]."</td>";
                                       echo "<td>".$value[2]."</td>";
                                       echo "<td>".$value[3]."</td>";
                                       echo "<td>".$value[4]."</td>";
-                                      echo "<td>".$value[5]."</td>";
                                       echo "<td>";
                                       echo "<div class='btn-group'>";
                                       echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
@@ -120,7 +115,7 @@
                     <!-- End of Content Wrapper -->
                   </div>
                   <!-- End of Page Wrapper -->
-                  <form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
+                  <form class="form-inline" role="form" method="post" action="usuario_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
@@ -135,6 +130,8 @@
           </div>
         </div>
       </div>
+
+
 
     </section>
   </section>

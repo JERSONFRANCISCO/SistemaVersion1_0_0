@@ -19,7 +19,6 @@
 
 
 
-
   ?>
   <style type="text/css">
     .drag-drop-item
@@ -111,7 +110,7 @@
                         <div row>
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
-                              <label class="control-label col-lg-4" id="alinearIzquierda" for="inputSuccess">Prioridad:</label>
+                              <label class="control-label col-lg-4" id="alinearIzquierda" for="inputSuccess">Prioridad</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="Prioridad" name="Prioridad" title="Selecione la prioridad">
                                   <?php
@@ -126,7 +125,7 @@
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Departamento:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Departamento</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreDepartamento" name="NombreDepartamento" data-live-search="true" title="Selecione Departamento" required>
                                   <?php
@@ -141,7 +140,7 @@
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Usuario asignado:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Usuario asignado</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreUsuario" name="NombreUsuario" data-live-search="true" title="Selecione usuario" required>
                                   <?php
@@ -156,12 +155,12 @@
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Fecha de vencimiento:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Fecha de vencimiento</label>
                               <div class="col-lg-8">
                                 <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título</label>
                               <div class="col-lg-8">
                                 <input class="form-control" id="tituloTicket" name="tituloTicket" placeholder="" type="text" required>
                               </div>
@@ -171,7 +170,7 @@
 
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Cliente:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Cliente</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreClienteAJAX" name="NombreClienteAJAX" data-live-search="true" title="Selecione Departamento" onchange="cargarProyectoCliente();">
                                   <?php
@@ -186,19 +185,19 @@
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Proyecto:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Proyecto</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="ProyectoClienteAjax" name="ProyectoClienteAjax" data-live-search="true" title="Selecione Departamento" onchange="cargarOTCliente();">
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Orden de trabajo:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Orden de trabajo</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajoAJAX" name="OrdenDeTrabajoAJAX" data-live-search="true" title="Selecione Departamento" >
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Vendedor:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Vendedor</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="NombreVendedor" name="NombreVendedor" data-live-search="true" title="Selecione Departamento">
                                   <?php
@@ -213,7 +212,7 @@
                                 </select>
                               </div>
                               <br><br>
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Flujo de trabajo:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Flujo de trabajo</label>
                               <div class="col-lg-8">
                                 <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
                                   <?php
@@ -275,25 +274,25 @@
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
                               <div class="col-lg-12">
-                                <label class="control-label col-lg-4" id="alinearIzquierda">Título:</label>
+                                <label class="control-label col-lg-4" id="alinearIzquierda">Título</label>
                                 <div class="col-sm-12">
                                   <input class="form-control" placeholder="Título" type="text" id='tareaTitulo' name='tareaTitulo'>
                                 </div>
                               </div>
                               <div class="col-lg-12">
-                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Descripción:</label>
+                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Descripción</label>
                                 <div class="col-sm-12">
                                   <input class="form-control" placeholder="Descripción" type="text" id='tareaDescripcion' name='tareaDescripcion'>
                                 </div>
                               </div>
                               <div class="col-lg-6">
-                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Horas:</label>
+                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Horas</label>
                                 <div class="col-sm-12">
                                   <input class="form-control" placeholder="Horas" type="number" min="1" maxlength="2"  id='tareaHoras' name='tareaHoras'>
                                 </div>
                               </div>
                               <div class="col-lg-6">
-                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Minutos:</label>
+                                <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Minutos</label>
                                 <div class="col-sm-12">
                                   <input class="form-control" placeholder="Minutos" type="number" maxlength="2" min="1" id='tareaMinutos' name='tareaMinutos'>
                                 </div>
@@ -304,7 +303,7 @@
                           <!------------------------------------------------- ------------------>
                           <div class="col-lg-6 col-sm-6 follow-info">
                             <div class="form-group">
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Departamento:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Departamento</label>
                               <div class="col-lg-12">
                                 <select class="form-control m-bot15 selectpicker" id="tareaDepartamento" name="tareaDepartamento" data-live-search="true" title="Selecione Departamento">
                                   <?php
@@ -319,7 +318,7 @@
                                 </select>
                               </div>
 
-                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Usuario asignado:</label>
+                              <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Usuario asignado</label>
                               <div class="col-lg-12">
                                 <select class="form-control m-bot15 selectpicker" id="tareaUsuario" name="tareaUsuario" data-live-search="true" title="Selecione Departamento">
                                   <?php
@@ -404,10 +403,8 @@
 
 
 <!--main content end-->
-<div class="text-center">
-  <div class="credits">
-    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
-  </div>
-</div>
+  <?php
+  echo $HTML->html_footer();
+  ?>
 </section>
 

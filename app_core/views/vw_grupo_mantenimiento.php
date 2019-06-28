@@ -11,8 +11,6 @@ if(isset($_POST['Agregar'])){
     $bolean=true;
     $titulo="Agregado";
   }
-}else{
-  echo "no<br>";
 }
 
 if(isset($_POST['Editar'])){
@@ -188,10 +186,7 @@ if(isset($_POST['botonEditar'])){
   </section>
 </section>
 <!--main content end-->
-<div class="text-center">
-  <div class="credits">
-
-    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
-  </div>
-</div>
+  <?php
+  echo $HTML->html_footer();
+  ?>
 </section>

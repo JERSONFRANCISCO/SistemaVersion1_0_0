@@ -40,7 +40,7 @@ $HTML = new mdl_Html();
   }
 
   if (isset($_SESSION['MYAPP'])){ 
-    include_once(__VWS_PATH."vw_departamento.php");
+    include_once(__VWS_PATH."vw_soporte.php");
   } else{
     include_once("login.php");
   }

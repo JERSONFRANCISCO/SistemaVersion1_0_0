@@ -137,7 +137,6 @@
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
-
                   </form>
                 </div>
 
@@ -155,10 +154,7 @@
   </section>
 
 
-  <!--main content end-->
-  <div class="text-center">
-    <div class="credits">
-      Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
-    </div>
-  </div>
+  <?php
+  echo $HTML->html_footer();
+  ?>
 </section>

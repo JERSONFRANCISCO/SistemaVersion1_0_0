@@ -37,12 +37,16 @@ insert into Menu_Opciones(Menu_NombrePadre,Menu_NombreHija,Menu_Estado,Menu_URL)
 values('Mantenimiento','Departamentos','A','departamento.php'),
 ('Mantenimiento','Grupos','A','grupo.php'),
 ('Mantenimiento','Usuarios','A','usuario.php'),
-('Mantenimiento','Tareas','A','usuario.php'),
-('Mantenimiento','Work Flow','A','usuario.php'),
+('Mantenimiento','Tareas','A','tareas.php'),
+('Mantenimiento','Work Flow','A','work_flow.php'),
 ('Tickets','Crear ticket','A','crear_ticket.php'),
 ('Tickets','Mis tickets','A',''),
 ('Tickets','Tickets abiertos','A','tickets_abiertos.php?status=ABIERTO'),
-('Tickets','Tickets cerrados','A','tickets_abiertos.php?status=CERRADO')
+('Tickets','Tickets cerrados','A','tickets_abiertos.php?status=CERRADO'),
+('Ayuda','Preguntas Frecuentes','A','soporte.php'),
+('Ayuda','Soporte Técnico','A','soporte.php')
+
+
 -- llenar la tabla de permisos para que le salgan todas las opciones a los usuarios correr despues de 
 -- la inserción en menu opciones
 

@@ -140,10 +140,7 @@ if (isset($_GET['status'])) {
 </section>
 
 
-<!--main content end-->
-<div class="text-center">
-  <div class="credits">
-    Diseñado por <a href="http://dialcomcr.com/">DIALCOM</a>
-  </div>
-</div>
+  <?php
+  echo $HTML->html_footer();
+  ?>
 </section>

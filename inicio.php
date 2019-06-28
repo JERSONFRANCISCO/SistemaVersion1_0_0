@@ -53,11 +53,11 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.nicescroll.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
-  echo $HTML->html_js_header(__JS_PATH."bootstrap.bundle.min.js");
-  echo $HTML->html_js_header(__JS_PATH."jquery.easing.min.js");
-  echo $HTML->html_js_header(__JS_PATH."jquery.dataTables.js");
-  echo $HTML->html_js_header(__JS_PATH."dataTables.bootstrap4.js");
-  echo $HTML->html_js_header(__JS_PATH."datatables-demo.js");
+ //echo $HTML->html_js_header(__JS_PATH."bootstrap.bundle.min.js");
+ // echo $HTML->html_js_header(__JS_PATH."jquery.easing.min.js");
+ // echo $HTML->html_js_header(__JS_PATH."jquery.dataTables.js");
+ //echo $HTML->html_js_header(__JS_PATH."dataTables.bootstrap4.js");
+ // echo $HTML->html_js_header(__JS_PATH."datatables-demo.js");
   ?>
 
 

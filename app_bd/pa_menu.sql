@@ -3,7 +3,7 @@ alter procedure pa_MenuUsuarios(
 	)
 	as
 	begin
-		select menu_nombrepadre,menu_nombrehija,menu_url
+		select menu_nombrepadre,case when menu_nombrehija = 'Mis tickets' then menu_nombrehija+' (*)' else Menu_NombreHija end as menu_nombrehija,menu_url
 		from Menu_Opciones sub 
 		inner join ROLESHASMENU rm on ( sub.id = rm.Menu_id )
 		inner join CATALOGO_DETALLE c on ( rm.ROL_id = c.CAT_Detalle)
