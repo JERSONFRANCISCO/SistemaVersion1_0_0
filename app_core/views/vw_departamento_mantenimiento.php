@@ -2,6 +2,9 @@
 
 $titulo='Agregar';
 
+/*
+  Se verifica si la acción del boton agregar fue ejecutada para así agregar un nuevo registro
+*/
 if(isset($_POST['Agregar'])){
   if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
   {

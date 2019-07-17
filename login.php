@@ -45,6 +45,7 @@ $HTML = new mdl_Html();
     $ctr_login -> btn_logout_click();
   }
 
+  // Se revisan las variables si estan definidas lo cual indica que se va a verificar un
   // se revisan los campos de texto cuando se va a iniciar session
   if(isset($_POST['login'])){
     if(isset($_POST['TXTuser'])){

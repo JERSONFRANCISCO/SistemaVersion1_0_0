@@ -1,0 +1,13 @@
+
+
+Tareas a realizar Dialcom Tickets
+- Revisar la insercion, actualización y eliminación de departamentos en la vista vw_departamento_mantenimiento
+- Agregar nombres cuando se selecionan en la creación de un ticket
+- Revisar la insercion, actualización y eliminación de departamentos en la vista vw_grupo_mantenimiento
+- Cuando se muestran los datos de un combobox en crear ticket se debe mostrar el nombre y no el código
+{
+	Esto va a generar un problema en el ajax ya que se envia un código, validar cuando esto se realice	
+}
+- 
+
+
