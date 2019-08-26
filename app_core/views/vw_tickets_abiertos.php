@@ -23,8 +23,7 @@ if (isset($_GET['status'])) {
       <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
     </div>
 
-    <a href="index.html" class="logo">EMPRESA CLIENTE <span class="lite"> DIALCOM TICKETS</span></a>
-
+    
     <?php
     echo $HTML->actionMenu();
     ?>

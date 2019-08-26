@@ -95,7 +95,7 @@ class mdl_HTML {
 		echo "</a>";
 	}
 	function actionMenu(){
-		echo "<style>.tamanoimg{height: 29px; width: 25px;}</style>";
+		echo "<a href='index.html' class='logo'>CLIENTE<span class='lite'> DIALCOM TICKETS</span></a><style>.tamanoimg{height: 29px; width: 25px;}</style>";
 		$name= "";
 		$mail="";
 		$photo="";
