@@ -21,7 +21,8 @@ class mdl_HTML {
 		"</div>".
 		"</div>".
 		"</div>".
-		"</div>'";
+		"</div>";
+
 		$html ="<div class='text-center'>".
 		"<div class='credits'>".
 		"Diseñado por <a href='http://dialcomcr.com/' target='_blank'>DIALCOM</a>".
@@ -95,7 +96,7 @@ class mdl_HTML {
 		echo "</a>";
 	}
 	function actionMenu(){
-		echo "<a href='index.php' class='logo'>CLIENTE<span class='lite'> DIALCOM TICKETS</span></a><style>.tamanoimg{height: 29px; width: 25px;}</style>";
+		echo "<a href='index.php' class='logo'>DIALCOM<span class='lite'>TICKETS</span></a><style>.tamanoimg{height: 29px; width: 25px;}</style>";
 		$name= "";
 		$mail="";
 		$photo="";

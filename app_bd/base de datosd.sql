@@ -44,7 +44,11 @@ values('Mantenimiento','Departamentos','A','departamento.php'),
 ('Tickets','Tickets abiertos','A','tickets_abiertos.php?status=ABIERTO'),
 ('Tickets','Tickets cerrados','A','tickets_abiertos.php?status=CERRADO'),
 ('Ayuda','Preguntas Frecuentes','A','soporte.php'),
-('Ayuda','Soporte Técnico','A','soporte.php')
+('Ayuda','Soporte Técnico','A','soporte.php'),
+('Usuario','Cerrar Sesion','A','login.php?login=false')
+
+
+--('Usuario','Cerrar Sesion','A','login.php?login=false') cerrar session directo
 
 
 -- llenar la tabla de permisos para que le salgan todas las opciones a los usuarios correr despues de 
