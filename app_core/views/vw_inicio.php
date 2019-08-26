@@ -104,8 +104,8 @@
                 </div>
                 <div class="col-lg-4">
                   <span class="profile-ava pull-right">
-                    <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
-                    Nombre del usuario
+                    <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
+                      <?php if(isset($_SESSION['USR_nombre'])){ echo $_SESSION['USR_nombre'];}?>
                   </span>
                 </div>
               </div>
@@ -122,7 +122,7 @@
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>
@@ -136,7 +136,7 @@
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>
@@ -150,7 +150,7 @@
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>
@@ -167,7 +167,7 @@
                   </td> -->
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>
@@ -181,7 +181,7 @@
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>
@@ -195,7 +195,7 @@
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>
@@ -209,7 +209,7 @@
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>
@@ -223,7 +223,7 @@
                   </td>
                   <td>
                     <span class="profile-ava">
-                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];};?>" >
+                      <img alt="" class="tamanoimg simple" src="<?php echo __RSC_PHO_USR_HOST_PATH;if(isset($_SESSION['USR_img'])){ echo $_SESSION['USR_img'];}?>" >
                     </span>
                   </td>
                 </tr>

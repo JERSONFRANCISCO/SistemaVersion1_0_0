@@ -46,7 +46,7 @@ class mdl_ticket{
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
-	public function insertar_ticket($Prioridad,$Ven_Vendedor,$Cli_Cliente,$Pro_Proyecto,$Usr_usuario,$TAL_Numero,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion){
+	public function insertar_ticket($Prioridad,$Ven_Vendedor,$Cli_Cliente,$Pro_Proyecto,$Usr_usuario,$TAL_Numero,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$Fecha_Vence){
 		if($TAL_Numero == ''){
 			$TAL_Numero = 0;
 		}
@@ -67,7 +67,8 @@ class mdl_ticket{
 		@USR_Usuario_Creacion = ".$USR_Usuario_Creacion." ,
 		@TIC_TICKET = 0 ,
 		@TIC_HORAS = 0,
-		@TIC_MINUTOS = 0";
+		@TIC_MINUTOS = 0 ,
+		@FECHA_VENCE = '".$Fecha_Vence."'";
 		//echo $sql;
 		$this->conexion->consulta($sql);
 

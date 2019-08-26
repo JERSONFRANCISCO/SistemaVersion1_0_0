@@ -144,7 +144,7 @@ if(isset($_POST['botonVer'])){
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="Descripcion" class="control-label col-lg-2">Descipción<span class="required">*</span></label>
+                    <label for="Descripcion" class="control-label col-lg-2">Descripción<span class="required">*</span></label>
                     <div class="col-lg-10">
                       <input class="form-control " id="Descripcion" minlength="5" maxlength="100" type="text" value="<?php echo $DEP_descripcion;?>" name="Descripcion" <?php echo $readonly;?>/>
                     </div>

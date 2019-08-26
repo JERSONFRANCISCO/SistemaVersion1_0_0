@@ -121,7 +121,7 @@
                   <!-- End of Page Wrapper -->
                   <form class="form-inline" role="form" method="post" action="departamento_mantenimiento.php">
                     <div class="text-right">
-                      <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+                      <button id='botonAgregar' name='botonAgregar' type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
 
                   </form>

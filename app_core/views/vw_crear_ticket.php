@@ -7,7 +7,7 @@
   if(isset($_POST['tituloTicket'])){
     require_once(__CTR_PATH . "ctr_ticket.php");
     $ctr_ticket = new ctr_ticket();
-    $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreClienteAJAX'],$_POST['ProyectoClienteAjax'],$_POST['NombreUsuario'],$_POST['OrdenDeTrabajoAJAX'],$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],$_SESSION['USR_user']);
+    $ctr = $ctr_ticket->insertar_ticket(substr($_POST['Prioridad'], 0,1),$_POST['NombreVendedor'],$_POST['NombreClienteAJAX'],$_POST['ProyectoClienteAjax'],$_POST['NombreUsuario'],$_POST['OrdenDeTrabajoAJAX'],$_POST['NombreDepartamento'],'A',$_POST['tituloTicket'],$_POST['summernote'],$_SESSION['USR_user'],$_POST['Fecha_Vence']);
     if(isset($_POST['numeroDeTareas'])){
       for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
         if(isset($_POST['tareatareaTitulo'.$i])){
@@ -157,7 +157,7 @@
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Fecha de vencimiento</label>
                               <div class="col-lg-8">
-                                <input type="date" name="bday" min="2000-01-01" max="2100-01-01"  value="<?php echo date("Y-m-d"); ?>" class="form-control">
+                                <input type="date" name="Fecha_Vence" data-date-format="DD MMMM YYYY" min="2000-01-01" max="2100-01-01"  value="<?php echo date("Y-m-d"); ?>" class="form-control">
                               </div>
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título</label>
@@ -403,8 +403,8 @@
 
 
 <!--main content end-->
-  <?php
-  echo $HTML->html_footer();
-  ?>
+<?php
+echo $HTML->html_footer();
+?>
 </section>
 

@@ -1,6 +1,21 @@
 <?php
 
-$titulo='Agregar';
+$titulo='';
+$readonly='';
+if(isset($_POST['botonEditar'])){
+  $readonly = '';
+  $titulo='Editar';
+}else{
+  if(isset($_POST['botonEliminar'])){
+    $readonly = 'readonly';
+    $titulo='Eliminar';
+  }else{
+    if(isset($_POST['botonAgregar'])){
+      $readonly = '';
+      $titulo='Agregar';
+    }
+  }
+}
 
 if(isset($_POST['Agregar'])){
   if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])AND isset($_POST['Departamento'])) 
@@ -30,7 +45,7 @@ if(isset($_POST['Eliminar'])){
     $ctr_Grupo = new ctr_Grupo();
     $ctr = $ctr_Grupo->eliminar_Grupo('','','B','','Jerson',$_POST['Grupo']);
     $bolean=true;
-    $titulo="Actualizado";
+    $titulo="Eliminado";
   }
 }
 
@@ -53,17 +68,7 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
 
 
 
-$accion='';
-$readonly='';
-if(isset($_POST['botonEditar'])){
-  $readonly = '';
-  $accion='Editar';
-}else{
-  if(isset($_POST['botonEliminar'])){
-    $readonly = 'readonly';
-    $accion='Eliminar';
-  }
-}
+
 
 ?>
 
@@ -185,7 +190,7 @@ if(isset($_POST['botonEditar'])){
   </section>
 </section>
 <!--main content end-->
-  <?php
-  echo $HTML->html_footer();
-  ?>
+<?php
+echo $HTML->html_footer();
+?>
 </section>

@@ -13,7 +13,8 @@ alter procedure pa_InsertarTicket(
 	@USR_Usuario_Creacion int,
 	@TIC_TICKET int,
 	@TIC_HORAS INT,
-	@TIC_MINUTOS INT
+	@TIC_MINUTOS INT,
+	@FECHA_VENCE varchar(10)
 	)
 as
 DECLARE @DEP_DepartamentoID INT;
@@ -30,7 +31,7 @@ begin
 									DEP_DEPARTAMENTO,TIC_Titulo,TIC_Observaciones,
 				TIC_Estado,USR_Usuario_Creacion,TIC_Fecha_Vencimiento,TIC_Prioridad,USR_Usuario)
 				values(@Ven_Vendedor,@Cli_Cliente,@Pro_Proyecto,@TAL_Numero,@DEP_DepartamentoID,@TIC_Titulo,'',@TIC_Estado,
-				@USR_Usuario_CreacionVAR,GETDATE(),@Prioridad,@USUARIO)
+				@USR_Usuario_CreacionVAR, REPLACE(@FECHA_VENCE, '-', ''),@Prioridad,@USUARIO)
 
 				SELECT TOP 1  @TIC_TICKET_ID = TIC_TICKET FROM TICKET where TICKET.TIC_Titulo = @TIC_Titulo ORDER BY TIC_TICKET DESC 
 				if(LEN(@TIC_Observaciones) > 0 )

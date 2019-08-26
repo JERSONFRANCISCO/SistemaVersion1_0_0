@@ -1,6 +1,22 @@
 <?php
 
-$titulo='Agregar';
+$titulo='';
+$readonly='';
+if(isset($_POST['botonVer'])){
+  $readonly = 'readonly';
+  $titulo='Ver';
+}else{
+  if(isset($_POST['botonEditar'])){
+    $readonly = 'required';
+    $titulo='Editar';
+  }else{
+    if(isset($_POST['botonEliminar'])){
+      $readonly = 'readonly';
+      $titulo='Eliminar';
+    }
+  }
+}
+
 
 if(isset($_POST['Agregar'])){
   //if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
@@ -36,9 +52,9 @@ if(isset($_POST['Eliminar'])){
 }
 
 
-$NombreDep='';
-$DEP_descripcion='';
-$DEP_Estado='';
+//$NombreDep='';
+//$DEP_descripcion='';
+//$DEP_Estado='';
 
 if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
  // require_once(__CTR_PATH . "ctr_departamentos.php");
@@ -54,21 +70,6 @@ if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['bo
 
 
 
-$readonly='';
-if(isset($_POST['botonVer'])){
-  $readonly = 'readonly';
-  $titulo='Ver';
-}else{
-  if(isset($_POST['botonEditar'])){
-    $readonly = 'required';
-    $titulo='Editar';
-  }else{
-    if(isset($_POST['botonEliminar'])){
-      $readonly = 'readonly';
-      $titulo='Eliminar';
-    }
-  }
-}
 
 
 ?>
@@ -99,7 +100,7 @@ if(isset($_POST['botonVer'])){
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de departamentos</h3>
+          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de usuarios</h3>
         </div>
       </div>
 
@@ -123,7 +124,7 @@ if(isset($_POST['botonVer'])){
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-              <strong><?php if(isset($titulo)){echo $titulo;}?> departamentos</strong>
+              <strong><?php if(isset($titulo)){echo $titulo;}?> usuarios</strong>
             </header>
             <div class="panel-body">
               <div class="form">
@@ -138,6 +139,13 @@ if(isset($_POST['botonVer'])){
                     <label for="Nombre" class="control-label col-lg-2">Nombre<span class="required">*</span></label>
                     <div class="col-lg-10">
                       <input type="text" class="form-control" id="text" placeholder=" " required>
+                      <!-- <input class="form-control " id="Nombre" minlength="5" value="" maxlength="50" type="text" name="Nombre" required/> -->
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="Nombre" class="control-label col-lg-2">Password<span class="required">*</span></label>
+                    <div class="col-lg-10">
+                      <input type="Password" class="form-control" id="text" placeholder=" " required>
                       <!-- <input class="form-control " id="Nombre" minlength="5" value="" maxlength="50" type="text" name="Nombre" required/> -->
                     </div>
                   </div>
@@ -157,6 +165,23 @@ if(isset($_POST['botonVer'])){
                         require_once(__CTR_PATH . "ctr_grupo.php");
                         $ctr_grupo = new ctr_grupo();
                         $ctr = $ctr_grupo->obtener_Grupos();
+                        $cont = 0;
+                        foreach ($ctr as $value) {
+                          echo "<option>".$value[0]."</option>";  
+                        }
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-lg-2" for="inputSuccess">Rol</label>
+                    <div class="col-lg-10">
+                      <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                        <?php
+                        require_once(__CTR_PATH . "ctr_estandar.php");
+                        $ctr_estandar = new ctr_estandar(); 
+                        $ctr = $ctr_estandar->obtener_Catalogo('Roles');
                         $cont = 0;
                         foreach ($ctr as $value) {
                           echo "<option>".$value[0]."</option>";  
