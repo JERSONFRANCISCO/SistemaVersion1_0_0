@@ -64,7 +64,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__CSS_PATH."summernote.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
-  echo $HTML->html_js_header(__JS_PATH."daterangepicker.js");
+  //echo $HTML->html_js_header(__JS_PATH."daterangepicker.js");
 
   echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
   echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
@@ -89,15 +89,7 @@ $HTML = new mdl_Html();
       $(".loader").fadeOut("slow");
     });
 
-    $(function () {
-     $('#datetimepicker5').datetimepicker({
-      locale: 'es'
-    });
-   });
-
-
-
-
+   
  </script>
 
 

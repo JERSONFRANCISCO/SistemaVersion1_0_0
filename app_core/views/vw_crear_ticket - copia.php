@@ -157,7 +157,7 @@
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Fecha de vencimiento</label>
                               <div class="col-lg-8">
-                                <input type="date" name="bday" min="2000-01-01" max="2100-01-01"  value="<?php echo date("Y-m-d"); ?>" class="form-control">
+                                <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>
                               </div>
                               <br><br>
                               <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Título</label>
