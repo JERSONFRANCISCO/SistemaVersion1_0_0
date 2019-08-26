@@ -121,7 +121,7 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-             <strong><?php if(isset($titulo)){echo $titulo;}?> grupo</strong>
+             <strong><?php if(isset($titulo)){echo $titulo;}?> Grupo</strong>
            </header>
            <div class="panel-body">
             <div class="form">
