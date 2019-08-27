@@ -1,5 +1,11 @@
 alter procedure pa_Usuarios(
-	@Accion varchar(1)
+	@Accion varchar(1),
+	@UsuarioNombre varchar(40),
+	@UsuarioCorreo varchar(20),
+	@UsuarioEstado varchar(1),
+	@UsuarioPassword varchar(20),
+	@UsuarioInclusion varchar(40),
+	@UsuarioRol varchar(1)
 	)
 	as
 	begin
@@ -15,7 +21,8 @@ alter procedure pa_Usuarios(
 	end
 	if(@Accion = 'I')
 		begin
-			select '';
+			insert into USUARIOS([GRU_Grupo],[USR_Nombre],[USR_Correo],[USR_Estado],[USR_Password],[USR_ROL],[USR_Fecha_Creacion],[USR_Usuario_Creacion])
+			values(1,@UsuarioNombre,@UsuarioCorreo,@UsuarioEstado,@UsuarioPassword,@UsuarioRol,getdate(),@UsuarioInclusion)
 		end
 	if(@Accion = 'F')
 		begin

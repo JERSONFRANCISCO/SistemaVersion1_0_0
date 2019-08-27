@@ -19,9 +19,6 @@ if(isset($_POST['botonVer'])){
 
 
 if(isset($_POST['Agregar'])){
-
-  //echo $_POST['UsuarioID'];
-
   require_once(__CTR_PATH . "ctr_usuario.php");
   $ctr_usuario = new ctr_usuario();
   $ctr = $ctr_usuario->insertar_Usuarios();
@@ -79,8 +76,6 @@ if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['bo
  //   $DEP_Estado= $value[3];
 //  }
 }
-
-
 
 
 
@@ -236,5 +231,3 @@ if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['bo
   ?>
 
 </section>
-
-
