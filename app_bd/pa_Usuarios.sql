@@ -13,6 +13,18 @@ alter procedure pa_Usuarios(
 			INNER JOIN CATALOGO_DETALLE CDE ON ( USR.USR_ROL = CDE.CAT_Contraccion AND CDE.CAT_Tabla='ROLES')
 			where USR.USR_Estado in('A','I')
 	end
+	if(@Accion = 'I')
+		begin
+			select '';
+		end
+	if(@Accion = 'F')
+		begin
+			select '';
+		end
+	if(@Accion = 'U')
+		begin
+			select '';
+		end	
 	if(@Accion = 'C')
 		begin
 			select USR_Nombre from USUARIOS where USR_Estado = 'A'

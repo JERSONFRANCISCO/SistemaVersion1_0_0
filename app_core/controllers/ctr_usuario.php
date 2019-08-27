@@ -16,6 +16,36 @@ class ctr_usuario{
 		{
 			return $this->postdata->obtener_Objetos();
 		}
+		public function insertar_Usuarios()
+		{
+			echo $_POST['Nombre'];
+			echo $_POST['Correo'];
+			echo $_POST['Password'];
+			echo $_POST['Rol'];
+			echo $_POST['Estado'];
+			echo $_POST['Grupo'];
+			return $this->postdata->insertar_Usuarios();
+		}
+		public function actualizar_Usuarios()
+		{
+			echo $_POST['Nombre'];
+			echo $_POST['Correo'];
+			echo $_POST['Password'];
+			echo $_POST['Rol'];
+			echo $_POST['Estado'];
+			echo $_POST['Grupo'];
+			return $this->postdata->insertar_Usuarios();
+		}
+		public function buscar_Usuarios()
+		{
+			echo $_POST['Nombre'];
+			echo $_POST['Correo'];
+			echo $_POST['Password'];
+			echo $_POST['Rol'];
+			echo $_POST['Estado'];
+			echo $_POST['Grupo'];
+			return $this->postdata->insertar_Usuarios();
+		}
 	}
 
 	?>

@@ -1,6 +1,6 @@
 <?php
 
-$titulo='';
+$titulo='Agregar';
 $readonly='';
 if(isset($_POST['botonVer'])){
   $readonly = 'readonly';
@@ -19,6 +19,12 @@ if(isset($_POST['botonVer'])){
 
 
 if(isset($_POST['Agregar'])){
+
+  //echo $_POST['UsuarioID'];
+
+  require_once(__CTR_PATH . "ctr_usuario.php");
+  $ctr_usuario = new ctr_usuario();
+  $ctr = $ctr_usuario->insertar_Usuarios();
   //if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
   //{
  //   require_once(__CTR_PATH . "ctr_departamentos.php");
@@ -26,10 +32,13 @@ if(isset($_POST['Agregar'])){
  //   $ctr = $ctr_departamentos->insertar_Departamento($_POST['Nombre'],$_POST['Descripcion'],substr($_POST['Estado'], 0,1),'Jerson');
  //   $bolean=true;
  //   $titulo="Agregado";
- // }
+  //}
 }
 
 if(isset($_POST['Editar'])){
+  require_once(__CTR_PATH . "ctr_usuario.php");
+  $ctr_usuario = new ctr_usuario();
+  $ctr = $ctr_usuario->actualizar_Usuarios();
  /// if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
  // {
  //   require_once(__CTR_PATH . "ctr_departamentos.php");
@@ -41,6 +50,9 @@ if(isset($_POST['Editar'])){
 }
 
 if(isset($_POST['Eliminar'])){
+  require_once(__CTR_PATH . "ctr_usuario.php");
+  $ctr_usuario = new ctr_usuario();
+  $ctr = $ctr_usuario->actualizar_Usuarios();
   //if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
  // {
   //  require_once(__CTR_PATH . "ctr_departamentos.php");
@@ -57,8 +69,9 @@ if(isset($_POST['Eliminar'])){
 //$DEP_Estado='';
 
 if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
- // require_once(__CTR_PATH . "ctr_departamentos.php");
- // $ctr_departamentos = new ctr_departamentos();
+  require_once(__CTR_PATH . "ctr_usuario.php");
+  $ctr_usuario = new ctr_usuario();
+  $ctr = $ctr_usuario->buscar_Usuarios();
  // $ctr = $ctr_departamentos->buscar_Departamento($_POST['identificador']);
  // foreach ($ctr as $value) {
 //    $NombreDep= $value[1];
@@ -124,13 +137,13 @@ if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['bo
         <div class="col-lg-12">
           <section class="panel">
             <header class="panel-heading">
-              <strong><?php if(isset($titulo)){echo $titulo;}?> usuarios</strong>
+              <strong><?php if(isset($titulo)){echo $titulo;}?> Usuarios</strong>
             </header>
             <div class="panel-body">
               <div class="form">
                 <form class="form-validate form-horizontal" id="feedback_form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                   <div class="form-group ">
-                    <label for="Departamento" class="control-label col-lg-2">Usuario<span class="required">*</span></label>
+                    <label for="Usuario" class="control-label col-lg-2">Usuario<span class="required">*</span></label>
                     <div class="col-lg-10">
                       <input class="form-control " id="usuarioID" type="text"  name="usuarioID" value='' readonly/>
                     </div>
@@ -138,21 +151,21 @@ if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['bo
                   <div class="form-group ">
                     <label for="Nombre" class="control-label col-lg-2">Nombre<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="text" placeholder=" " required>
+                      <input type="text" class="form-control" id="Nombre" name="Nombre"  placeholder=" " required>
                       <!-- <input class="form-control " id="Nombre" minlength="5" value="" maxlength="50" type="text" name="Nombre" required/> -->
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="Nombre" class="control-label col-lg-2">Password<span class="required">*</span></label>
+                    <label for="Password" class="control-label col-lg-2">Password<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input type="Password" class="form-control" id="text" placeholder=" " required>
+                      <input type="Password" class="form-control" id="Password" name="Password" placeholder=" " required>
                       <!-- <input class="form-control " id="Nombre" minlength="5" value="" maxlength="50" type="text" name="Nombre" required/> -->
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="Nombre" class="control-label col-lg-2">Correo<span class="required">*</span></label>
+                    <label for="Correo" class="control-label col-lg-2">Correo<span class="required">*</span></label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="email" placeholder=" " required>
+                      <input type="email" class="form-control" id="Correo" name="Correo" placeholder="" required>
                       <!-- <input class="form-control " id="Nombre" minlength="5" value="" maxlength="50" type="text" name="Nombre" required/> -->
                     </div>
                   </div>
@@ -160,7 +173,7 @@ if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['bo
                   <div class="form-group">
                     <label class="control-label col-lg-2" for="inputSuccess">Grupo</label>
                     <div class="col-lg-10">
-                      <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                      <select class="form-control m-bot15 selectpicker" id="Grupo" name="Grupo" name="Grupo" data-live-search="true" title="Selecione Grupo">
                         <?php
                         require_once(__CTR_PATH . "ctr_grupo.php");
                         $ctr_grupo = new ctr_grupo();
@@ -177,7 +190,7 @@ if(isset($_POST['botonVer']) or isset($_POST['botonEditar']) or isset($_POST['bo
                   <div class="form-group">
                     <label class="control-label col-lg-2" for="inputSuccess">Rol</label>
                     <div class="col-lg-10">
-                      <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                      <select class="form-control m-bot15 selectpicker" id="Rol" name="Rol" data-live-search="true" title="Selecione tipo de usuario">
                         <?php
                         require_once(__CTR_PATH . "ctr_estandar.php");
                         $ctr_estandar = new ctr_estandar(); 

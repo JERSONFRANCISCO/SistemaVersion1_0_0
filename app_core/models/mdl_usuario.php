@@ -39,5 +39,9 @@ class mdl_usuario{
 		}
 		return $posts;
 	}
+	public function insertar_Usuarios(){
+		
+	}
+	
 }
 ?>	
