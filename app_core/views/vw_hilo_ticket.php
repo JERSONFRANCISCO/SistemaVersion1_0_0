@@ -250,9 +250,9 @@ if(isset($_POST['editordata'])){
                                         $borde = "";
                                       }
                                     }
-                                    echo "<div class='text' style=' border: 1px solid #394a5994; ".$borde."'>";
+                                    echo "<div class='text' style=' border: none; ".$borde."'>";
                                     echo "<p class='attribution'><a style='color:  #394a5994;' class='col-lg-4'>Publicado por: ".$value[0]."</a><span><a><i class='icon_calendar' class='col-lg-4'></i></span> ".$value[3]."</a><a class='col-lg-4'>".$value[1]."</a></p> " ;
-                                    echo "<p><div style='background-color:white; border: 1px solid #6264654d;'>".$value[2]."</div></p>";
+                                    echo "<p><div style='background-color:white; border: none;'>".$value[2]."</div></p>";
                                     echo "</div>";
                                     echo "</div>";
                                     echo "</div>";

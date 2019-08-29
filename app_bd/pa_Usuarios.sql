@@ -37,3 +37,6 @@ alter procedure pa_Usuarios(
 			select USR_Nombre from USUARIOS where USR_Estado = 'A'
 	end
 end
+
+
+

@@ -138,8 +138,16 @@ class mdl_HTML {
 		"</li>".
 		"</ul>".
 		"</div>";
+	}
 
-		
+	function Mensaje($string,$tipo){
+		return "<div class='alert alert-$tipo alert-dismissible fade in' role='alert'>".
+		"<button type='button' class='close' data-dismiss='alert' aria-label='Close'>".
+		" <span aria-hidden='true'>&times;</span>".
+		" </button>".
+		$string.
+		"</div>";
+		// tipos : primary-secondary-success-danger-warning-info-light-dark
 	}
 
 }
