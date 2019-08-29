@@ -9,11 +9,12 @@ class mdl_usuario{
 	public function __construct(){
 		$this->conexion = new mdl_Conexion();	   
 	} 	
-	
+		
+
 	public function obtener_Usuarios(){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_Usuarios @Accion = 'C' ";
+		$sql = "exec pa_Usuarios @Accion = 'C',	@UsuarioNombre='',@UsuarioCorreo= '',	@UsuarioEstado = '',	@UsuarioPassword ='',	@UsuarioInclusion ='',	@UsuarioRol ='' ";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -25,7 +26,7 @@ class mdl_usuario{
 	public function obtener_Objetos(){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Usuarios @Accion = 'S'";
+		$sql = "EXEC pa_Usuarios @UsuarioNombre ='',@UsuarioCorreo ='',	@UsuarioEstado ='',	@UsuarioPassword ='',	@UsuarioInclusion ='',	@UsuarioRol ='',@Accion = 'S'";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];

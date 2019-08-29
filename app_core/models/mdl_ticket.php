@@ -15,11 +15,11 @@ class mdl_ticket{
 		$sql = "exec pa_obtener_hilo_ticket @tic_ticket = ".$ticketID;
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
-			$posts[$cont][0]=$row[0]; // usr
+			$posts[$cont][0]=$row[0];// usr
 			$posts[$cont][1]=$row[1];// titulo detalle
 			$posts[$cont][2]=$row[2];// contenido
-			$posts[$cont][3]=$row[3]; //  fecha
-			$posts[$cont][4]=$row[4]; // rol
+			$posts[$cont][3]=$row[3];//  fecha
+			$posts[$cont][4]=$row[4];// rol
 			$cont++;
 		}
 		return $posts;
@@ -98,7 +98,7 @@ class mdl_ticket{
 		@USR_Usuario_Creacion = '".$USR_Usuario_Creacion."' ,
 		@TIC_TICKET = ".$tic_ticket." ,
 		@TIC_HORAS = ".$tic_horas.",
-		@TIC_MINUTOS = ".$tic_minutos;
+		@TIC_MINUTOS = ".$tic_minutos." ,@FECHA_VENCE = ''";
 		
 		$this->conexion->consulta($sql);
 		return $ticket;

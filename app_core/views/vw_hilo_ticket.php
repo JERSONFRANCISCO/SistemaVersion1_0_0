@@ -74,6 +74,7 @@ if(isset($_POST['editordata'])){
                       ?>
                     </div>
                   <!--
+                    
                   <div class="col-lg-8">
                     <div class="progress progress-striped progress-sm">
                       <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 90%">

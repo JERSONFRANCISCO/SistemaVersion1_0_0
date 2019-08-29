@@ -17,13 +17,42 @@ class ctr_ticket{
 		{
 			return $this->postdata->pa_informacion_ticket($ticket);
 		}
-		public function insertar_ticket($Prioridad,$Ven_Vendedor,$Cli_Cliente,$Pro_Proyecto,$Usr_usuario,$TAL_Numero,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$Fecha_Vence)
+		public function insertar_ticket()
 		{
+			$Prioridad=substr($_POST['Prioridad'], 0,1) ;
+			$Ven_Vendedor=$_POST['NombreVendedor'];
+			$Cli_Cliente=$_POST['NombreClienteAJAX'];
+			$Pro_Proyecto=$_POST['ProyectoClienteAjax'];
+			$Usr_usuario=$_POST['NombreUsuario'];
+			$TAL_Numero=$_POST['OrdenDeTrabajoAJAX'];
+			$DEP_titulo=$_POST['NombreDepartamento'];
+			$TIC_Estado='A';
+			$TIC_Titulo=$_POST['tituloTicket'];
+			$TIC_Observaciones=$_POST['summernote'];
+			$USR_Usuario_Creacion=$_SESSION['USR_user'];
+			$Fecha_Vence=$_POST['Fecha_Vence'];
 			return $this->postdata->insertar_ticket($Prioridad,$Ven_Vendedor,$Cli_Cliente,$Pro_Proyecto,$Usr_usuario,$TAL_Numero,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$Fecha_Vence);
 		}
-		public function insertar_tareas_ticket($Usr_usuario,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$tic_horas,$tic_minutos,$tic_ticket)
+		public function insertar_tareas_ticket($tic_ticket)
 		{
-			return $this->postdata->insertar_tareas_ticket($Usr_usuario,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$tic_horas,$tic_minutos,$tic_ticket);
+			if(isset($_POST['numeroDeTareas'])){
+				for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
+					if(isset($_POST['tareatareaTitulo'.$i])){
+						$Usr_usuario=$_POST['tareatareaUsuario'.$i];
+						$DEP_titulo=$_POST['tareaTareaDepartamento'.$i];
+						$TIC_Estado='A';
+						$TIC_Titulo=$_POST['tareatareaTitulo'.$i];
+						$TIC_Observaciones=$_POST['tareatareaDescripcion'.$i];
+						$USR_Usuario_Creacion=$_SESSION['USR_user'];
+						$tic_horas=$_POST['tareatareaHoras'.$i];
+						$tic_minutos=$_POST['tareatareaMinutos'.$i];
+
+						$this->postdata->insertar_tareas_ticket($Usr_usuario,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$tic_horas,$tic_minutos,$tic_ticket);
+					}
+				}
+			}
+
+			return "true";
 		}
 		public function obtener_hilo_ticket($ticketID)
 		{

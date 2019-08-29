@@ -115,7 +115,7 @@ if(isset($_POST['botonVer'])){
           echo "<button data-dismiss='alert' class='close close-sm' type='button'>";
           echo "<i class='icon-remove'></i>";
           echo "</button>";
-          echo "<strong>Se ha </strong>$titulo correctamente el registro.";
+          echo "<strong>Se ha </strong>$titulo correctamente el registro.";      
           echo "</div>";
           echo "</div>";
         } 
