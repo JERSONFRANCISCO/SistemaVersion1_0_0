@@ -43,6 +43,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."jquery.nicescroll.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
+  echo $HTML->html_js_header(__JS_PATH."comunes.js");
   ?>
   
 

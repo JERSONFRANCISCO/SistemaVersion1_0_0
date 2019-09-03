@@ -101,24 +101,17 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
         </div>
       </div>
 
-      <?php
-      if(isset($bolean)){
-        if($bolean)
-        {
-          echo "<div class='panel-body'>";
-          echo "<div class='alert alert-success fade in'>";
-          echo "<button data-dismiss='alert' class='close close-sm' type='button'>";
-          echo "<i class='icon-remove'></i>";
-          echo "</button>";
-          echo "<strong>Se ha $titulo correctamente el registro.</strong>";
-          echo "</div>";
-          echo "</div>";
-        } 
-      }
-      ?>
-
       <div class="row">
         <div class="col-lg-12">
+          <?php
+          if(isset($bolean)){
+            if($bolean)
+            {
+              echo $HTML->Mensaje("Se ha $titulo correctamente el registro.","success");
+            } 
+          }
+          ?>
+
           <section class="panel">
             <header class="panel-heading">
              <strong><?php if(isset($titulo)){echo $titulo;}?> Grupo</strong>
@@ -150,7 +143,7 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
                   <div class="col-lg-10">
                     <select class="form-control m-bot15" id="Estado" name="Estado" <?php echo $readonly;?>>
                       <option>A - ACTIVO</option>
-                      <option selected>I - INACTIVO</option>
+                      <option >I - INACTIVO</option>
                     </select>
                   </div>
                 </div>

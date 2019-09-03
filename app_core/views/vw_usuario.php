@@ -1,10 +1,3 @@
- 
-<?php
-
-?>
-<script>
-
-</script>
 <!-- container section start -->
 <section id="container" class="">
   <!--header start-->
@@ -36,7 +29,7 @@
                   Departamentos
                 </header>
                 <div class="panel-body">
-                  <form class="form-inline" role="form" action="usuario_mantenimiento.php">
+                  <form class="form-inline" role="form" method="post" action="usuario_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit"  id='botonAgregar' name='botonAgregar' class="btn btn-primary align-self-end">Agregar</button>
                     </div>
@@ -45,14 +38,13 @@
                     <div id="content-wrapper" class="d-flex flex-column">
                       <div id="content">
                         <div class="container-fluid" style="background-color: white;">
-                          <!-- DataTales Example -->
                           <div class="card shadow mb-4">
                             <div class="card-header py-3">
 
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
                                   <thead>
                                     <tr>
                                       <th>Usuario</th>
@@ -65,18 +57,7 @@
                                       <th>Acción</th>
                                     </tr>
                                   </thead>
-                                  <tfoot>
-                                    <tr>
-                                      <th>Usuario</th>
-                                      <th>Nombre</th>
-                                      <th>Correo</th>
-                                      <th>Grupo</th>
-                                      <th>Departamento</th>
-                                      <th>Estado</th>
-                                      <th>Rol</th>
-                                      <th>Acción</th>
-                                    </tr>
-                                  </tfoot>
+                               
                                   <tbody>
                                     <?php
                                     require_once(__CTR_PATH . "ctr_usuario.php");
@@ -95,7 +76,7 @@
                                       echo "<td>".$value[3]."</td>";
                                       echo "<td>".$value[4]."</td>";
                                       echo "<td>".$value[5]."</td>";
-                                      echo "<td>".$value[5]."</td>";
+                                      echo "<td>".$value[6]."</td>";
                                       echo "<td>";
                                       echo "<div class='btn-group'>";
                                       echo "<button class='btn btn-success' id='botonEditar' name='botonEditar' type='submit' title='Editar'><i class='fas fa-edit'></i></button>";
@@ -107,7 +88,22 @@
                                     }
                                     ?>
                                   </tbody>
+
+                                  <tfoot>
+                                    <tr>
+                                      <th>Usuario</th>
+                                      <th>Nombre</th>
+                                      <th>Correo</th>
+                                      <th>Grupo</th>
+                                      <th>Departamento</th>
+                                      <th>Estado</th>
+                                      <th>Rol</th>
+                                      <th>Acción</th>
+                                    </tr>
+                                  </tfoot>
                                 </table>
+
+
                               </div>
                             </div>
                           </div>
@@ -134,8 +130,6 @@
           </div>
         </div>
       </div>
-
-
 
     </section>
   </section>

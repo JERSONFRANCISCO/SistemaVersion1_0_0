@@ -141,7 +141,7 @@ class mdl_HTML {
 	}
 
 	function Mensaje($string,$tipo){
-		return "<div class='alert alert-$tipo alert-dismissible fade in' role='alert'>".
+		return "<div style='position: absolute; z-index: 1; left: 10%; width: 80%;' class='alert alert-$tipo alert-dismissible fade in' role='alert'>".
 		"<button type='button' class='close' data-dismiss='alert' aria-label='Close'>".
 		" <span aria-hidden='true'>&times;</span>".
 		" </button>".
@@ -149,7 +149,17 @@ class mdl_HTML {
 		"</div>";
 		// tipos : primary-secondary-success-danger-warning-info-light-dark
 	}
-
+	function SelectedCombo($data,$valor){
+		$salida="";
+		foreach ($data as $value) {
+			if($value[0]==$valor){
+				$salida.="<option selected>".$value[0]."</option>";  
+			}else{
+				$salida.="<option>".$value[0]."</option>";  
+			}
+		}
+		return $salida;
+	}
 }
 
 ?>

@@ -8,6 +8,9 @@
     $ctr_ticket = new ctr_ticket();
     $ctr = $ctr_ticket->insertar_ticket();
     $respuesta = $ctr_ticket->insertar_tareas_ticket($ctr);
+    if($respuesta == 'true'){
+      header("Location: crear_ticket.php?Result=true&Num=$ctr"); 
+    }
   }
 
 
@@ -75,10 +78,10 @@
         <div class="row">
           <div class="col-lg-12">
             <?php 
-            if (isset($respuesta)){
-              if($respuesta=='true')
+            if (isset($_GET["Result"])and isset($_GET["Num"])){
+              if($_GET["Result"]=='true')
               {
-                echo $HTML->Mensaje("Se creó el ticket <a href='hilo_ticket?ticket=".$ctr."' style='color: #4cd964;'><strong>".$ctr."</strong></a>  correctamente.","success");
+                echo $HTML->Mensaje("Se creó el ticket <a href='hilo_ticket?ticket=".$_GET["Num"]."' style='color: #4cd964;'><strong>".$_GET["Num"]."</strong></a>  correctamente.","success");
               }
             }
             ?>

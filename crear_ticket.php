@@ -79,18 +79,23 @@ $HTML = new mdl_Html();
       $('#summernote').summernote({
         height:250
       });
+
+      setTimeout(function() {
+        $(".alert").fadeOut(1500);
+      },2000);
+
+
     });
 
     $( "#NombreDepartamento" ).change(function() {
       var tareaDepartamento=document.getElementById("NombreDepartamento").value;
-    //    alert( "Handler for .change() called." +tareaDepartamento);
-  });
+    });
     $(window).load(function() {
       $(".loader").fadeOut("slow");
     });
 
-   
- </script>
+
+  </script>
 
 
 </body>

@@ -18,33 +18,34 @@ class ctr_usuario{
 		}
 		public function insertar_Usuarios()
 		{
-			echo $_POST['Nombre'];
-			echo $_POST['Correo'];
-			echo $_POST['Password'];
-			echo $_POST['Rol'];
-			echo $_POST['Estado'];
-			echo $_POST['Grupo'];
-			return $this->postdata->insertar_Usuarios();
+			$Accion = 'I';
+			$usuarioID = $_POST['usuarioID'];
+			$Nombre = $_POST['Nombre'];
+			$Correo = $_POST['Correo'];
+			$Password = $_POST['Password'];
+			$Rol = substr($_POST['Rol'],0,1);
+			$Estado = substr($_POST['Estado'],0,1);
+			$Grupo = $_POST['Grupo'];
+			$userInsercion = $_SESSION['USR_nombre'];
+			return $this->postdata->insertar_Usuarios($Accion,$Nombre,$Correo,$Password,$Rol,$Estado,$Grupo,$userInsercion);
 		}
 		public function actualizar_Usuarios()
 		{
-			echo $_POST['Nombre'];
-			echo $_POST['Correo'];
-			echo $_POST['Password'];
-			echo $_POST['Rol'];
-			echo $_POST['Estado'];
-			echo $_POST['Grupo'];
-			return $this->postdata->insertar_Usuarios();
+			$Accion = 'U';
+			$usuarioID = $_POST['usuarioID'];
+			$Nombre = $_POST['Nombre'];
+			$Correo = $_POST['Correo'];
+			$Password = $_POST['Password'];
+			$Rol = substr($_POST['Rol'],0,1);
+			$Estado = substr($_POST['Estado'],0,1);
+			$Grupo = $_POST['Grupo'];
+			$userInsercion = $_SESSION['USR_nombre'];
+			return $this->postdata->actualizar_Usuarios($Accion,$Nombre,$Correo,$Password,$Rol,$Estado,$Grupo,$userInsercion,$usuarioID);
 		}
 		public function buscar_Usuarios()
 		{
-			echo $_POST['Nombre'];
-			echo $_POST['Correo'];
-			echo $_POST['Password'];
-			echo $_POST['Rol'];
-			echo $_POST['Estado'];
-			echo $_POST['Grupo'];
-			return $this->postdata->insertar_Usuarios();
+			$usr_usuario = $_POST['identificador'];
+			return $this->postdata->buscar_Usuarios($usr_usuario);
 		}
 	}
 

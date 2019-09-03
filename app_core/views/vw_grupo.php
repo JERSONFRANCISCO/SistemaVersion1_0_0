@@ -38,7 +38,7 @@
                   Grupos
                 </header>
                 <div class="panel-body">
-                  <form class="form-inline" role="form" action="grupo_mantenimiento.php">
+                  <form class="form-inline"  method='POST' role="form" action="grupo_mantenimiento.php">
                     <div class="text-right">
                       <button id='botonAgregar' name='botonAgregar'  type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
