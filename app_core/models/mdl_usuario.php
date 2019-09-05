@@ -79,5 +79,12 @@ class mdl_usuario{
 				return $ticket;
 
 			}
+			public function eliminar_Usuarios($Accion,$Estado,$usuarioID){
+				$ticket=0;
+				$sql = "exec pa_Usuarios @Accion = '".$Accion."',	@UsuarioNombre='',@UsuarioCorreo= '',	@UsuarioEstado = '".$Estado."',	@UsuarioPassword ='',	@UsuarioInclusion ='',@UsuarioRol ='' ,@GRU_Titulo='',@Usr_Usuario =".$usuarioID;
+				$this->conexion->consulta($sql);
+				return $ticket;
+
+			}
 		}
 		?>	

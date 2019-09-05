@@ -5,7 +5,8 @@ create procedure pa_WorkFlow(
 	begin
 	if(@Accion = 'S')
 		begin
-			select WORK_FLOW.WRK_WORK_FLOW,WORK_FLOW.WRK_Titulo,DEP_Observaciones,dp.DEP_Titulo,case when WORK_FLOW.WRK_Estado = 'A' then 'Activo' else 'Inactivo' end as Estado from WORK_FLOW
+			select WORK_FLOW.WRK_WORK_FLOW,WORK_FLOW.WRK_Titulo,DEP_Observaciones,dp.DEP_Titulo,case when WORK_FLOW.WRK_Estado = 'A' then 'Activo' else 'Inactivo' end as Estado 
+			from WORK_FLOW
 			left join DEPARTAMENTOS dp on (WORK_FLOW.DEP_DEPARTAMENTO = dp.DEP_Departamento)
 			where WORK_FLOW.WRK_Estado in ('A','I')
 		end

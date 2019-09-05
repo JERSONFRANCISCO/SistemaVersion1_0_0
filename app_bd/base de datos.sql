@@ -79,13 +79,12 @@ CREATE TABLE dbo.WORK_FLOW_TAREAS(
 	USR_Usuario INT NULL,		  -- REFERENCIA   dbo.USUARIOS
 	WRK_Titulo varchar(100) not null,
 	WRK_Observaciones text,
-	WRK_Estado varchar(1) not null,-- REALIZADO O NO
-	WRK_Peso int null default(0),
-	WRK_Minutos varchar(3) null,
-	WRK_Horas varchar(3) null,
+	WRK_Estado varchar(1) not null,-- activa o no
+	WRK_Minutos varchar(3) null default(0),
+	WRK_Horas varchar(3) null default(0),
 	USR_Fecha_Creacion datetime not null DEFAULT(GETDATE()),
-	USR_Usuario_Creacion varchar(20) NULL,
-	USR_Fecha_Cierre datetime null,
+	USR_Fecha_Modificacion datetime null,
+	USR_Usuario_Modificacion varchar(20) NULL,
 	USR_Usuario_Cierre varchar(20) NULL,
 	UNIQUE (WRK_DETALLE),
 	--FOREIGN KEY (WRK_WORK_FLOW) REFERENCES WORK_FLOW(WRK_WORK_FLOW),

@@ -47,6 +47,14 @@ class ctr_usuario{
 			$usr_usuario = $_POST['identificador'];
 			return $this->postdata->buscar_Usuarios($usr_usuario);
 		}
+		public function eliminar_Usuarios()
+		{
+			$Accion = 'D';
+			$Estado = 'B';
+			$usuarioID = $_POST['usuarioID'];
+			return $this->postdata->eliminar_Usuarios($Accion,$Estado,$usuarioID);
+		}
+
 	}
 
 	?>

@@ -1,10 +1,3 @@
- 
-<?php
-
-?>
-<script>
-
-</script>
 <!-- container section start -->
 <section id="container" class="">
   <!--header start-->

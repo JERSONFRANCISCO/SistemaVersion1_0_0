@@ -28,5 +28,19 @@ class mdl_tareas{
 		}
 		return $posts;
 	}
+
+	public function insertar_tareas($Accion){
+		$posts="";
+		return $posts;
+	}
+	public function actualizar_tareas($Accion){
+		$posts="";
+		return $posts;
+	}
+	public function eliminar_tareas($Accion){
+		$posts="";
+		return $posts;
+	}
 }
+
 ?>	

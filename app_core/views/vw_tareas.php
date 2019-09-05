@@ -1,10 +1,3 @@
- 
-<?php
-
-?>
-<script>
-
-</script>
 <!-- container section start -->
 <section id="container" class="">
   <!--header start-->
@@ -28,15 +21,19 @@
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de usuarios</h3>
+          <h3 class="page-header"><i class="fa fa-table"></i>Manteminiento de tareas</h3>
           <div class="row">
             <div class="col-lg-12">
               <section class="panel">
+
+                
                 <header class="panel-heading">
-                  Departamentos
+                  Tareas
                 </header>
+
+
                 <div class="panel-body">
-                  <form class="form-inline" role="form" action="usuario_mantenimiento.php">
+                  <form class="form-inline" role="form" method="post" action="tarea_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
@@ -91,7 +88,7 @@
                                       }else{
                                         echo "<tr>";
                                       }
-                                      echo "<form method='POST' action='usuario_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
+                                      echo "<form method='POST' action='tarea_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
                                       echo "<td>".$value[1]."</td>";
                                       echo "<td>".$value[2]."</td>";
                                       echo "<td>".$value[3]."</td>";
@@ -122,11 +119,10 @@
                     <!-- End of Content Wrapper -->
                   </div>
                   <!-- End of Page Wrapper -->
-                  <form class="form-inline" role="form" method="post" action="usuario_mantenimiento.php">
+                  <form class="form-inline" role="form" method="post" action="tarea_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
-
                   </form>
                 </div>
 

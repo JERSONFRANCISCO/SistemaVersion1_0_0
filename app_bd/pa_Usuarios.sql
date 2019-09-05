@@ -48,6 +48,12 @@ alter procedure pa_Usuarios(
 				USR_Password=@UsuarioPassword
 			where USR_Usuario = @Usr_Usuario
 		end	
+	if(@Accion = 'D')
+		begin
+			update USUARIOS
+			set USR_Estado=@UsuarioEstado
+			where USR_Usuario = @Usr_Usuario
+		end	
 	if(@Accion = 'C')
 		begin
 			select USR_Nombre from USUARIOS where USR_Estado = 'A'
