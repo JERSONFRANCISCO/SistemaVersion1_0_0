@@ -51,7 +51,7 @@ class mdl_estandar{
 		$sql = "pa_Estandar @Accion = 'PC' , @DEP_TABLA ='".$cliente."' , @DEP_TABLA2 = '' ";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
-			$posts.="<option data-subtext='".$row[0]."'>".$row[1]."</option>";
+			$posts.="<option data-subtext='".$row[1]."'>".$row[0]."</option>";
 		}
 		echo $posts;
 	}
@@ -61,7 +61,7 @@ class mdl_estandar{
 		$sql = "pa_Estandar @Accion = 'OT' , @DEP_TABLA ='".$cliente."' , @DEP_TABLA2 = '".$proyecto."'";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
-			$posts.="<option data-subtext='".$row[0]."'>".$row[1]."</option>";
+			$posts.="<option data-subtext='".$row[1]."'>".$row[0]."</option>";
 		}
 		echo $posts;
 	}

@@ -1,9 +1,10 @@
 ALTER procedure pa_Estandar(
 	@Accion varchar(2),
-	@DEP_TABLA varchar(20),
-	@DEP_TABLA2 varchar(20)
+	@DEP_TABLA varchar(200),
+	@DEP_TABLA2 varchar(200)
 	)
 	as
+	declare @cli_cliente int, @pro_proyecto int;
 	begin
 	if(@Accion = 'CA')
 		begin
@@ -31,17 +32,20 @@ ALTER procedure pa_Estandar(
 	end
 	if(@Accion = 'OT')
 		begin
+			select @cli_cliente = CLI_Cliente  from sabio..CLI_CLIENTES where CLI_Nombre = @DEP_TABLA 
+			select @pro_proyecto = PRO_Proyecto  from sabio..PRO_PROYECTOS where PRO_Nombre = @DEP_TABLA2 
+
 			SELECT TAL_Descripcion AS OT, TAL_Numero AS TalNumero
 			FROM Sabio..ALQ_TALLER
-			WHERE TAL_Reparado <> 'S' and CLI_Cliente = @DEP_TABLA and PRO_Proyecto = @DEP_TABLA2
+			WHERE TAL_Reparado <> 'S' and CLI_Cliente = @cli_cliente and PRO_Proyecto = @pro_proyecto
 	end
 	if(@Accion = 'PC')
 		begin
+			
+			select @cli_cliente = CLI_Cliente  from sabio..CLI_CLIENTES where CLI_Nombre = @DEP_TABLA 
+
 			SELECT PRO_PROYECTOS.PRO_Nombre AS OT, PRO_PROYECTOS.PRO_Proyecto AS TalNumero
 			FROM Sabio..PRO_PROYECTOS
-			WHERE PRO_PROYECTOS.PRO_Activo = 1 and CLI_Cliente = @DEP_TABLA 
+			WHERE PRO_PROYECTOS.PRO_Activo = 1 and CLI_Cliente =  @cli_cliente 
 	end
 end
-
-
-

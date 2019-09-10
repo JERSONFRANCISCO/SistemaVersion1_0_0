@@ -45,9 +45,6 @@
 
   </style> 
 
-
-
-
   <!-- container section start -->
   <section id="container" class="">
     <!--header start-->
@@ -55,8 +52,6 @@
       <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
-
-      
 
       <?php
       echo $HTML->actionMenu();
@@ -174,7 +169,7 @@
                                     $ctr = $ctr_estandar->obtener_Clientes("");
                                     $cont = 0;
                                     foreach ($ctr as $value) {
-                                      echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
+                                      echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>"; 
                                     }
                                     ?>
                                   </select>
