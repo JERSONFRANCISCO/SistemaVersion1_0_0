@@ -8,9 +8,9 @@
     $ctr_ticket = new ctr_ticket();
     $ctr = $ctr_ticket->insertar_ticket();
     $respuesta = $ctr_ticket->insertar_tareas_ticket($ctr);
-    //if($respuesta == 'true'){
-    //  header("Location: crear_ticket.php?Result=true&Num=$ctr"); 
-    //}
+    if($respuesta == 'true'){
+      header("Location: crear_ticket.php?Result=true&Num=$ctr"); 
+    }
   }
 
 

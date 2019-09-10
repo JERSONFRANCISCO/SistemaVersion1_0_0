@@ -27,7 +27,8 @@ begin
 				select @DEP_DepartamentoID=DEPARTAMENTOS.DEP_Departamento  from dbo.DEPARTAMENTOS where DEPARTAMENTOS.DEP_Titulo = @DEP_titulo;
 				select @USUARIO = USR_Usuario from USUARIOS where USUARIOS.USR_Nombre = @Usr_usuario
 				select @USR_Usuario_CreacionVAR = usr_nombre from USUARIOS where USUARIOS.USR_Usuario = @USR_Usuario_Creacion;
-				insert into TICKET(Ven_Vendedor,Cli_Cliente,Pro_Proyecto,Tal_Numero,
+				
+				insert into TICKET(Ven_Vendedor,Cli_Cliente,Pro_nombre,Tal_Descripcion,
 									DEP_DEPARTAMENTO,TIC_Titulo,TIC_Observaciones,
 				TIC_Estado,USR_Usuario_Creacion,TIC_Fecha_Vencimiento,TIC_Prioridad,USR_Usuario)
 				values(@Ven_Vendedor,@Cli_Cliente,@Pro_Proyecto,@TAL_Numero,@DEP_DepartamentoID,@TIC_Titulo,'',@TIC_Estado,
@@ -50,6 +51,7 @@ begin
 				
 		end
 end
+
 
 
 

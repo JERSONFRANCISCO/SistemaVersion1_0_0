@@ -98,8 +98,8 @@ CREATE TABLE dbo.TICKET(
 	CIA_Codigo varchar(3) null,
 	Ven_Vendedor varchar(50) null,
 	Cli_Cliente varchar(80) null,
-	Pro_Proyecto varchar(50) null,
-	Tal_Numero varchar(200) null,
+	Pro_nombre varchar(50) null,
+	Tal_Descripcion varchar(200) null,
 	WRK_WORK_FLOW  INT NULL, -- REFETENCIA dbo.WORK_FLOW
 	DEP_DEPARTAMENTO INT NOT NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
 	USR_Usuario INT NULL,--
