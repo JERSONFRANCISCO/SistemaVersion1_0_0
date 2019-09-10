@@ -31,6 +31,7 @@ class ctr_ticket{
 			$TIC_Observaciones=$_POST['summernote'];
 			$USR_Usuario_Creacion=$_SESSION['USR_user'];
 			$Fecha_Vence=$_POST['Fecha_Vence'];
+			
 			return $this->postdata->insertar_ticket($Prioridad,$Ven_Vendedor,$Cli_Cliente,$Pro_Proyecto,$Usr_usuario,$TAL_Numero,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$Fecha_Vence);
 		}
 		public function insertar_tareas_ticket($tic_ticket)

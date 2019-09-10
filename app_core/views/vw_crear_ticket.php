@@ -8,9 +8,9 @@
     $ctr_ticket = new ctr_ticket();
     $ctr = $ctr_ticket->insertar_ticket();
     $respuesta = $ctr_ticket->insertar_tareas_ticket($ctr);
-    if($respuesta == 'true'){
-      header("Location: crear_ticket.php?Result=true&Num=$ctr"); 
-    }
+    //if($respuesta == 'true'){
+    //  header("Location: crear_ticket.php?Result=true&Num=$ctr"); 
+    //}
   }
 
 
@@ -196,7 +196,7 @@
                                     $ctr = $ctr_estandar->obtener_Vendedores("");
                                     $cont = 0;
                                     foreach ($ctr as $value) {
-                                      echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
+                                      echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>"; 
                                     }
                                     ?>
                                   </select>
@@ -211,7 +211,7 @@
                                     $ctr = $ctr_estandar->obtener_WorkFLow();
                                     $cont = 0;
                                     foreach ($ctr as $value) {
-                                      echo "<option data-subtext='".$value[0]."'>".$value[1]."</option>"; 
+                                      echo "<option data-subtext='".$value[1]."'>".$value[0]."</option>"; 
                                     }
                                     ?>
                                   </select>

@@ -96,10 +96,10 @@ CREATE TABLE dbo.WORK_FLOW_TAREAS(
 CREATE TABLE dbo.TICKET(
 	TIC_Ticket INT IDENTITY(1,1),
 	CIA_Codigo varchar(3) null,
-	Ven_Vendedor varchar(7) null,
-	Cli_Cliente varchar(10) null,
-	Pro_Proyecto varchar(4) null, -- Pro_Proyectos
-	Tal_Numero float null, -- Alq_taller
+	Ven_Vendedor varchar(50) null,
+	Cli_Cliente varchar(80) null,
+	Pro_Proyecto varchar(50) null,
+	Tal_Numero varchar(200) null,
 	WRK_WORK_FLOW  INT NULL, -- REFETENCIA dbo.WORK_FLOW
 	DEP_DEPARTAMENTO INT NOT NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
 	USR_Usuario INT NULL,--

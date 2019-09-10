@@ -59,7 +59,7 @@ class mdl_ticket{
 		@Cli_Cliente ='".$Cli_Cliente."',
 		@Pro_Proyecto ='".$Pro_Proyecto."',
 		@Usr_usuario = '".$Usr_usuario."',
-		@TAL_Numero = ".$TAL_Numero." ,
+		@TAL_Numero = '".$TAL_Numero."' ,
 		@DEP_titulo ='".$DEP_titulo."',
 		@TIC_Estado = '".$TIC_Estado."',
 		@TIC_Titulo = '".$TIC_Titulo."',
@@ -73,6 +73,7 @@ class mdl_ticket{
 		$this->conexion->consulta($sql);
 
 		$sql = "exec pa_IdTicket '".$TIC_Titulo."'";
+		echo $sql;
 
 		$stmt = $this->conexion->consulta($sql);
 

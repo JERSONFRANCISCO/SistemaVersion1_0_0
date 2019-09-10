@@ -13,4 +13,5 @@ if ($_POST['key']=='cargarOTCliente'){
 	$proyecto = $_POST['proyecto'];
 	echo $ctr_estandar->obtener_OrdenesTrabajo_Cliente($cliente,$proyecto);
 }
+
 ?>
