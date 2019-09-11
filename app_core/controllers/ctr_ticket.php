@@ -9,9 +9,13 @@ class ctr_ticket{
 			$this->postdata = new mdl_ticket();
 		}
 		
-		public function obtener_Tickets($Estado,$USR_USUARIO)
+		public function obtener_Tickets($Estado,$USR_USUARIO,$Inicio,$Cantidad)
 		{
-			return $this->postdata->obtener_Tickets($Estado,$USR_USUARIO);
+			return $this->postdata->obtener_Tickets($Estado,$USR_USUARIO,$Inicio,$Cantidad);
+		}
+		public function obtener_Tickets_cantidad($Estado,$USR_USUARIO)
+		{
+			return $this->postdata->obtener_Tickets_cantidad($Estado,$USR_USUARIO);
 		}
 		public function pa_informacion_ticket($ticket)
 		{

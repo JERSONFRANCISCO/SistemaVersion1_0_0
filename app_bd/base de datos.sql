@@ -3,8 +3,8 @@
 CREATE TABLE dbo.USUARIOS(
 	USR_Usuario INT IDENTITY(1,1),
 	GRU_Grupo int NOT NULL,-- REFERENCIA dbo.GRUPOS 
-	USR_Nombre varchar(40) not NULL,
-	USR_Correo varchar(20) not NULL,
+	USR_Nombre varchar(100) not NULL,
+	USR_Correo varchar(40) not NULL,
 	USR_Estado varchar(1) not NULL,
 	USR_Password varchar(20) not NULL,
 	USR_ROL varchar(1) not null,

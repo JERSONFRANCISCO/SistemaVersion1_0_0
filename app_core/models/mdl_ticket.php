@@ -73,7 +73,7 @@ class mdl_ticket{
 		$this->conexion->consulta($sql);
 
 		$sql = "exec pa_IdTicket '".$TIC_Titulo."'";
-		echo $sql;
+		//echo $sql;
 
 		$stmt = $this->conexion->consulta($sql);
 
@@ -104,10 +104,21 @@ class mdl_ticket{
 		$this->conexion->consulta($sql);
 		return $ticket;
 	}
-	public function obtener_Tickets($Estado,$USR_USUARIO){
+	public function obtener_Tickets_cantidad($Estado,$USR_USUARIO){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_ObtenerTickes @Estado = '".$Estado."', @Usr_Usuario = '".$USR_USUARIO."'";
+		$sql = "exec pa_ObtenerTOTALTickes_PAGINACION @Estado = '".$Estado."', @Usr_Usuario = '".$USR_USUARIO."' ,@INICIA=0,@CANTIDAD=0";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {  //EXEC pa_ObtenerTOTALTickes_PAGINACION @Estado='A',@Usr_Usuario=38152,@INICIA=0,@CANTIDAD=0
+			$posts[$cont][0]=$row[0];
+			$cont++;
+		}
+		return $posts;
+	}
+	public function obtener_Tickets($Estado,$USR_USUARIO,$Inicio,$Cantidad){
+		$posts=array();
+		$cont=0;
+		$sql = "exec pa_ObtenerTickes_PAGINACION @Estado = '".$Estado."', @Usr_Usuario = '".$USR_USUARIO."',@INICIA=".$Inicio.",@CANTIDAD=".$Cantidad;
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
