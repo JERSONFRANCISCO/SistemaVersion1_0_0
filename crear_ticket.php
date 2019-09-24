@@ -32,7 +32,7 @@ $HTML = new mdl_Html();
 
 
 //echo $HTML->html_js_header(__JS_PATH."moment.js");
-  echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
+ // echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
  // echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
   //echo $HTML->html_css_header(__CSS_PATH . "tempusdominus-bootstrap-4.min.css","screen");
   ?>
@@ -71,7 +71,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
 
   echo $HTML->html_js_header(__JS_PATH."javascriptAJAX.js");
-  echo $HTML->html_js_header(__JS_PATH."tempusdominus-bootstrap-4.js");
+  //echo $HTML->html_js_header(__JS_PATH."tempusdominus-bootstrap-4.js");
 
   ?>
 
@@ -91,6 +91,7 @@ $HTML = new mdl_Html();
     $( "#NombreDepartamento" ).change(function() {
       var tareaDepartamento=document.getElementById("NombreDepartamento").value;
     });
+    
     $(window).load(function() {
       $(".loader").fadeOut("slow");
     });

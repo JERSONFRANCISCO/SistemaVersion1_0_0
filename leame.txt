@@ -1,0 +1,34 @@
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."scripts.js");  // 
+-eventos del menu lateral izquierdo 
+
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."botonSubir.js"); //  
+-evento para hacer aparecer el boton de cuando baja mucho en la pagina sube el cursor
+
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."crear-ticket.js"); // 
+-manejo de la tabla de tareas en crear ticket cuando se va a agregar una tarea nueva este lo agrega en una fila
+
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."comunes.js");// 
+-contiene evento que hace desparacer los mensajes emergentes luego de un tiempo
+
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."javascriptAJAX.js");//
+-carga los js para el ajax 
+
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__CSS_PATH."summernote.js");
+-carga los js de la caja de texto para que pueda ser como un richtext
+
+
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
+- carga los js para que permita buscar en un combobox (select)
+
+______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."jquery.js");
+- jquery js tradicional
+
+______________________________________________________________________________________________________________________________
