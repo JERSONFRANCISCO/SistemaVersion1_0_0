@@ -42,7 +42,7 @@ class mdl_HTML {
 
 		require_once(__MDL_PATH . "mdl_inicio.php");
 		$this->postdata = new mdl_inicio();
-		$var = $this->postdata->obtener_Menu_Rol($_SESSION['USR_rol']);
+		$var = $this->postdata->obtener_Menu_Rol($_SESSION['USR_user']);
 		$padre = array();
 		$cont=0;
 		foreach ($var as $value) { $padre[$cont]= $value[0]; $cont++;	}

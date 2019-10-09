@@ -183,6 +183,7 @@ if(isset($_POST['Eliminar'])){
                     </select>
                   </div>
                 </div>
+                
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-10 text-right">
                     <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>

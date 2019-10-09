@@ -47,6 +47,9 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."comunes.js");
   ?>
   
+  <script type="text/javascript">
+    
+  </script>
 
 </body>
 

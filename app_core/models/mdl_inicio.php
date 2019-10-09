@@ -13,7 +13,7 @@ class mdl_inicio{
 	public function obtener_Menu_Rol($rolCod){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_MenuUsuarios @rol = '".$rolCod."'";
+		$sql = "exec pa_MenuUsuarios @usr = '".$rolCod."'";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0]; // menu

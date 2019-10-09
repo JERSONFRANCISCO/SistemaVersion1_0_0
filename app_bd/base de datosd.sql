@@ -55,11 +55,10 @@ values('Mantenimiento','Departamentos','A','departamento.php'),
 -- la inserción en menu opciones
 
 
-insert into ROLESHASMENU(ROL_id,Menu_id,estado,descripcion) 
-select b.CAT_Detalle,a.id,'A','[Menu : '+a.Menu_NombrePadre+'] [Submenu : '+a.Menu_nombreHija+'] [Rol : '+b.CAT_Descripcion+']'
-from Menu_Opciones a, CATALOGO_DETALLE b 
-where a.Menu_Estado = 'A' and  b.CAT_Tabla = 'ROLES' and b.CAT_Estado = 'A' 
-and ('[Menu : '+a.Menu_NombrePadre+'] [Submenu : '+a.Menu_nombreHija+'] [Rol : '+b.CAT_Descripcion+']') not in (select descripcion from ROLESHASMENU)
 
+insert into ROLESHASMENU(Grupo_id,Menu_id,estado,descripcion) 
+select gru.GRU_Grupo,opc.id, 'I','[Menu : '+opc.Menu_NombrePadre+'] [Submenu : '+opc.Menu_nombreHija+'] [Grupo : '+gru.GRU_Titulo+']'
+from Menu_Opciones opc , GRUPO  gru 
+where '[Menu : '+opc.Menu_NombrePadre+'] [Submenu : '+opc.Menu_nombreHija+'] [Grupo : '+gru.GRU_Titulo+']' not in (select descripcion from ROLESHASMENU)
 
 

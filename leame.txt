@@ -32,3 +32,6 @@ echo $HTML->html_js_header(__JS_PATH."jquery.js");
 - jquery js tradicional
 
 ______________________________________________________________________________________________________________________________
+echo $HTML->html_js_header(__JS_PATH."bootstrap.bundle.min.js");
+- bloquea las ventanas emergentes de modals
+

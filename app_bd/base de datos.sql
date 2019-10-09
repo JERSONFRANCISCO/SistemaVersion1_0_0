@@ -201,12 +201,12 @@ create table Menu_Opciones(
 -----------------------------------------------------------------------------------------------------------
 create table ROLESHASMENU(
 	id int identity(1,1),
-	ROL_id int,
+	Grupo_id int,
 	Menu_id int,
 	estado varchar(1) not null,
 	descripcion varchar(100),
 	primary key(id),
-	foreign key (ROL_id) references CATALOGO_DETALLE (cat_detalle),
+	foreign key (Grupo_id) references GRUPO (Gru_Grupo),
 	foreign key (Menu_id) references Menu_Opciones (id),
 	CONSTRAINT CHK_ESTADO_ROLESHASMENU CHECK (estado IN('A','I'))
 )
