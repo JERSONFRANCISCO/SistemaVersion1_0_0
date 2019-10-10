@@ -3,7 +3,8 @@ alter procedure pa_MenuUsuarios(
 	)
 	as
 	begin
-		select  menu_nombrepadre,case when menu_nombrehija = 'Mis tickets' then menu_nombrehija+' (*)' else Menu_NombreHija end as menu_nombrehija,menu_url from USUARIOS usr
+		select  menu_nombrepadre,case when menu_nombrehija = 'Mis tickets' then menu_nombrehija+' (*)' else Menu_NombreHija end as menu_nombrehija,menu_url 
+		from USUARIOS usr
 		inner join GRUPO gru on (usr.GRU_Grupo = gru.GRU_Grupo )
 		inner join ROLESHASMENU rm on( gru.GRU_Grupo = rm.Grupo_id)
 		inner join Menu_Opciones mo on (rm.Menu_id = mo.id)
