@@ -22,32 +22,24 @@ class ctr_tareas{
 			$Usuario  = $_POST['Usuario'];
 			$Minutos  = $_POST['tareaMinutos'];
 			$Horas  = $_POST['tareaHoras'];
-			$Estado  = $_POST['Estado'];
+			$Estado = substr($_POST['Estado'],0,1);
 
-			echo $Accion;
-			echo $Titulo;
-			echo $Observaciones;
-			echo $Departamento;
-			echo $Usuario;
-			echo $Minutos;
-			echo $Horas;
-			echo $Estado;
-
-			//$usuarioID = $_POST['usuarioID'];
-			//$Nombre = $_POST['Nombre'];
-			//$Correo = $_POST['Correo'];
-			//$Password = $_POST['Password'];
-			//$Rol = substr($_POST['Rol'],0,1);
-			//$Estado = substr($_POST['Estado'],0,1);
-			//$Grupo = $_POST['Grupo'];
-			//$userInsercion = $_SESSION['USR_nombre'];
-
-			return $this->postdata->insertar_tareas($Accion);
+			return $this->postdata->insertar_tareas($Accion,$Titulo,$Observaciones,$Departamento,$Usuario,$Minutos,$Horas,$Estado,$_SESSION['USR_nombre']);
 		}
 		public function actualizar_tareas()
 		{
 			$Accion = 'U';
-			return $this->postdata->actualizar_tareas($Accion);
+			$WRK_DETALLE = $_POST['TareaID'];
+			$Titulo = $_POST['Titulo'];
+			$Observaciones  = $_POST['Observaciones'];
+			$Departamento  = $_POST['Departamento'];
+			$Usuario  = $_POST['Usuario'];
+			$Minutos  = $_POST['tareaMinutos'];
+			$Horas  = $_POST['tareaHoras'];
+			$Estado = substr($_POST['Estado'],0,1);
+
+		//	echo $Accion,$WRK_DETALLE,$Titulo,$Observaciones,$Usuario,$Minutos,$Horas,$Estado;
+			return $this->postdata->actualizar_tareas($WRK_DETALLE,$Accion,$Titulo,$Observaciones,$Departamento,$Usuario,$Minutos,$Horas,$Estado,$_SESSION['USR_nombre']);
 		}
 		public function eliminar_tareas()
 		{

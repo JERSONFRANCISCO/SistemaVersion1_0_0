@@ -40,7 +40,7 @@ if(isset($_POST['Agregar'])){
 if(isset($_POST['Editar'])){
   require_once(__CTR_PATH . "ctr_tareas.php");
   $ctr_tareas = new ctr_tareas();
-  //$ctr = $ctr_tareas->actualizar_tareas();
+  $ctr = $ctr_tareas->actualizar_tareas();
   //$bolean=true;
   //$titulo="Actualizado";
 }
