@@ -1,20 +1,26 @@
-create procedure pa_WorkFlow(
-	@Accion varchar(1)
+alter procedure pa_WorkFlow(
+	@Accion varchar(6),
+	@WRK_WORK_FLOW INT
 	)
 	as
 	begin
-	if(@Accion = 'S')
+	if(@Accion = 'SELECT')
 		begin
-			select WORK_FLOW.WRK_WORK_FLOW,WORK_FLOW.WRK_Titulo,DEP_Observaciones,dp.DEP_Titulo,case when WORK_FLOW.WRK_Estado = 'A' then 'Activo' else 'Inactivo' end as Estado 
+			select WORK_FLOW.WRK_WORK_FLOW,WORK_FLOW.WRK_Titulo,WORK_FLOW.WRK_Observaciones,dp.DEP_Titulo,case when WORK_FLOW.WRK_Estado = 'A' then 'Activo' else 'Inactivo' end as Estado 
 			from WORK_FLOW
 			left join DEPARTAMENTOS dp on (WORK_FLOW.DEP_DEPARTAMENTO = dp.DEP_Departamento)
 			where WORK_FLOW.WRK_Estado in ('A','I')
 		end
-	--if(@Accion = 'I')
-	--	begin
-	--		insert into DEPARTAMENTOS(DEP_Titulo,DEP_Observaciones,DEP_Estado,USR_Usuario_Creacion)
-	--		values(@DEP_Titulo,@DEP_Observaciones,@DEP_Estado,@USR_Usuario_Creacion)
-	--	end
+	if(@Accion = 'TAREAS')
+		begin
+			select wt.WRK_DETALLE,wt.WRK_Titulo,wt.WRK_Observaciones,DEP.DEP_Titulo,USR.USR_Nombre,wt.WRK_Horas,wt.WRK_Minutos 
+			from WORK_FLOW wf 
+			inner join WORK_FLOW_HAS_WORK_FLOW_TAREAS whf on(wf.WRK_WORK_FLOW = whf.WRK_WORK_FLOW)
+			inner join  WORK_FLOW_TAREAS wt on (wt.WRK_DETALLE = whf.WRK_DETALLE)
+			left join USUARIOS USR ON (wt.USR_Usuario = USR.USR_Usuario)
+			left join  DEPARTAMENTOS DEP ON (DEP.DEP_Departamento = wt.DEP_DEPARTAMENTO)
+			WHERE wf.WRK_WORK_FLOW = @WRK_WORK_FLOW
+		end
 	--if(@Accion = 'F')
 	--	begin
 		--	SELECT DEP_Departamento,DEP_Titulo,DEP_Observaciones,DEP_Estado 

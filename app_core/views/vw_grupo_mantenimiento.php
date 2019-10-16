@@ -2,6 +2,8 @@
 
 $titulo='';
 $readonly='';
+$comboBOX='';
+
 if(isset($_POST['botonEditar'])){
   $readonly = '';
   $titulo='Editar';
@@ -9,6 +11,7 @@ if(isset($_POST['botonEditar'])){
   if(isset($_POST['botonEliminar'])){
     $readonly = 'readonly';
     $titulo='Eliminar';
+    $comboBOX='disabled';
   }else{
     if(isset($_POST['botonAgregar'])){
       $readonly = '';
@@ -22,7 +25,7 @@ if(isset($_POST['Agregar'])){
   {
     require_once(__CTR_PATH . "ctr_grupo.php");
     $ctr_Grupo = new ctr_Grupo();
-    $ctr = $ctr_Grupo->insertar_Grupo($_POST['Nombre'],$_POST['Descripcion'],substr($_POST['Estado'], 0,1),$_POST['Departamento'],'Jerson');
+    $ctr = $ctr_Grupo->insertar_Grupo();
     $bolean=true;
     $titulo="Agregado";
   }
@@ -33,7 +36,7 @@ if(isset($_POST['Editar'])){
   {
     require_once(__CTR_PATH . "ctr_grupo.php");
     $ctr_Grupo = new ctr_Grupo();
-    $ctr = $ctr_Grupo->actualizar_Grupo($_POST['Nombre'],$_POST['Descripcion'],substr($_POST['Estado'], 0,1),$_POST['Departamento'],'Jerson',$_POST['Grupo']);
+    $ctr = $ctr_Grupo->actualizar_Grupo();
     $bolean=true;
     $titulo="Actualizado";
   }
@@ -43,7 +46,7 @@ if(isset($_POST['Eliminar'])){
   {
     require_once(__CTR_PATH . "ctr_grupo.php");
     $ctr_Grupo = new ctr_Grupo();
-    $ctr = $ctr_Grupo->eliminar_Grupo('','','B','','Jerson',$_POST['Grupo']);
+    $ctr = $ctr_Grupo->eliminar_Grupo();
     $bolean=true;
     $titulo="Eliminado";
   }
@@ -54,6 +57,7 @@ $gru_titulo='';
 $gru_descripcion='';
 $gru_estado='';
 $gru_departamento='';
+
 if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
   require_once(__CTR_PATH . "ctr_grupo.php");
   $ctr_grupo = new ctr_grupo();
@@ -65,8 +69,6 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
     $gru_departamento= $value[4];
   }
 }
-
-
 
 
 
@@ -141,46 +143,48 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
                 <div class="form-group">
                   <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
                   <div class="col-lg-10">
-                    <select class="form-control m-bot15" id="Estado" name="Estado" <?php echo $readonly;?>>
-                      <option>A - ACTIVO</option>
-                      <option >I - INACTIVO</option>
-                    </select>
-                  </div>
+                    <select class="form-control m-bot15" id="Estado" name="Estado" <?php echo $comboBOX;?>>
+                     <?php
+                     require_once(__CTR_PATH . "ctr_estandar.php");
+                     $ctr_estandar = new ctr_estandar(); 
+                     $ctr = $ctr_estandar->obtener_Catalogo('Estados');
+                     print_r($crt);
+                     echo $HTML->SelectedCombo($ctr,$Estado);
+                     ?>
+                   </select>
+                 </div>
+               </div>
+               <div class="form-group">
+                <label class="control-label col-lg-2" for="inputSuccess">Departamento</label>
+                <div class="col-lg-10">
+                  <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento"<?php echo $comboBOX;?>>
+                    <?php
+                    require_once(__CTR_PATH . "ctr_departamentos.php");
+                    $ctr_departamentos = new ctr_departamentos();
+                    $ctr = $ctr_departamentos->obtener_Departamentos();
+                    echo $HTML->SelectedCombo($ctr,$gru_departamento);
+                    ?>
+                  </select>
                 </div>
-                <div class="form-group">
-                  <label class="control-label col-lg-2" for="inputSuccess">Departamento</label>
-                  <div class="col-lg-10">
-                    <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
-                      <?php
-                      require_once(__CTR_PATH . "ctr_departamentos.php");
-                      $ctr_departamentos = new ctr_departamentos();
-                      $ctr = $ctr_departamentos->obtener_Departamentos();
-                      $cont = 0;
-                      foreach ($ctr as $value) {
-                        echo "<option>".$value[0]."</option>";  
-                      }
-                      ?>
-                    </select>
-                  </div>
-                </div>
+              </div>
 
 
-                <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-10 text-right">
-                    <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>
-                    <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
-                  </div>
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10 text-right">
+                  <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>
+                  <button class="btn btn-default" type="submit" name="Cancelar"><a href="index.php">Cancelar</a></button>
                 </div>
-              </form>
-            </div>
-
+              </div>
+            </form>
           </div>
-        </section>
-      </div>
-    </div>
 
-    <!-- page end-->
-  </section>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- page end-->
+</section>
 </section>
 <!--main content end-->
 <?php

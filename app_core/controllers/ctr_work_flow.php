@@ -12,6 +12,10 @@ class ctr_work_flow{
 		{
 			return $this->postdata->obtener_Objetos();
 		}
+		public function obtener_Tareas($WRK_WORK_FLOW){
+			return $this->postdata->obtener_Tareas($WRK_WORK_FLOW);
+		}
+
 	}
 
 	?>

@@ -1,5 +1,5 @@
 alter procedure pa_Tareas(
-	@Accion varchar(1),
+	@Accion varchar(6),
 	@DEP_DEPARTAMENTO varchar(100),
 	@USR_Usuario varchar(100),
 	@WRK_Titulo varchar(100),
@@ -16,7 +16,7 @@ alter procedure pa_Tareas(
 	begin
 		BEGIN TRANSACTION;  
 			BEGIN TRY
-			if(@Accion = 'S')
+			if(@Accion = 'SELECT')
 				begin
 					select  wt.WRK_DETALLE,wt.WRK_Titulo,wt.WRK_Observaciones,wt.WRK_Horas,wt.WRK_Minutos,ur.USR_Nombre,dp.DEP_Titulo,case when wt.WRK_Estado = 'A' then 'Activo' else 'Inactivo' end as Estado
 					from WORK_FLOW_TAREAS wt
@@ -24,7 +24,7 @@ alter procedure pa_Tareas(
 					left join USUARIOS ur on ( wt.USR_Usuario = ur.USR_Usuario)
 					where wt.WRK_Estado in ('A','I')
 				end
-			if(@Accion = 'I')
+			if(@Accion = 'INSERT')
 				begin
 					select @DEP_DepartamentoID=DEP_Departamento from DEPARTAMENTOS where DEP_Titulo = @DEP_DEPARTAMENTO;
 					select @USUARIO=USR_Usuario from USUARIOS where USR_Nombre = @USR_Usuario;
@@ -33,13 +33,16 @@ alter procedure pa_Tareas(
 					values (@DEP_DepartamentoID,@USUARIO,@WRK_Titulo,@WRK_Observaciones,@WRK_Minutos,@WRK_Horas,@WRK_Estado,GETDATE(),@USR_Usuario_Creacion)
 		
 				end
-			if(@Accion = 'F')
+			if(@Accion = 'SEARCH')
 				begin
-					select 1;
-				--	SELECT DEP_Departamento,DEP_Titulo,DEP_Observaciones,DEP_Estado 
-			--		FROM DEPARTAMENTOS WHERE DEPARTAMENTOS.DEP_Departamento = @DEP_Departameto;
+					select  wt.WRK_DETALLE,wt.WRK_Titulo,wt.WRK_Observaciones,wt.WRK_Horas,wt.WRK_Minutos,ur.USR_Nombre,dp.DEP_Titulo,wt.WRK_Estado+' - '+est.CAT_Descripcion as Estado
+					from WORK_FLOW_TAREAS wt
+					left join DEPARTAMENTOS dp on (wt.DEP_DEPARTAMENTO = dp.DEP_Departamento)
+					left join USUARIOS ur on ( wt.USR_Usuario = ur.USR_Usuario)
+					INNER JOIN CATALOGO_DETALLE est ON (wt.WRK_Estado = est.CAT_Contraccion AND est.CAT_Tabla='Estados')
+					where wt.WRK_Estado in ('A','I') AND wt.WRK_DETALLE =  @WRK_DETALLE
 				end
-			if(@Accion = 'U')
+			if(@Accion = 'UPDATE')
 				begin
 					select @DEP_DepartamentoID=DEP_Departamento from DEPARTAMENTOS where DEP_Titulo = @DEP_DEPARTAMENTO;
 					select @USUARIO=USR_Usuario from USUARIOS where USR_Nombre = @USR_Usuario;
@@ -47,14 +50,13 @@ alter procedure pa_Tareas(
 					set DEP_DEPARTAMENTO = @DEP_DepartamentoID, USR_Usuario = @USUARIO, WRK_Titulo=@WRK_Titulo,WRK_Observaciones=@WRK_Observaciones,WRK_Estado=@WRK_Estado,
 					WRK_Minutos=@WRK_Minutos,WRK_Horas=@WRK_Horas,usr_fecha_modificacion = GETDATE(),usr_usuario_modificacion=@USR_Usuario_Creacion
 					where WRK_DETALLE = @WRK_DETALLE
-
 				end	
-			---	if(@Accion = 'C')
-				--	select 1;
-				--begin
-				--	select DEP_Titulo
-				--	from DEPARTAMENTOS dep where DEP_Estado in('A')
-			--	end
+			if(@Accion = 'DELETE')
+				begin
+					update WORK_FLOW_TAREAS 
+					set WRK_Estado=@WRK_Estado,usr_fecha_modificacion = GETDATE(),usr_usuario_modificacion=@USR_Usuario_Creacion
+					where WRK_DETALLE = @WRK_DETALLE
+				end	
 			END TRY
 
 			BEGIN CATCH

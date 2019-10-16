@@ -37,7 +37,7 @@
                   Departamentos
                 </header>
                 <div class="panel-body">
-                  <form class="form-inline" role="form" method="post" action="usuario_mantenimiento.php">
+                  <form class="form-inline" role="form" method="post" action="work_flow_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>
@@ -86,7 +86,7 @@
                                       }else{
                                         echo "<tr>";
                                       }
-                                      echo "<form method='POST' action='usuario_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
+                                      echo "<form method='POST' action='work_flow_mantenimiento.php'><td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
                                       echo "<td>".$value[1]."</td>";
                                       echo "<td>".$value[2]."</td>";
                                       echo "<td>".$value[3]."</td>";
@@ -114,7 +114,7 @@
                     <!-- End of Content Wrapper -->
                   </div>
                   <!-- End of Page Wrapper -->
-                  <form class="form-inline" role="form" method="post" action="usuario_mantenimiento.php">
+                  <form class="form-inline" role="form" method="post" action="work_flow_mantenimiento.php">
                     <div class="text-right">
                       <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
                     </div>

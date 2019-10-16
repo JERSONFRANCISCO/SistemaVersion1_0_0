@@ -13,7 +13,7 @@ class mdl_departamentos{
 	public function obtener_Objetos(){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'S', @DEP_Titulo = '', @DEP_Observaciones='', @DEP_Departameto=0, @DEP_Estado='A',@USR_Usuario_Creacion=''";
+		$sql = "EXEC pa_Departametos @Accion = 'SELECT', @DEP_Titulo = '', @DEP_Observaciones='', @DEP_Departameto=0, @DEP_Estado='A',@USR_Usuario_Creacion=''";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -36,17 +36,10 @@ class mdl_departamentos{
 		}
 		return $posts;
 	}
-	public function insertar_Departamento($Titulo,$Observaciones,$Estado,$Usuario){
+	public function buscar_Departamento($Accion,$Departamentoid){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'I', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='".$Estado."',@DEP_Departameto=0,@USR_Usuario_Creacion='".$Usuario."'";
-		$stmt = $this->conexion->consulta($sql);
-		return $sql;
-	}
-	public function buscar_Departamento($departmentoID){
-		$posts=array();
-		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'F', @DEP_Titulo = '', @DEP_Observaciones='', @DEP_Estado='A',@DEP_Departameto=".$departmentoID.",@USR_Usuario_Creacion='' ";
+		$sql = "EXEC pa_Departametos @Accion = '".$Accion."', @DEP_Titulo = '', @DEP_Observaciones='', @DEP_Estado='A',@DEP_Departameto=".$Departamentoid.",@USR_Usuario_Creacion='' ";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -57,10 +50,10 @@ class mdl_departamentos{
 		}
 		return $posts;
 	}
-	public function actualizar_Departamento($Titulo,$Observaciones,$Estado,$Usuario,$Departamento){
+	public function ejecutar_proc_departamento($Accion,$Titulo,$Observaciones,$Estado,$Departamentoid,$USR_LOGIN){
 		$posts=array();
 		$cont=0;
-		$sql = "EXEC pa_Departametos @Accion = 'U', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='".$Estado."',@DEP_Departameto = " .$Departamento." ,@USR_Usuario_Creacion='".$Usuario."'";
+		$sql = "EXEC pa_Departametos @Accion = '".$Accion."', @DEP_Titulo = '".$Titulo."', @DEP_Observaciones='".$Observaciones."', @DEP_Estado='".$Estado."',@DEP_Departameto = " .$Departamentoid." ,@USR_Usuario_Creacion='".$USR_LOGIN."'";
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}

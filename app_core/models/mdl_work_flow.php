@@ -1,7 +1,6 @@
 <?php
 require_once 'mdl_conexion.php';
 
-
 class mdl_work_flow{
 
 	private $conexion;
@@ -13,7 +12,7 @@ class mdl_work_flow{
 	public function obtener_Objetos(){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_WorkFlow @accion='S'";
+		$sql = "exec pa_WorkFlow @accion='SELECT' ,@WRK_WORK_FLOW=0";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -21,6 +20,23 @@ class mdl_work_flow{
 			$posts[$cont][2]=$row[2];
 			$posts[$cont][3]=$row[3];
 			$posts[$cont][4]=$row[4];
+			$cont++;
+		}
+		return $posts;
+	}
+	public function obtener_Tareas($WRK_WORK_FLOW){
+		$posts=array();
+		$cont=0;
+		$sql = "exec pa_WorkFlow @accion='TAREAS' ,@WRK_WORK_FLOW=".$WRK_WORK_FLOW;
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$posts[$cont][1]=$row[1];
+			$posts[$cont][2]=$row[2];
+			$posts[$cont][3]=$row[3];
+			$posts[$cont][4]=$row[4];
+			$posts[$cont][5]=$row[5];
+			$posts[$cont][6]=$row[6];
 			$cont++;
 		}
 		return $posts;

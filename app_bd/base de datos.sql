@@ -70,7 +70,16 @@ CREATE TABLE dbo.WORK_FLOW(
 	--FOREIGN KEY (USR_Usuario) REFERENCES USUARIOS(USR_Usuario),
 	CONSTRAINT CHK_ESTADO_WORK_FLOW CHECK (WRK_Estado IN('A','I','B','C','X'))
 ) 
------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------
+CREATE TABLE dbo.WORK_FLOW_HAS_WORK_FLOW_TAREAS(
+	ID INT IDENTITY(1,1),
+	WRK_WORK_FLOW INT,
+	WRK_DETALLE INT,
+	USR_Fecha_Creacion DATE DEFAULT GETDATE(),
+	FOREIGN KEY (WRK_WORK_FLOW) REFERENCES WORK_FLOW(WRK_WORK_FLOW),
+	FOREIGN KEY (WRK_DETALLE) REFERENCES WORK_FLOW_TAREAS(WRK_DETALLE)
+)
+-----------------------------------------------------
 /*  Tabla que almacena las tareas del workflow  */
 CREATE TABLE dbo.WORK_FLOW_TAREAS(
 	WRK_DETALLE INT IDENTITY(1,1),
