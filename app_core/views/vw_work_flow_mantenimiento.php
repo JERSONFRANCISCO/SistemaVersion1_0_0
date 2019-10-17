@@ -202,8 +202,8 @@ if(isset($_POST['Eliminar'])){
                               <header class="panel-heading">
                                 Tareas del flujo de trabajo asignadas
                               </header>
-                              <div class="table-responsive" id="tablaConTareas" name="tablaConTareas">
-                                <table class="table" id="tablaTareas" name="tablaTareas">
+                              <div class="table-responsive" id="" name="">
+                                <table class="table" id="taskwf" name="taskwf">
                                   <thead style="background-color: #00000000;">
                                     <tr>
                                       <th>Tarea</th>
@@ -249,7 +249,7 @@ if(isset($_POST['Eliminar'])){
                                       echo "<td>".$value[6]."</td>";
                                       echo "<td>";
                                       echo "<div class='btn-group'>";
-                                      echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='bottom' title='Eliminar'><i class='icon_close_alt2'></i></button>";
+                                      echo "<button class='btn btn-danger'  id='' name='' type='button' title=''><i class='icon_close_alt2'></i></button>";
                                       echo "</div>";
                                       echo "</td>";
                                       echo "</tr>";
