@@ -198,13 +198,13 @@ if(isset($_POST['Eliminar'])){
                          <!------------------------------------------------- ------------------>
                          <div class="row">
                           <div class="col-lg-12 col-sm-12 follow-info">
-                            <section class="panel">
+                            <section class="panel" style="border-top: 5px solid #394a59;  border-bottom: 5px solid #394a59;">
                               <header class="panel-heading">
-                                Tareas del flujo de trabajo
+                                Tareas del flujo de trabajo asignadas
                               </header>
                               <div class="table-responsive" id="tablaConTareas" name="tablaConTareas">
                                 <table class="table" id="tablaTareas" name="tablaTareas">
-                                  <thead style="background-color: #394a593b;">
+                                  <thead style="background-color: #00000000;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>
@@ -216,7 +216,7 @@ if(isset($_POST['Eliminar'])){
                                       <th>Acción</th>
                                     </tr>
                                   </thead>
-                                  <tfoot style="background-color: #394a593b;">
+                                  <tfoot style="background-color: #00000000;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>
@@ -249,7 +249,7 @@ if(isset($_POST['Eliminar'])){
                                       echo "<td>".$value[6]."</td>";
                                       echo "<td>";
                                       echo "<div class='btn-group'>";
-                                      echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_close_alt2'></i></button>";
+                                      echo "<button class='btn btn-danger'  id='botonEliminar' name='botonEliminar' type='bottom' title='Eliminar'><i class='icon_close_alt2'></i></button>";
                                       echo "</div>";
                                       echo "</td>";
                                       echo "</tr>";
@@ -259,12 +259,15 @@ if(isset($_POST['Eliminar'])){
                                   </tbody>
                                 </table>
                               </div>
+                            </section>
+                            <section class="panel" style="border-top: 5px solid #394a59;  border-bottom: 5px solid #394a59;">
+
                               <header class="panel-heading">
-                                Tareas del flujo de trabajo
+                                Tareas del flujo de trabajo disponibles
                               </header>
-                              <div class="table-responsive" id="tablaConTareas" name="tablaConTareas">
-                                <table class="table" id="tablaTareas" name="tablaTareas">
-                                  <thead style="background-color: #394a593b;">
+                              <div class="table-responsive">
+                                <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                  <thead style="background-color: #00000000;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>
@@ -276,7 +279,7 @@ if(isset($_POST['Eliminar'])){
                                       <th>Acción</th>
                                     </tr>
                                   </thead>
-                                  <tfoot style="background-color: #394a593b;">
+                                  <tfoot style="background-color: #00000000;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>
@@ -292,7 +295,7 @@ if(isset($_POST['Eliminar'])){
                                     <?php
                                     require_once(__CTR_PATH . "ctr_work_flow.php");
                                     $ctr_work_flow = new ctr_work_flow();
-                                    $ctr = $ctr_work_flow->obtener_Tareas($_POST['identificador']);
+                                    $ctr = $ctr_work_flow->obtener_Tareas_Disponibles($_POST['identificador']);
                                     $cont = 0;
                                     foreach ($ctr as $value) {
                                       if($cont % 2 == 0){
@@ -309,7 +312,7 @@ if(isset($_POST['Eliminar'])){
                                       echo "<td>".$value[6]."</td>";
                                       echo "<td>";
                                       echo "<div class='btn-group'>";
-                                      echo "<button class='btn btn-primary'  id='botonEliminar' name='botonEliminar' type='submit' title='Eliminar'><i class='icon_plus_alt2'></i></button>";
+                                      echo "<button class='btn btn-primary'  id='subeTarea' name='subeTarea' type='button' title='Agregar'><i class='icon_plus_alt2'></i></button>";
                                       echo "</div>";
                                       echo "</td>";
                                       echo "</tr>";

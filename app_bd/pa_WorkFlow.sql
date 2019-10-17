@@ -21,11 +21,16 @@ alter procedure pa_WorkFlow(
 			left join  DEPARTAMENTOS DEP ON (DEP.DEP_Departamento = wt.DEP_DEPARTAMENTO)
 			WHERE wf.WRK_WORK_FLOW = @WRK_WORK_FLOW
 		end
-	--if(@Accion = 'F')
-	--	begin
-		--	SELECT DEP_Departamento,DEP_Titulo,DEP_Observaciones,DEP_Estado 
-	--		FROM DEPARTAMENTOS WHERE DEPARTAMENTOS.DEP_Departamento = @DEP_Departameto;
-	--	end
+	if(@Accion = 'WRKDIS')-- TAREAS QUE NO ESTÁN LIGADAS A NINGUN FLUJO DE TRABAJO
+		begin
+			select wt.WRK_DETALLE,wt.WRK_Titulo,wt.WRK_Observaciones,DEP.DEP_Titulo,USR.USR_Nombre,wt.WRK_Horas,wt.WRK_Minutos  
+			from WORK_FLOW_TAREAS wt
+			left join USUARIOS USR ON (wt.USR_Usuario = USR.USR_Usuario)
+			left join  DEPARTAMENTOS DEP ON (DEP.DEP_Departamento = wt.DEP_DEPARTAMENTO)
+			where WRK_DETALLE not in (
+				select WRK_DETALLE from WORK_FLOW_HAS_WORK_FLOW_TAREAS where WRK_WORK_FLOW = @WRK_WORK_FLOW
+			)
+		end
 	--if(@Accion = 'U')
 		--begin
 		--	update DEPARTAMENTOS

@@ -24,10 +24,10 @@ class mdl_work_flow{
 		}
 		return $posts;
 	}
-	public function obtener_Tareas($WRK_WORK_FLOW){
+	public function obtener_Tareas($Accion,$WRK_WORK_FLOW){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_WorkFlow @accion='TAREAS' ,@WRK_WORK_FLOW=".$WRK_WORK_FLOW;
+		$sql = "exec pa_WorkFlow @accion='".$Accion."' ,@WRK_WORK_FLOW=".$WRK_WORK_FLOW;
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];

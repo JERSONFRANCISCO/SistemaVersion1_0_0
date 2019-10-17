@@ -23,6 +23,9 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header(__CSS_PATH . "style.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "style-responsive.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "bootstrap-select.min.css","screen");
+
+
+    echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
   ?>
 </head>
 <body>
@@ -45,8 +48,24 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."scripts.js");
   echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
   echo $HTML->html_js_header(__JS_PATH."comunes.js");
+    
+    //echo $HTML->html_js_header(__JS_PATH."crear-ticket.js");
+
+  echo $HTML->html_js_header(__JS_PATH."jquery.dataTables.js");
+  echo $HTML->html_js_header(__JS_PATH."dataTables.bootstrap4.js");
+  echo $HTML->html_js_header(__JS_PATH."DataTableINI.js");
   ?>
   
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('button[id=subeTarea]').click(function() {
+    //alert("jers");
+      var tr=$(this).parents("tr").appendTo("#tablaTareas tbody");
+  });
+});
+  
+</script>
 
 </body>
 
