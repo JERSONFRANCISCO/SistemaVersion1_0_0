@@ -1,15 +1,20 @@
 <?php
 
 require_once(__MDL_PATH . "mdl_tareas.php");
+require_once(__CTR_PATH . "ctr_enviar_correo.php");
 class ctr_tareas{
 	private $postdata;
-
+	private $mail;
 		public function __construct() //CONSTRUCTOR
 		{
 			$this->postdata = new mdl_tareas();
+			$this->mail = new ctr_enviar_correo();
 		}
 		public function obtener_Objetos()
 		{
+
+			//$this->mail->enviar_correo();
+
 			$Accion = 'SELECT';
 			$WRK_DETALLE = 0;
 			$Titulo = '';

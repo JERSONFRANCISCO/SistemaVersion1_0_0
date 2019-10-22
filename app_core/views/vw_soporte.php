@@ -29,9 +29,10 @@
       <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
     </div>
 
-  
+    
     <?php
     echo $HTML->actionMenu();
+
     ?>
   </header>
   <!--header end-->
@@ -62,7 +63,9 @@
                           <!-- DataTales Example -->
                           <div class="card shadow mb-4">
                             <div class="card-header py-3">
-
+                              <?php
+                              
+                              ?>
                             </div>
 
                           </div>

@@ -1,12 +1,15 @@
 <?php
 
 require_once(__MDL_PATH . "mdl_ticket.php");
+require_once(__CTR_PATH . "ctr_enviar_correo.php");
+
 class ctr_ticket{
 	private $postdata;
-
+	private $mail;
 		public function __construct() //CONSTRUCTOR
 		{
 			$this->postdata = new mdl_ticket();
+			$this->mail = new ctr_enviar_correo();
 		}
 		
 		public function obtener_Tickets($Estado,$USR_USUARIO,$Inicio,$Cantidad)
@@ -37,9 +40,13 @@ class ctr_ticket{
 			$Fecha_Vence=$_POST['Fecha_Vence'];
 			
 			return $this->postdata->insertar_ticket($Prioridad,$Ven_Vendedor,$Cli_Cliente,$Pro_Proyecto,$Usr_usuario,$TAL_Numero,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$Fecha_Vence);
+			
 		}
 		public function insertar_tareas_ticket($tic_ticket)
 		{
+			require_once("global.php");
+			require_once(__MDL_PATH . "mdl_html.php");
+			$HTML = new mdl_Html();
 			if(isset($_POST['numeroDeTareas'])){
 				for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
 					if(isset($_POST['tareatareaTitulo'.$i])){
@@ -56,6 +63,15 @@ class ctr_ticket{
 					}
 				}
 			}
+
+
+			$to="desarrollo2@dialcomcr.com";
+
+			$Subject="Hola, se ha registrado un ticket en el que participas, # ".$tic_ticket;
+			$cuerpo = $HTML->armar_correo_ticket_nuevo($tic_ticket);
+			$non_HTML="hola";
+			$this->mail->enviar_correo($to,$Subject,$cuerpo,$non_HTML);
+
 
 			return "true";
 		}

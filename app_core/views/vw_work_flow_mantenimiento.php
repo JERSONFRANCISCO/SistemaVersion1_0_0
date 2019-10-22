@@ -202,9 +202,10 @@ if(isset($_POST['Eliminar'])){
                               <header class="panel-heading">
                                 Tareas del flujo de trabajo asignadas
                               </header>
+                              <br/>
                               <div class="table-responsive" id="" name="">
                                 <table class="table" id="taskwf" name="taskwf">
-                                  <thead style="background-color: #00000000;">
+                                  <thead style="background-color: #f7f7f7;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>
@@ -216,7 +217,7 @@ if(isset($_POST['Eliminar'])){
                                       <th>Acción</th>
                                     </tr>
                                   </thead>
-                                  <tfoot style="background-color: #00000000;">
+                                  <tfoot style="background-color: #f7f7f7;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>
@@ -267,7 +268,7 @@ if(isset($_POST['Eliminar'])){
                               </header>
                               <div class="table-responsive">
                                 <table class="table" id="dataTable" width="100%" cellspacing="0">
-                                  <thead style="background-color: #00000000;">
+                                  <thead style="background-color: #f7f7f7;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>
@@ -279,7 +280,7 @@ if(isset($_POST['Eliminar'])){
                                       <th>Acción</th>
                                     </tr>
                                   </thead>
-                                  <tfoot style="background-color: #00000000;">
+                                  <tfoot style="background-color: #f7f7f7;">
                                     <tr>
                                       <th>Tarea</th>
                                       <th>Título</th>

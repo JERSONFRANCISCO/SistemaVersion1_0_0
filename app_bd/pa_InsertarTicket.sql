@@ -2,10 +2,10 @@ alter procedure pa_InsertarTicket(
 	@Accion varchar(2),
 	@Prioridad VARCHAR(1),
 	@Ven_Vendedor VARCHAR(50),
-	@Cli_Cliente VARCHAR(10),
-	@Pro_Proyecto VARCHAR(4),
+	@Cli_Cliente VARCHAR(80),
+	@Pro_nombre VARCHAR(50),
 	@Usr_usuario varchar(20),
-	@TAL_Numero VARCHAR(20),
+	@Tal_Descripcion VARCHAR(200),
 	@DEP_titulo varchar(100) ,
 	@TIC_Estado varchar(1) ,
 	@TIC_Titulo varchar(100),
@@ -31,7 +31,7 @@ begin
 				insert into TICKET(Ven_Vendedor,Cli_Cliente,Pro_nombre,Tal_Descripcion,
 									DEP_DEPARTAMENTO,TIC_Titulo,TIC_Observaciones,
 				TIC_Estado,USR_Usuario_Creacion,TIC_Fecha_Vencimiento,TIC_Prioridad,USR_Usuario)
-				values(@Ven_Vendedor,@Cli_Cliente,@Pro_Proyecto,@TAL_Numero,@DEP_DepartamentoID,@TIC_Titulo,'',@TIC_Estado,
+				values(@Ven_Vendedor,@Cli_Cliente,@Pro_nombre,@Tal_Descripcion,@DEP_DepartamentoID,@TIC_Titulo,'',@TIC_Estado,
 				@USR_Usuario_CreacionVAR, REPLACE(@FECHA_VENCE, '-', ''),@Prioridad,@USUARIO)
 
 				SELECT TOP 1  @TIC_TICKET_ID = TIC_TICKET FROM TICKET where TICKET.TIC_Titulo = @TIC_Titulo ORDER BY TIC_TICKET DESC 
@@ -53,7 +53,7 @@ begin
 end
 
 
-
+go
 
 
 alter procedure pa_IdTicket(

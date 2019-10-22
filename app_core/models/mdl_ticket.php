@@ -57,9 +57,9 @@ class mdl_ticket{
 		@Prioridad ='".$Prioridad."',
 		@Ven_Vendedor ='".$Ven_Vendedor."',
 		@Cli_Cliente ='".$Cli_Cliente."',
-		@Pro_Proyecto ='".$Pro_Proyecto."',
+		@Pro_nombre ='".$Pro_Proyecto."',
 		@Usr_usuario = '".$Usr_usuario."',
-		@TAL_Numero = '".$TAL_Numero."' ,
+		@Tal_Descripcion = '".$TAL_Numero."' ,
 		@DEP_titulo ='".$DEP_titulo."',
 		@TIC_Estado = '".$TIC_Estado."',
 		@TIC_Titulo = '".$TIC_Titulo."',
@@ -89,9 +89,9 @@ class mdl_ticket{
 		@Prioridad ='',
 		@Ven_Vendedor ='',
 		@Cli_Cliente ='',
-		@Pro_Proyecto ='',
+		@Pro_nombre ='',
 		@Usr_usuario = '".$Usr_usuario."',
-		@TAL_Numero = 0 ,
+		@Tal_Descripcion = 0 ,
 		@DEP_titulo ='".$DEP_titulo."',
 		@TIC_Estado = '".$TIC_Estado."',
 		@TIC_Titulo = '".$TIC_Titulo."',
@@ -109,7 +109,7 @@ class mdl_ticket{
 		$cont=0;
 		$sql = "exec pa_ObtenerTOTALTickes_PAGINACION @Estado = '".$Estado."', @Usr_Usuario = '".$USR_USUARIO."' ,@INICIA=0,@CANTIDAD=0";
 		$stmt = $this->conexion->consulta($sql);
-		while( $row = $this->conexion->obtener_Columnas($stmt)) {  //EXEC pa_ObtenerTOTALTickes_PAGINACION @Estado='A',@Usr_Usuario=38152,@INICIA=0,@CANTIDAD=0
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
 			$cont++;
 		}
@@ -155,7 +155,35 @@ class mdl_ticket{
 		}
 		return $posts;
 	}
-
+	public function pa_ticket_correo($ticket){
+		$posts=array();
+		$cont=0;
+		$sql = "EXEC pa_enviar_correo @Accion='SELECT',@tic_ticket=".$ticket."";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$posts[$cont][1]=$row[1];
+			$posts[$cont][2]=$row[2];
+			$posts[$cont][3]=$row[3];
+			$posts[$cont][4]=$row[4];
+			$posts[$cont][5]=$row[5];
+			$posts[$cont][6]=$row[6];
+			$posts[$cont][7]=$row[7];
+			$posts[$cont][8]=$row[8];
+			$posts[$cont][9]=$row[9];
+			$posts[$cont][10]=$row[10];
+			$posts[$cont][11]=$row[11];
+			$posts[$cont][12]=$row[12];
+			$posts[$cont][13]=$row[13];
+			$posts[$cont][14]=$row[14];
+			$posts[$cont][15]=$row[15];
+			$posts[$cont][16]=$row[16];
+			$posts[$cont][17]=$row[17];
+			$posts[$cont][18]=$row[18];
+			$cont++;
+		}
+		return $posts;
+	}
 
 }
 ?>	

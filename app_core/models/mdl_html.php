@@ -160,6 +160,129 @@ class mdl_HTML {
 		}
 		return $salida;
 	}
+
+	function armar_correo_ticket_nuevo($tic_ticket){
+		require_once(__MDL_PATH . "mdl_ticket.php");
+		$this->postdata = new mdl_ticket();
+		$var = $this->postdata -> pa_ticket_correo($tic_ticket);
+		$menu="";
+		$menu.=	
+		"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+		<html xmlns='http://www.w3.org/1999/xhtml'>
+		<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+		<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td, th {
+			text-align: left;
+			padding: 8px;
+		}
+		</style>
+		</head>
+		<body>";
+		$menu.="
+		<table>
+		<tr>
+		<td style='text-align: center;'>
+		<h1>Detalles del ticket</h1>
+		<br/>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<table><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Estado tarea</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][0]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Prioridad</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][1]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Fecha</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][2]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Fecha Vencimiento</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][3]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Departamento</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][4]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Usuario asignado</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][5]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Usuario Creador</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][6]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Titulo</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][7]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Vendedor</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][8]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Cliente</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][9]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Proveedor</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][10]."</td>
+		</tr><tr>
+		<td style='width: 15%; border: 1px solid #dddddd;'>Orden de trabajo</td>
+		<td style=' width: 50%; border: 1px solid #dddddd;'>".$var[0][11]."</td>	
+		</tr>
+		</table>
+		</td>
+		</tr>
+		<tr>
+		<td style='text-align: center;'>
+		<br/>
+		<h1>Tareas registradas en el ticket</h1>
+		<br/>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		";
+
+		$menu.= "<table>
+		<tr bgcolor='#70bbd9'>
+		<th>Tarea</th>
+		<th>Título</th>
+		<th>Observaciones</th>
+		<th>Horas</th>
+		<th>Minutos</th>
+		<th>Usuario</th>
+		</tr>
+		";
+		foreach ($var as $value) { 
+			if($value[12]>=1){
+				$menu.= "<tr>";
+				$menu.= "<td style='border: 1px solid #dddddd;'>$value[13]</td>";
+				$menu.= "<td style='border: 1px solid #dddddd;'>$value[14]</td>";
+				$menu.= "<td style='border: 1px solid #dddddd;'>$value[15]</td>";
+				$menu.= "<td style='border: 1px solid #dddddd;'>$value[16]</td>";
+				$menu.= "<td style='border: 1px solid #dddddd;'>$value[17]</td>";
+				$menu.= "<td style='border: 1px solid #dddddd;'>$value[18]</td>";
+				$menu.= "</tr>";
+			}else{
+				$menu.= "<tr>";
+				$menu.= "<td style='border: 1px solid #dddddd;' colspan = '6' >NO REGISTRA TAREAS</td>";
+				$menu.= "</tr>";
+			}
+		}
+		$menu.=  "
+		</table>
+		</td>
+		</tr>
+		</table>
+		</body>
+		</html>";
+
+		return $menu;
+	}
+
 }
 
 ?>

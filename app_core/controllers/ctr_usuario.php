@@ -27,6 +27,7 @@ class ctr_usuario{
 			$Estado = substr($_POST['Estado'],0,1);
 			$Grupo = $_POST['Grupo'];
 			$userInsercion = $_SESSION['USR_nombre'];
+			echo $Correo;
 			return $this->postdata->insertar_Usuarios($Accion,$Nombre,$Correo,$Password,$Rol,$Estado,$Grupo,$userInsercion);
 		}
 		public function actualizar_Usuarios()

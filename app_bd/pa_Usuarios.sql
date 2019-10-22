@@ -1,7 +1,7 @@
 alter procedure pa_Usuarios(
 	@Accion varchar(1),
 	@UsuarioNombre varchar(40),
-	@UsuarioCorreo varchar(20),
+	@UsuarioCorreo varchar(40),
 	@UsuarioEstado varchar(1),
 	@UsuarioPassword varchar(20),
 	@UsuarioInclusion varchar(40),

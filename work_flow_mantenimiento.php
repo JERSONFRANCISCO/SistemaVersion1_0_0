@@ -61,36 +61,31 @@ $HTML = new mdl_Html();
 
     $(document).ready(function(){
       $('button[id=subeTarea]').click(function() {
-    //alert("jers");
-    //var tr=$(this).parents("tr").appendTo("#tablaTareas tbody");
-    //alert(tr);
-
-    var valores="<tr>";
-    $(this).parents("tr").find("td").each(function(){
-      var dato=$(this).html();
-
-      if(dato.substring(0, 4) == "<div"){
-       // alert("s");
-        valores+= "<td>";
-        valores+= "<div class='btn-group'>";
-        valores+= "<button class='btn btn-danger'  id='subeTarea' name='subeTarea' type='button' title='Agregar'><i class='icon_close_alt2'></i></button>";
-        valores+= "</div>";//<button class='btn btn-primary'  id='subeTarea' name='subeTarea' type='button' title='Agregar'><i class='icon_plus_alt2'></i></button>
-        valores+= "</td>";
-
-      }else{
-        valores += "<td>"+dato+"</td>";
-     //   alert(dato.substring(0, 3));
-      }
-      
-    });
-    valores+="</tr>";
-   // alert(valores);
-   $('#taskwf tbody').append(valores);
-
- });
+        var valor0 = $(this).parents("tr").find("td").eq(0).text();
+        var valores="<tr id='fila"+valor0.trim()+"'>";
+        $(this).parents("tr").find("td").each(function(){
+          var dato=$(this).html();
+          if(dato.substring(0, 4) == "<div"){
+            valores+= "<td>";
+            valores+= "<div class='btn-group'>";
+            valores+= "<button class='btn btn-danger'  type='button'  onclick='borrarFila("+valor0+")' title='Agregar'><i class='icon_close_alt2'></i></button>";
+            valores+= "</div>";
+            valores+= "</td>";
+          }else{
+            valores += "<td>"+dato+"</td>";
+          }
+        });
+        valores+="</tr>";
+        $('#taskwf tbody').append(valores);
+      });
     });
 
-  </script>
+    function borrarFila(id){
+     $("#fila"+id).remove();
+   }
+
+
+ </script>
 
 </body>
 
