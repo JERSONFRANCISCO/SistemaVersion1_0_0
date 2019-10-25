@@ -1,4 +1,5 @@
 <?php
+
 $Titulo =  "";
 $Observaciones =  "";
 $Departamento =  "";
@@ -14,17 +15,20 @@ $comboBOX='';
 
 
 if(isset($_POST['Agregar'])){
-//  require_once(__CTR_PATH . "ctr_tareas.php");
-//  $ctr_tareas = new ctr_tareas();
-//  $ctr = $ctr_tareas->insertar_tareas();
+  require_once(__CTR_PATH . "ctr_work_flow.php");
+  $ctr_work_flow = new ctr_work_flow();
+  $ctr = $ctr_work_flow->agregar_work_flow();
+  echo $ctr;
+  $ctr_work_flow->agregar_tarea_work_flow(1);
   $bolean=true;
   $titulo="Agregado";
 }
 
 if(isset($_POST['Editar'])){
- // require_once(__CTR_PATH . "ctr_tareas.php");
- // $ctr_tareas = new ctr_tareas();
-//  $ctr = $ctr_tareas->actualizar_tareas();
+  require_once(__CTR_PATH . "ctr_work_flow.php");
+  $ctr_work_flow = new ctr_work_flow();
+  $ctr = $ctr_work_flow->actualizar_work_flow();
+ // $ctr = $ctr_work_flow->agregar_tarea_work_flow($_POST['TareaID']);
   $bolean=true;
   $titulo="Actualizado";
 }
@@ -54,6 +58,10 @@ if(isset($_POST['Eliminar'])){
   //    $Departamento = $ctr[0][6];
   //    $Estado = $ctr[0][7];
   //  }
+  }
+
+  if(isset($_POST['botonAgregar'])){
+ //   echo"agregando";
   }
 
   if(isset($_POST['botonEditar'])){
@@ -111,7 +119,7 @@ if(isset($_POST['Eliminar'])){
            }
            ?>
            <header class="panel-heading">
-            <strong><?php if(isset($titulo)){echo $titulo;}?> Tareas</strong>
+            <strong><?php if(isset($titulo)){echo $titulo;}?> Flujo de trabajo</strong>
           </header>
           <div class="panel-body">
             <div class="form">
@@ -231,31 +239,36 @@ if(isset($_POST['Eliminar'])){
                                   </tfoot>
                                   <tbody>
                                     <?php
-                                    require_once(__CTR_PATH . "ctr_work_flow.php");
-                                    $ctr_work_flow = new ctr_work_flow();
-                                    $ctr = $ctr_work_flow->obtener_Tareas($_POST['identificador']);
-                                    $cont = 0;
-                                    foreach ($ctr as $value) {
-                                      if($cont % 2 == 0){
-                                        echo "<tr style = 'background: aliceblue;' >";
-                                      }else{
-                                        echo "<tr>";
+
+                                    if(!isset($_POST['botonAgregar'])){
+                                      require_once(__CTR_PATH . "ctr_work_flow.php");
+                                      $ctr_work_flow = new ctr_work_flow();
+                                      $ctr = $ctr_work_flow->obtener_Tareas($_POST['identificador']);
+                                      $cont = 0;
+                                      foreach ($ctr as $value) {
+                                        if($cont % 2 == 0){
+                                          echo "<tr style = 'background: aliceblue;' id='fila".($cont+1)."'>";
+                                        }else{
+                                          echo "<tr id='fila".($cont+1)."'>";
+                                        }
+                                        echo "<td> <input  id='identificador".$value[0]."' name='identificador".$value[0]."' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
+                                        echo "<td>".$value[1]."</td>";
+                                        echo "<td>".$value[2]."</td>";
+                                        echo "<td>".$value[3]."</td>";
+                                        echo "<td>".$value[4]."</td>";
+                                        echo "<td>".$value[5]."</td>";
+                                        echo "<td>".$value[6]."</td>";
+                                        echo "<td>";
+                                        echo "<div class='btn-group'>";
+                                        echo "<button class='btn btn-danger' type='button' onclick='borrarFila(".($cont+1).")' title=''><i class='icon_close_alt2'></i></button>";
+                                        echo "</div>";
+                                        echo "</td>";
+                                        echo "</tr>";
+                                        $cont++;
                                       }
-                                      echo "<td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
-                                      echo "<td>".$value[1]."</td>";
-                                      echo "<td>".$value[2]."</td>";
-                                      echo "<td>".$value[3]."</td>";
-                                      echo "<td>".$value[4]."</td>";
-                                      echo "<td>".$value[5]."</td>";
-                                      echo "<td>".$value[6]."</td>";
-                                      echo "<td>";
-                                      echo "<div class='btn-group'>";
-                                      echo "<button class='btn btn-danger'  id='' name='' type='button' title=''><i class='icon_close_alt2'></i></button>";
-                                      echo "</div>";
-                                      echo "</td>";
-                                      echo "</tr>";
-                                      $cont++;
                                     }
+
+                                    
                                     ?>
                                   </tbody>
                                 </table>
@@ -296,7 +309,13 @@ if(isset($_POST['Eliminar'])){
                                     <?php
                                     require_once(__CTR_PATH . "ctr_work_flow.php");
                                     $ctr_work_flow = new ctr_work_flow();
-                                    $ctr = $ctr_work_flow->obtener_Tareas_Disponibles($_POST['identificador']);
+
+                                    if(!isset($_POST['botonAgregar'])){ 
+                                      $ctr = $ctr_work_flow->obtener_Tareas_Disponibles($_POST['identificador']);
+                                    }
+                                    else{
+                                      $ctr = $ctr_work_flow->obtener_Tareas_Disponibles(-1);
+                                    }
                                     $cont = 0;
                                     foreach ($ctr as $value) {
                                       if($cont % 2 == 0){
@@ -304,7 +323,7 @@ if(isset($_POST['Eliminar'])){
                                       }else{
                                         echo "<tr>";
                                       }
-                                      echo "<td> <input  id='identificador' name='identificador' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
+                                      echo "<td> <input  id='' name='' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
                                       echo "<td>".$value[1]."</td>";
                                       echo "<td>".$value[2]."</td>";
                                       echo "<td>".$value[3]."</td>";
@@ -331,26 +350,26 @@ if(isset($_POST['Eliminar'])){
                       <!-- AQUI TERMINA LA CEJILLA QUE CONTIENE EL CAMBIA EL DEPARTAMENTO -->
                     </div>
                   </div>
-                </form>
-                <!-- AQUI TERMINA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
-              </section>
 
-              <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10 text-right">
-                  <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>
-                  <button class="btn btn-default" ><a href="index.php">Cancelar</a></button>
+                  <!-- AQUI TERMINA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
+                </section>
+
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10 text-right">
+                    <button class="btn btn-primary" type="submit" id ="<?php if(isset($titulo)){echo $titulo;}?>" name="<?php if(isset($titulo)){echo $titulo;}?>">Guardar</button>
+                    <button class="btn btn-default" ><a href="index.php">Cancelar</a></button>
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
+
           </div>
-
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
-  </div>
 
 
-</section>
+  </section>
 </section>
 
 <?php

@@ -98,7 +98,7 @@ if (isset($_GET['status'])) {
                                     $inicio = 0;
                                     $cantidad=15;
                                   }
-                                  $ctr = $ctr_ticket->obtener_Tickets(substr($_GET['status'], 0,1),$_SESSION['USR_user'],$inicio,$cantidad);
+                                  $ctr = $ctr_ticket->obtener_Tickets_paginacion(substr($_GET['status'], 0,1),$_SESSION['USR_user'],$inicio,$cantidad);
                                   $cont = 0;
                                   foreach ($ctr as $value) {
                                     if($cont % 2 == 0){

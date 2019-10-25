@@ -12,7 +12,7 @@ class mdl_work_flow{
 	public function obtener_Objetos(){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_WorkFlow @accion='SELECT' ,@WRK_WORK_FLOW=0";
+		$sql = "exec pa_WorkFlow @accion='SELECT' ,@WRK_WORK_FLOW=0 , @DEP_titulo='',@USR_Usuario_Creacion='',@WRK_Titulo='',@WRK_Observaciones='',@WRK_Estado='' ,@WRK_DETALLE=0";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -27,7 +27,7 @@ class mdl_work_flow{
 	public function obtener_Tareas($Accion,$WRK_WORK_FLOW){
 		$posts=array();
 		$cont=0;
-		$sql = "exec pa_WorkFlow @accion='".$Accion."' ,@WRK_WORK_FLOW=".$WRK_WORK_FLOW;
+		$sql = "exec pa_WorkFlow @accion='".$Accion."' ,@WRK_WORK_FLOW=".$WRK_WORK_FLOW." ,@DEP_titulo='',@USR_Usuario_Creacion='',@WRK_Titulo='',@WRK_Observaciones='',@WRK_Estado='',@WRK_DETALLE=0";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -40,6 +40,23 @@ class mdl_work_flow{
 			$cont++;
 		}
 		return $posts;
+	}
+	public function ejecutar_proc_workflow($Accion,$WRK_WORK_FLOW,$WRK_Titulo,$WRK_Observaciones,$WRK_Estado,$DEP_titulo,$WRK_DETALLE,$USR_Usuario_Creacion){
+		$cont=0;
+		$sql = "exec pa_WorkFlow @accion='".$Accion."',@WRK_WORK_FLOW=".$WRK_WORK_FLOW." ,@WRK_Titulo='".$WRK_Titulo."',@WRK_Observaciones='".$WRK_Observaciones."',@WRK_Estado='".$WRK_Estado."',@DEP_titulo='".$DEP_titulo."',@USR_Usuario_Creacion='".$USR_Usuario_Creacion."',@WRK_DETALLE=".$WRK_DETALLE;
+		$stmt = $this->conexion->consulta($sql);
+		return $sql;
+	}
+	public function ejecutar_proc_workflow_dato($Accion,$WRK_WORK_FLOW,$WRK_Titulo,$WRK_Observaciones,$WRK_Estado,$DEP_titulo,$WRK_DETALLE,$USR_Usuario_Creacion){
+		$posts=array();
+		$cont=0;
+		$sql = "select 1;";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$cont++;
+		}
+		print_r($posts);
 	}
 }
 ?>	

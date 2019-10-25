@@ -39,7 +39,7 @@
                 <div class="panel-body">
                   <form class="form-inline" role="form" method="post" action="work_flow_mantenimiento.php">
                     <div class="text-right">
-                      <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+                      <button type="submit" id='botonAgregar' name='botonAgregar' class="btn btn-primary align-self-end">Agregar</button>
                     </div>
                   </form>
                   <div id="wrapper">
@@ -116,7 +116,7 @@
                   <!-- End of Page Wrapper -->
                   <form class="form-inline" role="form" method="post" action="work_flow_mantenimiento.php">
                     <div class="text-right">
-                      <button type="submit" class="btn btn-primary align-self-end">Agregar</button>
+                      <button type="submit" id='botonAgregar' name='botonAgregar' class="btn btn-primary align-self-end">Agregar</button>
                     </div>
 
                   </form>

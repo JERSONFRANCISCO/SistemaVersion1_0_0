@@ -60,29 +60,53 @@ $HTML = new mdl_Html();
   <script type="text/javascript">
 
     $(document).ready(function(){
+
+
       $('button[id=subeTarea]').click(function() {
+        var encontrado = false;
         var valor0 = $(this).parents("tr").find("td").eq(0).text();
-        var valores="<tr id='fila"+valor0.trim()+"'>";
-        $(this).parents("tr").find("td").each(function(){
-          var dato=$(this).html();
-          if(dato.substring(0, 4) == "<div"){
-            valores+= "<td>";
-            valores+= "<div class='btn-group'>";
-            valores+= "<button class='btn btn-danger'  type='button'  onclick='borrarFila("+valor0+")' title='Agregar'><i class='icon_close_alt2'></i></button>";
-            valores+= "</div>";
-            valores+= "</td>";
-          }else{
-            valores += "<td>"+dato+"</td>";
+
+        $('#taskwf tr').each(function() {
+          var customerId = $(this).find("td").eq(0).text();  
+          if(valor0.trim()==customerId.trim()){
+            encontrado = true;
           }
         });
-        valores+="</tr>";
-        $('#taskwf tbody').append(valores);
+
+
+        if(!encontrado){
+          var valores="<tr id='fila"+valor0.trim()+"'>";
+          $(this).parents("tr").find("td").each(function(){
+            var dato=$(this).html();
+            if(dato.includes("<div")){
+              valores+= "<td>";
+              valores+= "<div class='btn-group'>";
+              valores+= "<button class='btn btn-danger'  type='button'  onclick='borrarFila("+valor0.trim()+")' title='Agregar'><i class='icon_close_alt2'></i></button>";
+              valores+= "</div>";
+              valores+= "</td>";
+            }else{
+              if(dato.includes("input")){
+                valores += "<td><input  id='identificador"+valor0.trim()+"' name='identificador"+valor0.trim()+"' type='hidden' value='"+valor0.trim()+"'>"+valor0.trim()+"</td>";
+              }else{
+                valores += "<td>"+dato+"</td>";
+              }
+              
+            }
+          });
+          valores+="</tr>";
+          $('#taskwf tbody').append(valores);
+        }else{
+          alert("Tarea "+valor0+" ya se encuentra en el flujo de trabajo");
+        }
+
       });
+      
     });
 
     function borrarFila(id){
      $("#fila"+id).remove();
    }
+
 
 
  </script>

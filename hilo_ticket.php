@@ -64,9 +64,7 @@ $HTML = new mdl_Html();
 
   <script>
     $(document).ready(function() {
-      $('#summernote').summernote({
-        height:150
-      });
+      $('#summernote').summernote();
     });
     $(window).load(function() {
       $(".loader").fadeOut("slow");

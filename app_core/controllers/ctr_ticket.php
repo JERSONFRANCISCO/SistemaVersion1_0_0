@@ -12,10 +12,16 @@ class ctr_ticket{
 			$this->mail = new ctr_enviar_correo();
 		}
 		
-		public function obtener_Tickets($Estado,$USR_USUARIO,$Inicio,$Cantidad)
+		public function obtener_Tickets($Estado,$USR_USUARIO)
 		{
-			return $this->postdata->obtener_Tickets($Estado,$USR_USUARIO,$Inicio,$Cantidad);
+			return $this->postdata->obtener_Tickets($Estado,$USR_USUARIO);
 		}
+
+		public function obtener_Tickets_paginacion($Estado,$USR_USUARIO,$Inicio,$Cantidad)
+		{
+			return $this->postdata->obtener_Tickets_paginacion($Estado,$USR_USUARIO,$Inicio,$Cantidad);
+		}
+
 		public function obtener_Tickets_cantidad($Estado,$USR_USUARIO)
 		{
 			return $this->postdata->obtener_Tickets_cantidad($Estado,$USR_USUARIO);
@@ -65,14 +71,12 @@ class ctr_ticket{
 			}
 
 
-			$to="desarrollo2@dialcomcr.com";
-
+			$to=$this->postdata->pa_ticket_correo_mails($tic_ticket);
 			$Subject="Hola, se ha registrado un ticket en el que participas, # ".$tic_ticket;
-			$cuerpo = $HTML->armar_correo_ticket_nuevo($tic_ticket);
-			$non_HTML="hola";
+			$cuerpo = $HTML->armar_correo_ticket_nuevo($tic_ticket);			
+			$non_HTML="fALLÓ EL ENVIO DEL HTML";
+
 			$this->mail->enviar_correo($to,$Subject,$cuerpo,$non_HTML);
-
-
 			return "true";
 		}
 		public function obtener_hilo_ticket($ticketID)

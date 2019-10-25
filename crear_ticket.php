@@ -77,9 +77,7 @@ $HTML = new mdl_Html();
 
   <script>
     $(document).ready(function() {
-      $('#summernote').summernote({
-        height:250
-      });
+      $('#summernote').summernote();
 
       setTimeout(function() {
         $(".alert").fadeOut(1500);

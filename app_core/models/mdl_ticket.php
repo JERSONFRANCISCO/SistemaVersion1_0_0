@@ -115,10 +115,28 @@ class mdl_ticket{
 		}
 		return $posts;
 	}
-	public function obtener_Tickets($Estado,$USR_USUARIO,$Inicio,$Cantidad){
+	public function obtener_Tickets_paginacion($Estado,$USR_USUARIO,$Inicio,$Cantidad){
 		$posts=array();
 		$cont=0;
 		$sql = "exec pa_ObtenerTickes_PAGINACION @Estado = '".$Estado."', @Usr_Usuario = '".$USR_USUARIO."',@INICIA=".$Inicio.",@CANTIDAD=".$Cantidad;
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$posts[$cont][1]=$row[1];
+			$posts[$cont][2]=$row[2];
+			$posts[$cont][3]=$row[3];
+			$posts[$cont][4]=$row[4];
+			$posts[$cont][5]=$row[5];
+			$posts[$cont][6]=$row[6];
+			$posts[$cont][7]=$row[7];
+			$cont++;
+		}
+		return $posts;
+	}
+	public function obtener_Tickets($Estado,$USR_USUARIO){
+		$posts=array();
+		$cont=0;
+		$sql = "exec pa_ObtenerTickes @Estado = '".$Estado."', @Usr_Usuario = '".$USR_USUARIO."'";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
 			$posts[$cont][0]=$row[0];
@@ -184,6 +202,15 @@ class mdl_ticket{
 		}
 		return $posts;
 	}
+	public function pa_ticket_correo_mails($ticket){
+		$posts="";
+		$sql = "EXEC pa_enviar_correo @Accion='MAILS',@tic_ticket=".$ticket."";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts=$posts.$row[0].";";
+		}
 
+		return substr($posts, 0, -1);
+	}
 }
 ?>	

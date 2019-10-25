@@ -30,8 +30,14 @@ class ctr_enviar_correo{
     $mail->CharSet = 'UTF-8';
     $mail->setFrom('info@dialcomcr.com', 'DIALCOM TICKETS');
 
-    $mail->addAddress('desarrollo2@dialcomcr.com', 'Jerson');     // Add a recipient
-    $mail->addAddress('jersonfjl@live.com', 'Jerson');
+    $correos = explode(";",$to);
+    //print_r($correos);
+    foreach ($correos as $value) {
+      $mail->addAddress($value, ''); 
+    }
+
+    //$mail->addAddress('desarrollo2@dialcomcr.com', '');     // Add a recipient
+   // $mail->addAddress('jersonfjl@live.com', '');
 
     $mail->isHTML(true);
     $mail->Subject = $Subject;
