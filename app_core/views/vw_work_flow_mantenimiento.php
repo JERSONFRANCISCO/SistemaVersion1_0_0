@@ -18,8 +18,7 @@ if(isset($_POST['Agregar'])){
   require_once(__CTR_PATH . "ctr_work_flow.php");
   $ctr_work_flow = new ctr_work_flow();
   $ctr = $ctr_work_flow->agregar_work_flow();
-  echo $ctr;
-  $ctr_work_flow->agregar_tarea_work_flow(1);
+  $ctr_work_flow->agregar_tarea_work_flow($ctr);
   $bolean=true;
   $titulo="Agregado";
 }
@@ -28,7 +27,7 @@ if(isset($_POST['Editar'])){
   require_once(__CTR_PATH . "ctr_work_flow.php");
   $ctr_work_flow = new ctr_work_flow();
   $ctr = $ctr_work_flow->actualizar_work_flow();
- // $ctr = $ctr_work_flow->agregar_tarea_work_flow($_POST['TareaID']);
+  $ctr = $ctr_work_flow->agregar_tarea_work_flow($_POST['TareaID']);
   $bolean=true;
   $titulo="Actualizado";
 }

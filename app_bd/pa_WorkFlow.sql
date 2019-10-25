@@ -1,3 +1,9 @@
+create procedure pa_WorkFlow_ultimo_ingreso
+as
+begin 
+	select max(WRK_WORK_FLOW) from WORK_FLOW;
+end
+
 alter procedure pa_WorkFlow (
 	@Accion varchar(6),
 	@WRK_WORK_FLOW INT,
@@ -20,6 +26,16 @@ alter procedure pa_WorkFlow (
 						from WORK_FLOW
 						left join DEPARTAMENTOS dp on (WORK_FLOW.DEP_DEPARTAMENTO = dp.DEP_Departamento)
 						where WORK_FLOW.WRK_Estado in ('A','I')
+					end
+				if(@Accion = 'TAREAS')
+					begin
+						select wt.WRK_DETALLE,wt.WRK_Titulo,wt.WRK_Observaciones,DEP.DEP_Titulo,USR.USR_Nombre,wt.WRK_Horas,wt.WRK_Minutos 
+						from WORK_FLOW wf 
+						inner join WORK_FLOW_HAS_WORK_FLOW_TAREAS whf on(wf.WRK_WORK_FLOW = whf.WRK_WORK_FLOW)
+						inner join  WORK_FLOW_TAREAS wt on (wt.WRK_DETALLE = whf.WRK_DETALLE)
+						left join USUARIOS USR ON (wt.USR_Usuario = USR.USR_Usuario)
+						left join  DEPARTAMENTOS DEP ON (DEP.DEP_Departamento = wt.DEP_DEPARTAMENTO)
+						WHERE wf.WRK_WORK_FLOW = @WRK_WORK_FLOW
 					end
 				if(@Accion = 'TAREAS')
 					begin
@@ -55,7 +71,6 @@ alter procedure pa_WorkFlow (
 						insert into WORK_FLOW(WRK_Titulo,WRK_Observaciones,WRK_Estado,DEP_Departamento,USR_Usuario_Creacion)
 						values(@WRK_Titulo,@WRK_Observaciones,@WRK_Estado,@DEP_DepartamentoID,@USR_Usuario_Creacion)
 
-						select max(WRK_WORK_FLOW) from WORK_FLOW;
 					end
 				if(@Accion = 'DELETE')-- TAREAS QUE NO ESTÁN LIGADAS A NINGUN FLUJO DE TRABAJO
 					begin
@@ -92,3 +107,4 @@ alter procedure pa_WorkFlow (
 		COMMIT TRANSACTION
 	END
 end
+

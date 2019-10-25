@@ -43,3 +43,18 @@ function cargarOTCliente(){
     alert("Error al ingresar");
   });    
 }
+
+function cargarTareasWF(){
+  $.ajax({
+    type: 'POST',
+    url: 'mantenimientoAJAX.php',
+    data: { 
+      key: 'cargarTareasWF', 
+      NombreWFAJAX: document.getElementById('NombreWFAJAX').value
+    }
+  }).done(function( datos ) {
+    $("#tablaTareas tbody").html(datos);
+  }).fail(function (jqXHR, textStatus, errorThrow){
+    alert("Error al ingresar");
+  }); 
+}

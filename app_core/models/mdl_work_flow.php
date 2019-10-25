@@ -24,6 +24,23 @@ class mdl_work_flow{
 		}
 		return $posts;
 	}
+	public function obtener_Tareas_nombre($Accion,$WRK_WORK_FLOW){
+		$posts=array();
+		$cont=0;
+		$sql = "exec pa_WorkFlow @accion='".$Accion."' ,@WRK_WORK_FLOW=0  ,@DEP_titulo='',@USR_Usuario_Creacion='',@WRK_Titulo='".$WRK_WORK_FLOW."',@WRK_Observaciones='',@WRK_Estado='',@WRK_DETALLE=0";
+		$stmt = $this->conexion->consulta($sql);
+		while( $row = $this->conexion->obtener_Columnas($stmt)) {
+			$posts[$cont][0]=$row[0];
+			$posts[$cont][1]=$row[1];
+			$posts[$cont][2]=$row[2];
+			$posts[$cont][3]=$row[3];
+			$posts[$cont][4]=$row[4];
+			$posts[$cont][5]=$row[5];
+			$posts[$cont][6]=$row[6];
+			$cont++;
+		}
+		return $posts;
+	}
 	public function obtener_Tareas($Accion,$WRK_WORK_FLOW){
 		$posts=array();
 		$cont=0;
@@ -47,16 +64,14 @@ class mdl_work_flow{
 		$stmt = $this->conexion->consulta($sql);
 		return $sql;
 	}
-	public function ejecutar_proc_workflow_dato($Accion,$WRK_WORK_FLOW,$WRK_Titulo,$WRK_Observaciones,$WRK_Estado,$DEP_titulo,$WRK_DETALLE,$USR_Usuario_Creacion){
+	public function pa_WorkFlow_ultimo_ingreso(){
 		$posts=array();
-		$cont=0;
-		$sql = "select 1;";
+		$sql = "exec pa_WorkFlow_ultimo_ingreso";
 		$stmt = $this->conexion->consulta($sql);
 		while( $row = $this->conexion->obtener_Columnas($stmt)) {
-			$posts[$cont][0]=$row[0];
-			$cont++;
+			$posts=$row[0];
 		}
-		print_r($posts);
+		return $posts;
 	}
 }
 ?>	

@@ -9,7 +9,7 @@
     $ctr = $ctr_ticket->insertar_ticket();
     $respuesta = $ctr_ticket->insertar_tareas_ticket($ctr);
     if($respuesta == 'true'){
-      header("Location: crear_ticket.php?Result=true&Num=$ctr"); 
+     header("Location: crear_ticket.php?Result=true&Num=$ctr"); 
     }
   }
 
@@ -162,7 +162,7 @@
                               <div class="form-group">
                                 <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Cliente</label>
                                 <div class="col-lg-8">
-                                  <select class="form-control m-bot15 selectpicker" id="NombreClienteAJAX" name="NombreClienteAJAX" data-live-search="true" title="Selecione Departamento" onchange="cargarProyectoCliente();">
+                                  <select class="form-control m-bot15 selectpicker" id="NombreClienteAJAX" name="NombreClienteAJAX" data-live-search="true" title="Selecione Cliente" onchange="cargarProyectoCliente();">
                                     <?php
                                     require_once(__CTR_PATH . "ctr_estandar.php");
                                     $ctr_estandar = new ctr_estandar();
@@ -177,19 +177,19 @@
                                 <br><br>
                                 <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Proyecto</label>
                                 <div class="col-lg-8">
-                                  <select class="form-control m-bot15 selectpicker" id="ProyectoClienteAjax" name="ProyectoClienteAjax" data-live-search="true" title="Selecione Departamento" onchange="cargarOTCliente();">
+                                  <select class="form-control m-bot15 selectpicker" id="ProyectoClienteAjax" name="ProyectoClienteAjax" data-live-search="true" title="Selecione Proyecto" onchange="cargarOTCliente();">
                                   </select>
                                 </div>
                                 <br><br>
                                 <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Orden de trabajo</label>
                                 <div class="col-lg-8">
-                                  <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajoAJAX" name="OrdenDeTrabajoAJAX" data-live-search="true" title="Selecione Departamento" >
+                                  <select class="form-control m-bot15 selectpicker" id="OrdenDeTrabajoAJAX" name="OrdenDeTrabajoAJAX" data-live-search="true" title="Selecione Orden de trabajo" >
                                   </select>
                                 </div>
                                 <br><br>
                                 <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Vendedor</label>
                                 <div class="col-lg-8">
-                                  <select class="form-control m-bot15 selectpicker" id="NombreVendedor" name="NombreVendedor" data-live-search="true" title="Selecione Departamento">
+                                  <select class="form-control m-bot15 selectpicker" id="NombreVendedor" name="NombreVendedor" data-live-search="true" title="Selecione Vendedor">
                                     <?php
                                     require_once(__CTR_PATH . "ctr_estandar.php");
                                     $ctr_estandar = new ctr_estandar();
@@ -204,7 +204,7 @@
                                 <br><br>
                                 <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Flujo de trabajo</label>
                                 <div class="col-lg-8">
-                                  <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento">
+                                  <select class="form-control m-bot15 selectpicker" id="NombreWFAJAX" name="NombreWFAJAX" data-live-search="true" title="Selecione Flujo de trabajo" onchange="cargarTareasWF();">
                                     <?php
                                     require_once(__CTR_PATH . "ctr_estandar.php");
                                     $ctr_estandar = new ctr_estandar();

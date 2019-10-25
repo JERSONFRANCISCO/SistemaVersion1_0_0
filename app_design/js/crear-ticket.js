@@ -16,14 +16,14 @@ function agregarFila_Tareas() {
   var tareaHoras=document.getElementById("tareaHoras").value;
   if(tareaTitulo.length>0){
     if(tareaDescripcion.length>0){
-      if(tareaDepartamento.length>0){
-        if(tareaUsuario.length>0){
+      //if(tareaDepartamento.length>0){
+        //if(tareaUsuario.length>0){
           if(tareaMinutos.length>0){
             if(tareaHoras.length>0){
-             var totalIngresos=document.getElementsByName("totalDeTareas")[0].innerHTML;
-             var siguienteColumna = (parseInt(totalIngresos)+1)
-             $("#numeroDeTareas").val(siguienteColumna);
-             document.getElementsByName("totalDeTareas")[0].innerHTML= siguienteColumna;
+         //    var totalIngresos=document.getElementsByName("totalDeTareas")[0].innerHTML;
+             var siguienteColumna = 1
+        //     $("#numeroDeTareas").val(siguienteColumna);
+         //    document.getElementsByName("totalDeTareas")[0].innerHTML= siguienteColumna;
              agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
              limpiarCampostexto();
            }else{
@@ -32,12 +32,12 @@ function agregarFila_Tareas() {
         }else{
           alert("Agregar minutos");
         }
-      }else{
-        alert("Agregar usuario");
-      }
-    }else{
-      alert("Agregar departamento");
-    }
+      //}else{
+        //alert("Agregar usuario");
+      //}
+   // }else{
+     // alert("Agregar departamento");
+    //}
   }else{
     alert("Agregar descripción");
   }
@@ -85,3 +85,4 @@ function limpiarCampostexto(){
   document.getElementById("tareaMinutos").value="";
   document.getElementById("tareaHoras").value="";
 }
+

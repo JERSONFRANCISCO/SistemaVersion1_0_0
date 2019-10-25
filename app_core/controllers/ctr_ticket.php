@@ -53,6 +53,12 @@ class ctr_ticket{
 			require_once("global.php");
 			require_once(__MDL_PATH . "mdl_html.php");
 			$HTML = new mdl_Html();
+
+
+			foreach($_POST as $nombre_campo => $valor){
+				echo "<br>".$nombre_campo."--".$valor."<br>";
+			}
+			/*
 			if(isset($_POST['numeroDeTareas'])){
 				for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
 					if(isset($_POST['tareatareaTitulo'.$i])){
@@ -70,13 +76,16 @@ class ctr_ticket{
 				}
 			}
 
+*/
 
+			/*
 			$to=$this->postdata->pa_ticket_correo_mails($tic_ticket);
 			$Subject="Hola, se ha registrado un ticket en el que participas, # ".$tic_ticket;
 			$cuerpo = $HTML->armar_correo_ticket_nuevo($tic_ticket);			
 			$non_HTML="fALLÓ EL ENVIO DEL HTML";
 
 			$this->mail->enviar_correo($to,$Subject,$cuerpo,$non_HTML);
+			*/
 			return "true";
 		}
 		public function obtener_hilo_ticket($ticketID)

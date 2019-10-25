@@ -16,6 +16,10 @@ class ctr_work_flow{
 			$Accion='TAREAS';
 			return $this->postdata->obtener_Tareas($Accion,$WRK_WORK_FLOW);
 		}
+		public function obtener_Tareas_nombre($WRK_WORK_FLOW){
+			$Accion='TAREA_';
+			return $this->postdata->obtener_Tareas_nombre($Accion,$WRK_WORK_FLOW);
+		}
 		public function obtener_Tareas_Disponibles($WRK_WORK_FLOW){
 			$Accion='WRKNEW';
 			return $this->postdata->obtener_Tareas($Accion,$WRK_WORK_FLOW);
@@ -30,8 +34,8 @@ class ctr_work_flow{
 			$DEP_titulo= $_POST['Departamento'];
 			$USR_Usuario_Creacion = $_SESSION['USR_nombre'];
 			$WRK_DETALLE=0;
-			return $this->postdata->ejecutar_proc_workflow_dato($Accion,$WRK_WORK_FLOW,$WRK_Titulo,$WRK_Observaciones,$WRK_Estado,$DEP_titulo,$WRK_DETALLE,$USR_Usuario_Creacion);
-
+			$this->postdata->ejecutar_proc_workflow($Accion,$WRK_WORK_FLOW,$WRK_Titulo,$WRK_Observaciones,$WRK_Estado,$DEP_titulo,$WRK_DETALLE,$USR_Usuario_Creacion);
+			return $this->postdata->pa_WorkFlow_ultimo_ingreso();
 		}
 		public function actualizar_work_flow(){
 			$Accion = "UPDATE";
@@ -43,7 +47,6 @@ class ctr_work_flow{
 			$USR_Usuario_Creacion = $_SESSION['USR_nombre'];
 			$WRK_DETALLE=0;
 			return $this->postdata->ejecutar_proc_workflow($Accion,$WRK_WORK_FLOW,$WRK_Titulo,$WRK_Observaciones,$WRK_Estado,$DEP_titulo,$WRK_DETALLE,$USR_Usuario_Creacion);
-
 		}
 		public function agregar_tarea_work_flow($WRK_WORK_FLOW){
 			$Accion = "DELETE";
@@ -55,7 +58,9 @@ class ctr_work_flow{
 			$USR_Usuario_Creacion = '';
 			$WRK_DETALLE=0;
 
+			// borramos las asociaciones
 			$this->postdata->ejecutar_proc_workflow($Accion,$WRK_WORK_FLOW,$WRK_Titulo,$WRK_Observaciones,$WRK_Estado,$DEP_titulo,$WRK_DETALLE,$USR_Usuario_Creacion);
+
 			$Accion = "TASK";
 
 			foreach($_POST as $nombre_campo => $valor){
