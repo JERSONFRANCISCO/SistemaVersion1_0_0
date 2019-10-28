@@ -1,9 +1,9 @@
-create procedure pa_WorkFlow_ultimo_ingreso
+alter procedure pa_WorkFlow_ultimo_ingreso
 as
 begin 
 	select max(WRK_WORK_FLOW) from WORK_FLOW;
 end
-
+go
 alter procedure pa_WorkFlow (
 	@Accion varchar(6),
 	@WRK_WORK_FLOW INT,
@@ -37,7 +37,7 @@ alter procedure pa_WorkFlow (
 						left join  DEPARTAMENTOS DEP ON (DEP.DEP_Departamento = wt.DEP_DEPARTAMENTO)
 						WHERE wf.WRK_WORK_FLOW = @WRK_WORK_FLOW
 					end
-				if(@Accion = 'TAREAS')
+				if(@Accion = 'TAREA_')
 					begin
 						select wt.WRK_DETALLE,wt.WRK_Titulo,wt.WRK_Observaciones,DEP.DEP_Titulo,USR.USR_Nombre,wt.WRK_Horas,wt.WRK_Minutos 
 						from WORK_FLOW wf 
@@ -45,7 +45,7 @@ alter procedure pa_WorkFlow (
 						inner join  WORK_FLOW_TAREAS wt on (wt.WRK_DETALLE = whf.WRK_DETALLE)
 						left join USUARIOS USR ON (wt.USR_Usuario = USR.USR_Usuario)
 						left join  DEPARTAMENTOS DEP ON (DEP.DEP_Departamento = wt.DEP_DEPARTAMENTO)
-						WHERE wf.WRK_WORK_FLOW = @WRK_WORK_FLOW
+						WHERE wf.WRK_Titulo = @WRK_Titulo
 					end
 				if(@Accion = 'WRKDIS')-- TAREAS QUE NO ESTÁN LIGADAS A NINGUN FLUJO DE TRABAJO
 					begin
