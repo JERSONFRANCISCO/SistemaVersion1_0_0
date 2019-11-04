@@ -26,12 +26,12 @@ if ($_POST['key']=='cargarTareasWF'){
 			$htmlTags.="<tr id='fila".($cont+1)."'>";
 		}
 		$htmlTags.="<td> <input  id='tareaid".$value[0]."' name='tareaid".$value[0]."' type='hidden' value='".$value[0]."'>".$value[0]."</td>";
-		$htmlTags.="<td>".$value[1]."</td>";
-		$htmlTags.="<td>".$value[2]."</td>";
-		$htmlTags.="<td>".$value[3]."</td>";
-		$htmlTags.="<td>".$value[4]."</td>";
-		$htmlTags.="<td>".$value[5]."</td>";
-		$htmlTags.="<td>".$value[6]."</td>";
+		$htmlTags.="<td> <input name='tareatareaTitulo".$value[0]."' value='".$value[1]."' type='text' style='display: none;'>".$value[1]."</td>";
+		$htmlTags.="<td> <input name='tareatareaDescripcion".$value[0]."' value='".$value[2]."' type='text' style='display: none;'>".$value[2]."</td>";
+		$htmlTags.="<td> <input name='tareaTareaDepartamento".$value[0]."' value='".$value[3]."' type='text' style='display: none;'>".$value[3]."</td>";
+		$htmlTags.="<td> <input name='tareatareaUsuario".$value[0]."' value='".$value[4]."' type='text' style='display: none;'>".$value[4]."</td>";
+		$htmlTags.="<td> <input name='tareatareaHoras".$value[0]."' value='".$value[5]."' type='text' style='display: none;'>".$value[5]."</td>";
+		$htmlTags.="<td> <input name='tareatareaMinutos".$value[0]."' value='".$value[6]."' type='text' style='display: none;'>".$value[6]."</td>";
 		$htmlTags.="<td>";
 		$htmlTags.="<div class='btn-group'>";
 		$htmlTags.="<button class='btn btn-danger' type='button' onclick='borrarFila(".($cont+1).")' title=''><i class='icon_close_alt2'></i></button>";
