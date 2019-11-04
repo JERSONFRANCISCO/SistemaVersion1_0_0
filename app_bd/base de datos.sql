@@ -156,8 +156,8 @@ CREATE TABLE dbo.TICKET_TAREAS(
 	TIC_Tareas INT IDENTITY(1,1),
 	CIA_Codigo varchar(3) null,
 	TIC_Ticket int Not NULL,-- REFERENCIA dbo.TICKET
-	DEP_Departamento INT NOT NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
-	USR_Usuario INT Not NULL, -- REFERENCIA   dbo.USUARIOS
+	DEP_Departamento INT  NULL,-- REFERENCIA dbo.DEPARTAMENTOS 
+	USR_Usuario INT NULL, -- REFERENCIA   dbo.USUARIOS
 	TIC_Titulo varchar(100) not null,
 	TIC_Observaciones varchar(max),
 	TIC_Estado varchar(1) not null,-- REALIZADO O NO

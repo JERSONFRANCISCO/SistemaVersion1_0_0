@@ -54,9 +54,29 @@ class ctr_ticket{
 			require_once(__MDL_PATH . "mdl_html.php");
 			$HTML = new mdl_Html();
 
-
+			$postid=0;
 			foreach($_POST as $nombre_campo => $valor){
-				echo "<br>".$nombre_campo."--".$valor."<br>";
+				//echo "<br>".$nombre_campo."--".$valor."<br>";
+
+				if(strpos($nombre_campo,'tareatareaUsuario') !== false){
+					$postid = str_replace("tareatareaUsuario", "", $nombre_campo);
+					//echo "id de una row".$postid;
+					$Usr_usuario=$_POST['tareatareaUsuario'.$postid];
+					$DEP_titulo=$_POST['tareaTareaDepartamento'.$postid];
+					$TIC_Estado='A';
+					$TIC_Titulo=$_POST['tareatareaTitulo'.$postid];
+					$TIC_Observaciones=$_POST['tareatareaDescripcion'.$postid];
+					$USR_Usuario_Creacion=$_SESSION['USR_user'];
+					$tic_horas=$_POST['tareatareaHoras'.$postid];
+					$tic_minutos=$_POST['tareatareaMinutos'.$postid];
+
+					$this->postdata->insertar_tareas_ticket($Usr_usuario,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$tic_horas,$tic_minutos,$tic_ticket);
+
+				} 
+
+				//$_POST['tareatareaUsuario'.$i];
+				//tareaid1;
+
 			}
 			/*
 			if(isset($_POST['numeroDeTareas'])){
