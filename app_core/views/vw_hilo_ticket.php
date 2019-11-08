@@ -30,6 +30,9 @@ if(isset($_POST['editordata'])){
     background: url('<?php echo __IMG_PATH; ?>page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
     opacity: 1;
   }
+  td{
+    color: #8c8c8c;
+  }
 </style>  
 
 <div class="loader"></div>
@@ -64,7 +67,7 @@ if(isset($_POST['editordata'])){
           <!-- <h3 class="page-header"><i class="fa fa-table"></i>Ticket 0001</h3> -->
           <div class="row">
             <div class="col-lg-12">
-              <header class="panel-heading">
+              <header class="panel-heading" style="background-color: white;">
                 <div class="row">
                   <div class="col-lg-4">
                     Ticket 
@@ -89,15 +92,12 @@ if(isset($_POST['editordata'])){
             <div class="row">
               <!-- profile-widget -->
               <div class="col-lg-12">
-                <div class="panel-body" style="color: black;background-color: white;">
+                <div class="panel-body" style="color: black;">
                   <div class="row">
                     <div class="row">
                       <!-- profile-widget -->
                       <div class="col-lg-12">
-
-
-                        <?php 
-
+                        <?php
                         if(isset($_GET['ticket'])){
                          require_once(__CTR_PATH . "ctr_ticket.php");
                          $ctr_ticket = new ctr_ticket();
@@ -260,6 +260,7 @@ if(isset($_POST['editordata'])){
                                   ?>
                                 </div>
                               </div>
+
                               <!-- profile -->
                               <div id="task" class="tab-pane">
                                 <div class="row">
@@ -271,57 +272,64 @@ if(isset($_POST['editordata'])){
                                       <table class="table">
                                         <thead>
                                           <tr>
-                                            <th>Titulo</th>
-                                            <th>Descripción</th>
-                                            <th>Usuario</th>
-                                            <th>Horas</th>
-                                            <th>Minutos</th>
-                                            <th>Estado</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <?php
-                                          require_once(__CTR_PATH . "ctr_ticket.php");
-                                          $ctr_ticket = new ctr_ticket();
-                                          $ctr = $ctr_ticket->obtener_tarea_ticket($_GET['ticket']);
-                                          foreach ($ctr as $value) {
-                                            echo "<tr>".
-                                            "<td>$value[1]</td>".
-                                            "<td>$value[2]</td>".
-                                            "<td>$value[5]</td>".
-                                            "<td>$value[4]</td>".
-                                            "<td>$value[3]</td>";
-                                            if($value[6] == 'A'){
-                                              echo "<td><input type='checkbox' data-toggle='toggle' data-on='Realizado' data-off='Por hacer'></td>";
-                                            }else{
-                                              echo "<td><input type='checkbox' checked data-toggle='toggle' data-on='Realizado' data-off='Por hacer'></td>";
+                                              <th></th>
+                                              <th>Titulo</th>
+                                              <th>Descripción</th>
+                                              <th>Usuario</th>
+                                              <th>Horas</th>
+                                              <th>Minutos</th>
+                                              <th>Estado</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <?php
+                                            require_once(__CTR_PATH . "ctr_ticket.php");
+                                            $ctr_ticket = new ctr_ticket();
+                                            $ctr = $ctr_ticket->obtener_tarea_ticket($_GET['ticket']);
+                                            foreach ($ctr as $value) {
+                                              echo "<tr>".
+                                              "<td>".
+                                              "<span class='badge bg-important'>Tarea</span>".
+                                              "</td>".
+                                              "<td>$value[1]</td>".
+                                              "<td>$value[2]</td>".
+                                              "<td>$value[5]</td>".
+                                              "<td>$value[4]</td>".
+                                              "<td>$value[3]</td>";
+                                              if($value[6] == 'A'){
+                                                echo "<td><input type='checkbox' data-toggle='toggle' data-on='Realizado' data-off='Por hacer'></td>";
+                                              }else{
+                                                echo "<td><input type='checkbox' checked data-toggle='toggle' data-on='Realizado' data-off='Por hacer'></td>";
+                                              }
+                                              echo "</tr>";
                                             }
-                                            echo "</tr>";
-                                          }
-                                          ?>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                  </section>
+                                            ?>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </section>
+                                  </div>
                                 </div>
+
+
+
                               </div>
                             </div>
-                          </div>
 
 
-                        </section>
+                          </section>
+                        </div>
                       </div>
+
                     </div>
-                    
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
+
           </section>
 
-        </section>
 
-
-  <?php
-  echo $HTML->html_footer();
-  ?>
+          <?php
+          echo $HTML->html_footer();
+          ?>

@@ -9,6 +9,7 @@ alter procedure pa_obtener_hilo_ticket( @tic_ticket int	)
 end
 
 
+
 alter procedure pa_obtener_tareas_ticket( @tic_ticket int	)
 	as
 		begin
@@ -21,6 +22,6 @@ alter procedure pa_obtener_tareas_ticket( @tic_ticket int	)
 			usr.USR_Nombre,
 			tar.TIC_Estado 
 		from TICKET_TAREAS  tar
-		inner join USUARIOS usr on (tar.USR_Usuario = usr.USR_Usuario)
+		left join USUARIOS usr on (tar.USR_Usuario = usr.USR_Usuario)
 		where tar.TIC_Ticket = @tic_ticket
 end

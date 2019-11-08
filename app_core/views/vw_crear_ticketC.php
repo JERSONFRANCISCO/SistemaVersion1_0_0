@@ -43,15 +43,6 @@
     opacity: 1;
   }
 
-
-  tr:nth-child(odd) {
-    background-color:#ffffff;
-  }
-  tr:nth-child(even) {
-   background: aliceblue;
- }
-
-
 </style> 
 
 <!-- container section start -->
@@ -65,7 +56,7 @@
     <?php
     echo $HTML->actionMenu();
     ?>
-    
+
   </header>
   <!--header end-->
 
@@ -268,7 +259,14 @@
 
                         <!-- AQUI INICIA LA CEJILLA QUE CONTIENE EL  -->
                         <div id="changeTareas" class="tab-pane">
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Agregar Tarea</button>
+                          <div class="row">
+                            <div class="col-lg-12 col-sm-12 follow-info">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Agregar Tarea</button>
+                            </div>
+
+                            
+                            
+                          </div>
                           <!------------------------------------------------- ------------------>
                           <div class="row">
                             <div class="col-lg-12 col-sm-12 follow-info">
@@ -278,7 +276,7 @@
                                 </header>
                                 <div class="table-responsive" id="tablaConTareas" name="tablaConTareas">
                                   <table class="table" id="tablaTareas" name="tablaTareas">
-                                    <thead style="background-color: #f7f7f7;">
+                                    <thead style="background-color: #394a593b;">
                                       <tr>
                                         <th>Tarea</th>
                                         <th>Título</th>
@@ -290,7 +288,7 @@
                                         <th>Acción</th>
                                       </tr>
                                     </thead>
-                                    <tfoot style="background-color: #f7f7f7;">
+                                    <tfoot style="background-color: #394a593b;">
                                       <tr>
                                         <th>Tarea</th>
                                         <th>Título</th>
@@ -315,12 +313,12 @@
                       </div>
                       <button type="submit" class="btn btn-primary btn-lg btn-block">Abrir</button>
                     </div>
-
-                    <!-- AQUI TERMINA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
-                  </section>
-                </div>
+                  </form>
+                  <!-- AQUI TERMINA LAS CEJILLAS DONDE SE ECUENTRA PARA RESPONDER UN TICKET CAMBIAR DEPARTAMENTO CAMBIAR USUARIO-->
+                </section>
               </div>
-            </form>
+            </div>
+
 
           </div>
         </div>
@@ -329,83 +327,6 @@
   </section>
 </section>
 
-
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content" style="background-color: white;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Tarea</h5>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <div class="col-lg-12">
-            <label class="control-label col-lg-4" id="alinearIzquierda">Título</label>
-            <div class="col-sm-12">
-              <input class="form-control" placeholder="Título" type="text" id='tareaTitulo' name='tareaTitulo'>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Descripción</label>
-            <div class="col-sm-12">
-              <input class="form-control" placeholder="Descripción" type="text" id='tareaDescripcion' name='tareaDescripcion'>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Horas</label>
-            <div class="col-sm-12">
-              <input class="form-control" placeholder="Horas" type="number" min="1" maxlength="2" value="0" id='tareaHoras' name='tareaHoras'>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <label class="control-label col-lg-4" for="inputSuccess" id="alinearIzquierda">Minutos</label>
-            <div class="col-sm-12">
-              <input class="form-control" placeholder="Minutos" type="number" maxlength="2" min="1" value="0" id='tareaMinutos' name='tareaMinutos'>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-11" style="left: 2%;">
-              <label class="control-label col-lg-6" for="inputSuccess" id="alinearIzquierda">Departamento</label>
-              <div class="col-lg-12">
-                <select class="form-control m-bot15 selectpicker" id="tareaDepartamento" name="tareaDepartamento" data-live-search="true" title="Selecione Departamento">
-                  <?php
-                  require_once(__CTR_PATH . "ctr_departamentos.php");
-                  $ctr_departamentos = new ctr_departamentos();
-                  $ctr = $ctr_departamentos->obtener_Departamentos();
-                  $cont = 0;
-                  foreach ($ctr as $value) {
-                    echo "<option>".$value[0]."</option>";  
-                  }
-                  ?>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-lg-11" style="left: 2%;">
-              <label class="control-label col-lg-6" for="inputSuccess" id="alinearIzquierda">Usuario asignado</label>
-              <div class="col-lg-12">
-                <select class="form-control m-bot15 selectpicker" id="tareaUsuario" name="tareaUsuario" data-live-search="true" title="Selecione Departamento">
-                  <?php
-                  require_once(__CTR_PATH . "ctr_usuario.php");
-                  $ctr_usuario = new ctr_usuario();
-                  $ctr = $ctr_usuario->obtener_Usuarios();
-                  $cont = 0;
-                  foreach ($ctr as $value) {
-                    echo "<option>".$value[0]."</option>";  
-                  }
-                  ?>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" id="botonAgregarTarea" name="botonAgregarTarea" onclick="agregarFila_Tareas()">Agregar</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!--main content end-->
 <?php

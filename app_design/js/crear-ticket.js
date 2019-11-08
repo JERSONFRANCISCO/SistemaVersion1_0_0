@@ -50,7 +50,7 @@
   function agregarFila(id,tareaTitulo,tareaDescripcion,TareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos) {
    var style='';
    if(id%2==0){
-    style='background-color: #f7f7f7;'
+    //style='background: aliceblue;'
   }
   var htmlTags = 
   '<tr id=fila'+id+'  style = "'+style+'"">'+
@@ -80,8 +80,8 @@
   function limpiarCampostexto(){
     document.getElementById("tareaTitulo").value="";
     document.getElementById("tareaDescripcion").value="";
-    document.getElementById("tareaMinutos").value="";
-    document.getElementById("tareaHoras").value="";
+    document.getElementById("tareaMinutos").value="0";
+    document.getElementById("tareaHoras").value="0";
   }
 
   function masAlto(){

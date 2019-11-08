@@ -21,7 +21,7 @@ if ($_POST['key']=='cargarTareasWF'){
 	$ctr = $ctr_work_flow->obtener_Tareas_nombre($_POST['NombreWFAJAX']);
 	foreach ($ctr as $value) {
 		if($cont % 2 == 0){
-			$htmlTags.="<tr style = 'background: aliceblue;' id='fila".($cont+1)."'>";
+			$htmlTags.="<tr id='fila".($cont+1)."'>";
 		}else{
 			$htmlTags.="<tr id='fila".($cont+1)."'>";
 		}
