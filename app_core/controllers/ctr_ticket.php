@@ -74,38 +74,15 @@ class ctr_ticket{
 
 				} 
 
-				//$_POST['tareatareaUsuario'.$i];
-				//tareaid1;
-
 			}
-			/*
-			if(isset($_POST['numeroDeTareas'])){
-				for($i = 0 ; $i <=$_POST['numeroDeTareas'] ; $i++ ){
-					if(isset($_POST['tareatareaTitulo'.$i])){
-						$Usr_usuario=$_POST['tareatareaUsuario'.$i];
-						$DEP_titulo=$_POST['tareaTareaDepartamento'.$i];
-						$TIC_Estado='A';
-						$TIC_Titulo=$_POST['tareatareaTitulo'.$i];
-						$TIC_Observaciones=$_POST['tareatareaDescripcion'.$i];
-						$USR_Usuario_Creacion=$_SESSION['USR_user'];
-						$tic_horas=$_POST['tareatareaHoras'.$i];
-						$tic_minutos=$_POST['tareatareaMinutos'.$i];
-
-						$this->postdata->insertar_tareas_ticket($Usr_usuario,$DEP_titulo,$TIC_Estado,$TIC_Titulo,$TIC_Observaciones,$USR_Usuario_Creacion,$tic_horas,$tic_minutos,$tic_ticket);
-					}
-				}
-			}
-
-*/
-
-			/*
+			
 			$to=$this->postdata->pa_ticket_correo_mails($tic_ticket);
 			$Subject="Hola, se ha registrado un ticket en el que participas, # ".$tic_ticket;
 			$cuerpo = $HTML->armar_correo_ticket_nuevo($tic_ticket);			
 			$non_HTML="fALLÓ EL ENVIO DEL HTML";
 
 			$this->mail->enviar_correo($to,$Subject,$cuerpo,$non_HTML);
-			*/
+			
 			return "true";
 		}
 		public function obtener_hilo_ticket($ticketID)

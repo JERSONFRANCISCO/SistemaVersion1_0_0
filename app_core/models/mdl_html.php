@@ -262,8 +262,8 @@ class mdl_HTML {
 				$menu.= "<td style='border: 1px solid #dddddd;'>$value[13]</td>";
 				$menu.= "<td style='border: 1px solid #dddddd;'>$value[14]</td>";
 				$menu.= "<td style='border: 1px solid #dddddd;'>$value[15]</td>";
-				$menu.= "<td style='border: 1px solid #dddddd;'>$value[16]</td>";
 				$menu.= "<td style='border: 1px solid #dddddd;'>$value[17]</td>";
+				$menu.= "<td style='border: 1px solid #dddddd;'>$value[16]</td>";
 				$menu.= "<td style='border: 1px solid #dddddd;'>$value[18]</td>";
 				$menu.= "</tr>";
 			}else{
