@@ -1,8 +1,3 @@
-//$(document).ready(function () {
- // $('#botonAgregarTarea').click(function(){
-    //alert($("#numeroDeTareas").val());
- // });
-//});
 /*
   Esta funcion lo que hace es agregar en la tabla de tareas una fila la cual indica que es una tarea la cual se va a guardar en la 
   base de datos
@@ -21,15 +16,15 @@
           if(tareaMinutos.length>0){
             if(tareaHoras.length>0){
              var siguienteColumna =  masAlto();
-         agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
-         limpiarCampostexto();
-         
-       }else{
-        alert("Agregar horas");
-      }
-    }else{
-      alert("Agregar minutos");
-    }
+             agregarFila(siguienteColumna,tareaTitulo,tareaDescripcion,tareaDepartamento,tareaUsuario,tareaHoras,tareaMinutos);
+             limpiarCampostexto();
+             
+           }else{
+            alert("Agregar horas");
+          }
+        }else{
+          alert("Agregar minutos");
+        }
       //}else{
         //alert("Agregar usuario");
       //}

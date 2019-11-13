@@ -13,6 +13,8 @@ if ($_POST['key']=='cargarOTCliente'){
 	$proyecto = $_POST['proyecto'];
 	echo $ctr_estandar->obtener_OrdenesTrabajo_Cliente($cliente,$proyecto);
 }
+
+
 if ($_POST['key']=='cargarTareasWF'){
 	require_once(__CTR_PATH . "ctr_work_flow.php");
 	$cont=0;
