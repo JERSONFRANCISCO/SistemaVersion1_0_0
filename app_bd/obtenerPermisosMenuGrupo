@@ -1,0 +1,33 @@
+Create procedure obtenerPermisosMenuGrupo(
+	@GRU_Titulo varchar(30)
+	)
+	as
+
+	begin
+		BEGIN TRANSACTION;  
+			BEGIN TRY
+				select Menu_NombrePadre,Menu_NombreHija,c.GRU_Titulo,a.estado,* 
+				from ROLESHASMENU a 
+				inner join Menu_Opciones b on (a.Menu_id = b.id) 
+				inner join GRUPO c on (a.Grupo_id = c.GRU_Grupo)
+				where GRU_Titulo = @GRU_Titulo
+
+			END TRY
+
+			BEGIN CATCH
+				IF @@TRANCOUNT > 0  
+					BEGIN
+						ROLLBACK TRANSACTION;  
+					END
+
+			  insert into ERRORESLOG(Error_Number,Error_State,ERROR_SEVERITY,ERROR_PROCEDURE,ERROR_LINE,ERROR_MESSAGE,USR_Nombre)
+			  SELECT ERROR_NUMBER() AS ErrorNumber,ERROR_STATE() AS ErrorState,ERROR_SEVERITY() AS ErrorSeverity,ERROR_PROCEDURE() AS ErrorProcedure,ERROR_LINE() AS ErrorLine,ERROR_MESSAGE() AS ErrorMessage,'Sistema';
+			  select top 1 id,Error_Number,Error_State,ERROR_SEVERITY,ERROR_PROCEDURE,ERROR_LINE,ERROR_MESSAGE from ERRORESLOG order by ID desc;
+		   
+		   END CATCH;
+
+	IF @@TRANCOUNT > 0 
+	BEGIN
+		COMMIT TRANSACTION
+	END
+end

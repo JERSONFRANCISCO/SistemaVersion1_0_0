@@ -53,7 +53,7 @@
             <div class="col-lg-12">
               <section class="panel">
                 <header class="panel-heading">
-                  INFORMACIÓN
+                  Envía un mensaje al desarrollador!
                 </header>
                 <div class="panel-body">
                   <div id="wrapper">
@@ -63,37 +63,76 @@
                           <!-- DataTales Example -->
                           <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                              <?php
-                              
-                              ?>
+                             <div class="row">
+                              <div class="col-lg-6">
+                                <div id="errormessage"></div>
+                                <form action="" method="post" role="form" class="contactForm">
+                                  <div class="form-group">
+                                    <h4>Usuario</h4>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" value="<?php echo $USR_Usuario_Creacion=$_SESSION['USR_nombre']; ?>" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
+                                    <div class="validation"></div>
+                                  </div>
+                                  <div class="form-group">
+                                    <h4>Correo</h4>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="<?php echo $USR_Usuario_Creacion=$_SESSION['USR_correo']; ?>"  data-rule="email" data-msg="Please enter a valid email" required/>
+                                    <div class="validation"></div>
+                                  </div>
+                                  <div class="form-group">
+                                    <h4>Asunto</h4>
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Ingresa el asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
+                                    <div class="validation"></div>
+                                  </div>
+                                  <div class="form-group">
+                                    <h4>Mensaje</h4>
+                                    <textarea class="form-control" name="message" rows="5" data-rule="required" style="overflow:auto;resize:none" data-msg="Please write something for us" placeholder="Escribe el problema que estas presentando" required></textarea>
+                                    <div class="validation"></div>
+                                  </div>
+
+                                  <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button></div>
+                                </form>
+                              </div>
+
+                              <div class="col-lg-6">
+                                <div class="recent">
+                                  <h3>Consideraciones</h3>
+                                </div>
+                                <div class="">
+                                  <p>- El mensaje será enviado por correo a los desarrolladores de DIALCOM.</p>
+                                  <p>- El mensaje que sea enviado por este medio, abrirá un ticket el cual podrás ver el avance en el correo que se envíe.</p>
+                                  <p>- Solo podrá ingresar texto.</p>
+
+                                </div>
+                              </div>
+
                             </div>
-
                           </div>
-                        </div>
-                        <!-- /.container-fluid -->
-                      </div>
-                      <!-- End of Main Content -->
-                    </div>
-                    <!-- End of Content Wrapper -->
-                  </div>
 
+                        </div>
+                      </div>
+                      <!-- /.container-fluid -->
+                    </div>
+                    <!-- End of Main Content -->
+                  </div>
+                  <!-- End of Content Wrapper -->
                 </div>
 
-              </section>
-            </div>
+              </div>
+
+            </section>
           </div>
         </div>
       </div>
+    </div>
 
 
 
-    </section>
   </section>
+</section>
 
 
-  <?php
-  echo $HTML->html_footer();
-  ?>
+<?php
+echo $HTML->html_footer();
+?>
 
-  
+
 </section>
