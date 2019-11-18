@@ -34,9 +34,12 @@ class ctr_estandar{
 		}
 		public function obtener_Proyectos_Cliente($cliente)
 		{
-			echo $this->postdata->obtener_Proyectos_Cliente($cliente);
+			return $this->postdata->obtener_Proyectos_Cliente($cliente);
 		}
-		
+		public function actualizar_Opciones_Menu($estado,$id)
+		{
+			return $this->postdata->actualizar_Opciones_Menu($estado,$id);
+		}
 	}
 
 ?>

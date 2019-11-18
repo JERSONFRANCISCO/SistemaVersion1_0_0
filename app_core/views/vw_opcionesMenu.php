@@ -40,6 +40,8 @@
   <!--sidebar start-->
   <?php
   echo $HTML->html_menu();
+  echo $HTML->boton_arriba();
+
   ?>
 
 
@@ -71,7 +73,7 @@
                                   </header>
                                   <br>
                                   <div class="form-group">
-                                    <label class="control-label col-lg-2" for="inputSuccess">Grupo</label>
+                                    <label class="control-label col-lg-2" for="inputSuccess"><h4>Grupo</h4></label>
                                     <div class="col-lg-10">
                                       <select class="form-control m-bot15 selectpicker" id="Grupo"  name="Grupo" name="Grupo" data-live-search="true" title="Selecione Grupo" <?php echo $comboBOX;?>>
                                         <?php
@@ -85,63 +87,71 @@
                                   </div>
                                   <table class="table table-striped table-advance table-hover table-bordered">
                                     <tbody>
-                                      <tr>
-                                        <th colspan="2" >Opciones del menú</th>
-                                        <th style="text-align: center;">Acceso del grupo a la opción</th>
+                                      <tr >
+                                        <th colspan="2" ><h3>Opciones del menú</h3></th>
+                                        <th><h3>Estado</h3></th>
                                       </tr>
                                       <tr>
-                                        <th>Opcion de menú</th>
-                                        <th>Opcion del submenú</th>
-                                        <th><i class="icon_profile"></i>Acceso</th>
+                                        <th><h4>Opcion de menú</h4></th>
+                                        <th><h4>Opcion del submenú</h4></th>
+                                        <th style='text-align: center;'><i class="icon_profile"></i><h4>Acceso</h4></th>
                                       </tr>
 
 
-                                      <tr>
-                                        <td rowspan="2">Mantenimiento</td>
-                                        <td>Grupos</td>
-                                        <td><input type="checkbox" id="inlineCheckbox1" value="option1"></td> 
-                                      </tr>
+                                      <?php
+                                      require_once(__CTR_PATH . "ctr_opcionesMenu.php");
+                                      $ctr_opcionesMenu = new ctr_opcionesMenu();
+                                      $ctr = $ctr_opcionesMenu->obtener_opcionesMenu();
 
-                                      <tr>
-                                        <td>Departamentos</td>
-                                        <td><input type="checkbox" id="inlineCheckbox1" value="option1" checked></td> 
-                                      </tr>
+                                      $html="";
+                                      $anterior="";
+                                      foreach ($ctr as $value) {
+                                        $html.= "<tr>";
+                                        if($anterior != $value[0])
+                                        {
+                                         $html.= "<td rowspan='".$value[7]."'><h4>".$value[0]."<h4></td>";
+                                         $anterior=$value[0];
+                                       }
+                                       $html.= "<td>".$value[1]."</td>";
+                                       if($value[3]=="A"){
+                                         $html.= "<td style='text-align: center;'><input type='checkbox' onclick='cargarOpcionesMenu(this,".$value[6].")' value='option1' checked></td>";
+                                       }else{
+                                        $html.= "<td style='text-align: center;'><input type='checkbox' onclick='cargarOpcionesMenu(this,".$value[6].")' value='option1'></td>";
+                                       }
+                                       $html.= "</tr>";
+                                     }
+                                     echo  $html;
+                                     ?>
 
-                                      <tr>
-                                        <td>Departamentos</td>
-                                        <td>Grupos</td>
-                                        <td><input type="checkbox" id="inlineCheckbox1" value="option1"></td> 
-                                      </tr>
-
-                                    </tbody>
-                                  </table>
-                                </section>
-                              </div>
-
-
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                      <!-- /.container-fluid -->
-                    </div>
-                    <!-- End of Main Content -->
-                  </div>
-                  <!-- End of Content Wrapper -->
-                </div>
-
-              </div>
-
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
+                                   </tbody>
+                                 </table>
+                               </section>
+                             </div>
 
 
+                           </div>
+                         </div>
 
-  </section>
+                       </div>
+                     </div>
+                     <!-- /.container-fluid -->
+                   </div>
+                   <!-- End of Main Content -->
+                 </div>
+                 <!-- End of Content Wrapper -->
+               </div>
+
+             </div>
+
+           </section>
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+
+ </section>
 </section>
 
 

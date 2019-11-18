@@ -24,6 +24,7 @@ $HTML = new mdl_Html();
   echo $HTML->html_css_header("https://use.fontawesome.com/releases/v5.7.0/css/all.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "style.css","screen");
   echo $HTML->html_css_header(__CSS_PATH . "style-responsive.css","screen");
+  echo $HTML->html_css_header(__CSS_PATH . "botonSubir.css","screen");
   //echo $HTML->html_css_header(__CSS_PATH . "dataTables.bootstrap4.min.css","screen");
   //echo $HTML->html_css_header(__CSS_PATH . "bootstrap-select.min.css","screen");
   ?>
@@ -51,6 +52,8 @@ $HTML = new mdl_Html();
   echo $HTML->html_js_header(__JS_PATH."jquery.scrollTo.min.js");
   echo $HTML->html_js_header(__JS_PATH."jquery.nicescroll.js");
   echo $HTML->html_js_header(__JS_PATH."scripts.js");  // eventos del menu
+  echo $HTML->html_js_header(__JS_PATH."botonSubir.js");
+  echo $HTML->html_js_header(__JS_PATH."javascriptAJAX.js");
  //echo $HTML->html_js_header(__JS_PATH."bootstrap-select.min.js");
 
   /*

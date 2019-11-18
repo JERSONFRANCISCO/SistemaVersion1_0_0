@@ -1,4 +1,4 @@
-Create procedure obtenerPermisosMenuGrupo(
+ALTER procedure [dbo].[obtenerPermisosMenuGrupo](
 	@GRU_Titulo varchar(30)
 	)
 	as
@@ -6,12 +6,19 @@ Create procedure obtenerPermisosMenuGrupo(
 	begin
 		BEGIN TRANSACTION;  
 			BEGIN TRY
-				select Menu_NombrePadre,Menu_NombreHija,c.GRU_Titulo,a.estado,* 
+				select b.Menu_NombrePadre,Menu_NombreHija,c.GRU_Titulo,a.estado,c.GRU_Grupo,a.Menu_id,a.id,d.TOTAL
 				from ROLESHASMENU a 
 				inner join Menu_Opciones b on (a.Menu_id = b.id) 
 				inner join GRUPO c on (a.Grupo_id = c.GRU_Grupo)
+				inner join (
+					select count(*) AS TOTAL,Menu_NombrePadre from ROLESHASMENU a
+					inner join Menu_Opciones b on (a.Menu_id = b.id)
+					inner join GRUPO c on (a.Grupo_id = c.GRU_Grupo)
+					where c.GRU_Titulo = @GRU_Titulo
+					group by Menu_NombrePadre
+				) AS d ON (d.Menu_NombrePadre = b.Menu_NombrePadre)
 				where GRU_Titulo = @GRU_Titulo
-
+				order by b.Menu_NombrePadre asc
 			END TRY
 
 			BEGIN CATCH

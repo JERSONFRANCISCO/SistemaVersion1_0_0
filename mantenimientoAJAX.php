@@ -44,5 +44,7 @@ if ($_POST['key']=='cargarTareasWF'){
 	}
 	echo $htmlTags;
 }
-
+if ($_POST['key']=='actualizaEstadoPermiso'){
+	echo $ctr_estandar->actualizar_Opciones_Menu($_POST['EstadoMenu'],$_POST['CodigoTarea']);
+}
 ?>

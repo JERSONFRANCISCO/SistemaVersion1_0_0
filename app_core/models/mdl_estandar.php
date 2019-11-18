@@ -78,6 +78,11 @@ class mdl_estandar{
 		return $posts;
 	}
 
+	public function actualizar_Opciones_Menu($estado,$id){
+		$sql = "update dbo.ROLESHASMENU set estado = '".$estado."' where id = ".$id;
+		$this->conexion->consulta($sql);
+		return $estado.$id;
+	}
 
 }
 ?>	

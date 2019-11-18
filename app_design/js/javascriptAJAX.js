@@ -1,23 +1,23 @@
 /*
   Funciones en jquery que refrescan la información de los combobox mediante el uso 
   de ajax esto para que los cambios se hagan sin refrescar la página
-*/
-function cargarProyectoCliente(){
-  $.ajax({
-    type: 'POST',
-    url: 'mantenimientoAJAX.php',
-    data: { 
-      key: 'cargarProyectoClientes', 
-      cliente: document.getElementById('NombreClienteAJAX').value 
-    }
-  }).done(function( datos ) {
-    $("#ProyectoClienteAjax").selectpicker();
-    $("#ProyectoClienteAjax").html(datos);
-    $('#ProyectoClienteAjax').selectpicker('refresh');
+  */
+  function cargarProyectoCliente(){
+    $.ajax({
+      type: 'POST',
+      url: 'mantenimientoAJAX.php',
+      data: { 
+        key: 'cargarProyectoClientes', 
+        cliente: document.getElementById('NombreClienteAJAX').value 
+      }
+    }).done(function( datos ) {
+      $("#ProyectoClienteAjax").selectpicker();
+      $("#ProyectoClienteAjax").html(datos);
+      $('#ProyectoClienteAjax').selectpicker('refresh');
 
-    $("#OrdenDeTrabajoAJAX").selectpicker();
-    $("#OrdenDeTrabajoAJAX").html("");
-    $('#OrdenDeTrabajoAJAX').selectpicker('refresh');
+      $("#OrdenDeTrabajoAJAX").selectpicker();
+      $("#OrdenDeTrabajoAJAX").html("");
+      $('#OrdenDeTrabajoAJAX').selectpicker('refresh');
     //$(this).val("");
 
   }).fail(function (jqXHR, textStatus, errorThrow){
@@ -57,4 +57,29 @@ function cargarTareasWF(){
   }).fail(function (jqXHR, textStatus, errorThrow){
     alert("Error al ingresar");
   }); 
+}
+
+function cargarOpcionesMenu(cb,tarea){
+  var estado="";
+  if($(cb).is(':checked')){
+   estado='A';
+ }else{
+   estado='I';
+ }
+
+ $.ajax({
+  type: 'POST',
+  url: 'mantenimientoAJAX.php',
+  data: { 
+    key: 'actualizaEstadoPermiso', 
+    EstadoMenu: estado,
+    CodigoTarea: tarea
+  }
+}).done(function( datos ) {
+  //$("#tablaTareas tbody").html(datos);
+  //alert(datos);
+}).fail(function (jqXHR, textStatus, errorThrow){
+  alert("Error al realizar accion");
+}); 
+
 }
