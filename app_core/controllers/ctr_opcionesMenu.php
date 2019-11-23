@@ -10,10 +10,16 @@ class ctr_opcionesMenu{
 		}
 		public function obtener_opcionesMenu()
 		{
-			$GRU_Titulo = "Usuarios sistema";
-			return $this->postdata->obtener_opcionesMenu($GRU_Titulo);
+			//$GRU_Titulo = "Usuarios sistema";
+			require_once(__CTR_PATH . "ctr_grupo.php");
+			$ctr_grupo = new ctr_grupo();
+			$ctr = $ctr_grupo->obtener_Grupos();
+			return $this->postdata->obtener_opcionesMenu($ctr[0][0]);
 		}
-
+		public function obtener_opcionesMenu_($grupo)
+		{
+			return $this->postdata->obtener_opcionesMenu($grupo);
+		}
 	}
 
-?>
+	?>

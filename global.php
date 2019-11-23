@@ -50,7 +50,6 @@ define('__mail_Domine', "://mail.dialcomcr.com:");
 define('__mail_Host', __mail_SMTPSecure.__mail_Domine.__mail_Port); 
 
 
-
 //app_core/resources/usrimg/
 
 ?>

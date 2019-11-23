@@ -50,12 +50,12 @@
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-table"></i>AYUDA Y SOPORTE TÉCNICO</h3>
+          <h3 class="page-header"><i class="fa fa-table"></i>SEGURIDAD Y PERMISOS</h3>
           <div class="row">
             <div class="col-lg-12">
               <section class="panel">
                 <header class="panel-heading">
-                  Envía un mensaje al desarrollador!
+                  Permisos por grupo!
                 </header>
                 <div class="panel-body">
                   <div id="wrapper">
@@ -75,7 +75,7 @@
                                   <div class="form-group">
                                     <label class="control-label col-lg-2" for="inputSuccess"><h4>Grupo</h4></label>
                                     <div class="col-lg-10">
-                                      <select class="form-control m-bot15 selectpicker" id="Grupo"  name="Grupo" name="Grupo" data-live-search="true" title="Selecione Grupo" <?php echo $comboBOX;?>>
+                                      <select class="form-control m-bot15 selectpicker" id="GrupoNombre"  name="GrupoNombre" data-live-search="true" onchange="cargarOpcionesMenuGrupo()" title="Selecione Grupo">
                                         <?php
                                         require_once(__CTR_PATH . "ctr_grupo.php");
                                         $ctr_grupo = new ctr_grupo();
@@ -85,9 +85,10 @@
                                       </select>
                                     </div>
                                   </div>
-                                  <table class="table table-striped table-advance table-hover table-bordered">
+                                  <?php  ?>
+                                  <table id="tablaTareas" name="tablaTareas" class="table table-striped table-advance table-hover table-bordered">
                                     <tbody>
-                                      <tr >
+                                      <tr>
                                         <th colspan="2" ><h3>Opciones del menú</h3></th>
                                         <th><h3>Estado</h3></th>
                                       </tr>
@@ -96,13 +97,10 @@
                                         <th><h4>Opcion del submenú</h4></th>
                                         <th style='text-align: center;'><i class="icon_profile"></i><h4>Acceso</h4></th>
                                       </tr>
-
-
                                       <?php
                                       require_once(__CTR_PATH . "ctr_opcionesMenu.php");
                                       $ctr_opcionesMenu = new ctr_opcionesMenu();
                                       $ctr = $ctr_opcionesMenu->obtener_opcionesMenu();
-
                                       $html="";
                                       $anterior="";
                                       foreach ($ctr as $value) {
@@ -117,41 +115,41 @@
                                          $html.= "<td style='text-align: center;'><input type='checkbox' onclick='cargarOpcionesMenu(this,".$value[6].")' value='option1' checked></td>";
                                        }else{
                                         $html.= "<td style='text-align: center;'><input type='checkbox' onclick='cargarOpcionesMenu(this,".$value[6].")' value='option1'></td>";
-                                       }
-                                       $html.= "</tr>";
-                                     }
-                                     echo  $html;
-                                     ?>
+                                      }
+                                      $html.= "</tr>";
+                                    }
+                                    echo  $html;
+                                    ?>
 
-                                   </tbody>
-                                 </table>
-                               </section>
-                             </div>
-
-
-                           </div>
-                         </div>
-
-                       </div>
-                     </div>
-                     <!-- /.container-fluid -->
-                   </div>
-                   <!-- End of Main Content -->
-                 </div>
-                 <!-- End of Content Wrapper -->
-               </div>
-
-             </div>
-
-           </section>
-         </div>
-       </div>
-     </div>
-   </div>
+                                  </tbody>
+                                </table>
+                              </section>
+                            </div>
 
 
+                          </div>
+                        </div>
 
- </section>
+                      </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                  </div>
+                  <!-- End of Main Content -->
+                </div>
+                <!-- End of Content Wrapper -->
+              </div>
+
+            </div>
+
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</section>
 </section>
 
 

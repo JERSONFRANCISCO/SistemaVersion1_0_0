@@ -47,4 +47,48 @@ if ($_POST['key']=='cargarTareasWF'){
 if ($_POST['key']=='actualizaEstadoPermiso'){
 	echo $ctr_estandar->actualizar_Opciones_Menu($_POST['EstadoMenu'],$_POST['CodigoTarea']);
 }
+if ($_POST['key']=='cargarOpcionesMenu'){
+	
+	require_once(__CTR_PATH . "ctr_opcionesMenu.php");
+	$ctr_opcionesMenu = new ctr_opcionesMenu();
+	
+	$grupo = $_POST['GrupoNombre'];
+
+
+	$ctr = $ctr_opcionesMenu->obtener_opcionesMenu_($grupo);
+	$html="";
+	$html.= "<tr>";
+	$html.= "<th colspan='2' ><h3>Opciones del menú</h3></th>";
+	$html.= "<th><h3>Estado</h3></th>";
+	$html.= "</tr>";
+	$html.= "<tr>";
+	$html.= "<th><h4>Opcion de menú</h4></th>";
+	$html.= "<th><h4>Opcion del submenú</h4></th>";
+	$html.= "<th style='text-align: center;'><i class='icon_profile'></i><h4>Acceso</h4></th>";
+	$html.= "</tr>";
+
+	$anterior="";
+	foreach ($ctr as $value) {
+		$html.= "<tr>";
+		if($anterior != $value[0])
+		{
+			$html.= "<td rowspan='".$value[7]."'><h4>".$value[0]."<h4></td>";
+			$anterior=$value[0];
+		}
+		$html.= "<td>".$value[1]."</td>";
+		if($value[3]=="A"){
+			$html.= "<td style='text-align: center;'><input type='checkbox' onclick='cargarOpcionesMenu(this,".$value[6].")' value='option1' checked></td>";
+		}else{
+			$html.= "<td style='text-align: center;'><input type='checkbox' onclick='cargarOpcionesMenu(this,".$value[6].")' value='option1'></td>";
+		}
+		$html.= "</tr>";
+	}
+	echo  $html;
+
+
+	//echo "hola";
+	//echo $ctr_opcionesMenu->obtener_opcionesMenu($cliente,$proyecto);
+}
+
+
 ?>

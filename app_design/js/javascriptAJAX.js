@@ -76,10 +76,26 @@ function cargarOpcionesMenu(cb,tarea){
     CodigoTarea: tarea
   }
 }).done(function( datos ) {
-  //$("#tablaTareas tbody").html(datos);
-  //alert(datos);
 }).fail(function (jqXHR, textStatus, errorThrow){
   alert("Error al realizar accion");
 }); 
+
+}
+
+function cargarOpcionesMenuGrupo(){
+  //alert(document.getElementById('GrupoNombre').value);
+  $.ajax({
+    type: 'POST',
+    url: 'mantenimientoAJAX.php',
+    data: { 
+      key: 'cargarOpcionesMenu', 
+      GrupoNombre: document.getElementById('GrupoNombre').value
+    }
+  }).done(function( datos ) {
+    $("#tablaTareas tbody").empty;
+    $("#tablaTareas tbody").html(datos);
+  }).fail(function (jqXHR, textStatus, errorThrow){
+    alert("Error al ingresar");
+  }); 
 
 }
