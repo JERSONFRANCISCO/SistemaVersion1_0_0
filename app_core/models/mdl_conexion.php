@@ -10,7 +10,7 @@ class mdl_Conexion
 	{
 		$this->servidor = "Dialcomsv02,3341";
 		//$this->servidor = 'LAPTOP-PUKMO5EA\SQLEXPRESS';
-		$this->connectionInfo =array("Database"=>"Dialcom_Tickets","UID"=>"sa","PWD"=>'$abi@',"CharacterSet"=>"UTF-8");
+		$this->connectionInfo =array("Database"=>"Dialcom_Tickets","UID"=>"sa","PWD"=>'P@ssword.123',"CharacterSet"=>"UTF-8");
 		//$this->connectionInfo =array("Database"=>"dialcomtickets","UID"=>"jerson","PWD"=>'Jfhj3030_',"CharacterSet"=>"UTF-8");
 		$this->conectar_base_datos();
 
