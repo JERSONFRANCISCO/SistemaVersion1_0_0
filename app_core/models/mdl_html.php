@@ -96,7 +96,8 @@ class mdl_HTML {
 		echo "</a>";
 	}
 	function actionMenu(){
-		echo "<a href='index.php' class='logo'>DIALCOM<span class='lite'>TICKETS</span></a><style>.tamanoimg{height: 29px; width: 25px;}</style>";
+		echo "<a href='index.php' class='logo'><img src='".__RSC_PHO_HOST_PATH."Dialcom.png' class='' alt='' style='width: 40px;
+    height: 30px;'>DIALCOM<span class='lite'>TICKETS</span></a><style>.tamanoimg{height: 29px; width: 25px;}</style>";
 		$name= "";
 		$mail="";
 		$photo="";

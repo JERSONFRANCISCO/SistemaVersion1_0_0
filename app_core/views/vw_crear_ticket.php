@@ -39,7 +39,7 @@
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url('<?php echo __IMG_PATH; ?>page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+    background: url('<?php echo __IMG_PATH; ?>Dialcom.png') 50% 50% no-repeat rgb(249,249,249);
     opacity: 1;
   }
 
@@ -63,7 +63,7 @@
     </div>
 
     <?php
-    echo $HTML->actionMenu();
+      echo $HTML->actionMenu();
     ?>
     
   </header>
