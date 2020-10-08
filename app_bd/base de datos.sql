@@ -17,7 +17,7 @@ CREATE TABLE dbo.USUARIOS(
 	UNIQUE (USR_Usuario),
 	PRIMARY KEY (USR_Usuario),
     FOREIGN KEY (GRU_Grupo) REFERENCES GRUPO(GRU_Grupo),
-	CONSTRAINT CHK_ESTADO_USUARIOS CHECK (USR_Estado IN('A','I','B','C','X'))
+	CONSTRAINT CHK_ESTADO_USUARIOS CHECK (USR_Estado IN('A','I','B','C','X','O'))
 )
 -----------------------------------------------------------------------------------------------------------
 /*	TABLA QUE ALMACENA LOS departamentos  */
@@ -34,7 +34,7 @@ CREATE TABLE dbo.DEPARTAMENTOS(
 	UNIQUE (DEP_Titulo),
 	PRIMARY KEY (DEP_Departamento),
 	--FOREIGN KEY (GRU_Grupo) REFERENCES GRUPO(GRU_Grupo),
-	CONSTRAINT CHK_ESTADO_DEPARTAMENTOS CHECK (DEP_Estado IN('A','I','B','C','X'))
+	CONSTRAINT CHK_ESTADO_DEPARTAMENTOS CHECK (DEP_Estado IN('A','I','B','C','X','O'))
 )
 -----------------------------------------------------------------------------------------------------------
 CREATE TABLE dbo.GRUPO(
@@ -50,7 +50,7 @@ CREATE TABLE dbo.GRUPO(
 	UNIQUE (GRU_Grupo),
 	PRIMARY KEY (GRU_Grupo),
 	FOREIGN KEY (DEP_Departamento) REFERENCES DEPARTAMENTOS(DEP_Departamento),
-	CONSTRAINT CHK_ESTADO_GRUPO CHECK (GRU_Estado IN('A','I','B','C','X'))
+	CONSTRAINT CHK_ESTADO_GRUPO CHECK (GRU_Estado IN('A','I','B','C','X','O'))
 )
 -----------------------------------------------------------------------------------------------------------
 /*  Tabla para manejar un flujo de trabajo predefinido  */

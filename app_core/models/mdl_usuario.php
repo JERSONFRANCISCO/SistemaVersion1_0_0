@@ -10,11 +10,11 @@ class mdl_usuario{
 		$this->conexion = new mdl_Conexion();	   
 	} 	
 
-
 		/*
 			funcion usada para obtener usuarios activos para procesos en agregar tickets
 		*/
-			public function obtener_Usuarios(){
+			public function obtener_Usuarios()
+			{
 				$posts=array();
 				$cont=0;
 				$sql = "exec pa_Usuarios @Accion = 'C',	@UsuarioNombre='',@UsuarioCorreo= '',	@UsuarioEstado = '',	@UsuarioPassword ='',	@UsuarioInclusion ='',	@UsuarioRol ='' ,@GRU_Titulo='',@Usr_Usuario = 0";
@@ -49,7 +49,7 @@ class mdl_usuario{
 
 				$ticket=0;
 				$sql = "exec pa_Usuarios @Accion = '".$Accion."',	@UsuarioNombre='".$Nombre."',@UsuarioCorreo= '".$Correo."',	@UsuarioEstado = '".$Estado."',	@UsuarioPassword ='".$Password."',	@UsuarioInclusion ='".$userInsercion."',@UsuarioRol ='".$Rol."' ,@GRU_Titulo='".$Grupo."',@Usr_Usuario = 0";
-				echo $sql;
+				//echo $sql;
 				$this->conexion->consulta($sql);
 				return $ticket;
 

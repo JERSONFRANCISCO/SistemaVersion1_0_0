@@ -12,9 +12,7 @@ class ctr_tareas{
 		}
 		public function obtener_Objetos()
 		{
-
 			//$this->mail->enviar_correo();
-
 			$Accion = 'SELECT';
 			$WRK_DETALLE = 0;
 			$Titulo = '';

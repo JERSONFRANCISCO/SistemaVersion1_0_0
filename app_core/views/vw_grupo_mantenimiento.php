@@ -41,8 +41,9 @@ if(isset($_POST['Editar'])){
     $titulo="Actualizado";
   }
 }
+
 if(isset($_POST['Eliminar'])){
-  if(isset($_POST['Nombre']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])AND isset($_POST['Departamento'])) 
+  if(isset($_POST['Grupo']) AND isset($_POST['Descripcion']) AND isset($_POST['Estado'])) 
   {
     require_once(__CTR_PATH . "ctr_grupo.php");
     $ctr_Grupo = new ctr_Grupo();
@@ -140,29 +141,30 @@ if(isset($_POST['botonEditar']) or isset($_POST['botonEliminar'])){
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
-                  <div class="col-lg-10">
-                    <select class="form-control m-bot15" id="Estado" name="Estado" <?php echo $comboBOX;?>>
-                     <?php
-                     require_once(__CTR_PATH . "ctr_estandar.php");
-                     $ctr_estandar = new ctr_estandar(); 
-                     $ctr = $ctr_estandar->obtener_Catalogo('Estados');
-                     print_r($crt);
-                     echo $HTML->SelectedCombo($ctr,$Estado);
-                     ?>
-                   </select>
-                 </div>
-               </div>
+
+              <div class="form-group">
+                <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
+                <div class="col-lg-10">
+                  <select class="form-control m-bot15" id="Estado" name="Estado" <?php echo $readonly;?>>
+                    <?php
+                      require_once(__CTR_PATH . "ctr_estandar.php");
+                      $ctr_estandar = new ctr_estandar(); 
+                      $ctr = $ctr_estandar->obtener_Catalogo('Estados');
+                      echo $HTML->SelectedComboEstado($ctr,$DEP_Estado);
+                      ?>
+                  </select>
+                </div>
+              </div>
+
                <div class="form-group">
                 <label class="control-label col-lg-2" for="inputSuccess">Departamento</label>
                 <div class="col-lg-10">
                   <select class="form-control m-bot15 selectpicker" id="Departamento" name="Departamento" data-live-search="true" title="Selecione Departamento"<?php echo $comboBOX;?>>
                     <?php
-                    require_once(__CTR_PATH . "ctr_departamentos.php");
-                    $ctr_departamentos = new ctr_departamentos();
-                    $ctr = $ctr_departamentos->obtener_Departamentos();
-                    echo $HTML->SelectedCombo($ctr,$gru_departamento);
+                      require_once(__CTR_PATH . "ctr_departamentos.php");
+                      $ctr_departamentos = new ctr_departamentos();
+                      $ctr = $ctr_departamentos->obtener_Departamentos();
+                      echo $HTML->SelectedCombo($ctr,$gru_departamento);
                     ?>
                   </select>
                 </div>

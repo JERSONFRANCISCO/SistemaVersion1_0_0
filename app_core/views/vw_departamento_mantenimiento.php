@@ -146,8 +146,12 @@ if(isset($_POST['botonVer'])){
                 <label class="control-label col-lg-2" for="inputSuccess">Estado</label>
                 <div class="col-lg-10">
                   <select class="form-control m-bot15" id="Estado" name="Estado" <?php echo $readonly;?>>
-                    <option>A - ACTIVO</option>
-                    <option>I - INACTIVO</option>
+                    <?php
+                      require_once(__CTR_PATH . "ctr_estandar.php");
+                      $ctr_estandar = new ctr_estandar(); 
+                      $ctr = $ctr_estandar->obtener_Catalogo('Estados');
+                      echo $HTML->SelectedComboEstado($ctr,$DEP_Estado);
+                      ?>
                   </select>
                 </div>
               </div>

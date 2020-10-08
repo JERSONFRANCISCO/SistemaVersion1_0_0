@@ -161,7 +161,17 @@ class mdl_HTML {
 		}
 		return $salida;
 	}
-
+	function SelectedComboEstado($data,$valor){
+		$salida="";
+		foreach ($data as $value) {
+			if(substr($value[0],0,1)==$valor){
+				$salida.="<option selected>".$value[0]."</option>";  
+			}else{
+				$salida.="<option>".$value[0]."</option>";  
+			}
+		}
+		return $salida;
+	}
 	function armar_correo_ticket_nuevo($tic_ticket){
 		require_once(__MDL_PATH . "mdl_ticket.php");
 		$this->postdata = new mdl_ticket();

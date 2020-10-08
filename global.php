@@ -35,6 +35,11 @@ define('__JS_PATH', "app_design/js/");
 define('__CSS_PATH', $mysite . "/app_design/css/");
 define('__IMG_PATH', $mysite . "/app_design/img/");   
 
+define('__IMG_PATH_GIF', $mysite . "/app_design/img/dialcom.gif");   
+
+
+
+
 define('__BOOSTRAP',"app_design/bootstrap/");
 define('__FONT', "app_design/font-awesome/");
 

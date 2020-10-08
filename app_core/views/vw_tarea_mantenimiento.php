@@ -157,10 +157,10 @@ if(isset($_POST['Eliminar'])){
                   <div class="col-lg-10">
                     <select class="form-control m-bot15 selectpicker" id="Usuario"  name="Usuario" name="Usuario" data-live-search="true" title="Selecione Usuario" <?php echo $comboBOX;?>>
                       <?php
-                      require_once(__CTR_PATH . "ctr_usuario.php");
-                      $ctr_usuario = new ctr_usuario();
-                      $ctr = $ctr_usuario->obtener_Usuarios();
-                      echo $HTML->SelectedCombo($ctr,$Usuario);
+                        require_once(__CTR_PATH . "ctr_usuario.php");
+                        $ctr_usuario = new ctr_usuario();
+                        $ctr = $ctr_usuario->obtener_Usuarios();
+                        echo $HTML->SelectedCombo($ctr,$Usuario);
                       ?>
                     </select>
                   </div>
