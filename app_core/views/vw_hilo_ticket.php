@@ -224,6 +224,11 @@ if(isset($_POST['editordata'])){
                                   Tareas
                                 </a>
                               </li>
+                              <li>
+                                <a data-toggle="tab" href="#Firma">
+                                  Firmar
+                                </a>
+                              </li>
                             </ul>
                           </header>
                           <br>
@@ -311,11 +316,23 @@ if(isset($_POST['editordata'])){
                                   </div>
                                 </div>
 
+                                <!-- profile -->
+                              <div id="Firma" class="tab-pane">
+                                <div class="row">
+                                  <section class="panel">
+                                    <header class="panel-heading">
+                                      Firmar
+                                    </header>
+
+                                  </section>
+                                 </div>
+                              </div>
+
+
 
 
                               </div>
                             </div>
-
 
                           </section>
                         </div>

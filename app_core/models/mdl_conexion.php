@@ -8,9 +8,9 @@ class mdl_Conexion
 
 	function __construct()
 	{
-		$this->servidor = "172.17.35.2,4341";
+		$this->servidor = "192.168.0.4";
 		//$this->servidor = 'LAPTOP-PUKMO5EA\SQLEXPRESS';
-		$this->connectionInfo =array("Database"=>"SabioTickets","UID"=>"sa","PWD"=>'P@ssword.123',"CharacterSet"=>"UTF-8");
+		$this->connectionInfo =array("Database"=>"SabioTickets","UID"=>"sabioerp","PWD"=>'$qlTerra1357',"CharacterSet"=>"UTF-8");
 		//$this->connectionInfo =array("Database"=>"dialcomtickets","UID"=>"jerson","PWD"=>'Jfhj3030_',"CharacterSet"=>"UTF-8");
 		$this->conectar_base_datos();
 
